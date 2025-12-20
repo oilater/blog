@@ -49,13 +49,9 @@ export function ContentSection({
   return (
     <div ref={containerRef} className={styles.wrapper}>
       <hr className={`topHr ${styles.hr}`} />
-      <Top.Root
-        title={
-          <Top.Paragraph>
-            <span className="topTitle">{title}</span>
-          </Top.Paragraph>
-        }
-      />
+      <Top>
+        <span className="topTitle">{title}</span>
+      </Top>
 
       <div className={`mainDescription ${styles.mainDescription}`}>
         <p>{description}</p>

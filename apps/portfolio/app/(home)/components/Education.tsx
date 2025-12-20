@@ -1,5 +1,4 @@
 'use client';
-
 import { useGSAP } from '@gsap/react';
 import { useScrollTrigger } from '@repo/interaction';
 import { useAtom } from 'jotai';
@@ -37,13 +36,9 @@ export function Education() {
   return (
     <div ref={contentContainer} className={styles.wrapper}>
       <hr className={`topHr ${styles.hr}`} />
-      <Top.Root
-        title={
-          <Top.Paragraph>
-            <span className="topTitle">What i studied </span>
-          </Top.Paragraph>
-        }
-      />
+      <Top>
+        <span className="topTitle">What I studied</span>
+      </Top>
       <div className={`mainDescription ${styles.mainDescription}`} />
       <div className={`contentSection ${styles.contentSection}`}>
         <div className={styles.educationItem}>

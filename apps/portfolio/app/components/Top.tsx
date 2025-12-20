@@ -1,28 +1,15 @@
+'use client';
+
 import { type ReactNode } from 'react';
 import {
   paragraphStyle,
   rootStyle,
 } from '../styles/components/Top.css';
 
-type TopRootProps = {
-  title: ReactNode;
-};
-
-export const TopRoot = ({ title }: TopRootProps) => {
-  return <div className={rootStyle}>{title}</div>;
-};
-
-type TopParagraphProps = {
-  children: ReactNode;
-};
-
-function TopParagraph({ children }: TopParagraphProps) {
+export function Top({ children }: { children: ReactNode }) {
   return (
-    <p className={`topParagraph ${paragraphStyle}`}>{children}</p>
+    <div className={rootStyle}>
+      <p className={paragraphStyle}>{children}</p>
+    </div>
   );
 }
-
-export const Top = {
-  Root: TopRoot,
-  Paragraph: TopParagraph,
-};

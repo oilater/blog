@@ -12,6 +12,7 @@ export function ThemeProvider({
     <NextThemeProvider
       attribute="class"
       defaultTheme="light"
+      enableSystem
       value={{
         light: lightTheme,
         dark: darkTheme,

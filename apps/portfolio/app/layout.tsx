@@ -74,7 +74,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  * {
     animation: none !important;
     transition: none !important;
   }
@@ -89,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <style>{criticalCSS}</style>
+        <style data-critical>{criticalCSS}</style>
         <link
           rel="preconnect"
           href="https://cdn.jsdelivr.net"
