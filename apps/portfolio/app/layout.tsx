@@ -49,14 +49,7 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://cdn.jsdelivr.net"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/fonts/PretendardVariable.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
+          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
