@@ -34,4 +34,5 @@ export const BlogConfig = {
       instagram: '',
     },
   },
+  googleAnalyticsId: 'G-MJW15RG9YG',
 };

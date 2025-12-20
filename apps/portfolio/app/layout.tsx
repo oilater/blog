@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { BlogConfig } from '../config';
@@ -110,6 +111,7 @@ export default function RootLayout({
         </QueryProvider>
         <Analytics />
       </body>
+      <GoogleAnalytics gaId={BlogConfig.googleAnalyticsId} />
     </html>
   );
 }
