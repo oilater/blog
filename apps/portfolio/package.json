@@ -3,12 +3,6 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "browserslist": [
-    "chrome >= 120",
-    "edge >= 120",
-    "firefox >= 120",
-    "safari >= 17"
-  ],
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
