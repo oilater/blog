@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
-import { getMotionTimeline } from '../utils/motion-timeline';
-import { motionToGSAP } from '../utils/motion-to-gsap';
-import { getSplitElements } from '../utils/split-text';
+import { getMotionTimeline } from '../utils/getMotionTimeline';
+import { motionToGSAP } from '../utils/motionToGSAP';
+import { getSplitElements } from '../utils/getSplitElements';
 import {
   type AddMotionsProps,
   type ElementType,

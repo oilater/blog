@@ -1,7 +1,7 @@
 'use client';
 
 import { useGSAP } from '@gsap/react';
-import { useScrollTrigger } from '@repo/interaction/scroll';
+import { animateScroll } from '@repo/interaction/scroll';
 import { useAtom } from 'jotai';
 import { useRef } from 'react';
 import { animationPlayStateAtom } from '../../stores/timeline';
@@ -18,7 +18,6 @@ import { outroTimeline } from '../timelines/outroTimeline';
 
 export function Outro() {
   const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);
-  const { animateScroll } = useScrollTrigger();
   const outroContainer = useRef<HTMLDivElement>(null);
   let outroTl: gsap.core.Timeline;
 

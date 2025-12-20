@@ -1,1 +1,1 @@
-export { useScrollTrigger } from '../hooks/useScrollTrigger';
+export { animateScroll } from '../utils/animateScroll';

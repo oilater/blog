@@ -1,7 +1,7 @@
 'use client';
 
 import { useGSAP } from '@gsap/react';
-import { useScrollTrigger } from '@repo/interaction/scroll';
+import { animateScroll } from '@repo/interaction/scroll';
 import { useAtom } from 'jotai';
 import { ReactNode, useRef } from 'react';
 import { contentTimeline } from '../../(home)/timelines/contentTimeline';
@@ -23,7 +23,6 @@ export function ContentSection({
   sectionClassName,
 }: ContentSectionProps) {
   const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);
-  const { animateScroll } = useScrollTrigger();
   const containerRef = useRef<HTMLDivElement>(null);
   let contentTl: gsap.core.Timeline;
 
