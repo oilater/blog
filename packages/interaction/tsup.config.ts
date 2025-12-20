@@ -5,7 +5,7 @@ export default defineConfig({
     index: 'src/index.ts',
     scroll: 'src/scroll/index.ts',
   },
-  format: ['cjs', 'esm'],
+  format: ['esm'],
   dts: true,
   splitting: false,
   sourcemap: true,
