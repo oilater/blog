@@ -1,4 +1,4 @@
-import { CDN_IMAGES } from '../../constants/cdn';
+import { IMAGES } from '../../constants/images';
 import * as styles from '../../styles/components/ArticleStyles.css';
 
 export function PortfolioArticle() {
@@ -37,7 +37,7 @@ export function PortfolioArticle() {
 
         <figure className={styles.figure}>
           <img
-            src={CDN_IMAGES.INTRO_ANIMATION}
+            src={IMAGES.INTRO_ANIMATION}
             alt="Intro 애니메이션"
             className={styles.introImageCombined}
           />
@@ -57,7 +57,7 @@ export function PortfolioArticle() {
 
         <figure className={styles.figure}>
           <img
-            src={CDN_IMAGES.INTRO_TIMELINE}
+            src={IMAGES.INTRO_TIMELINE}
             alt="Timeline 구현 이미지"
             className={styles.timelineImageCombined}
           />
@@ -80,7 +80,7 @@ export function PortfolioArticle() {
 
         <figure className={styles.figure}>
           <img
-            src={CDN_IMAGES.TIMELINE_LOGIC_REFACTOR}
+            src={IMAGES.TIMELINE_LOGIC_REFACTOR}
             alt="Timeline 구현 이미지"
             className={styles.timelineImage}
           />
@@ -109,7 +109,7 @@ export function PortfolioArticle() {
 
         <figure className={styles.figure}>
           <img
-            src={CDN_IMAGES.RALLY_LOGIC}
+            src={IMAGES.RALLY_LOGIC}
             alt="Rally 구현 이미지"
             className={styles.portfolioImage}
           />
@@ -142,7 +142,7 @@ export function PortfolioArticle() {
 
         <figure className={styles.figure}>
           <img
-            src={CDN_IMAGES.MOTION_LOGIC}
+            src={IMAGES.MOTION_LOGIC}
             alt="Timeline 구현 이미지"
             className={styles.portfolioImage}
           />
@@ -176,7 +176,7 @@ export function PortfolioArticle() {
           <div className={styles.imageContainer}>
             <figure className={styles.figure}>
               <img
-                src={CDN_IMAGES.COMPONENT_COMPOSITION}
+                src={IMAGES.COMPONENT_COMPOSITION}
                 alt="컴포넌트 합성 패턴 이미지"
                 className={styles.containerImageCombined}
               />
@@ -184,7 +184,7 @@ export function PortfolioArticle() {
 
             <figure className={styles.figure}>
               <img
-                src={CDN_IMAGES.ARTICLE_MAP}
+                src={IMAGES.ARTICLE_MAP}
                 alt="아티클 맵 이미지"
                 className={styles.articleMapImageCombined}
               />

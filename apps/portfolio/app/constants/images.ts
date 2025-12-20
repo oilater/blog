@@ -1,0 +1,43 @@
+export const IMAGES = {
+  // 메인 썸네일
+  PORTFOLIO: '/images/portfolio.avif',
+  LANGUAGES: '/images/languages.avif',
+  MEDICAL_CHARTS: '/images/medical-charts.avif',
+  PERFORMANCE: '/images/performance.avif',
+  COMMUNICATION: '/images/communication.avif',
+  VELOG: '/images/velog.avif',
+  HOMET_FRIEND: '/images/hometfriend.avif',
+  HOMET_LOGO: '/images/hometfriend-logo.jpg',
+  RALLY_LOGIC: '/images/rally-logic.jpg',
+  FIVA: '/images/fiva_thumbnail.avif',
+  RALLY_REFACTORING: '/images/typescript-refactoring.jpg',
+  INTERACTIVE_GRAPH: '/images/interactive-graph.avif',
+
+  // GIF
+  CREWING: '/gifs/crewing.gif',
+  INTRO_ANIMATION: '/gifs/intro-animation.gif',
+  FIVA_AVATAR_MOVE: '/gifs/avatar-move.gif',
+
+  // 기타 이미지
+  PORTFOLIO_DETAIL: '/images/portfolio-detail.jpg',
+  ARTICLE_MAP: '/images/article-map.jpg',
+  COMPONENT_COMPOSITION: '/images/component-composition.jpg',
+  INTRO_TIMELINE: '/images/intro-timeline.jpg',
+  MOTION_LOGIC: '/images/motion-logic.jpg',
+  TIMELINE_LOGIC_REFACTOR: '/images/timeline-refactor-logic.jpg',
+  RALLY_STRUCTURE: '/images/rally-structure.jpg',
+  FIVA_AVATAR: '/images/fiva_avatar.jpg',
+  FIVA_CHALLENGE_CALENDAR: '/images/fiva-challenge-calendar.jpg',
+  FIVA_CHALLENGE_LIST: '/images/fiva-challenge-list.jpg',
+  FIVA_CHALLENGE_POPUP: '/images/fiva-challenge-popup.jpg',
+  FIVA_COIN_POPUP: '/images/fiva-coin-popup.jpg',
+  FIVA_COLLABORATION: '/images/fiva-collaboration.jpg',
+  FIVA_EXERCISE: '/images/fiva-exercise.jpg',
+  FIVA_NO_CHALLENGE: '/images/fiva-no-challenge.jpg',
+  FIVA_SKI_GAME: '/images/fiva-ski-game.jpg',
+  FIVA_ARM_GAME: '/images/fiva-arm-game.jpg',
+  FIVA_CODE_REVIEW: '/images/code-review.jpg',
+  FIVA_CODE_REVIEW_COMMENT: '/images/code-review-comment.jpg',
+  FIVA_SLACK_MESSAGE: '/images/fiva-slack-message.jpg',
+  REACT_TRIP: '/images/react-trip.jpg',
+} as const;
