@@ -2,7 +2,6 @@ import {
   createGlobalTheme,
   createTheme,
   createThemeContract,
-  globalStyle,
 } from '@vanilla-extract/css';
 import { colorTokens } from './tokens/color.css';
 
@@ -100,42 +99,3 @@ export const theme = {
 };
 
 export const vars = { ...global, themeColor };
-
-globalStyle('*', {
-  margin: 0,
-  padding: 0,
-  boxSizing: 'border-box',
-});
-
-globalStyle('body', {
-  backgroundColor: vars.themeColor.colors.mainBackground,
-  fontFamily: '"Pretendard Variable", -apple-system, sans-serif',
-  WebkitFontSmoothing: 'antialiased',
-  MozOsxFontSmoothing: 'grayscale',
-  transition: 'background-color 0.2s ease-out',
-  willChange: 'background-color',
-});
-
-globalStyle('img', {
-  maxWidth: '100%',
-  height: 'auto',
-  border: 0,
-});
-
-globalStyle('button', {
-  background: 'none',
-  border: 'none',
-  padding: 0,
-  margin: 0,
-  cursor: 'pointer',
-});
-
-globalStyle('a', {
-  textDecoration: 'none',
-  color: vars.themeColor.colors.mainFontColor,
-});
-
-globalStyle('@media (prefers-reduced-motion: reduce)', {
-  animation: 'none !important',
-  transition: 'none !important',
-});
