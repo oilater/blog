@@ -6,7 +6,7 @@ import { WideCard } from './WideCard';
 export function Work() {
   return (
     <ContentSection
-      title="ARTICLE"
+      title="Article"
       description="최근 개발 경험을 공유해요."
       sectionClassName={styles.workSection}
     >

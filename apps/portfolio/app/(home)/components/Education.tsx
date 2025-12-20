@@ -40,12 +40,26 @@ export function Education() {
       <Top.Root
         title={
           <Top.Paragraph>
-            <span className="topTitle">EDU & LANGS </span>
+            <span className="topTitle">What i studied </span>
           </Top.Paragraph>
         }
       />
       <div className={`mainDescription ${styles.mainDescription}`} />
       <div className={`contentSection ${styles.contentSection}`}>
+        <div className={styles.educationItem}>
+          <div className="education-item item-2">
+            <span className={styles.dot} />
+            <span>2025.12.12</span>
+          </div>
+          <div className={styles.educationContent}>
+            <div className={styles.educationHeader}>
+              <span className={styles.educationTitle}>SQLD</span>
+            </div>
+            <div className={styles.educationDescription}>
+              <p>∙ SQL 개발자</p>
+            </div>
+          </div>
+        </div>
         <div className={styles.educationItem}>
           <div className="education-item item-1">
             <span className={styles.dot} />

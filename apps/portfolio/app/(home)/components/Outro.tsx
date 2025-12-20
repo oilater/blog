@@ -53,7 +53,7 @@ export function Outro() {
         <div className={contactContainer}>
           <div className={contactItem}>
             <span className={contactLabel}>전화번호</span>
-            <span className={contactValue}>010.2717.6906</span>
+            <span className={contactValue}>010-2717-6906</span>
           </div>
 
           <div className={contactItem}>
@@ -61,6 +61,17 @@ export function Outro() {
             <span className={contactValue}>oilater@naver.com</span>
           </div>
 
+          <div className={contactItem}>
+            <span className={contactLabel}>Linkedin</span>
+            <a
+              href="https://www.linkedin.com/in/seonghyeonkim"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contactValue}
+            >
+              Seonghyeon Kim
+            </a>
+          </div>
           <div className={contactItem}>
             <span className={contactLabel}>Github</span>
             <a

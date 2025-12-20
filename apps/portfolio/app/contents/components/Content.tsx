@@ -6,7 +6,7 @@ import { ContentSection } from './ContentSection';
 export function Content() {
   return (
     <ContentSection
-      title="CONTENT"
+      title="Contents"
       description="새로운 것을 배우면 재밌는 서비스로 만들어봅니다."
       sectionClassName={styles.contentSection}
     >
