@@ -91,15 +91,6 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <style data-critical>{criticalCSS}</style>
-        <link
-          rel="preconnect"
-          href="https://cdn.jsdelivr.net"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-        />
         <link rel="dns-prefetch" href="https://v2.velog.io" />
       </head>
       <body>
