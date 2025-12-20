@@ -1,10 +1,2 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
-import { Rally } from './core/rally';
-import { Timeline } from './core/timeline';
-import { useScrollTrigger } from './hooks/useScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-export { Timeline, Rally, useScrollTrigger, ScrollTrigger };
+export { Rally } from './core/rally';
+export { Timeline } from './core/timeline';

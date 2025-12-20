@@ -1,7 +1,7 @@
 'use client';
 
 import { useGSAP } from '@gsap/react';
-import { useScrollTrigger } from '@repo/interaction';
+import { useScrollTrigger } from '@repo/interaction/scroll';
 import { useAtom } from 'jotai';
 import { useRef } from 'react';
 import { animationPlayStateAtom } from '../../stores/timeline';
