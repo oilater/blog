@@ -18,6 +18,7 @@ export function NavIcon({ href, label, icon }: NavIconProps) {
   return (
     <Link
       href={href}
+      prefetch={false}
       className={`${linkItem} ${isActive ? 'active' : ''}`}
     >
       {icon ? (
