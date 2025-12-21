@@ -1,4 +1,9 @@
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
+import withBundleAnalyzerPkg from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = withBundleAnalyzerPkg({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const withVanillaExtract = createVanillaExtractPlugin({
   experimental: {
@@ -11,4 +16,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-export default withVanillaExtract(nextConfig);
+export default withBundleAnalyzer(withVanillaExtract(nextConfig));
