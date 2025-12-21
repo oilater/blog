@@ -1,5 +1,7 @@
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+'use client';
+
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,9 +25,23 @@ export type AnimateScrollProps = {
 export function animateScroll({
   target,
   timeline,
-  options = { start: 'top 80%', end: 'bottom 20%', scrub: false, markers: false },
+  options = {
+    start: 'top 80%',
+    end: 'bottom 20%',
+    scrub: false,
+    markers: false,
+  },
 }: AnimateScrollProps) {
-  const { start, end, scrub, markers, onEnter, onLeave, onEnterBack, onLeaveBack } = options;
+  const {
+    start,
+    end,
+    scrub,
+    markers,
+    onEnter,
+    onLeave,
+    onEnterBack,
+    onLeaveBack,
+  } = options;
 
   return ScrollTrigger.create({
     trigger: target,
