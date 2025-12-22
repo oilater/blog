@@ -1,8 +1,18 @@
 import { IMAGES } from '../../constants/images';
-import { LINK_URL } from '../../constants/url';
 import { FivaArticle } from '../articles/FivaArticle';
 import { PortfolioArticle } from '../articles/PortfolioArticle';
 import { ArticleData, ContentData } from '../types';
+
+const GITHUB = 'https://github.com/oilater';
+const VELOG = 'https://velog.io/@oilater';
+const LINK = {
+  GRAPH: `${VELOG}/interactive-graph`,
+  PERFORMANCE: `${VELOG}/portfolio-performance`,
+  CHARTS: 'https://medical-chart.vercel.app/',
+  CREWING: `${VELOG}/series/WorkoutTogether-%EA%B0%9C%EB%B0%9C-%EA%B3%BC%EC%A0%95`,
+  HOMET_FRIEND: `${GITHUB}/HomeTraining-Friend`,
+  REACT_TRIP: `${GITHUB}/React-trip-project`,
+};
 
 export const ARTICLES: ContentData[] = [
   {
@@ -22,7 +32,7 @@ export const CONTENTS: ContentData[] = [
     title: '포트폴리오 성능 분석',
     description: 'LCP와 성능 탭 점수 개선해보기',
     image: IMAGES.PERFORMANCE,
-    link: LINK_URL.PORTFOLIO_PERFORMANCE,
+    link: LINK.PERFORMANCE,
     isInternal: false,
     tags: ['Lighthouse', 'Performance Tab', 'WebPageTest'],
   },
@@ -50,7 +60,7 @@ export const CONTENTS: ContentData[] = [
     title: '[Recharts] 데이터 시각화하기',
     description: '공공 API 활용해 차트 만들어보기',
     image: IMAGES.MEDICAL_CHARTS,
-    link: LINK_URL.MEDICAL_CHARTS,
+    link: LINK.CHARTS,
     isInternal: false,
     tags: ['React', 'Tanstack Query', 'Recharts', 'Emotion'],
   },
@@ -60,7 +70,7 @@ export const CONTENTS: ContentData[] = [
     description:
       'Observer, State 패턴을 사용해 데이터가 변하면 관련된 UI를 업데이트 해보자',
     image: IMAGES.INTERACTIVE_GRAPH,
-    link: LINK_URL.INTERACTIVE_GRAPH,
+    link: LINK.GRAPH,
     isInternal: false,
     tags: ['HTML5', 'CSS3', 'JavaScript'],
   },
@@ -70,7 +80,7 @@ export const CONTENTS: ContentData[] = [
     description:
       'SwiftUI 배워서 앱 기획, 디자인, 개발 및 배포, 홍보까지 해보기',
     image: IMAGES.HOMET_FRIEND,
-    link: LINK_URL.HOMET_FRIEND,
+    link: LINK.HOMET_FRIEND,
     isInternal: false,
     tags: ['SwiftUI', 'SwiftData'],
   },
