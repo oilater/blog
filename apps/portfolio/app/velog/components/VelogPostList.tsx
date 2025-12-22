@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { PostType } from '../types/post';
 import { ListRow } from './ListRow';
 
@@ -18,7 +17,7 @@ export function VelogPostList({ posts, ref }: VelogPostListProps) {
     >
       {posts?.map((post) => (
         <ListRow
-          key={nanoid()}
+          key={crypto.randomUUID()}
           post={post}
           link={`/feed/${post.url_slug}`}
         />

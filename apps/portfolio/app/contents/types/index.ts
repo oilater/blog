@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 
 export type ContentData = {
-  id: string;
   subTitle?: string;
   title: string;
   description: string;

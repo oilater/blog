@@ -2,9 +2,13 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { Theme } from '../constants/theme';
 import Moon from './icons/theme/Moon';
 import Sun from './icons/theme/Sun';
+
+const THEME = {
+  LIGHT: 'light',
+  DARK: 'dark',
+} as const;
 
 export function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
@@ -15,8 +19,8 @@ export function ThemeSwitch() {
   }, []);
 
   const onChangeTheme = () => {
-    const currentTheme = theme || Theme.light;
-    setTheme(currentTheme === Theme.light ? Theme.dark : Theme.light);
+    const currentTheme = theme || THEME.LIGHT;
+    setTheme(currentTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT);
   };
 
   if (!mounted) {
@@ -29,7 +33,7 @@ export function ThemeSwitch() {
 
   return (
     <button onClick={onChangeTheme}>
-      {theme === Theme.light ? <Moon /> : <Sun />}
+      {theme === THEME.LIGHT ? <Moon /> : <Sun />}
     </button>
   );
 }

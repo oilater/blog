@@ -7,7 +7,7 @@ import { InfoCard } from '../../components/InfoCard';
 import { IMAGES } from '../../constants/images';
 import { animationPlayStateAtom } from '../../stores/timeline';
 import * as styles from '../../styles/sections/Introduce.css';
-import { introduceTimeline } from '../timelines/introduceTimeline';
+import { introduceTimeline } from '../timelines/introduce';
 
 export function Introduce() {
   const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);

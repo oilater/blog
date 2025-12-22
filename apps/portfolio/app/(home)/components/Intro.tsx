@@ -3,7 +3,7 @@
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import * as styles from '../../styles/sections/Intro.css';
-import { introTimeline } from '../timelines/IntroTimeline';
+import { introTimeline } from '../timelines/intro';
 
 export function Intro() {
   const introScope = useRef<HTMLDivElement>(null);

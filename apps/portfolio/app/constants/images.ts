@@ -5,7 +5,6 @@ export const IMAGES = {
   MEDICAL_CHARTS: '/images/medical-charts.avif',
   PERFORMANCE: '/images/performance.avif',
   COMMUNICATION: '/images/communication.avif',
-  VELOG: '/images/velog.avif',
   HOMET_FRIEND: '/images/hometfriend.avif',
   HOMET_LOGO: '/images/hometfriend-logo.jpg',
   RALLY_LOGIC: '/images/rally-logic.jpg',
@@ -14,7 +13,6 @@ export const IMAGES = {
   INTERACTIVE_GRAPH: '/images/interactive-graph.avif',
 
   // GIF
-  CREWING: '/gifs/crewing.gif',
   INTRO_ANIMATION: '/gifs/intro-animation.gif',
   FIVA_AVATAR_MOVE: '/gifs/avatar-move.gif',
 
@@ -39,5 +37,4 @@ export const IMAGES = {
   FIVA_CODE_REVIEW: '/images/code-review.jpg',
   FIVA_CODE_REVIEW_COMMENT: '/images/code-review-comment.jpg',
   FIVA_SLACK_MESSAGE: '/images/fiva-slack-message.jpg',
-  REACT_TRIP: '/images/react-trip.jpg',
 } as const;

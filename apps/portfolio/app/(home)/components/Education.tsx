@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { Top } from '../../components/Top';
 import { animationPlayStateAtom } from '../../stores/timeline';
 import * as styles from '../../styles/sections/Education.css';
-import { contentTimeline } from '../timelines/contentTimeline';
+import { contentTimeline } from '../timelines/content';
 
 export function Education() {
   const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);

@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
 import { useAtom } from 'jotai';
 import { ReactNode, useRef } from 'react';
-import { contentTimeline } from '../../(home)/timelines/contentTimeline';
+import { contentTimeline } from '../../(home)/timelines/content';
 import { Top } from '../../components/Top';
 import { animationPlayStateAtom } from '../../stores/timeline';
 import * as styles from '../../styles/sections/Content.css';

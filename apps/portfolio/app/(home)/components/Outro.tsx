@@ -14,7 +14,7 @@ import {
   thankTitle,
   wrapper,
 } from '../../styles/sections/Outro.css';
-import { outroTimeline } from '../timelines/outroTimeline';
+import { outroTimeline } from '../timelines/outro';
 
 export function Outro() {
   const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);

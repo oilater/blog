@@ -2,11 +2,7 @@ import Link from 'next/link';
 import * as styles from '../../styles/components/WideCard.css';
 import { ContentData } from '../types';
 
-type WideCardProps = {
-  value: ContentData;
-};
-
-export function WideCard({ value }: WideCardProps) {
+export function WideCard({ value }: { value: ContentData }) {
   return (
     <Link
       href={value.link}
