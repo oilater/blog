@@ -1,11 +1,15 @@
+import dynamic from 'next/dynamic';
 import {
   Content,
   Education,
   Intro,
   Introduce,
-  Outro,
   Work,
 } from './(home)/components';
+
+const Outro = dynamic(() =>
+  import('./(home)/components/Outro').then((module) => module.Outro),
+);
 
 export default function Home() {
   return (
