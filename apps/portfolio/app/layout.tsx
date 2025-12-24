@@ -5,6 +5,7 @@ import { BlogConfig } from '../config';
 import { LayoutWrapper } from './components/LayoutWrapper';
 import { QueryProvider } from './components/providers/QueryProvider';
 import { ThemeProvider } from './components/providers/ThemeProvider';
+import Snow from './components/Snow';
 import { vars } from './styles/globalTheme.css';
 import { VelogPostLoader } from './velog/components/VelogPostLoader';
 
@@ -101,6 +102,7 @@ export default function RootLayout({
           <VelogPostLoader />
         </QueryProvider>
         <Analytics />
+        <Snow />
       </body>
       <GoogleAnalytics gaId={BlogConfig.googleAnalyticsId} />
     </html>
