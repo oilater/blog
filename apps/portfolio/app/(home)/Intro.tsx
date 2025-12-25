@@ -2,15 +2,15 @@
 
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import * as styles from '../../styles/sections/Intro.css';
-import { introTimeline } from '../timelines/intro';
+import * as styles from '../styles/sections/Intro.css';
+import { playIntroAnimation } from './animations/intro';
 
 export function Intro() {
   const introScope = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      introTimeline().play();
+      playIntroAnimation().play();
     },
     { scope: introScope },
   );

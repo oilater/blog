@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries } from '../common/breakpoints.css';
+import { mediaQueries } from '../breakpoints.css';
 import { vars } from '../globalTheme.css';
 
 export const introWrapper = style({

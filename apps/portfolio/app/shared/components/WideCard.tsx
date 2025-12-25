@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import { ContentData } from '../../contents/types';
 import * as styles from '../../styles/components/WideCard.css';
-import { ContentData } from '../types';
 
 export function WideCard({ value }: { value: ContentData }) {
   return (

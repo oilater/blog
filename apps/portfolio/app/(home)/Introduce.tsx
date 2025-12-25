@@ -2,21 +2,21 @@
 
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import { IMAGES } from '../../constants/images';
-import { InfoCard } from '../../shared/components/InfoCard';
+import { IMAGES } from '../constants/images';
+import { InfoCard } from '../shared/components/InfoCard';
 import {
   infoSection,
   introduceWrapper,
   mainDescription,
-} from '../../styles/sections/Introduce.css';
-import { introduceTimeline } from '../timelines/introduce';
+} from '../styles/sections/Introduce.css';
+import { playIntroduceAnimation } from './animations/introduce';
 
 export function Introduce() {
   const introduceScope = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      introduceTimeline().play();
+      playIntroduceAnimation().play();
     },
     { scope: introduceScope },
   );

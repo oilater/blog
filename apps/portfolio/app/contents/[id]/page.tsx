@@ -2,9 +2,9 @@
 
 import { use } from 'react';
 import { IMAGES } from '../../constants/images';
+import { createArticle } from '../../shared/components/Article';
 import { FivaArticle } from '../articles/FivaArticle';
 import { PortfolioArticle } from '../articles/PortfolioArticle';
-import { createArticle } from '../components/Article';
 import { ArticleData } from '../types';
 
 const contents: Record<string, ArticleData> = {

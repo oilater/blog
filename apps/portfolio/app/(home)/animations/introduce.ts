@@ -1,6 +1,6 @@
 import { Rally, Timeline } from '@repo/interaction';
 
-export function introduceTimeline() {
+export function playIntroduceAnimation() {
   const infoSectionTimeline = Timeline({
     playback: 'stagger',
     staggerDelay: 0.2,

@@ -2,9 +2,7 @@
 
 import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
-import { useAtom } from 'jotai';
 import { useRef } from 'react';
-import { animationPlayStateAtom } from '../../stores/timeline';
 import {
   contactContainer,
   contactItem,
@@ -13,20 +11,15 @@ import {
   outroSection,
   thankTitle,
   wrapper,
-} from '../../styles/sections/Outro.css';
-import { outroTimeline } from '../timelines/outro';
+} from '../styles/sections/Outro.css';
+import { playOutroAnimation } from './animations/outro';
 
 export function Outro() {
-  const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);
   const outroContainer = useRef<HTMLDivElement>(null);
-  let outroTl: gsap.core.Timeline;
 
   useGSAP(
     () => {
-      if (isPlayed('content')) return;
-      outroTl = outroTimeline().eventCallback('onComplete', () =>
-        setIsPlayed('content'),
-      );
+      const outroTl = playOutroAnimation();
 
       animateScroll({
         target: '.outroTitle',

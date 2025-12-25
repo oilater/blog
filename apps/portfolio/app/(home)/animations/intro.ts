@@ -1,7 +1,7 @@
 import { Rally, Timeline } from '@repo/interaction';
 import { vars } from '../../styles/globalTheme.css';
 
-export function introTimeline() {
+export function playIntroAnimation() {
   const introTl = Timeline({
     playback: 'serial',
     playables: [

@@ -2,14 +2,12 @@
 
 import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
-import { useAtom } from 'jotai';
 import { ReactNode, useRef } from 'react';
-import { contentTimeline } from '../../(home)/timelines/content';
-import { Top } from '../../shared/components/Top';
-import { animationPlayStateAtom } from '../../stores/timeline';
+import { playSectionAnimation } from '../../(home)/animations/section';
 import * as styles from '../../styles/sections/Content.css';
+import { Top } from './Top';
 
-type ContentSectionProps = {
+type SectionProps = {
   title: string;
   description: string;
   children: ReactNode;
@@ -21,17 +19,13 @@ export function Section({
   description,
   children,
   sectionClassName,
-}: ContentSectionProps) {
-  const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);
+}: SectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   let contentTl: gsap.core.Timeline;
 
   useGSAP(
     () => {
-      if (isPlayed('content')) return;
-      contentTl = contentTimeline().eventCallback('onComplete', () =>
-        setIsPlayed('content'),
-      );
+      contentTl = playSectionAnimation();
 
       animateScroll({
         target: '.topHr',

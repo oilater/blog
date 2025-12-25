@@ -1,7 +1,7 @@
-import { Section } from '../../contents/components/ContentSection';
-import { WideCard } from '../../contents/components/WideCard';
-import { ContentData } from '../../contents/types';
-import * as styles from '../../styles/sections/Content.css';
+import { ContentData } from '../contents/types';
+import { Section } from '../shared/components/Section';
+import { WideCard } from '../shared/components/WideCard';
+import { workSection } from '../styles/sections/Content.css';
 
 export const article: ContentData = {
   title: '커스텀 Velog를 만들어보자 📝',
@@ -17,7 +17,7 @@ export function Work() {
     <Section
       title="Article"
       description="최근 개발 경험을 공유해요."
-      sectionClassName={styles.workSection}
+      sectionClassName={workSection}
     >
       <WideCard key={article.title} value={article} />
     </Section>

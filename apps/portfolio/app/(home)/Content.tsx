@@ -1,8 +1,8 @@
-import { IMAGES } from '../../constants/images';
-import { ContentCard } from '../../contents/components/ContentCard';
-import { Section } from '../../contents/components/ContentSection';
-import { ContentData } from '../../contents/types';
-import * as styles from '../../styles/sections/Content.css';
+import { IMAGES } from '../constants/images';
+import { ContentData } from '../contents/types';
+import { ContentCard } from '../shared/components/ContentCard';
+import { Section } from '../shared/components/Section';
+import * as styles from '../styles/sections/Content.css';
 
 export const CONTENTS: ContentData[] = [
   {

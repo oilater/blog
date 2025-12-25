@@ -1,24 +1,18 @@
 'use client';
 import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
-import { useAtom } from 'jotai';
 import { useRef } from 'react';
-import { Top } from '../../shared/components/Top';
-import { animationPlayStateAtom } from '../../stores/timeline';
-import * as styles from '../../styles/sections/Education.css';
-import { contentTimeline } from '../timelines/content';
+import { Top } from '../shared/components/Top';
+import * as styles from '../styles/sections/Education.css';
+import { playSectionAnimation } from './animations/section';
 
 export function Education() {
-  const [isPlayed, setIsPlayed] = useAtom(animationPlayStateAtom);
   const contentContainer = useRef<HTMLDivElement>(null);
   let contentTl: gsap.core.Timeline;
 
   useGSAP(
     () => {
-      if (isPlayed('content')) return;
-      contentTl = contentTimeline().eventCallback('onComplete', () =>
-        setIsPlayed('content'),
-      );
+      contentTl = playSectionAnimation();
 
       animateScroll({
         target: '.topHr',
