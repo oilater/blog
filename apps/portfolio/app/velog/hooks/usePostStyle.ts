@@ -59,7 +59,7 @@ ${highlighted}
     renderer.heading = ({ tokens, depth }: Tokens.Heading) => {
       const text = renderer.parser.parseInline(tokens);
       const headingClass =
-        HEADING_CLASS[depth as 1 | 2 | 3 | 4 | 5 | 6];
+        HEADING_CLASS[depth as keyof typeof HEADING_CLASS];
 
       return `
     <h${depth} class="${headingClass}">
