@@ -10,14 +10,14 @@ const LANGUAGE_MAPPING: Record<string, string> = {
   jsx: 'js',
 };
 
-const HEADING_CLASS = {
+const HEADING_CLASS: Record<number, string> = {
   1: styles.postHeading1,
   2: styles.postHeading2,
   3: styles.postHeading3,
   4: styles.postHeading4,
   5: styles.postHeading5,
   6: styles.postHeading6,
-} as const;
+};
 
 export function useVelogStyle() {
   const addStyleAsync = useCallback(async (markdown: string) => {
@@ -58,8 +58,7 @@ ${highlighted}
 
     renderer.heading = ({ tokens, depth }: Tokens.Heading) => {
       const text = renderer.parser.parseInline(tokens);
-      const headingClass =
-        HEADING_CLASS[depth as keyof typeof HEADING_CLASS];
+      const headingClass = HEADING_CLASS[depth];
 
       return `
     <h${depth} class="${headingClass}">
