@@ -1,4 +1,4 @@
-import { marked } from 'marked';
+import { marked, Tokens } from 'marked';
 import Prism from 'prismjs';
 import { useCallback } from 'react';
 import * as styles from '../styles/Markdown.css';
@@ -10,11 +10,20 @@ const LANGUAGE_MAPPING: Record<string, string> = {
   jsx: 'js',
 };
 
-export function useVelogStyle() {
-  const addStyleAsync = useCallback(async (html: string) => {
-    if (typeof window === 'undefined' || !html) return html;
+const HEADING_CLASS = {
+  1: styles.postHeading1,
+  2: styles.postHeading2,
+  3: styles.postHeading3,
+  4: styles.postHeading4,
+  5: styles.postHeading5,
+  6: styles.postHeading6,
+} as const;
 
-    const decodedHtml = html
+export function useVelogStyle() {
+  const addStyleAsync = useCallback(async (markdown: string) => {
+    if (typeof window === 'undefined' || !markdown) return markdown;
+
+    const decodedMarkdown = markdown
       .replace(/&lt;/g, '<')
       .replace(/&gt;/g, '>')
       .replace(/&quot;/g, '"')
@@ -25,89 +34,69 @@ export function useVelogStyle() {
 
     const renderer = new marked.Renderer();
 
-    renderer.code = ({ text, lang }) => {
+    renderer.code = ({ text, lang }: Tokens.Code) => {
       const language =
-        lang && LANGUAGE_MAPPING[lang]
-          ? LANGUAGE_MAPPING[lang]
-          : (lang ?? 'ts');
+        (lang && LANGUAGE_MAPPING[lang]) || lang || 'ts';
 
-      let highlightedCode: unknown;
-      if (Prism.languages[language]) {
-        highlightedCode = Prism.highlight(
-          text,
-          Prism.languages[language],
-          language,
-        );
-      } else {
-        highlightedCode = text;
-      }
+      const highlighted = Prism.languages[language]
+        ? Prism.highlight(text, Prism.languages[language], language)
+        : text;
 
-      return `<pre class="${styles.postPreBlock}">
-<code class="${styles.postCodeInPre} language-${language}">${highlightedCode}</code>
-</pre>`;
+      return `
+        <pre class="${styles.postPreBlock}">
+          <code class="${styles.postCodeInPre} language-${language}">
+${highlighted}
+          </code>
+        </pre>
+      `;
     };
 
-    const htmlContent = await marked(decodedHtml, {
-      pedantic: false,
+    renderer.paragraph = ({ tokens }: Tokens.Paragraph) =>
+      `<p class="${styles.postParagraph}">
+        ${renderer.parser.parseInline(tokens)}
+      </p>`;
+
+    renderer.heading = ({ tokens, depth }: Tokens.Heading) => {
+      const text = renderer.parser.parseInline(tokens);
+      const headingClass =
+        HEADING_CLASS[depth as 1 | 2 | 3 | 4 | 5 | 6];
+
+      return `
+    <h${depth} class="${headingClass}">
+      ${text}
+    </h${depth}>
+  `;
+    };
+
+    renderer.strong = ({ tokens }: Tokens.Strong) =>
+      `<strong class="${styles.postStrong}">
+        ${renderer.parser.parseInline(tokens)}
+      </strong>`;
+
+    renderer.em = ({ tokens }: Tokens.Em) =>
+      `<em class="${styles.postEm}">
+        ${renderer.parser.parseInline(tokens)}
+      </em>`;
+
+    renderer.codespan = ({ text }: Tokens.Codespan) =>
+      `<code class="${styles.postCode}">${text}</code>`;
+
+    renderer.link = ({ href, title, tokens }: Tokens.Link) =>
+      `<a
+        class="${styles.postLink}"
+        href="${href}"
+        ${title ? `title="${title}"` : ''}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ${renderer.parser.parseInline(tokens)}
+      </a>`;
+
+    return marked(decodedMarkdown, {
       gfm: true,
       breaks: true,
-      silent: false,
-      renderer: renderer,
+      renderer,
     });
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, 'text/html');
-
-    doc.querySelectorAll('p').forEach((p) => {
-      p.classList.add(styles.postParagraph);
-    });
-    doc.querySelectorAll('span').forEach((span) => {
-      span.classList.add(styles.postSpan);
-    });
-    doc.querySelectorAll('strong').forEach((strong) => {
-      strong.classList.add(styles.postStrong);
-    });
-    doc.querySelectorAll('em').forEach((em) => {
-      em.classList.add(styles.postEm);
-    });
-    doc.querySelectorAll('a').forEach((link) => {
-      link.classList.add(styles.postLink);
-    });
-    doc.querySelectorAll('h1').forEach((h) => {
-      h.classList.add(styles.postHeading1);
-    });
-    doc.querySelectorAll('h2').forEach((h) => {
-      h.classList.add(styles.postHeading2);
-    });
-    doc.querySelectorAll('h3').forEach((h) => {
-      h.classList.add(styles.postHeading3);
-    });
-    doc.querySelectorAll('h4').forEach((h) => {
-      h.classList.add(styles.postHeading4);
-    });
-    doc.querySelectorAll('h5').forEach((h) => {
-      h.classList.add(styles.postHeading5);
-    });
-    doc.querySelectorAll('h6').forEach((h) => {
-      h.classList.add(styles.postHeading6);
-    });
-    doc.querySelectorAll('ul, ol').forEach((list) => {
-      list.classList.add(styles.postList);
-    });
-    doc.querySelectorAll('li').forEach((item) => {
-      item.classList.add(styles.postListItem);
-    });
-    doc.querySelectorAll('hr').forEach((hr) => {
-      hr.classList.add(styles.postHr);
-    });
-    doc.querySelectorAll('code').forEach((code) => {
-      code.classList.add(styles.postCode);
-    });
-    doc.querySelectorAll('blockquote').forEach((quote) => {
-      quote.classList.add(styles.postBlockquote);
-    });
-
-    return doc.body.innerHTML;
   }, []);
 
   return { addStyleAsync };
