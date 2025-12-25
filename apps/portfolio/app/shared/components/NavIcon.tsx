@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { linkItem } from '../styles/components/FloatingNav.css';
+import { linkItem } from '../../styles/components/FloatingNav.css';
 
 type NavIconProps = {
   href: string;

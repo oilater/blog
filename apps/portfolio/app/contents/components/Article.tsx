@@ -2,8 +2,8 @@
 
 import type { ReactNode } from 'react';
 import { lazy, Suspense, useEffect } from 'react';
-import { Button } from '../../components/Button';
-import { ArrowDownIcon } from '../../components/icons/ArrowDown';
+import { Button } from '../../shared/components/Button';
+import { ArrowDownIcon } from '../../shared/icons/ArrowDown';
 import * as styles from '../../styles/components/Article.css';
 import type { ArticleData } from '../types';
 
@@ -23,7 +23,7 @@ function ArticleRoot({ header, content }: ArticleRootProps) {
     window.scrollTo(0, 0);
   }, []);
   const ScrollProgressBar = lazy(
-    () => import('../../components/ScrollProgressBar'),
+    () => import('../../shared/components/ScrollProgressBar'),
   );
 
   return (

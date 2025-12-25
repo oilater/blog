@@ -1,15 +1,17 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { PostType } from '../types/post';
 
-type UseFetchPostsProps = {
-  username: string;
+type UsePostQueryProps = {
+  username?: string;
   cursor?: string;
 };
 
-export function useFetchPosts({
-  username,
+const USER_NAME = 'oilater';
+
+export function usePostQuery({
+  username = USER_NAME,
   cursor,
-}: UseFetchPostsProps): UseQueryResult<PostType[], Error> {
+}: UsePostQueryProps): UseQueryResult<PostType[], Error> {
   const params = new URLSearchParams({ username });
   if (cursor) params.append('cursor', cursor);
 

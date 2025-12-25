@@ -5,7 +5,7 @@ import { animateScroll } from '@repo/interaction/scroll';
 import { useAtom } from 'jotai';
 import { ReactNode, useRef } from 'react';
 import { contentTimeline } from '../../(home)/timelines/content';
-import { Top } from '../../components/Top';
+import { Top } from '../../shared/components/Top';
 import { animationPlayStateAtom } from '../../stores/timeline';
 import * as styles from '../../styles/sections/Content.css';
 
@@ -16,7 +16,7 @@ type ContentSectionProps = {
   sectionClassName?: string;
 };
 
-export function ContentSection({
+export function Section({
   title,
   description,
   children,

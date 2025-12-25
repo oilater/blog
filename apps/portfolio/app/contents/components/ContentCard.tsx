@@ -1,5 +1,5 @@
-import { Card } from '../../components/Card';
-import { Tag } from '../../components/Tag';
+import { Card } from '../../shared/components/Card';
+import { Tag } from '../../shared/components/Tag';
 import type { ContentData } from '../types';
 
 type ContentCardProps = {

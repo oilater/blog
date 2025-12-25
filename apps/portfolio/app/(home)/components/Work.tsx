@@ -1,4 +1,4 @@
-import { ContentSection } from '../../contents/components/ContentSection';
+import { Section } from '../../contents/components/ContentSection';
 import { WideCard } from '../../contents/components/WideCard';
 import { ContentData } from '../../contents/types';
 import * as styles from '../../styles/sections/Content.css';
@@ -14,12 +14,12 @@ export const article: ContentData = {
 
 export function Work() {
   return (
-    <ContentSection
+    <Section
       title="Article"
       description="최근 개발 경험을 공유해요."
       sectionClassName={styles.workSection}
     >
       <WideCard key={article.title} value={article} />
-    </ContentSection>
+    </Section>
   );
 }

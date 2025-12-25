@@ -1,6 +1,6 @@
 import { IMAGES } from '../../constants/images';
 import { ContentCard } from '../../contents/components/ContentCard';
-import { ContentSection } from '../../contents/components/ContentSection';
+import { Section } from '../../contents/components/ContentSection';
 import { ContentData } from '../../contents/types';
 import * as styles from '../../styles/sections/Content.css';
 
@@ -60,7 +60,7 @@ export const CONTENTS: ContentData[] = [
 
 export function Content() {
   return (
-    <ContentSection
+    <Section
       title="Contents"
       description="새로운 것을 배우면 재밌는 서비스로 만들어봅니다."
       sectionClassName={styles.contentSection}
@@ -68,6 +68,6 @@ export function Content() {
       {CONTENTS.map((content) => (
         <ContentCard key={content.title} content={content} />
       ))}
-    </ContentSection>
+    </Section>
   );
 }

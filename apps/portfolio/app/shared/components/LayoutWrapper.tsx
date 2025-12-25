@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { BlogConfig } from '../../config';
+import { BlogConfig } from '../../../config';
 import { FloatingNav } from './FloatingNav';
 import { Footer } from './Footer';
 import { NavIcon } from './NavIcon';

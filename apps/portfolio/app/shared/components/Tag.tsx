@@ -1,8 +1,8 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { tag } from '../styles/components/Tag.css';
-import { vars } from '../styles/globalTheme.css';
+import { tag } from '../../styles/components/Tag.css';
+import { vars } from '../../styles/globalTheme.css';
 
 type TagProps = {
   text: string;

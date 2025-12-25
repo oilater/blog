@@ -1,4 +1,4 @@
-import * as styles from '../styles/components/InfoCard.css';
+import * as styles from '../../styles/components/InfoCard.css';
 
 type InfoCardProps = {
   title: string;

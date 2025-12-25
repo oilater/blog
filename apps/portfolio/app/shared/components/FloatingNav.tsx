@@ -1,7 +1,7 @@
 import {
   header,
   innerNav,
-} from '../styles/components/FloatingNav.css';
+} from '../../styles/components/FloatingNav.css';
 import { ThemeSwitch } from './ThemeSwitch';
 
 export function FloatingNav({

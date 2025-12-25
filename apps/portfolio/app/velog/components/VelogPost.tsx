@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useVelogStyle } from '../hooks/use-style';
+import { useVelogStyle } from '../hooks/usePostStyle';
 import type { PostType } from '../types/post';
 import { getRelativeDays } from '../utils/day';
 import { Post } from './Post';

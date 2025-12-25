@@ -2,8 +2,8 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import Moon from './icons/theme/Moon';
-import Sun from './icons/theme/Sun';
+import Moon from '../icons/Moon';
+import Sun from '../icons/Sun';
 
 const THEME = {
   LIGHT: 'light',

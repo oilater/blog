@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
 import { useAtom } from 'jotai';
 import { useRef } from 'react';
-import { Top } from '../../components/Top';
+import { Top } from '../../shared/components/Top';
 import { animationPlayStateAtom } from '../../stores/timeline';
 import * as styles from '../../styles/sections/Education.css';
 import { contentTimeline } from '../timelines/content';

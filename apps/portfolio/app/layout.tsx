@@ -2,10 +2,10 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { BlogConfig } from '../config';
-import { LayoutWrapper } from './components/LayoutWrapper';
-import { QueryProvider } from './components/providers/QueryProvider';
-import { ThemeProvider } from './components/providers/ThemeProvider';
-import Snow from './components/Snow';
+import { LayoutWrapper } from './shared/components/LayoutWrapper';
+import Snow from './shared/components/Snow';
+import { QueryProvider } from './shared/providers/QueryProvider';
+import { ThemeProvider } from './shared/providers/ThemeProvider';
 import { vars } from './styles/globalTheme.css';
 import { VelogPostLoader } from './velog/components/VelogPostLoader';
 
@@ -96,11 +96,11 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <LayoutWrapper>{children}</LayoutWrapper>
+          <QueryProvider>
+            <LayoutWrapper>{children}</LayoutWrapper>
+            <VelogPostLoader />
+          </QueryProvider>
         </ThemeProvider>
-        <QueryProvider>
-          <VelogPostLoader />
-        </QueryProvider>
         <Analytics />
         <Snow />
       </body>

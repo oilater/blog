@@ -7,7 +7,7 @@ export const wrapper = style({
   width: '100%',
 });
 
-export const feedContainer = style({
+export const title = style({
   marginBottom: '20px',
   fontSize: '32px',
 });
