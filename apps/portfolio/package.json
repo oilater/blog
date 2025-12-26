@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
-    "@next/third-parties": "^16.1.0",
     "@repo/interaction": "workspace:*",
     "@tanstack/react-query": "^5.85.5",
     "@tanstack/react-query-devtools": "^5.85.3",

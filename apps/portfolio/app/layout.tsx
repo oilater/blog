@@ -1,6 +1,6 @@
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { BlogConfig } from '../config';
 import { LayoutWrapper } from './shared/components/LayoutWrapper';
 import Snow from './shared/components/Snow';
@@ -83,6 +83,8 @@ a {
 }
 `;
 
+const GA_MEASUREMENT_ID = BlogConfig.googleAnalyticsId;
+
 export default function RootLayout({
   children,
 }: {
@@ -103,8 +105,29 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         <Snow />
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
       </body>
-      <GoogleAnalytics gaId={BlogConfig.googleAnalyticsId} />
     </html>
   );
 }
