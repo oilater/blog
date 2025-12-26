@@ -5,43 +5,48 @@ export function ListSkeleton() {
     <>
       <div className={styles.wrapper}>
         <div className={styles.blogList}>
-          <div className={styles.cardHeader}>
+          <div>
             <div className={styles.cardTitle} />
-            <div className={styles.cardDescription} />
+            <div className={styles.descContainer}>
+              <div
+                className={`${styles.descLine} ${styles.descLineFull}`}
+              />
+              <div
+                className={`${styles.descLine} ${styles.descLineMedium}`}
+              />
+              <div
+                className={`${styles.descLine} ${styles.descLineShort}`}
+              />
+            </div>
           </div>
-          <div className={styles.tags}>
+          <div className={styles.tagContainer}>
             <div className={styles.tag} />
             <div className={styles.tag} />
             <div className={styles.tag} />
-          </div>
-          <div className={styles.cardFooter}>
-            <div className={styles.cardDate} />
           </div>
         </div>
+        <div className={styles.cardDate} />
       </div>
       <div className={styles.wrapper}>
         <div className={styles.blogList}>
-          <div className={styles.cardHeader}>
+          <div>
             <div className={styles.cardTitle} />
-            <div className={styles.cardDescription} />
+            <div className={styles.descContainer}>
+              <div
+                className={`${styles.descLine} ${styles.descLineFull}`}
+              />
+              <div
+                className={`${styles.descLine} ${styles.descLineMedium}`}
+              />
+            </div>
           </div>
-          <div className={styles.tags}>
+          <div className={styles.tagContainer}>
             <div className={styles.tag} />
             <div className={styles.tag} />
             <div className={styles.tag} />
-          </div>
-          <div className={styles.cardFooter}>
-            <div className={styles.cardDate} />
           </div>
         </div>
-      </div>
-      <div className={styles.wrapper}>
-        <div className={styles.blogList}>
-          <div className={styles.cardHeader}>
-            <div className={styles.cardTitle} />
-            <div className={styles.cardDescription} />
-          </div>
-        </div>
+        <div className={styles.cardDate} />
       </div>
     </>
   );

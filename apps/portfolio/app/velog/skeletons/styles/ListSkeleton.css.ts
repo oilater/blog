@@ -11,82 +11,73 @@ const pulse = keyframes({
 });
 
 export const wrapper = style({
+  marginTop: '50px',
+  marginBottom: '90px',
   maxWidth: '768px',
-  margin: '0 auto',
   width: '100%',
-  selectors: {
-    '&:not(:first-child)': {
-      marginTop: '50px',
-    },
-  },
-});
-
-export const sectionTitle = style({
-  height: '48px',
-  width: '100%',
-  borderRadius: '8px',
-  marginBottom: '32px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 });
 
 export const blogList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '24px',
+  gap: '40px',
 });
 
 export const card = style({
   cursor: 'default',
-  paddingTop: '10px',
-  paddingBottom: '40px',
+  display: 'flex',
+  flexDirection: 'column',
   borderBottom: `0.2px solid ${vars.themeColor.colors.skeletonColor}`,
 });
 
-export const cardHeader = style({
-  marginBottom: '16px',
-});
-
 export const cardTitle = style({
-  marginTop: '10px',
-  width: '60%',
-  height: '36px',
+  marginTop: '4px',
+  width: '48%',
+  height: '28px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '8px',
   animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
-  marginBottom: '8px',
+  marginBottom: '36px',
 });
 
-export const cardDescription = style({
-  width: '80%',
-  height: '75px',
+export const descContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '8px',
+  justifyContent: 'space-between',
+});
+
+export const descLine = style({
+  height: '16px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '6px',
-  margin: '24px 0 0',
   animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
 });
 
-export const tags = style({
+export const descLineFull = style({ width: '93%' });
+export const descLineMedium = style({ width: '95%' });
+export const descLineShort = style({ width: '90%' });
+
+export const tagContainer = style({
   display: 'flex',
   gap: '8px',
-  marginBottom: '6px',
 });
 
 export const tag = style({
-  height: '32px',
-  width: '75px',
+  height: '28px',
+  width: '62px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '16px',
   animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
 });
 
-export const cardFooter = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-});
-
 export const cardDate = style({
   height: '18px',
   width: '40px',
+  marginTop: '32px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '6px',
   animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,

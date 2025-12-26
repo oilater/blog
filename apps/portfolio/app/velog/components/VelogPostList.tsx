@@ -1,3 +1,4 @@
+import { wrapper } from '../styles/PostList.css';
 import { PostType } from '../types/post';
 import { ListRow } from './ListRow';
 
@@ -8,13 +9,7 @@ type VelogPostListProps = {
 
 export function VelogPostList({ posts, ref }: VelogPostListProps) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px',
-      }}
-    >
+    <div className={wrapper}>
       {posts?.map((post) => (
         <ListRow
           key={crypto.randomUUID()}
