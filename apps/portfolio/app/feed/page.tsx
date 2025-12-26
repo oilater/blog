@@ -6,7 +6,6 @@ import { postsStoreAtom } from '../stores/post';
 import { VelogPostList } from '../velog/components/VelogPostList';
 import { usePostQuery } from '../velog/hooks/usePostQuery';
 import { ListSkeleton } from '../velog/skeletons/ListSkeleton';
-import { title, wrapper } from './style.css';
 
 export default function Feed() {
   const [posts, setPosts] = useAtom(postsStoreAtom);
@@ -21,14 +20,9 @@ export default function Feed() {
     },
   });
 
-  if (isLoading && posts.length === 0) {
+  if (isLoading && !posts.length) {
     return <ListSkeleton />;
   }
 
-  return (
-    <div className={wrapper}>
-      <h1 className={title}>Feed</h1>
-      <VelogPostList posts={posts} ref={observeRef} />
-    </div>
-  );
+  return <VelogPostList posts={posts} ref={observeRef} />;
 }
