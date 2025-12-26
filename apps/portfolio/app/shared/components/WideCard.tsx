@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ContentData } from '../../contents/types';
 import * as styles from '../../styles/components/WideCard.css';
@@ -11,10 +12,12 @@ export function WideCard({ value }: { value: ContentData }) {
       rel="noopener noreferrer"
     >
       <div className={styles.cardImageWrapper}>
-        <img
+        <Image
           src={value.image}
           alt={value.title}
           className={styles.cardImage}
+          fill
+          sizes="(max-width: 768px) 100vw, 400px"
           loading="lazy"
         />
       </div>

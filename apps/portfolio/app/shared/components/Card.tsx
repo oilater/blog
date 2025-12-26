@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import * as styles from '../../styles/components/Card.css';
@@ -39,10 +40,12 @@ export function Card({ link, isInternal, children }: CardProps) {
 function CardImage({ image }: CardImageProps) {
   return (
     <div className={styles.cardImageWrapper}>
-      <img
+      <Image
         src={image}
         alt="content"
         className={styles.cardImage}
+        fill
+        sizes="(max-width: 768px) 100vw, 305px"
         loading="lazy"
       />
     </div>
