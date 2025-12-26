@@ -19,8 +19,8 @@ export const cardImageWrapper = style({
 });
 
 export const cardImage = style({
-  width: '100%',
-  height: '100%',
+  position: 'absolute',
+  inset: 0,
   objectFit: 'cover',
   transition: 'transform 0.2s ease-out',
   ':hover': {

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import * as styles from '../../styles/components/InfoCard.css';
 
 type InfoCardProps = {
@@ -18,11 +19,13 @@ export function InfoCard({
   return (
     <button className={styles.card} onClick={onClick}>
       <div className={styles.cardImageWrapper}>
-        <img
+        <Image
           src={image}
           alt={title}
           className={styles.cardImage}
           fetchPriority={isHighPriority ? 'high' : 'auto'}
+          fill
+          sizes="(max-width: 768px) 100vw, 304px"
         />
       </div>
       <div className={styles.cardContent}>
