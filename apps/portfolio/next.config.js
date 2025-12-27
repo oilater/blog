@@ -1,5 +1,5 @@
-import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
 import withBundleAnalyzerPkg from '@next/bundle-analyzer';
+import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
 
 const withBundleAnalyzer = withBundleAnalyzerPkg({
   enabled: process.env.ANALYZE === 'true',
