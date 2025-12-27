@@ -5,34 +5,29 @@ export function Post({ children }: { children: React.ReactNode }) {
   return <div className={styles.wrapper}>{children}</div>;
 }
 
-function Title({ title }: { title: string }) {
-  return <p className={styles.postTitle}>{title}</p>;
+function Title({ children }: { children: React.ReactNode }) {
+  return <h1 className={styles.postTitle}>{children}</h1>;
 }
 
-function Description({
-  author,
-  postedAt,
+function Description({ children }: { children: React.ReactNode }) {
+  return <div className={styles.description}>{children}</div>;
+}
+
+function Tags({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
+}
+
+function Content({
+  children,
+  className = '',
 }: {
-  author: string;
-  postedAt: string;
+  children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <p className={styles.description}>
-      <span className={styles.author}>{author}</span> ∙{' '}
-      <span className={styles.postedAt}>{postedAt}</span>
-    </p>
-  );
-}
-
-function Tags({ tags }: { tags: string[] }) {
-  return <Tag tags={tags} />;
-}
-
-function Content({ body }: { body: string }) {
-  return (
     <div
-      className={styles.postContent}
-      dangerouslySetInnerHTML={{ __html: body }}
+      className={`${styles.postContent} ${className}`}
+      dangerouslySetInnerHTML={{ __html: children as string }}
     />
   );
 }

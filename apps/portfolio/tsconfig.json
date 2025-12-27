@@ -11,7 +11,8 @@
       "#providers/*": ["src/providers/*"],
       "#libs/*": ["src/libs/*"],
       "#animations/*": ["src/animations/*"],
-      "#velog/*": ["src/velog/*"]
+      "#velog/*": ["src/velog/*"],
+      "#utils/*": ["src/utils/*"]
     }
   },
   "include": [

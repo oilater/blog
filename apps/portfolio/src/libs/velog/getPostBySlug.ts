@@ -1,9 +1,14 @@
 import { type PostType } from '#velog/types';
-import { username } from './config';
 
-export async function getPostBySlug(
-  slug: string,
-): Promise<PostType | null> {
+type GetPostBySlugArgs = {
+  username?: string;
+  slug: string;
+};
+
+export async function getPostBySlug({
+  username = 'oilater',
+  slug,
+}: GetPostBySlugArgs): Promise<PostType | null> {
   const decodedSlug = decodeURIComponent(slug);
 
   const query = `

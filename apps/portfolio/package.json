@@ -24,6 +24,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "graphql-request": "^7.2.0",
     "gsap": "^3.13.0",
+    "he": "^1.2.0",
     "marked": "^16.1.2",
     "next": "16.0.10",
     "next-sitemap": "^4.2.3",
@@ -32,15 +33,18 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "rss-parser": "^3.13.0",
+    "sanitize-html": "^2.17.0",
     "uninstall": "^0.0.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^16.1.0",
     "@repo/typescript-config": "workspace:*",
+    "@types/he": "^1.2.3",
     "@types/node": "^22.15.3",
     "@types/prismjs": "^1.26.5",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
+    "@types/sanitize-html": "^2.16.0",
     "typescript": "5.9.2"
   }
 }

@@ -14,4 +14,3 @@ export { ThemeProvider } from './ThemeProvider';
 export { ThemeSwitch } from './ThemeSwitch/ThemeSwitch';
 export { Top } from './Top/Top';
 export { WideCard } from './WideCard/WideCard';
-export { FeedClient } from './FeedClient';

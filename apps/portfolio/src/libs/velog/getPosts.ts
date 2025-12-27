@@ -1,12 +1,14 @@
-import { username } from './config';
-
-export async function getPosts({
-  cursor,
-  limit = 10,
-}: {
+type GetPostsArgs = {
+  username?: string;
   cursor?: string | null;
   limit?: number;
-}) {
+};
+
+export async function getPosts({
+  username = 'oilater',
+  cursor,
+  limit = 10,
+}: GetPostsArgs) {
   const query = `
     query Posts($username: String!, $cursor: ID, $limit: Int) {
       posts(username: $username, cursor: $cursor, limit: $limit) {

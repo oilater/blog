@@ -1,6 +1,12 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug } from '#libs/velog/getPostBySlug';
-import { VelogPost } from '#velog/components/VelogPost';
+import { parseMarkdown } from '#libs/velog/parseMarkdown';
+import { sanitizeHtml } from '#libs/velog/sanitizeHtml';
+import { Post } from '#velog/components/Post';
+import { author, postedAt } from '#velog/components/Post.css';
+import { Tag } from '#velog/components/Tag';
+import { getRelativeDays } from '#velog/utils/day';
+import { vmarkdown } from './PostBody.css';
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -8,11 +14,27 @@ type PageProps = {
 
 export default async function DetailPage({ params }: PageProps) {
   const { id } = await params;
-  const post = await getPostBySlug(id);
+  const post = await getPostBySlug({ slug: id });
 
   if (!post) {
     return notFound();
   }
+  const body = parseMarkdown(post?.body);
+  const sanitized = sanitizeHtml(body);
 
-  return <VelogPost post={post} />;
+  return (
+    <Post>
+      <Post.Title>{post.title}</Post.Title>
+      <Post.Description>
+        <span className={author}>김성현</span> ∙{' '}
+        <span className={postedAt}>
+          {getRelativeDays(post.released_at)}
+        </span>
+      </Post.Description>
+      <Post.Tags>
+        <Tag tags={post.tags} />
+      </Post.Tags>
+      <Post.Content className={vmarkdown}>{sanitized}</Post.Content>
+    </Post>
+  );
 }
