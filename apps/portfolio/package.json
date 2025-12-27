@@ -24,7 +24,6 @@
     "@vercel/speed-insights": "^1.2.0",
     "graphql-request": "^7.2.0",
     "gsap": "^3.13.0",
-    "jotai": "^2.13.1",
     "marked": "^16.1.2",
     "next": "16.0.10",
     "next-sitemap": "^4.2.3",

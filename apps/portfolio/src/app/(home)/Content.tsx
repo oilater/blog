@@ -19,7 +19,7 @@ export const CONTENTS: ContentData[] = [
     image: IMAGES.PORTFOLIO,
     link: '/contents/rally-portfolio',
     isInternal: true,
-    tags: ['React', 'TypeScript', 'Emotion', 'GSAP', 'Jotai'],
+    tags: ['React', 'TypeScript', 'Emotion', 'GSAP'],
   },
   {
     title: 'Unity로 개발한 FIVA 이야기',

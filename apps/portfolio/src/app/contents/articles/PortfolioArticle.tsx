@@ -296,14 +296,6 @@ export function PortfolioArticle() {
           useGSAP 훅, SplitText, ScrollTrigger 등의 기능을 통해
           인터렉션 시스템을 구현하기 적합하다고 판단해 사용했습니다.
         </p>
-        <br />
-
-        <span className={styles.highlightText}>Jotai</span>
-        <p>
-          애니메이션 재생 상태와 Step을 효율적으로 관리하기 위해
-          사용했습니다.
-        </p>
-        <br />
       </section>
     </div>
   );

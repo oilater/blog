@@ -6,11 +6,7 @@ import type { PostType } from '../types';
 import { getRelativeDays } from '../utils/day';
 import { Post } from './Post';
 
-type VelogPostProps = {
-  post: PostType;
-};
-
-export function VelogPost({ post }: VelogPostProps) {
+export function VelogPost({ post }: { post: PostType }) {
   const [styledContent, setStyledContent] = useState('');
   const { addStyleAsync } = useVelogStyle();
 

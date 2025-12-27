@@ -1,20 +1,18 @@
-'use client';
-
-import { useAtomValue } from 'jotai';
-import { useParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { notFound } from 'next/navigation';
+import { getPostBySlug } from '#libs/velog/getPostBySlug';
 import { VelogPost } from '#velog/components/VelogPost';
-import { getPostBySlug } from '../../../stores/post';
-import Loading from './loading';
 
-export default function DetailPage() {
-  useEffect(() => window.scrollTo(0, 0), []);
+type PageProps = {
+  params: Promise<{ id: string }>;
+};
 
-  const { id } = useParams<{ id: string }>();
-  const getPost = useAtomValue(getPostBySlug);
-  const post = getPost(id);
+export default async function DetailPage({ params }: PageProps) {
+  const { id } = await params;
+  const post = await getPostBySlug(id);
 
-  if (!post) return <Loading />;
+  if (!post) {
+    return notFound();
+  }
 
   return <VelogPost post={post} />;
 }

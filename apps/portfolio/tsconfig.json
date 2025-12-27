@@ -9,6 +9,7 @@
       "#constants/*": ["src/constants/*"],
       "#tokens/*": ["src/tokens/*"],
       "#providers/*": ["src/providers/*"],
+      "#libs/*": ["src/libs/*"],
       "#animations/*": ["src/animations/*"],
       "#velog/*": ["src/velog/*"]
     }

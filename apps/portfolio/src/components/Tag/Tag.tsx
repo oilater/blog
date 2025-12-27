@@ -47,8 +47,6 @@ const getTagColor = (theme: string | undefined, text: string) => {
       return vars.colors.pink400;
     case 'GSAP':
       return vars.colors.green300;
-    case 'Jotai':
-      return vars.colors.purple300;
     case 'SCSS':
       return vars.colors.green500;
     case 'Firebase':

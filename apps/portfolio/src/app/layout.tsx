@@ -9,7 +9,6 @@ import { Snow } from '#components/Snow';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
 import { vars } from '#tokens/theme.css';
-import { VelogPostLoader } from '#velog/components/VelogPostLoader';
 
 export const metadata: Metadata = {
   title: BlogConfig.title,
@@ -111,7 +110,6 @@ export default function RootLayout({
               ))}
             </FloatingNav>
             <LayoutWrapper>{children}</LayoutWrapper>
-            <VelogPostLoader />
           </QueryProvider>
         </ThemeProvider>
         <Analytics />

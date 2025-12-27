@@ -5,11 +5,7 @@ const withBundleAnalyzer = withBundleAnalyzerPkg({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const withVanillaExtract = createVanillaExtractPlugin({
-  experimental: {
-    turbo: false,
-  },
-});
+const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
