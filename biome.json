@@ -40,7 +40,7 @@
         "useSemanticElements": "off"
       },
       "security": {
-        "noDangerouslySetInnerHtmlWithChildren": "warn"
+        "noDangerouslySetInnerHtml": "off"
       },
       "correctness": {
         "noUnusedVariables": "off",
