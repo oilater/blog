@@ -4,11 +4,13 @@
     "plugins": [{ "name": "next" }],
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["app/shared/components"],
-      "@animations/*": ["app/animations/*"],
-      "@icons/*": ["app/shared/icons/*"],
-      "@providers/*": ["app/shared/providers/*"],
-      "@tokens/*": ["app/shared/tokens/*"]
+      "#components/*": ["src/components"],
+      "#icons/*": ["src/icons/*"],
+      "#constants/*": ["src/constants/*"],
+      "#tokens/*": ["src/tokens/*"],
+      "#providers/*": ["src/providers/*"],
+      "#animations/*": ["src/animations/*"],
+      "#velog/*": ["src/velog/*"]
     }
   },
   "include": [
