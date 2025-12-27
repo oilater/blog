@@ -8,7 +8,6 @@ export { InfoCard } from './InfoCard/InfoCard';
 export { LayoutWrapper } from './LayoutWrapper';
 export { QueryProvider } from './QueryProvider';
 export { Section } from './Section/Section';
-export { Snow } from './Snow';
 export { Tag } from './Tag/Tag';
 export { ThemeProvider } from './ThemeProvider';
 export { ThemeSwitch } from './ThemeSwitch/ThemeSwitch';

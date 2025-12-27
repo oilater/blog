@@ -5,7 +5,6 @@ import { FloatingNav } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
 import { NavItem } from '#components/NavItem';
 import { QueryProvider } from '#components/QueryProvider';
-import { Snow } from '#components/Snow';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
 import { vars } from '#tokens/theme.css';
@@ -113,7 +112,6 @@ export default function RootLayout({
           </QueryProvider>
         </ThemeProvider>
         <Analytics />
-        <Snow />
         {GA_MEASUREMENT_ID && (
           <>
             <Script
