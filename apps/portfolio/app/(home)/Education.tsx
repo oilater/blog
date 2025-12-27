@@ -37,6 +37,22 @@ export function Education() {
         <div className={styles.educationItem}>
           <div className="education-item item-2">
             <span className={styles.dot} />
+            <span>2025.12.24</span>
+          </div>
+          <div className={styles.educationContent}>
+            <div className={styles.educationHeader}>
+              <span className={styles.educationTitle}>
+                정보처리기사
+              </span>
+            </div>
+            <div className={styles.educationDescription}>
+              <p>∙ 한국산업인력공단</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.educationItem}>
+          <div className="education-item item-2">
+            <span className={styles.dot} />
             <span>2025.12.12</span>
           </div>
           <div className={styles.educationContent}>
@@ -44,7 +60,7 @@ export function Education() {
               <span className={styles.educationTitle}>SQLD</span>
             </div>
             <div className={styles.educationDescription}>
-              <p>∙ SQL 개발자</p>
+              <p>∙ 한국데이터산업진흥원</p>
             </div>
           </div>
         </div>

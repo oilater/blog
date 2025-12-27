@@ -19,7 +19,6 @@ export const mainDescription = style({
   fontSize: '1.2rem',
   fontWeight: '500',
   color: vars.themeColor.colors.contentFontColor,
-  lineHeight: '1.65',
   marginBottom: '2.5rem',
 });
 
@@ -34,7 +33,7 @@ export const educationItem = style({
   display: 'flex',
   alignItems: 'flex-start',
   gap: '16px',
-  marginBottom: '3rem',
+  marginBottom: '2.5rem',
 });
 
 export const educationContent = style({
