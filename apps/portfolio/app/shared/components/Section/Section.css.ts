@@ -1,5 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
-import { mediaQueries } from '../../../styles/breakpoints.css';
+import { style } from '@vanilla-extract/css';
 import { vars } from '../../../styles/global.css';
 
 export const wrapper = style({
@@ -9,39 +8,16 @@ export const wrapper = style({
 });
 
 export const contentSection = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '54px 0',
+  display: 'grid',
+  gap: '54px 20px',
   willChange: 'transform, opacity',
-});
-
-globalStyle(`${contentSection} > *`, {
-  '@media': {
-    [mediaQueries.desktop]: {
-      flexBasis: 'calc((100% - 40px) / 3)',
-      maxWidth: 'calc((100% - 40px) / 3)',
-      height: '480px',
-      marginRight: '20px',
-    },
-    [mediaQueries.mobile]: {
-      width: '100%',
-      marginRight: '0',
-    },
-  },
-});
-
-globalStyle(`${contentSection} > *:nth-of-type(3n)`, {
-  '@media': {
-    [mediaQueries.desktop]: {
-      marginRight: '0',
-    },
-  },
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
 });
 
 export const workSection = style({
-  display: 'flex',
-  flexWrap: 'wrap',
+  display: 'grid',
   gap: '54px 16px',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
 });
 
 export const mainDescription = style({
