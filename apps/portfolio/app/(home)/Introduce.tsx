@@ -1,15 +1,15 @@
 'use client';
 
+import { playIntroduceAnimation } from '@animations/introduce';
+import { InfoCard } from '@components/InfoCard';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import { IMAGES } from '../constants/images';
-import { InfoCard } from '../shared/components/InfoCard';
 import {
   infoSection,
   introduceWrapper,
   mainDescription,
-} from '../styles/sections/Introduce.css';
-import { playIntroduceAnimation } from './animations/introduce';
+} from './Introduce.css';
 
 export function Introduce() {
   const introduceScope = useRef<HTMLDivElement>(null);

@@ -1,10 +1,10 @@
 'use client';
+import { playSectionAnimation } from '@animations/section';
+import { Top } from '@components/Top';
 import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
 import { useRef } from 'react';
-import { Top } from '../shared/components/Top';
-import * as styles from '../styles/sections/Education.css';
-import { playSectionAnimation } from './animations/section';
+import * as styles from './Education.css';
 
 export function Education() {
   const contentContainer = useRef<HTMLDivElement>(null);

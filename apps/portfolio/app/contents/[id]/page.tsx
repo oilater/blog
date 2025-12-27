@@ -1,11 +1,11 @@
 'use client';
 
+import { createArticle } from '@components/Article';
 import { use } from 'react';
 import { IMAGES } from '../../constants/images';
-import { createArticle } from '../../shared/components/Article';
 import { FivaArticle } from '../articles/FivaArticle';
 import { PortfolioArticle } from '../articles/PortfolioArticle';
-import { ArticleData } from '../types';
+import { ArticleData } from '../articles/types';
 
 const contents: Record<string, ArticleData> = {
   'rally-portfolio': {

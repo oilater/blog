@@ -1,8 +1,8 @@
+import { ContentCard } from '@components/ContentCard';
+import { Section } from '@components/Section';
 import { IMAGES } from '../constants/images';
-import { ContentData } from '../contents/types';
-import { ContentCard } from '../shared/components/ContentCard';
-import { Section } from '../shared/components/Section';
-import * as styles from '../styles/sections/Content.css';
+import { ContentData } from '../contents/articles/types';
+import { contentSection } from '../shared/components/Section/Section.css';
 
 export const CONTENTS: ContentData[] = [
   {
@@ -63,7 +63,7 @@ export function Content() {
     <Section
       title="Contents"
       description="새로운 것을 배우면 재밌는 서비스로 만들어봅니다."
-      sectionClassName={styles.contentSection}
+      className={contentSection}
     >
       {CONTENTS.map((content) => (
         <ContentCard key={content.title} content={content} />

@@ -1,7 +1,7 @@
 'use client';
 
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import { darkTheme, lightTheme } from '../../styles/globalTheme.css';
+import { darkTheme, lightTheme } from '../../styles/global.css';
 
 export function ThemeProvider({
   children,
@@ -11,7 +11,7 @@ export function ThemeProvider({
   return (
     <NextThemeProvider
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="dark"
       enableSystem
       value={{
         light: lightTheme,

@@ -1,5 +1,5 @@
-import { velogIcon } from '../../styles/components/VelogIcon.css';
-import { vars } from '../../styles/globalTheme.css';
+import { vars } from '../../styles/global.css';
+import { velogIcon } from './VelogIcon.css';
 
 export function VelogIcon() {
   return (

@@ -1,5 +1,5 @@
 import { IMAGES } from '../../constants/images';
-import * as styles from '../../styles/components/ArticleStyles.css';
+import * as styles from './style.css';
 
 export function PortfolioArticle() {
   return (

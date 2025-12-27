@@ -1,5 +1,6 @@
 'use client';
 
+import { playOutroAnimation } from '@animations/outro';
 import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
 import { useRef } from 'react';
@@ -11,8 +12,7 @@ import {
   outroSection,
   thankTitle,
   wrapper,
-} from '../styles/sections/Outro.css';
-import { playOutroAnimation } from './animations/outro';
+} from './Outro.css';
 
 export function Outro() {
   const outroContainer = useRef<HTMLDivElement>(null);

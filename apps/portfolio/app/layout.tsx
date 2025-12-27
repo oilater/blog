@@ -1,12 +1,14 @@
+import { FloatingNav } from '@components/FloatingNav';
+import { LayoutWrapper } from '@components/LayoutWrapper';
+import { NavItem } from '@components/NavItem';
+import { QueryProvider } from '@providers/QueryProvider';
+import { ThemeProvider } from '@providers/ThemeProvider';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BlogConfig } from '../config';
-import { LayoutWrapper } from './shared/components/LayoutWrapper';
 import Snow from './shared/components/Snow';
-import { QueryProvider } from './shared/providers/QueryProvider';
-import { ThemeProvider } from './shared/providers/ThemeProvider';
-import { vars } from './styles/globalTheme.css';
+import { vars } from './styles/global.css';
 import { VelogPostLoader } from './velog/components/VelogPostLoader';
 
 export const metadata: Metadata = {
@@ -99,6 +101,15 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <QueryProvider>
+            <FloatingNav>
+              {BlogConfig.menu.map((link) => (
+                <NavItem
+                  key={link.label}
+                  href={link.path}
+                  label={link.label}
+                />
+              ))}
+            </FloatingNav>
             <LayoutWrapper>{children}</LayoutWrapper>
             <VelogPostLoader />
           </QueryProvider>

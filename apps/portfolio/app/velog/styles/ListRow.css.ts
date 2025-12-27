@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../styles/globalTheme.css';
+import { vars } from '../../styles/global.css';
 
 export const card = style({
   cursor: 'pointer',
