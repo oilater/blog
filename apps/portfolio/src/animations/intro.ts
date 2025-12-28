@@ -2,7 +2,7 @@ import { Rally, Timeline } from '@repo/interaction';
 import { vars } from '#tokens/theme.css';
 
 export function playIntroAnimation() {
-  const introTl = Timeline({
+  return Timeline({
     playback: 'serial',
     playables: [
       Rally({
@@ -29,5 +29,4 @@ export function playIntroAnimation() {
       }),
     ],
   });
-  return introTl;
 }

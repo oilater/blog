@@ -1,7 +1,7 @@
 import { Rally, Timeline } from '@repo/interaction';
 
 export function playOutroAnimation() {
-  const outroTl = Timeline({
+  return Timeline({
     playback: 'stagger',
     staggerDelay: 0.05,
     playables: [
@@ -29,6 +29,4 @@ export function playOutroAnimation() {
       }),
     ],
   });
-
-  return outroTl;
 }
