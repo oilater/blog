@@ -3,7 +3,8 @@
 import { useInfiniteScroll } from 'src/hooks/useInfiniteScroll';
 import { ListRow } from '#velog/components/ListRow';
 import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
-import { listWrapper } from './style.css';
+import { ListSkeleton } from '#velog/skeletons/ListSkeleton';
+import { listWrapper, observeContainer } from './style.css';
 
 export default function Feed() {
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
@@ -18,6 +19,10 @@ export default function Feed() {
 
   const posts = data?.pages.flatMap((page) => page.posts) || [];
 
+  if (!posts.length) {
+    return <ListSkeleton />;
+  }
+
   return (
     <div className={listWrapper}>
       {posts.map((post) => (
@@ -27,7 +32,7 @@ export default function Feed() {
           link={`/feed/${post.url_slug}`}
         />
       ))}
-      <div ref={observeRef} />
+      <div className={observeContainer} ref={observeRef} />
     </div>
   );
 }
