@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { container } from './SectionContainer.css';
+import { container } from './styles/SectionContainer.css';
 
 export function SectionContainer({
   children,

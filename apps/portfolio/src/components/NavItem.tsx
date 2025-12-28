@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { linkItem } from './FloatingNav.css';
+import { linkItem } from './styles/FloatingNav.css';
 
 type NavItemProps = {
   href: string;

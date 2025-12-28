@@ -1,6 +1,6 @@
-import type { ContentData } from '../../app/contents/articles/types';
-import { Tag } from '../Tag/Tag';
+import type { ContentData } from '../app/contents/articles/types';
 import { Card } from './Card';
+import { Tag } from './Tag';
 
 type ContentCardProps = {
   content: ContentData;

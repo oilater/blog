@@ -5,8 +5,8 @@ import type { ReactNode } from 'react';
 import { lazy, Suspense, useEffect } from 'react';
 import { Button } from '#components/Button';
 import { ArrowDownIcon } from '#icons/ArrowDown';
-import type { ArticleData } from '../../app/contents/articles/types';
-import * as styles from './Article.css';
+import type { ArticleData } from '../app/contents/articles/types';
+import * as styles from './styles/Article.css';
 
 type ArticleRootProps = {
   header: ReactNode;
@@ -23,9 +23,7 @@ function ArticleRoot({ header, content }: ArticleRootProps) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const ScrollProgressBar = lazy(
-    () => import('../ScrollProgressBar/ScrollProgressBar'),
-  );
+  const ScrollProgressBar = lazy(() => import('./ScrollProgressBar'));
 
   return (
     <>

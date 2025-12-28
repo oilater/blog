@@ -5,7 +5,7 @@ import { animateScroll } from '@repo/interaction/scroll';
 import { ReactNode, useRef } from 'react';
 import { playSectionAnimation } from 'src/animations/section';
 import { Top } from '#components/Top';
-import { hr, mainDescription, wrapper } from './Section.css';
+import { hr, mainDescription, wrapper } from './styles/Section.css';
 
 type SectionProps = {
   title: string;

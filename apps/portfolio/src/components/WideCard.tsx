@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ContentData } from '../../app/contents/articles/types';
-import * as styles from './WideCard.css';
+import { ContentData } from '../app/contents/articles/types';
+import * as styles from './styles/WideCard.css';
 
 export function WideCard({ value }: { value: ContentData }) {
   return (

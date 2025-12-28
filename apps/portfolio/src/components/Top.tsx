@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { paragraphStyle, rootStyle } from './Top.css';
+import { paragraphStyle, rootStyle } from './styles/Top.css';
 
 export function Top({ children }: { children: ReactNode }) {
   return (

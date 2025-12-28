@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { vars } from '#tokens/theme.css';
-import { tag } from './Tag.css';
+import { tag } from './styles/Tag.css';
 
 type TagProps = {
   text: string;

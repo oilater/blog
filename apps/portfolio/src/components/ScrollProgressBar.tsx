@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import {
   progressBar,
   progressBarContainer,
-} from './ScrollProgressBar.css';
+} from './styles/ScrollProgressBar.css';
 
 gsap.registerPlugin(ScrollTrigger);
 

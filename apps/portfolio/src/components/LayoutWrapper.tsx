@@ -1,8 +1,8 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Footer } from './Footer/Footer';
-import { SectionContainer } from './SectionContainer/SectionContainer';
+import { Footer } from './Footer';
+import { SectionContainer } from './SectionContainer';
 
 export function LayoutWrapper({
   children,

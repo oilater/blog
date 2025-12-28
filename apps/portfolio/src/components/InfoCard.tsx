@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import * as styles from './InfoCard.css';
+import * as styles from './styles/InfoCard.css';
 
 type InfoCardProps = {
   title: string;
