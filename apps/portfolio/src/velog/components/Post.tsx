@@ -1,5 +1,4 @@
 import * as styles from './Post.css';
-import { Tag } from './Tag';
 
 export function Post({ children }: { children: React.ReactNode }) {
   return <div className={styles.wrapper}>{children}</div>;

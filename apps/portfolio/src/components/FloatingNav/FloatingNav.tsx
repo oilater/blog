@@ -1,4 +1,4 @@
-import { ThemeSwitch } from '../ThemeSwitch/ThemeSwitch';
+import { ThemeSwitch } from '#components/ThemeSwitch';
 import { header, innerNav } from './FloatingNav.css';
 
 export function FloatingNav({

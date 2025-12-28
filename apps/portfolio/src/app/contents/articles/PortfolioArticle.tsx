@@ -1,4 +1,4 @@
-import { IMAGES } from '../../../constants/images';
+import { IMAGES } from '#constants/images';
 import * as styles from './style.css';
 
 export function PortfolioArticle() {

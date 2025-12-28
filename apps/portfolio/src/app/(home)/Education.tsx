@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import { animateScroll } from '@repo/interaction/scroll';
 import { useRef } from 'react';
 import { playSectionAnimation } from 'src/animations/section';
-import { Top } from 'src/components';
+import { Top } from '#components/Top';
 import * as styles from './Education.css';
 
 export function Education() {

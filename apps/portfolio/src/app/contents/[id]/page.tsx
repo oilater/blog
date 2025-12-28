@@ -1,8 +1,8 @@
 'use client';
 
 import { use } from 'react';
-import { createArticle } from 'src/components';
-import { IMAGES } from '../../../constants/images';
+import { createArticle } from '#components/Article';
+import { IMAGES } from '#constants/images';
 import { FivaArticle } from '../articles/FivaArticle';
 import { PortfolioArticle } from '../articles/PortfolioArticle';
 import { ArticleData } from '../articles/types';

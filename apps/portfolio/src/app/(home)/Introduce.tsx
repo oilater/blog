@@ -3,7 +3,7 @@
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import { playIntroduceAnimation } from 'src/animations/introduce';
-import { InfoCard } from 'src/components';
+import { InfoCard } from '#components/InfoCard';
 import { IMAGES } from '../../constants/images';
 import {
   infoSection,

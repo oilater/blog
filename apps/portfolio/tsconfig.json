@@ -4,7 +4,7 @@
     "plugins": [{ "name": "next" }],
     "baseUrl": ".",
     "paths": {
-      "#components/*": ["src/components"],
+      "#components/*": ["src/components/*"],
       "#icons/*": ["src/icons/*"],
       "#constants/*": ["src/constants/*"],
       "#tokens/*": ["src/tokens/*"],

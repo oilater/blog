@@ -1,9 +1,8 @@
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { FloatingNav } from '#components/FloatingNav';
+import { FloatingNav, NavItem } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
-import { NavItem } from '#components/NavItem';
 import { QueryProvider } from '#components/QueryProvider';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';

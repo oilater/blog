@@ -1,4 +1,5 @@
-import { Section, WideCard } from 'src/components';
+import { Section } from '#components/Section';
+import { WideCard } from '#components/WideCard';
 import { workSection } from '../../components/Section/Section.css';
 import { ContentData } from '../contents/articles/types';
 

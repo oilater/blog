@@ -1,4 +1,5 @@
-import { ContentCard, Section } from 'src/components';
+import { ContentCard } from '#components/ContentCard';
+import { Section } from '#components/Section';
 import { contentSection } from '../../components/Section/Section.css';
 import { IMAGES } from '../../constants/images';
 import { ContentData } from '../contents/articles/types';

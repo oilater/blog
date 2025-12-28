@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { lazy, Suspense, useEffect } from 'react';
-import { Button } from 'src/components';
+import { Button } from '#components/Button';
 import { ArrowDownIcon } from '#icons/ArrowDown';
 import type { ArticleData } from '../../app/contents/articles/types';
 import * as styles from './Article.css';
