@@ -1,8 +1,34 @@
-import { getPosts } from '#libs/velog/getPosts';
-import { FeedClient } from './components/FeedClient';
+'use client';
 
-export default async function Feed() {
-  const initialPosts = await getPosts({ cursor: null });
+import { useInfiniteScroll } from 'src/hooks/useInfiniteScroll';
+import { ListRow } from '#velog/components/ListRow';
+import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
+import { listWrapper } from './style.css';
 
-  return <FeedClient initialPosts={initialPosts} />;
+export default function Feed() {
+  const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
+    useInfinitePostQuery({ username: 'oilater' });
+  const { observeRef } = useInfiniteScroll({
+    onIntersect: () => {
+      if (hasNextPage && !isFetchingNextPage) {
+        fetchNextPage();
+      }
+    },
+  });
+
+  const posts = data?.pages.flatMap((page) => page.posts) || [];
+  console.log(posts);
+
+  return (
+    <div className={listWrapper}>
+      {posts.map((post) => (
+        <ListRow
+          key={post.id}
+          post={post}
+          link={`/feed/${post.url_slug}`}
+        />
+      ))}
+      <div ref={observeRef} />
+    </div>
+  );
 }

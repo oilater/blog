@@ -13,7 +13,13 @@ export async function POST(req: Request) {
       );
     }
 
-    return NextResponse.json(posts);
+    const lastPost = posts[posts.length - 1];
+    const nextCursor = posts.length === 10 ? lastPost?.id : null;
+
+    return NextResponse.json({
+      posts,
+      nextCursor,
+    });
   } catch (error) {
     return NextResponse.json(
       { error: 'Internal server error' },
