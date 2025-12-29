@@ -1,20 +1,17 @@
-import he from 'he';
 import { Marked } from 'marked';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-typescript';
 
-const LANGUAGE_MAPPING: Record<string, string> = {
+const PRISM_LANGUAGE_MAP: Record<string, string> = {
   tsx: 'ts',
   jsx: 'js',
 };
 
 export function parseMarkdown(
-  post: string | null | undefined,
+  markdown: string | null | undefined,
 ): string {
-  if (!post) return '';
-
-  const decoded = he.decode(post);
+  if (!markdown) return '';
   const markedInstance = new Marked();
 
   markedInstance.use({
@@ -30,7 +27,7 @@ export function parseMarkdown(
 
       code({ text, lang }) {
         const langKey = lang?.toLowerCase() || 'typescript';
-        const language = LANGUAGE_MAPPING[langKey] || langKey;
+        const language = PRISM_LANGUAGE_MAP[langKey] || langKey;
 
         const highlighted = Prism.languages[language]
           ? Prism.highlight(text, Prism.languages[language], language)
@@ -90,7 +87,7 @@ export function parseMarkdown(
     },
   });
 
-  return markedInstance.parse(decoded, {
+  return markedInstance.parse(markdown, {
     gfm: true,
     breaks: true,
     async: false,

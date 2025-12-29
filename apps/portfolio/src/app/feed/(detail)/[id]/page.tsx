@@ -1,3 +1,4 @@
+import he from 'he';
 import { notFound } from 'next/navigation';
 import { getPostBySlug } from '#libs/velog/getPostBySlug';
 import { parseMarkdown } from '#libs/velog/parseMarkdown';
@@ -19,8 +20,10 @@ export default async function DetailPage({ params }: PageProps) {
   if (!post) {
     return notFound();
   }
-  const body = parseMarkdown(post?.body);
-  const sanitized = sanitizeHtml(body);
+
+  const decodedBody = he.decode(post?.body);
+  const parsed = parseMarkdown(decodedBody);
+  const sanitized = sanitizeHtml(parsed);
 
   return (
     <Post>

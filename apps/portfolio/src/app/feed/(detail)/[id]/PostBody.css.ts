@@ -86,9 +86,9 @@ globalStyle(`${vmarkdown} .velog_code`, {
 });
 
 globalStyle(`${vmarkdown} .velog_preBlock`, {
-  backgroundColor: '#FBFCFD',
-  padding: '14px',
-  borderRadius: '4px',
+  backgroundColor: vars.themeColor.colors.cardBackground,
+  padding: '20px',
+  borderRadius: '18px',
   margin: '16px 0',
   overflow: 'auto',
 });
@@ -100,3 +100,16 @@ globalStyle(`${vmarkdown} .velog_preBlock > .velog_codeInPre`, {
   lineHeight: '1.6',
   fontFamily: 'monospace !important',
 });
+
+globalStyle(`${vmarkdown} .velog_preBlock code[class*="language-"]`, {
+  textShadow: 'none !important',
+  backgroundColor: 'transparent !important',
+  color: vars.themeColor.colors.mainFontColor,
+});
+
+globalStyle(
+  `${vmarkdown} .token.operator, ${vmarkdown} .token.string`,
+  {
+    background: 'none',
+  },
+);
