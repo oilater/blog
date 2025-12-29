@@ -23,6 +23,7 @@ export function useInfinitePostQuery({
       });
       return response.json();
     },
+    staleTime: 1000 * 60 * 60 * 3,
     initialPageParam: undefined,
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
   });
