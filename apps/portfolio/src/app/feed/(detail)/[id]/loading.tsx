@@ -1,9 +1,4 @@
-import dynamic from 'next/dynamic';
-
-const PostSkeleton = dynamic(
-  () => import('#velog/skeletons/PostSkeleton'),
-  { ssr: true },
-);
+import { PostSkeleton } from '#velog/skeletons/PostSkeleton';
 
 export default function Loading() {
   return <PostSkeleton />;

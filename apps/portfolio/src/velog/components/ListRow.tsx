@@ -13,7 +13,7 @@ export function ListRow({ post, link }: ListRowProps) {
   const hasTags = post?.tags && post.tags.length > 0;
 
   return (
-    <Link className={styles.card} href={link}>
+    <Link className={styles.card} href={link} prefetch={false}>
       <div className={styles.cardHeader}>
         <h2 className={styles.cardTitle}>{post?.title}</h2>
         <p className={styles.cardDescription}>
