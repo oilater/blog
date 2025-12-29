@@ -15,7 +15,7 @@ export default function Feed() {
         fetchNextPage();
       }
     },
-    rootMargin: '600px',
+    rootMargin: '800px',
   });
 
   const posts = data?.pages.flatMap((page) => page.posts) || [];

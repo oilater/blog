@@ -8,8 +8,8 @@ type UseInfiniteScrollProps = {
 
 export function useInfiniteScroll({
   onIntersect,
-  rootMargin = '250px',
-  threshold = 0,
+  rootMargin = '600px',
+  threshold = 0.1,
 }: UseInfiniteScrollProps) {
   const targetRef = useRef<HTMLDivElement>(null);
 
@@ -36,9 +36,7 @@ export function useInfiniteScroll({
     }
 
     return () => {
-      if (targetRef.current) {
-        observer.unobserve(targetRef.current);
-      }
+      observer.disconnect();
     };
   }, [handleObserver, rootMargin, threshold]);
 
