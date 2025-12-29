@@ -1,5 +1,6 @@
 'use client';
 
+import { useCallback } from 'react';
 import { useInfiniteScroll } from 'src/hooks/useInfiniteScroll';
 import { ListRow } from '#velog/components/ListRow';
 import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
@@ -9,12 +10,15 @@ import { listWrapper, observeContainer } from './style.css';
 export default function Feed() {
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
     useInfinitePostQuery({ username: 'oilater' });
+
+  const handleIntersect = useCallback(() => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
   const { observeRef } = useInfiniteScroll({
-    onIntersect: () => {
-      if (hasNextPage && !isFetchingNextPage) {
-        fetchNextPage();
-      }
-    },
+    onIntersect: handleIntersect,
     rootMargin: '800px',
   });
 
