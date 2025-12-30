@@ -19,7 +19,7 @@ export default function Feed() {
 
   const { observeRef } = useInfiniteScroll({
     onIntersect: handleIntersect,
-    rootMargin: '600px',
+    rootMargin: '200px',
   });
 
   const posts = data?.pages.flatMap((page) => page.posts) || [];
