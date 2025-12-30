@@ -2,7 +2,7 @@
   "name": "@repo/interaction",
   "version": "0.0.0",
   "private": true,
-  "description": "Interaction utilities and hooks for React applications",
+  "description": "Interaction utilities and hooks",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
@@ -25,24 +25,15 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
     "tsup": "^8.0.2",
     "typescript": "5.9.2"
   },
   "dependencies": {
-    "gsap": "^3.13.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "gsap": "^3.13.0"
   },
   "keywords": [
     "interaction",
     "hooks",
-    "react",
     "typescript"
   ]
 }
