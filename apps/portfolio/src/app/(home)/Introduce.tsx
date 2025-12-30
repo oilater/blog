@@ -1,8 +1,3 @@
-'use client';
-
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
-import { playIntroduceAnimation } from 'src/animations/introduce';
 import { InfoCard } from '#components/InfoCard';
 import { IMAGES } from '../../constants/images';
 import {
@@ -12,17 +7,8 @@ import {
 } from './Introduce.css';
 
 export function Introduce() {
-  const introduceScope = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      playIntroduceAnimation().play();
-    },
-    { scope: introduceScope },
-  );
-
   return (
-    <div ref={introduceScope} className={introduceWrapper}>
+    <div className={introduceWrapper}>
       <div className={mainDescription}>
         <p>React를 중심으로 웹 프론트엔드를 개발합니다.</p>
         <p>UX/DX에 높은 가치를 두고 있습니다.</p>
