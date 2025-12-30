@@ -1,33 +1,9 @@
-'use client';
-import { useGSAP } from '@gsap/react';
-import { animateScroll } from '@repo/interaction/scroll';
-import { useRef } from 'react';
-import { playSectionAnimation } from 'src/animations/section';
 import { Top } from '#components/Top';
 import * as styles from './Education.css';
 
 export function Education() {
-  const contentContainer = useRef<HTMLDivElement>(null);
-  let contentTl: gsap.core.Timeline;
-
-  useGSAP(
-    () => {
-      contentTl = playSectionAnimation();
-
-      animateScroll({
-        target: '.topHr',
-        timeline: contentTl,
-        options: {
-          start: 'top 85%',
-          end: 'bottom 100%',
-        },
-      });
-    },
-    { scope: contentContainer },
-  );
-
   return (
-    <div ref={contentContainer} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <hr className={`topHr ${styles.hr}`} />
       <Top>
         <span className="topTitle">What I studied</span>

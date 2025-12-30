@@ -6,7 +6,6 @@ export const card = style({
   flexDirection: 'column',
   background: 'inherit',
   borderRadius: '8px',
-  willChange: 'transform, opacity',
 });
 
 export const cardImageWrapper = style({

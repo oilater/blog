@@ -1,9 +1,4 @@
-'use client';
-
-import { useGSAP } from '@gsap/react';
-import { animateScroll } from '@repo/interaction/scroll';
-import { ReactNode, useRef } from 'react';
-import { playSectionAnimation } from 'src/animations/section';
+import { ReactNode } from 'react';
 import { Top } from '#components/Top';
 import { hr, mainDescription, wrapper } from './styles/Section.css';
 
@@ -19,36 +14,15 @@ export function Section({
   children,
   ...props
 }: SectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  let contentTl: gsap.core.Timeline;
-
-  useGSAP(
-    () => {
-      contentTl = playSectionAnimation();
-
-      animateScroll({
-        target: '.topHr',
-        timeline: contentTl,
-        options: {
-          start: 'top 85%',
-          end: 'bottom 100%',
-        },
-      });
-    },
-    { scope: containerRef },
-  );
-
   return (
-    <div ref={containerRef} className={wrapper}>
+    <div className={wrapper}>
       <hr className={`topHr ${hr}`} />
       <Top>
         <span className="topTitle">{title}</span>
       </Top>
-
       <div className={`mainDescription ${mainDescription}`}>
         <p>{description}</p>
       </div>
-
       <div className={`contentSection ${props.className || ''}`}>
         {children}
       </div>

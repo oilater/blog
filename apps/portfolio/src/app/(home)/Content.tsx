@@ -1,5 +1,6 @@
-import { ContentCard } from '#components/ContentCard';
+import { Card } from '#components/Card';
 import { Section } from '#components/Section';
+import { Tag } from '#components/Tag';
 import { contentSection } from '../../components/styles/Section.css';
 import { IMAGES } from '../../constants/images';
 import { ContentData } from '../contents/articles/types';
@@ -66,7 +67,22 @@ export function Content() {
       className={contentSection}
     >
       {CONTENTS.map((content) => (
-        <ContentCard key={content.title} content={content} />
+        <Card
+          key={crypto.randomUUID()}
+          link={content.link}
+          isInternal={content.isInternal}
+        >
+          <Card.Image image={content.image} />
+          <Card.Content>
+            <Card.Title>{content.title}</Card.Title>
+            <Card.Description>{content.description}</Card.Description>
+            <Card.Tags>
+              {content.tags?.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </Card.Tags>
+          </Card.Content>
+        </Card>
       ))}
     </Section>
   );

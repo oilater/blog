@@ -1,9 +1,3 @@
-'use client';
-
-import { useGSAP } from '@gsap/react';
-import { animateScroll } from '@repo/interaction/scroll';
-import { useRef } from 'react';
-import { playOutroAnimation } from 'src/animations/outro';
 import {
   contactContainer,
   contactItem,
@@ -15,26 +9,8 @@ import {
 } from './Outro.css';
 
 export function Outro() {
-  const outroContainer = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const outroTl = playOutroAnimation();
-
-      animateScroll({
-        target: '.outroTitle',
-        timeline: outroTl,
-        options: {
-          start: 'top 85%',
-          end: 'bottom 100%',
-        },
-      });
-    },
-    { scope: outroContainer },
-  );
-
   return (
-    <div ref={outroContainer} className={wrapper}>
+    <div className={wrapper}>
       <div className={`outroTitle ${thankTitle}`}>
         <p>감사합니다</p>
         <p>더 궁금한 점이 있다면</p>
