@@ -33,7 +33,6 @@ export async function getPosts({
         limit,
       },
     }),
-    next: { revalidate: 300 },
   });
 
   const data = await res.json();

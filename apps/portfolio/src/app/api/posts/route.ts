@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getPosts } from '#libs/velog/getPosts';
 
+export const runtime = 'edge';
+
 export async function POST(req: Request) {
   try {
     const { username, cursor } = await req.json();
