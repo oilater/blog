@@ -1,13 +1,8 @@
 import {
-  createGlobalTheme,
   createTheme,
   createThemeContract,
 } from '@vanilla-extract/css';
 import { palette } from './color/palette';
-
-export const global = createGlobalTheme(':root', {
-  colors: palette,
-});
 
 const themeColor = createThemeContract({
   colors: {
@@ -33,51 +28,46 @@ const themeColor = createThemeContract({
 
 export const lightTheme = createTheme(themeColor, {
   colors: {
-    titleFontColor: global.colors.grey800,
-    initialTitleFontColor: global.colors.grey400,
-    mainBackground: global.colors.white,
-    contentBackground: global.colors.white,
-    cardBackground: global.colors.grey50,
-    quoteBackground: global.colors.grey50,
-    tagBackground: global.colors.grey100,
-    tagItemColor: global.colors.grey700,
-    mainFontColor: global.colors.grey700,
-    subFontColor: global.colors.grey500,
-    cardTitleFontColor: global.colors.grey800,
-    cardDescriptionFontColor: global.colors.grey600,
-    borderColor: global.colors.grey300,
-    contentFontColor: global.colors.grey600,
-    highLightFontColor: global.colors.blue500,
+    titleFontColor: palette.grey800,
+    initialTitleFontColor: palette.grey400,
+    mainBackground: palette.white,
+    contentBackground: palette.white,
+    cardBackground: palette.grey50,
+    quoteBackground: palette.grey50,
+    tagBackground: palette.grey100,
+    tagItemColor: palette.grey700,
+    mainFontColor: palette.grey700,
+    subFontColor: palette.grey500,
+    cardTitleFontColor: palette.grey800,
+    cardDescriptionFontColor: palette.grey600,
+    borderColor: palette.grey300,
+    contentFontColor: palette.grey600,
+    highLightFontColor: palette.blue500,
     postCodeColor: '#E9ECEF',
-    skeletonColor: global.colors.grey100,
+    skeletonColor: palette.grey100,
   },
 });
 
 export const darkTheme = createTheme(themeColor, {
   colors: {
-    titleFontColor: global.colors.white,
-    initialTitleFontColor: global.colors.grey400,
-    mainBackground: global.colors.black,
+    titleFontColor: palette.white,
+    initialTitleFontColor: palette.grey400,
+    mainBackground: palette.black,
     contentBackground: '#191F28',
-    cardBackground: global.colors.grey900,
-    quoteBackground: global.colors.grey800,
+    cardBackground: palette.grey900,
+    quoteBackground: palette.grey800,
     tagBackground: '#4E5968',
     tagItemColor: '#C3C3C6',
     mainFontColor: '#C3C3C6',
     subFontColor: '#C3C3C6',
     cardTitleFontColor: '#E4E4E5',
     cardDescriptionFontColor: '#9E9EA4',
-    borderColor: global.colors.grey800,
+    borderColor: palette.grey800,
     contentFontColor: '#7E7E87',
-    highLightFontColor: global.colors.blue400,
+    highLightFontColor: palette.blue400,
     postCodeColor: '#24292E',
-    skeletonColor: global.colors.grey800,
+    skeletonColor: palette.grey800,
   },
 });
 
-export const theme = {
-  light: lightTheme,
-  dark: darkTheme,
-};
-
-export const vars = { ...global, themeColor };
+export const vars = { themeColor, colors: palette };
