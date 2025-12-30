@@ -1,8 +1,8 @@
 import { Card } from '#components/Card';
 import { Section } from '#components/Section';
+import { contentSection } from '#components/styles/Section.css';
 import { Tag } from '#components/Tag';
-import { contentSection } from '../../components/styles/Section.css';
-import { IMAGES } from '../../constants/images';
+import { IMAGES } from '#constants/images';
 import { ContentData } from '../contents/articles/types';
 
 export const CONTENTS: ContentData[] = [

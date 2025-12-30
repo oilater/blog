@@ -4,14 +4,14 @@ import * as styles from './Education.css';
 export function Education() {
   return (
     <div className={styles.wrapper}>
-      <hr className={`topHr ${styles.hr}`} />
+      <hr className={styles.hr} />
       <Top>
-        <span className="topTitle">What I studied</span>
+        <span>What I studied</span>
       </Top>
-      <div className={`mainDescription ${styles.mainDescription}`} />
-      <div className={`contentSection ${styles.contentSection}`}>
+      <div className={styles.mainDescription} />
+      <div className={styles.contentSection}>
         <div className={styles.educationItem}>
-          <div className="education-item item-2">
+          <div>
             <span className={styles.dot} />
             <span>2025.12.24</span>
           </div>
@@ -27,7 +27,7 @@ export function Education() {
           </div>
         </div>
         <div className={styles.educationItem}>
-          <div className="education-item item-2">
+          <div>
             <span className={styles.dot} />
             <span>2025.12.12</span>
           </div>
@@ -41,7 +41,7 @@ export function Education() {
           </div>
         </div>
         <div className={styles.educationItem}>
-          <div className="education-item item-1">
+          <div>
             <span className={styles.dot} />
             <span>23.06-24.07</span>
           </div>
@@ -69,7 +69,7 @@ export function Education() {
         </div>
 
         <div className={styles.educationItem}>
-          <div className="education-item item-2">
+          <div>
             <span className={styles.dot} />
             <span>2024.03.10</span>
           </div>
@@ -84,7 +84,7 @@ export function Education() {
         </div>
 
         <div className={styles.educationItem}>
-          <div className="education-item item-3">
+          <div>
             <span className={styles.dot} />
             <span>2019.09.28</span>
           </div>

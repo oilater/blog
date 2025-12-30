@@ -1,6 +1,6 @@
 import { Section } from '#components/Section';
+import { workSection } from '#components/styles/Section.css';
 import { WideCard } from '#components/WideCard';
-import { workSection } from '../../components/styles/Section.css';
 import { ContentData } from '../contents/articles/types';
 
 export const article: ContentData = {

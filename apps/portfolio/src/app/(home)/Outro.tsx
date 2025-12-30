@@ -11,13 +11,13 @@ import {
 export function Outro() {
   return (
     <div className={wrapper}>
-      <div className={`outroTitle ${thankTitle}`}>
+      <div className={thankTitle}>
         <p>감사합니다</p>
         <p>더 궁금한 점이 있다면</p>
         <p>편하게 연락주세요</p>
       </div>
 
-      <div className={`outroSection ${outroSection}`}>
+      <div className={outroSection}>
         <div className={contactContainer}>
           <div className={contactItem}>
             <span className={contactLabel}>전화번호</span>
