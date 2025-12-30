@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       nextCursor,
     });
   } catch (error) {
-    console.error('API Error:', error); // 디버깅용 로그
+    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 },
