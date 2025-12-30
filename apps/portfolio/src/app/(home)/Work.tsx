@@ -4,6 +4,7 @@ import { WideCard } from '#components/WideCard';
 import { ContentData } from '../contents/articles/types';
 
 export const article: ContentData = {
+  id: 1,
   title: '커스텀 Velog를 만들어보자 📝',
   subTitle: '최근 포스트',
   description: '포트폴리오에 Velog를 띄워보았어요',
