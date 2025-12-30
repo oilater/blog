@@ -5,17 +5,20 @@ export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {
-    const { username, cursor } = await req.json();
-    const posts = await getPosts({ username, cursor });
+    const body = await req.json();
+    const { username, cursor } = body;
 
-    if (!posts) {
+    if (!username) {
       return NextResponse.json(
-        { error: 'Failed to fetch' },
-        { status: 500 },
+        { error: 'Username is required' },
+        { status: 400 },
       );
     }
 
-    const lastPost = posts[posts.length - 1];
+    const posts = (await getPosts({ username, cursor })) || [];
+
+    const lastPost =
+      posts.length > 0 ? posts[posts.length - 1] : null;
     const nextCursor = posts.length === 10 ? lastPost?.id : null;
 
     return NextResponse.json({
@@ -23,6 +26,7 @@ export async function POST(req: Request) {
       nextCursor,
     });
   } catch (error) {
+    console.error('API Error:', error); // 디버깅용 로그
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 },
