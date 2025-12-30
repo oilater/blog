@@ -1,4 +1,4 @@
-import { title, wrapper } from './style.css';
+import { title } from './style.css';
 
 export default function FeedLayout({
   children,
@@ -6,7 +6,7 @@ export default function FeedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={wrapper}>
+    <div>
       <h1 className={title}>Feed</h1>
       {children}
     </div>

@@ -1,6 +1,6 @@
 import * as styles from './PostSkeleton.css';
 
-export default function PostSkeleton() {
+export function PostSkeleton() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
