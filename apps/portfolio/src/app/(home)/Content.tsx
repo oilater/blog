@@ -7,6 +7,7 @@ import { ContentData } from '../contents/articles/types';
 
 export const CONTENTS: ContentData[] = [
   {
+    id: 1,
     title: '포트폴리오 성능 분석',
     description: 'LCP와 성능 탭 점수 개선해보기',
     image: IMAGES.PERFORMANCE,
@@ -15,6 +16,7 @@ export const CONTENTS: ContentData[] = [
     tags: ['Lighthouse', 'Performance Tab', 'WebPageTest'],
   },
   {
+    id: 2,
     title: '인터렉션 시스템 Rally 만들기',
     description:
       '토스의 Rally 구조를 참고해 Interaction System 구현하기',
@@ -24,6 +26,7 @@ export const CONTENTS: ContentData[] = [
     tags: ['React', 'TypeScript', 'Emotion', 'GSAP'],
   },
   {
+    id: 3,
     title: 'Unity로 개발한 FIVA 이야기',
     description: '구스랩스에서 8개월 간 개발한 FIVA를 소개합니다.',
     image: IMAGES.FIVA,
@@ -32,6 +35,7 @@ export const CONTENTS: ContentData[] = [
     tags: ['Unity', 'C#', 'Firebase'],
   },
   {
+    id: 4,
     title: '[Recharts] 데이터 시각화하기',
     description: '공공 API 활용해 차트 만들어보기',
     image: IMAGES.MEDICAL_CHARTS,
@@ -40,6 +44,7 @@ export const CONTENTS: ContentData[] = [
     tags: ['React', 'Tanstack Query', 'Recharts', 'Emotion'],
   },
   {
+    id: 5,
     title: '바닐라 JS로 상태관리 해보기',
     description:
       'Observer, State 패턴을 사용해 데이터가 변하면 관련된 UI를 업데이트 해보자',
@@ -49,6 +54,7 @@ export const CONTENTS: ContentData[] = [
     tags: ['HTML5', 'CSS3', 'JavaScript'],
   },
   {
+    id: 6,
     title: '[홈트친구] 운동 앱을 만들어보자',
     description:
       'SwiftUI 배워서 앱 기획, 디자인, 개발 및 배포, 홍보까지 해보기',
@@ -68,7 +74,7 @@ export function Content() {
     >
       {CONTENTS.map((content) => (
         <Card
-          key={crypto.randomUUID()}
+          key={content.id}
           link={content.link}
           isInternal={content.isInternal}
         >
