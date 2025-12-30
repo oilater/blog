@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import { lazy, Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Button } from '#components/Button';
 import { ArrowDownIcon } from '#icons/ArrowDown';
 import type { ArticleData } from '../app/contents/articles/types';
@@ -23,18 +23,12 @@ function ArticleRoot({ header, content }: ArticleRootProps) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const ScrollProgressBar = lazy(() => import('./ScrollProgressBar'));
 
   return (
-    <>
-      <Suspense fallback={null}>
-        <ScrollProgressBar trigger=".article" />
-      </Suspense>
-      <article className={`${styles.articleRoot} article`}>
-        {header}
-        {content}
-      </article>
-    </>
+    <article className={`${styles.articleRoot} article`}>
+      {header}
+      {content}
+    </article>
   );
 }
 
