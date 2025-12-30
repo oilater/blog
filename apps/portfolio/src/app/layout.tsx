@@ -4,7 +4,6 @@ import Script from 'next/script';
 import { FloatingNav } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
 import { NavItem } from '#components/NavItem';
-import { QueryProvider } from '#components/QueryProvider';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
 import { vars } from '#tokens/theme.css';
@@ -102,18 +101,16 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <QueryProvider>
-            <FloatingNav>
-              {BlogConfig.menu.map((link) => (
-                <NavItem
-                  key={link.label}
-                  href={link.path}
-                  label={link.label}
-                />
-              ))}
-            </FloatingNav>
-            <LayoutWrapper>{children}</LayoutWrapper>
-          </QueryProvider>
+          <FloatingNav>
+            {BlogConfig.menu.map((link) => (
+              <NavItem
+                key={link.label}
+                href={link.path}
+                label={link.label}
+              />
+            ))}
+          </FloatingNav>
+          <LayoutWrapper>{children}</LayoutWrapper>
         </ThemeProvider>
         <Analytics />
         {GA_MEASUREMENT_ID && (

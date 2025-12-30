@@ -14,7 +14,7 @@ export function useInfinitePostQuery({
   username = 'oilater',
 }: QueryProps) {
   return useInfiniteQuery<QueryResponse>({
-    queryKey: ['posts', username],
+    queryKey: ['posts'],
     queryFn: async ({ pageParam }) => {
       const response = await fetch('/api/posts', {
         method: 'POST',
