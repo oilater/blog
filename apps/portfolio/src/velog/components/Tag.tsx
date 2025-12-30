@@ -1,4 +1,4 @@
-import * as styles from './Tag.css';
+import * as styles from './List.css';
 
 type TagProps = {
   tags: string[];

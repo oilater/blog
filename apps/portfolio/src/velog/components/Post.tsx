@@ -1,4 +1,4 @@
-import * as styles from './Post.css';
+import * as styles from './Detail.css';
 
 export function Post({ children }: { children: React.ReactNode }) {
   return <div className={styles.wrapper}>{children}</div>;

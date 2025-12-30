@@ -1,5 +1,5 @@
+import { githubIcon } from '#styles/layout.css';
 import { vars } from '#tokens/theme.css';
-import { githubIcon } from './GithubIcon.css';
 
 export function GithubIcon() {
   return (

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PostType } from '../types';
 import { getRelativeDays } from '../utils/day';
-import * as styles from './ListRow.css';
+import * as styles from './List.css';
 import { Tag } from './Tag';
 
 type ListRowProps = {

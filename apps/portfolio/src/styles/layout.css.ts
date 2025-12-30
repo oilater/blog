@@ -53,3 +53,31 @@ export const linkItem = style({
     },
   },
 });
+
+export const footer = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '24px',
+  paddingBottom: '24px',
+});
+
+export const githubIcon = style({
+  width: '36px',
+  height: '36px',
+  display: 'block',
+  transition: 'transform 0.3s ease-in-out',
+  ':hover': {
+    transform: 'scale(1.2)',
+  },
+});
+
+export const velogIcon = style({
+  width: '30px',
+  height: '30px',
+  display: 'block',
+  transition: 'transform 0.3s ease-in-out',
+  ':hover': {
+    transform: 'scale(1.2)',
+  },
+});

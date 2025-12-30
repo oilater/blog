@@ -43,3 +43,22 @@ export const cardDate = style({
   color: '#868e96',
   fontWeight: '400',
 });
+
+export const tags = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '8px',
+  marginBottom: '16px',
+});
+
+export const tag = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: vars.themeColor.colors.tagBackground,
+  color: vars.themeColor.colors.tagItemColor,
+  fontSize: '14px',
+  fontWeight: '500',
+  padding: '6px 13px',
+  borderRadius: '14px',
+});

@@ -6,8 +6,9 @@
     "paths": {
       "#components/*": ["src/components/*"],
       "#icons/*": ["src/icons/*"],
-      "#constants/*": ["src/constants/*"],
+      "#styles/*": ["src/styles/*"],
       "#tokens/*": ["src/tokens/*"],
+      "#constants/*": ["src/constants/*"],
       "#providers/*": ["src/providers/*"],
       "#libs/*": ["src/libs/*"],
       "#animations/*": ["src/animations/*"],

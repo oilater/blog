@@ -1,5 +1,5 @@
+import { velogIcon } from '#styles/layout.css';
 import { vars } from '#tokens/theme.css';
-import { velogIcon } from './VelogIcon.css';
 
 export function VelogIcon() {
   return (
