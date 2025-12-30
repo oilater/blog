@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries } from '#tokens/breakpoints.css';
-import { vars } from '#tokens/theme.css';
+import { mediaQueries, vars } from '#tokens/theme.css';
 
 export const introduceWrapper = style({
   width: '100%',
