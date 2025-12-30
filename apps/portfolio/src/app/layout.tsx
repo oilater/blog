@@ -94,7 +94,11 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <style data-critical>{criticalCSS}</style>
-        <link rel="dns-prefetch" href="https://v2.velog.io" />
+        <link
+          rel="preconnect"
+          href="https://v2.velog.io"
+          crossOrigin=""
+        />
       </head>
       <body>
         <ThemeProvider>
