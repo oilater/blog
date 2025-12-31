@@ -17,10 +17,16 @@ export default async function Feed() {
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['posts'],
-    queryFn: () => getPosts({}),
+    queryFn: async () => {
+      const posts = await getPosts({ username: 'oilater' });
+      return {
+        posts,
+        nextCursor:
+          posts.length === 10 ? posts[posts.length - 1].id : null,
+      };
+    },
     initialPageParam: undefined,
   });
-
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <FeedList />
