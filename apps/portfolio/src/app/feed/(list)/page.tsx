@@ -3,6 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
+import { getPosts } from '#libs/velog/getPosts';
 import { FeedList } from './FeedList';
 
 export default async function Feed() {
@@ -16,12 +17,7 @@ export default async function Feed() {
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['posts'],
-    queryFn: () =>
-      fetch('/api/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}),
-      }),
+    queryFn: () => getPosts({}),
     initialPageParam: undefined,
   });
 
