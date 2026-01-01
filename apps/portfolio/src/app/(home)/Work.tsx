@@ -1,9 +1,9 @@
+import { ContentType } from '#/articles/types';
 import { Section } from '#components/Section';
 import { workSection } from '#components/styles/Section.css';
 import { WideCard } from '#components/WideCard';
-import { ContentData } from '../contents/articles/types';
 
-export const article: ContentData = {
+export const article: ContentType = {
   id: 1,
   title: '커스텀 Velog를 만들어보자 📝',
   subTitle: '최근 포스트',

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../../tokens/theme.css';
+import { vars } from '#/tokens/theme.css';
 
 export const section = style({
   marginBottom: '4rem',
