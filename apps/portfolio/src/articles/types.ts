@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export type ContentData = {
+export type ContentType = {
   id: number;
   subTitle?: string;
   title: string;
@@ -11,7 +11,7 @@ export type ContentData = {
   tags?: string[];
 };
 
-export type ArticleData = {
+export type ArticleType = {
   title: string;
   date: string;
   imageUrl: string;

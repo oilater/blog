@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ContentType } from '#/articles/types';
 import { getBlurDataURL } from '#libs/getBlurDataURL';
-import { ContentData } from '../app/contents/articles/types';
 import * as styles from './styles/WideCard.css';
 
-export async function WideCard({ value }: { value: ContentData }) {
+export async function WideCard({ value }: { value: ContentType }) {
   const blurURL = await getBlurDataURL(value.image);
   return (
     <Link

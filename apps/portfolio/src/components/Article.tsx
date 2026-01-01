@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import type { ArticleData } from '../app/contents/articles/types';
+import type { ArticleType } from '#/articles/types';
 import * as styles from './styles/Article.css';
 
 type ArticleRootProps = {
@@ -61,7 +61,7 @@ export const Article = {
   Content: ArticleContent,
 };
 
-export function createArticle(article: ArticleData) {
+export function createArticle(article: ArticleType) {
   if (!article) return null;
 
   return (

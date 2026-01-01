@@ -1,10 +1,10 @@
+import { FivaArticle } from '#/articles/FivaArticle';
+import { PortfolioArticle } from '#/articles/PortfolioArticle';
+import { ArticleType } from '#/articles/types';
 import { createArticle } from '#components/Article';
 import { IMAGES } from '#constants/images';
-import { FivaArticle } from '../articles/FivaArticle';
-import { PortfolioArticle } from '../articles/PortfolioArticle';
-import { ArticleData } from '../articles/types';
 
-const contents: Record<string, ArticleData> = {
+const contents: Record<string, ArticleType> = {
   'rally-portfolio': {
     title: '인터렉션 시스템 Rally 만들기',
     date: '2025-06-30',

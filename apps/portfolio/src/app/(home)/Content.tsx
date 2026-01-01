@@ -1,11 +1,11 @@
+import { ContentType } from '#/articles/types';
 import { Card } from '#components/Card';
 import { Section } from '#components/Section';
 import { contentSection } from '#components/styles/Section.css';
 import { Tag } from '#components/Tag';
 import { IMAGES } from '#constants/images';
-import { ContentData } from '../contents/articles/types';
 
-export const CONTENTS: ContentData[] = [
+export const CONTENTS: ContentType[] = [
   {
     id: 1,
     title: '포트폴리오 성능 분석',
