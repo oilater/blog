@@ -52,6 +52,7 @@ async function CardImage({ image }: CardImageProps) {
         fill
         sizes="(max-width: 768px) 100vw, 305px"
         loading="lazy"
+        fetchPriority="low"
       />
     </div>
   );

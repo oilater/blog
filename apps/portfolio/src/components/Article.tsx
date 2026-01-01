@@ -60,6 +60,7 @@ function ArticleHeader({
           fill
           sizes="100vw"
           loading="lazy"
+          fetchPriority="low"
         />
         <div className={styles.imageGradient} />
       </div>

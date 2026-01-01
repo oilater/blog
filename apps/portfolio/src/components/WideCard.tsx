@@ -23,6 +23,7 @@ export async function WideCard({ value }: { value: ContentData }) {
           fill
           sizes="(max-width: 768px) 100vw, 400px"
           loading="lazy"
+          fetchPriority="low"
         />
       </div>
       <div className={styles.cardContent}>
