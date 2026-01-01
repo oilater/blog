@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { getBlurDataURL } from '#libs/getBlurDataUrl';
+import { getBlurDataURL } from '#libs/getBlurDataURL';
 import * as styles from './styles/Card.css';
 
 type CardProps = {

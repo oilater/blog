@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getBlurDataURL } from '#libs/getBlurDataUrl';
+import { getBlurDataURL } from '#libs/getBlurDataURL';
 import { ContentData } from '../app/contents/articles/types';
 import * as styles from './styles/WideCard.css';
 
