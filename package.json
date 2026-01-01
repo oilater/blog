@@ -6,7 +6,9 @@
     "dev": "turbo run dev",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "clean": "rm -rf .turbo .next node_modules apps/*/.turbo apps/*/.next apps/*/node_modules packages/*/.turbo packages/*/.next packages/*/node_modules pnpm-lock.yaml",
+    "build:clean": "pnpm clean && pnpm install && pnpm build"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.8",
