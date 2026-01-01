@@ -1,7 +1,7 @@
 import Link from 'next/link';
+import { footer } from '#/app/layout.css';
 import { GithubIcon } from '#icons/Github';
 import { VelogIcon } from '#icons/Velog';
-import { footer } from '#styles/layout.css';
 
 export function Footer() {
   return (

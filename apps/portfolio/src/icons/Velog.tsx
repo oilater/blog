@@ -1,4 +1,4 @@
-import { velogIcon } from '#styles/layout.css';
+import { velogIcon } from '#/app/layout.css';
 import { vars } from '#tokens/theme.css';
 
 export function VelogIcon() {

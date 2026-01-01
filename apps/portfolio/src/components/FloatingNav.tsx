@@ -1,6 +1,6 @@
+import { header, innerNav } from '#/app/layout.css';
 import { ThemeSwitch } from '#components/ThemeSwitch';
 import { BlogConfig } from '#constants/config';
-import { header, innerNav } from '#styles/layout.css';
 import { NavItem } from './NavItem';
 
 export function FloatingNav() {

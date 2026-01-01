@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { linkItem } from '#styles/layout.css';
+import { linkItem } from '#/app/layout.css';
 
 type NavItemProps = {
   href: string;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { useInfiniteScroll } from 'src/hooks/useInfiniteScroll';
+import { useInfiniteScroll } from '#/hooks/useInfiniteScroll';
 import { ListRow } from '#velog/components/ListRow';
 import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
 import { ListSkeleton } from '#velog/skeletons/ListSkeleton';

@@ -2,7 +2,7 @@
 
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import { playIntroAnimation } from 'src/animations/intro';
+import { playIntroAnimation } from '#/animations/intro';
 import {
   baseTitle,
   title,
