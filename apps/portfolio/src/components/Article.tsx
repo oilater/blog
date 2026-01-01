@@ -1,10 +1,5 @@
-'use client';
-
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import { useEffect } from 'react';
-import { Button } from '#components/Button';
-import { ArrowDownIcon } from '#icons/ArrowDown';
 import type { ArticleData } from '../app/contents/articles/types';
 import * as styles from './styles/Article.css';
 
@@ -20,10 +15,6 @@ type ArticleHeaderProps = {
 };
 
 function ArticleRoot({ header, content }: ArticleRootProps) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <article className={`${styles.articleRoot} article`}>
       {header}
@@ -37,13 +28,6 @@ function ArticleHeader({
   date,
   imageUrl,
 }: ArticleHeaderProps) {
-  const onScrollDown = () => {
-    window.scrollTo({
-      top: window.innerHeight - 100,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <div className={styles.articleHeader}>
       <div className={styles.articleHeaderTitleSection}>
@@ -59,17 +43,10 @@ function ArticleHeader({
           className={styles.articleHeaderImage}
           fill
           sizes="100vw"
-          loading="lazy"
-          fetchPriority="low"
+          priority
         />
         <div className={styles.imageGradient} />
       </div>
-      <Button
-        className={styles.scrollDownButton}
-        onClick={onScrollDown}
-      >
-        <ArrowDownIcon />
-      </Button>
     </div>
   );
 }

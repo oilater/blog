@@ -1,6 +1,3 @@
-'use client';
-
-import { use } from 'react';
 import { createArticle } from '#components/Article';
 import { IMAGES } from '#constants/images';
 import { FivaArticle } from '../articles/FivaArticle';
@@ -22,13 +19,14 @@ const contents: Record<string, ArticleData> = {
   },
 };
 
-export default function Article({
+export default async function Article({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = use(params);
+  const { id } = await params;
   const article = contents[id];
+
   if (!article) return null;
 
   return createArticle(article);

@@ -6,18 +6,18 @@ export const articleRoot = style({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: '20px',
+  gap: 20,
   color: vars.themeColor.colors.cardTitleFontColor,
 });
 
 export const articleHeader = style({
   width: '100%',
   position: 'relative',
-  height: 'calc(-100px + 100vh)',
+  height: 'calc(-200px + 100vh)',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  marginBottom: '120px',
+  marginBottom: 120,
   color: '#fff',
 });
 
@@ -30,14 +30,14 @@ export const articleHeaderTitleSection = style({
 
 export const articleHeaderTitle = style({
   fontSize: 'calc(1rem + 2vw)',
-  fontWeight: '600',
-  lineHeight: '1.4',
-  marginBottom: '20px',
+  fontWeight: 600,
+  lineHeight: 1.4,
+  marginBottom: 20,
 });
 
 export const articleHeaderDate = style({
-  fontSize: '18px',
-  fontWeight: '400',
+  fontSize: 18,
+  fontWeight: 400,
 });
 
 export const imageContainer = style({
@@ -71,33 +71,13 @@ export const articleContent = style({
   height: '100%',
   fontSize: '20px',
   whiteSpace: 'pre-wrap',
-  lineHeight: '1.68',
+  lineHeight: 1.68,
   marginBottom: '10rem',
   '@media': {
     [mediaQueries.mobile]: {
       padding: '0 16px',
-      fontSize: '18px',
+      fontSize: 18,
     },
-  },
-});
-
-export const scrollDownButton = style({
-  position: 'absolute',
-  bottom: '40px',
-  width: '50px',
-  height: '50px',
-  borderRadius: '50%',
-  background: 'rgba(255, 255, 255, 0.15)',
-  color: '#fff',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer',
-  transition: 'all 0.3s ease-out',
-  zIndex: 3,
-  ':hover': {
-    background: 'rgba(255, 255, 255, 0.2)',
-    transform: 'scale(1.05)',
   },
 });
 
@@ -107,7 +87,7 @@ export const button = style({
   justifyContent: 'center',
   color: '#C3C3C6',
   fontSize: '1.2rem',
-  fontWeight: '500',
+  fontWeight: 500,
   background: 'none',
   border: 'none',
   cursor: 'pointer',
