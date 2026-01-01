@@ -19,7 +19,7 @@ export function useInfinitePostQuery({
       const response = await fetch('/api/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cursor: pageParam, username }),
+        body: JSON.stringify({ cursor: pageParam ?? null, username }),
       });
       return response.json();
     },

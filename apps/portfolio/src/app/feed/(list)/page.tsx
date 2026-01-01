@@ -19,10 +19,10 @@ export default async function Feed() {
     queryKey: ['posts'],
     queryFn: async () => {
       const posts = await getPosts({ username: 'oilater' });
+      const nextCursor = posts.length >= 10 ? posts.at(-1).id : null;
       return {
         posts,
-        nextCursor:
-          posts.length === 10 ? posts[posts.length - 1].id : null,
+        nextCursor,
       };
     },
     initialPageParam: undefined,
