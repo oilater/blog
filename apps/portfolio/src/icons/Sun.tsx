@@ -7,8 +7,20 @@ export default function Sun() {
       style={{
         width: '20px',
         height: '20px',
+        transform: 'translateY(1px)',
+        animation: 'fadeIn 0.2s ease-in forwards',
       }}
     >
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
       <title>Sun Icon</title>
       <path
         fillRule="evenodd"

@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { FloatingNav } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
-import { NavItem } from '#components/NavItem';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
 import { vars } from '#tokens/theme.css';
@@ -101,15 +100,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <FloatingNav>
-            {BlogConfig.menu.map((link) => (
-              <NavItem
-                key={link.label}
-                href={link.path}
-                label={link.label}
-              />
-            ))}
-          </FloatingNav>
+          <FloatingNav />
           <LayoutWrapper>{children}</LayoutWrapper>
         </ThemeProvider>
         <Analytics />

@@ -12,10 +12,10 @@ const THEME = {
 
 export function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [isMount, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
   const onChangeTheme = () => {
@@ -23,10 +23,10 @@ export function ThemeSwitch() {
     setTheme(currentTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT);
   };
 
-  if (!mounted) {
+  if (!isMount) {
     return (
-      <button>
-        <Moon />
+      <button type="button" aria-label="Fallback UI">
+        <div style={{ width: 20, height: 20 }} />
       </button>
     );
   }

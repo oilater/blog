@@ -3,68 +3,49 @@ import { vars } from '#tokens/theme.css';
 
 export const header = style({
   zIndex: 100,
+  height: 46,
   backgroundColor: 'rgba(232, 243, 255, 0.5)',
   backdropFilter: 'blur(5px)',
-  borderRadius: '32px',
+  borderRadius: 20,
   position: 'fixed',
-  top: '20px',
+  top: 20,
   left: '50%',
   transform: 'translateX(-50%)',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '50px',
   padding: '10px 24px 10px 24px',
-  transition: 'opacity 0.3s ease-in-out',
-  selectors: {
-    'body.active-border &': {
-      borderBottom: `1px solid ${vars.colors.grey300}`,
-    },
-  },
 });
 
 export const innerNav = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '24px',
+  gap: 24,
 });
 
 export const linkItem = style({
-  fontSize: '17px',
-  fontWeight: '500',
-  color: vars.themeColor.colors.subFontColor,
-  cursor: 'pointer',
-  transition: 'all 0.4s ease',
+  fontSize: 16,
+  fontWeight: 500,
+  color: vars.themeColor.colors.titleFontColor,
   padding: '6px 6px',
-  borderRadius: '20px',
+  borderRadius: 20,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  willChange: 'color',
-  msTransition: 'all 0.1s ease-in',
-  ':hover': {
-    color: vars.themeColor.colors.titleFontColor,
-  },
-
-  selectors: {
-    '&.active': {
-      color: vars.themeColor.colors.titleFontColor,
-    },
-  },
 });
 
 export const footer = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '24px',
-  paddingBottom: '24px',
+  gap: 24,
+  paddingBottom: 24,
 });
 
 export const githubIcon = style({
-  width: '36px',
-  height: '36px',
+  width: 36,
+  height: 36,
   display: 'block',
   transition: 'transform 0.3s ease-in-out',
   ':hover': {
@@ -73,8 +54,8 @@ export const githubIcon = style({
 });
 
 export const velogIcon = style({
-  width: '30px',
-  height: '30px',
+  width: 30,
+  height: 30,
   display: 'block',
   transition: 'transform 0.3s ease-in-out',
   ':hover': {

@@ -7,8 +7,19 @@ export default function Moon() {
       style={{
         width: '20px',
         height: '20px',
+        animation: 'fadeIn 0.2s ease-in forwards',
       }}
     >
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
       <title>Moon Icon</title>
       <path
         suppressHydrationWarning
