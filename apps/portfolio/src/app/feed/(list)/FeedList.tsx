@@ -9,7 +9,7 @@ import { listWrapper, observeContainer } from './style.css';
 
 export function FeedList() {
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfinitePostQuery({ username: 'oilater' });
+    useInfinitePostQuery({});
 
   const handleIntersect = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) {
