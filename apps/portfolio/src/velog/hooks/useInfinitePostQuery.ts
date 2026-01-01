@@ -19,10 +19,9 @@ export function useInfinitePostQuery({
     queryFn: async ({ pageParam }) => {
       return getPostsClient({
         username,
-        cursor: (pageParam as string | null) ?? null
+        cursor: (pageParam as string | null) ?? null,
       });
     },
-    staleTime: 1000 * 60 * 60 * 3,
     initialPageParam: undefined,
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
   });
