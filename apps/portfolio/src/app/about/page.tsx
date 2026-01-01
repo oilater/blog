@@ -83,6 +83,7 @@ export default function About() {
               <video
                 className={styles.videoElement}
                 controls
+                playsInline
                 preload="metadata"
               >
                 <track
@@ -92,8 +93,9 @@ export default function About() {
                   label="track"
                   default
                 />
+                <source src="/videos/jazz.webm" type="video/webm" />
                 <source src="/videos/jazz.mp4" type="video/mp4" />
-                비디오를 재생할 수 없습니다.
+                <p>비디오를 재생할 수 없습니다.</p>
               </video>
             </div>
           </div>
