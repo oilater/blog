@@ -6,7 +6,6 @@ type InfoCardProps = {
   title: string;
   description: string;
   image: string;
-  onClick?: () => void;
   isHighPriority?: boolean;
 };
 
@@ -14,12 +13,11 @@ export async function InfoCard({
   title,
   description,
   image,
-  onClick,
   isHighPriority,
 }: InfoCardProps) {
   const blurURL = await getBlurDataURL(image);
   return (
-    <button className={styles.card} onClick={onClick}>
+    <div className={styles.card}>
       <div className={styles.cardImageWrapper}>
         <Image
           src={image}
@@ -27,7 +25,7 @@ export async function InfoCard({
           className={styles.cardImage}
           placeholder="blur"
           blurDataURL={blurURL}
-          fetchPriority={isHighPriority ? 'high' : 'auto'}
+          priority={isHighPriority}
           loading="eager"
           fill
           sizes="(max-width: 768px) 100vw, 304px"
@@ -37,6 +35,6 @@ export async function InfoCard({
         <p className={styles.cardTitle}>{title}</p>
         <p className={styles.cardDescription}>{description}</p>
       </div>
-    </button>
+    </div>
   );
 }
