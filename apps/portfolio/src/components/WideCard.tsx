@@ -15,7 +15,6 @@ export function WideCard({ value }: { value: ContentData }) {
         <Image
           src={value.image}
           alt={value.title}
-          placeholder="blur"
           className={styles.cardImage}
           fill
           sizes="(max-width: 768px) 100vw, 400px"

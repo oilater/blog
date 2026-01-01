@@ -56,7 +56,6 @@ function ArticleHeader({
         <Image
           src={imageUrl}
           alt={`${title} 이미지`}
-          placeholder="blur"
           className={styles.articleHeaderImage}
           fill
           sizes="100vw"

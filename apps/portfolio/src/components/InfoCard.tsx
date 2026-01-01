@@ -22,7 +22,6 @@ export function InfoCard({
         <Image
           src={image}
           alt={title}
-          placeholder="blur"
           className={styles.cardImage}
           fetchPriority={isHighPriority ? 'high' : 'auto'}
           fill
