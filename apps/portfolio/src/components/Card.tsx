@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { getBlurDataURL } from '#libs/getBlurDataUrl';
 import * as styles from './styles/Card.css';
 
 type CardProps = {
@@ -37,12 +38,16 @@ export function Card({ link, isInternal, children }: CardProps) {
   );
 }
 
-function CardImage({ image }: CardImageProps) {
+async function CardImage({ image }: CardImageProps) {
+  const blurURL = await getBlurDataURL(image);
+
   return (
     <div className={styles.cardImageWrapper}>
       <Image
         src={image}
         alt="content"
+        placeholder="blur"
+        blurDataURL={blurURL}
         className={styles.cardImage}
         fill
         sizes="(max-width: 768px) 100vw, 305px"

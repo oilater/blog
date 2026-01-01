@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getBlurDataURL } from '#libs/getBlurDataUrl';
 import * as styles from './styles/InfoCard.css';
 
 type InfoCardProps = {
@@ -9,13 +10,14 @@ type InfoCardProps = {
   isHighPriority?: boolean;
 };
 
-export function InfoCard({
+export async function InfoCard({
   title,
   description,
   image,
   onClick,
   isHighPriority,
 }: InfoCardProps) {
+  const blurURL = await getBlurDataURL(image);
   return (
     <button className={styles.card} onClick={onClick}>
       <div className={styles.cardImageWrapper}>
@@ -23,6 +25,8 @@ export function InfoCard({
           src={image}
           alt={title}
           className={styles.cardImage}
+          placeholder="blur"
+          blurDataURL={blurURL}
           fetchPriority={isHighPriority ? 'high' : 'auto'}
           fill
           sizes="(max-width: 768px) 100vw, 304px"
