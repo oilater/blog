@@ -28,6 +28,7 @@ export async function InfoCard({
           placeholder="blur"
           blurDataURL={blurURL}
           fetchPriority={isHighPriority ? 'high' : 'auto'}
+          loading="eager"
           fill
           sizes="(max-width: 768px) 100vw, 304px"
         />
