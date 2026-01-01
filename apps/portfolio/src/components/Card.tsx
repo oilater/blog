@@ -43,6 +43,7 @@ function CardImage({ image }: CardImageProps) {
       <Image
         src={image}
         alt="content"
+        placeholder="blur"
         className={styles.cardImage}
         fill
         sizes="(max-width: 768px) 100vw, 305px"
