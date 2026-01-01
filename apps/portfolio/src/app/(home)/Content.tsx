@@ -8,8 +8,8 @@ import { IMAGES } from '#constants/images';
 export const CONTENTS: ContentType[] = [
   {
     id: 1,
-    title: '포트폴리오 성능 분석',
-    description: 'LCP와 성능 탭 점수 개선해보기',
+    title: '성능 분석에 관심을 갖게 된 계기',
+    description: 'Progressive Enhancement 적용하기',
     image: IMAGES.PERFORMANCE,
     link: 'https://velog.io/@oilater/portfolio-performance',
     isInternal: false,
@@ -17,9 +17,8 @@ export const CONTENTS: ContentType[] = [
   },
   {
     id: 2,
-    title: '인터렉션 시스템 Rally 만들기',
-    description:
-      '토스의 Rally 구조를 참고해 Interaction System 구현하기',
+    title: '인터렉션 시스템 Rally',
+    description: 'Interaction 시스템 구현하기',
     image: IMAGES.PORTFOLIO,
     link: '/contents/rally-portfolio',
     isInternal: true,
@@ -28,7 +27,7 @@ export const CONTENTS: ContentType[] = [
   {
     id: 3,
     title: 'Unity로 개발한 FIVA 이야기',
-    description: '구스랩스에서 8개월 간 개발한 FIVA를 소개합니다.',
+    description: '구스랩스에서 개발한 FIVA를 소개합니다.',
     image: IMAGES.FIVA,
     link: '/contents/fiva',
     isInternal: true,
@@ -55,9 +54,8 @@ export const CONTENTS: ContentType[] = [
   },
   {
     id: 6,
-    title: '[홈트친구] 운동 앱을 만들어보자',
-    description:
-      'SwiftUI 배워서 앱 기획, 디자인, 개발 및 배포, 홍보까지 해보기',
+    title: '내가 쓰려고 만든 "홈트친구"',
+    description: 'SwiftUI로 만든 앱',
     image: IMAGES.HOMET_FRIEND,
     link: 'https://github.com/oilater/HomeTraining-Friend',
     isInternal: false,

@@ -16,16 +16,12 @@ export function Section({
 }: SectionProps) {
   return (
     <div className={wrapper}>
-      <hr className={`topHr ${hr}`} />
-      <Top>
-        <span className="topTitle">{title}</span>
-      </Top>
-      <div className={`mainDescription ${mainDescription}`}>
+      <hr className={hr} />
+      <Top>{title}</Top>
+      <div className={mainDescription}>
         <p>{description}</p>
       </div>
-      <div className={`contentSection ${props.className || ''}`}>
-        {children}
-      </div>
+      <div className={props.className}>{children}</div>
     </div>
   );
 }

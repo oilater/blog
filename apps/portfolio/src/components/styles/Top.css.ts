@@ -11,7 +11,7 @@ export const paragraphStyle = style({
   justifyContent: 'flex-start',
   width: '100%',
   height: '100%',
-  fontSize: '34px',
-  fontWeight: '700',
+  fontSize: 28,
+  fontWeight: 700,
   color: vars.themeColor.colors.mainFontColor,
 });

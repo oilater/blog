@@ -5,18 +5,17 @@ import { WideCard } from '#components/WideCard';
 
 export const article: ContentType = {
   id: 1,
-  title: '커스텀 Velog를 만들어보자 📝',
-  subTitle: '최근 포스트',
-  description: '포트폴리오에 Velog를 띄워보았어요',
+  title: 'Feed 페이지 LCP 2초 줄이기 📉',
+  description: '웹 포폴 성능 개선기',
   image: '/images/velog.avif',
-  link: 'https://velog.io/@oilater/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EC%97%90-Velog-%EA%B8%80%EC%9D%84-%EB%9D%84%EC%9B%8C%EB%B3%B4%EC%9E%90',
+  link: 'https://velog.io/@oilater/%EB%B8%94%EB%A1%9C%EA%B7%B8-Feed-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0-2-LCP-60-%EB%82%AE%EC%B6%94%EA%B8%B0',
   isInternal: false,
 };
 
-export function Work() {
+export function Recent() {
   return (
     <Section
-      title="Article"
+      title="Recent"
       description="최근 개발 경험을 공유해요."
       className={workSection}
     >

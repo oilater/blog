@@ -27,13 +27,9 @@ export async function WideCard({ value }: { value: ContentType }) {
         />
       </div>
       <div className={styles.cardContent}>
-        <span className={`${styles.categoryText}`}>
-          {value.subTitle}
-        </span>
-        <h3 className={`${styles.cardTitle}`}>{value.title}</h3>
-        <p className={`${styles.cardDescription}`}>
-          {value.description}
-        </p>
+        <span className={styles.categoryText}>{value.subTitle}</span>
+        <h3 className={styles.cardTitle}>{value.title}</h3>
+        <p className={styles.cardDescription}>{value.description}</p>
       </div>
     </Link>
   );

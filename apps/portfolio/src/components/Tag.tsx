@@ -27,8 +27,9 @@ export function Tag({ text }: TagProps) {
 }
 
 const getTagColor = (theme: string | undefined, text: string) => {
-  if (!theme || theme === 'dark')
+  if (theme === 'dark') {
     return vars.themeColor.colors.tagItemColor;
+  }
 
   switch (text) {
     case 'React':

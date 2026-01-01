@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { Content } from './(home)/Content';
 import { Intro } from './(home)/Intro';
 import { Introduce } from './(home)/Introduce';
-import { Work } from './(home)/Work';
+import { Recent } from './(home)/Recent';
 
 const Education = dynamic(() =>
   import('./(home)/Education').then((module) => module.Education),
@@ -16,7 +16,7 @@ export default function Home() {
     <main>
       <Intro />
       <Introduce />
-      <Work />
+      <Recent />
       <Content />
       <Education />
       <Outro />

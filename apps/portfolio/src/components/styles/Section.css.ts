@@ -4,7 +4,7 @@ import { vars } from '#tokens/theme.css';
 export const wrapper = style({
   width: '100%',
   height: '100%',
-  paddingBottom: '6rem',
+  paddingBottom: 64,
 });
 
 export const contentSection = style({
@@ -20,11 +20,11 @@ export const workSection = style({
 });
 
 export const mainDescription = style({
-  fontSize: '18px',
+  fontSize: 16,
   fontWeight: '400',
   color: vars.themeColor.colors.contentFontColor,
   lineHeight: '1.65',
-  marginBottom: '3.5rem',
+  marginBottom: 40,
 });
 
 export const hr = style({
