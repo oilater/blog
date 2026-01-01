@@ -4,37 +4,43 @@ type GetPostsArgs = {
   limit?: number;
 };
 
-export async function getPosts({
-  username = 'oilater',
-  cursor,
-  limit = 10,
-}: GetPostsArgs) {
-  const query = `
-    query Posts($username: String!, $cursor: ID, $limit: Int) {
-      posts(username: $username, cursor: $cursor, limit: $limit) {
-        id
-        title
-        short_description
-        url_slug
-        tags
-        released_at
-      }
+const VELOG_GRAPHQL_QUERY = `
+  query Posts($username: String!, $cursor: ID, $limit: Int) {
+    posts(username: $username, cursor: $cursor, limit: $limit) {
+      id
+      title
+      short_description
+      url_slug
+      tags
+      released_at
     }
-  `;
+  }
+`;
 
-  const res = await fetch('https://v2.velog.io/graphql', {
+async function fetchVelogPosts(
+  url: string,
+  { username = 'oilater', cursor, limit = 10 }: GetPostsArgs,
+) {
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      query,
-      variables: {
-        username,
-        cursor,
-        limit,
-      },
+      query: VELOG_GRAPHQL_QUERY,
+      variables: { username, cursor, limit },
     }),
   });
 
   const data = await res.json();
   return data?.data?.posts ?? [];
+}
+
+export async function getPosts(args: GetPostsArgs) {
+  return fetchVelogPosts('https://v2.velog.io/graphql', args);
+}
+
+export async function getPostsClient(args: GetPostsArgs) {
+  const posts = await fetchVelogPosts('/api/velog/graphql', args);
+  const nextCursor =
+    posts.length === 10 ? posts[posts.length - 1]?.id : null;
+  return { posts, nextCursor };
 }

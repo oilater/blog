@@ -10,6 +10,14 @@ const withVanillaExtract = createVanillaExtractPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/api/velog/graphql',
+        destination: 'https://v2.velog.io/graphql',
+      },
+    ];
+  },
 };
 
 export default withBundleAnalyzer(withVanillaExtract(nextConfig));

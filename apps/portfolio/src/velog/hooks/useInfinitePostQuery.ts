@@ -1,4 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { getPostsClient } from '#libs/velog/getPosts';
 import { PostType } from '#velog/types';
 
 type QueryProps = {
@@ -16,12 +17,10 @@ export function useInfinitePostQuery({
   return useInfiniteQuery<QueryResponse>({
     queryKey: ['posts'],
     queryFn: async ({ pageParam }) => {
-      const response = await fetch('/api/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ cursor: pageParam ?? null, username }),
+      return getPostsClient({
+        username,
+        cursor: (pageParam as string | null) ?? null
       });
-      return response.json();
     },
     staleTime: 1000 * 60 * 60 * 3,
     initialPageParam: undefined,
