@@ -11,8 +11,6 @@ export const wideCard = style({
   '@media': {
     [mediaQueries.mobile]: {
       flexDirection: 'column',
-      height: 'auto',
-      minHeight: '400px',
     },
   },
 });
@@ -23,14 +21,6 @@ export const cardImageWrapper = style({
   aspectRatio: '7/5',
   borderRadius: '16px',
   overflow: 'hidden',
-  '@media': {
-    [mediaQueries.mobile]: {
-      width: '100%',
-      aspectRatio: '7/5',
-      position: 'relative',
-      borderRadius: '16px',
-    },
-  },
 });
 
 export const cardImage = style({
@@ -46,15 +36,6 @@ export const cardImage = style({
       transform: 'scale(1.05)',
     },
   },
-  '@media': {
-    [mediaQueries.mobile]: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-    },
-  },
 });
 
 export const cardContent = style({
@@ -62,14 +43,14 @@ export const cardContent = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  gap: '20px',
-  padding: '40px',
+  gap: 20,
+  padding: 40,
   boxSizing: 'border-box',
   '@media': {
     [mediaQueries.mobile]: {
       justifyContent: 'flex-start',
-      padding: '24px',
-      gap: '16px',
+      padding: 24,
+      gap: 16,
     },
   },
 });
@@ -79,7 +60,7 @@ export const categoryText = style({
   fontWeight: '500',
   color: vars.themeColor.colors.contentFontColor,
   margin: 0,
-  lineHeight: '1.2',
+  lineHeight: 1.2,
   transition: 'color 0.2s ease',
   '@media': {
     [mediaQueries.mobile]: {
@@ -93,7 +74,7 @@ export const cardTitle = style({
   fontWeight: '600',
   color: vars.themeColor.colors.mainFontColor,
   margin: 0,
-  lineHeight: '1.3',
+  lineHeight: 1.3,
   transition: 'color 0.2s ease',
   '@media': {
     [mediaQueries.mobile]: {
@@ -112,7 +93,7 @@ export const cardDescription = style({
   fontWeight: '400',
   color: vars.themeColor.colors.contentFontColor,
   margin: 0,
-  lineHeight: '1.6',
+  lineHeight: 1.6,
   transition: 'color 0.2s ease',
   '@media': {
     [mediaQueries.mobile]: {
