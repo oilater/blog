@@ -30,7 +30,7 @@ export default async function DetailPage({ params }: PageProps) {
       <Post.Title>{post.title}</Post.Title>
       <Post.Description>
         <span className={author}>김성현</span> ∙{' '}
-        <span className={postedAt}>
+        <span className={postedAt} suppressHydrationWarning>
           {getRelativeDays(post.released_at)}
         </span>
       </Post.Description>
