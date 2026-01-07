@@ -10,6 +10,18 @@ const withVanillaExtract = createVanillaExtractPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [720, 1080],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'velog.velcdn.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   async rewrites() {
     return [
       {

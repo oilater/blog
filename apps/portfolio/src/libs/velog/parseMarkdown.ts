@@ -18,7 +18,8 @@ export function parseMarkdown(
     renderer: {
       image({ href, title, text }) {
         const titleAttr = title ? ` title="${title}"` : '';
-        return `<img class="velog_image" src="${href}" alt="${text}"${titleAttr} />`;
+        const optimizedHref = `/_next/image?url=${encodeURIComponent(href)}&w=1080&q=75`;
+        return `<img class="velog_image" src="${optimizedHref}" alt="${text}"${titleAttr} loading="lazy" />`;
       },
 
       codespan({ text }) {
