@@ -70,7 +70,7 @@ export const categoryText = style({
 });
 
 export const cardTitle = style({
-  fontSize: '32px',
+  fontSize: '26px',
   fontWeight: '600',
   color: vars.themeColor.colors.mainFontColor,
   margin: 0,
