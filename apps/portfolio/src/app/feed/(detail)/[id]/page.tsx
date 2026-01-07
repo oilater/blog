@@ -13,10 +13,6 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
-export async function generateStaticParams() {
-  return [];
-}
-
 export default async function DetailPage({ params }: PageProps) {
   const { id } = await params;
   const post = await getPostBySlug({ slug: id });
