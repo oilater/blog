@@ -40,7 +40,8 @@ export const footer = style({
   justifyContent: 'center',
   alignItems: 'center',
   gap: 24,
-  paddingBottom: 24,
+  paddingTop: 42,
+  paddingBottom: 42,
 });
 
 export const githubIcon = style({

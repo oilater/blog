@@ -15,7 +15,7 @@ export const post = style({
 });
 
 export const postTitle = style({
-  fontSize: '48px',
+  fontSize: '38px',
   fontWeight: 'bold',
   marginBottom: '32px',
 });
