@@ -21,8 +21,9 @@ export const baseTitle = style({
   textAlign: 'center',
   whiteSpace: 'pre-line',
   wordBreak: 'break-all',
+  letterSpacing: '-0.01em',
   lineHeight: '1.3',
-  fontSize: '48px',
+  fontSize: '42px',
   '@media': {
     '(max-width: 480px)': {
       fontSize: '1.2rem',

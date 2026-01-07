@@ -10,29 +10,25 @@ export function Introduce() {
   return (
     <div className={introduceWrapper}>
       <div className={mainDescription}>
-        <p>React를 중심으로 웹 프론트엔드를 개발합니다.</p>
-        <p>UX/DX에 높은 가치를 두고 있습니다.</p>
+        <p>사용자 경험을 개선하며</p>
+        <p>더 좋은 서비스를 만듭니다.</p>
       </div>
 
       <div className={infoSection}>
         <InfoCard
-          title="모던 프론트엔드 개발"
-          description="자바스크립트의 동작 원리에 대해 관심이 많고, 
-            유연하게 재사용할 수 있는 컴포넌트를 만드는 것을 좋아합니다. 
-            배운 내용들은 블로그에 정리하고 있습니다."
+          title="Modern Frotend"
+          description="Next.js를 중심으로 개발하지만, 특정 프레임워크에 종속되지 않는 브라우저의 동작 원리와 웹 표준을 이해하고 있습니다."
           image={IMAGES.LANGUAGES}
           isHighPriority={true}
         />
         <InfoCard
-          title="웹 성능과 사용자 경험"
-          description="인터렉션 시스템을 개발하면서 웹 성능에 관심을 가지게 되었습니다. 
-            성능 측정 도구를 통해 LCP를 개선하며 Progressive Enhancement 원칙을 적용해 개선하고 있습니다."
+          title="Performance"
+          description="성능 개선의 원리를 바탕으로 다양한 웹 성능 개선 경험을 쌓고 있습니다."
           image={IMAGES.PERFORMANCE}
         />
         <InfoCard
-          title="커뮤니케이션 및 협업"
-          description="Git Flow를 통한 협업 경험을 바탕으로 Git 이슈를 해결에 능숙합니다. 
-            슬랙, 노션, Jira 등 협업 도구를 사용해보았고, 코드리뷰 문화를 좋아합니다."
+          title="Co-working"
+          description="혼자보단 함께 성장하는 것을 좋아합니다."
           image={IMAGES.COMMUNICATION}
         />
       </div>
