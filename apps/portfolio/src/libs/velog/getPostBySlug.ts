@@ -26,6 +26,7 @@ export async function getPostBySlug({
   const res = await fetch('https://v2.velog.io/graphql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    cache: 'force-cache',
     body: JSON.stringify({
       query,
       variables: {

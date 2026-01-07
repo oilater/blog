@@ -24,6 +24,7 @@ async function fetchVelogPosts(
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    cache: 'force-cache',
     body: JSON.stringify({
       query: VELOG_GRAPHQL_QUERY,
       variables: { username, cursor, limit },
