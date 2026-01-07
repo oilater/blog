@@ -22,6 +22,7 @@ export function useInfinitePostQuery({
         cursor: (pageParam as string | null) ?? null,
       });
     },
+    staleTime: 60 * 1000,
     initialPageParam: undefined,
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
   });
