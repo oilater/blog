@@ -7,7 +7,13 @@ import { getPosts } from '#libs/velog/getPosts';
 import { FeedList } from './FeedList';
 
 export default async function Feed() {
-  const queryClient = new QueryClient({});
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+      },
+    },
+  });
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['posts'],
