@@ -11,9 +11,9 @@ const pulse = keyframes({
 });
 
 export const wrapper = style({
-  marginTop: '50px',
-  marginBottom: '90px',
-  maxWidth: '768px',
+  marginTop: 50,
+  marginBottom: 90,
+  maxWidth: 768,
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -23,7 +23,7 @@ export const wrapper = style({
 export const blogList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '40px',
+  gap: 40,
 });
 
 export const card = style({
@@ -38,23 +38,23 @@ export const cardTitle = style({
   width: '48%',
   height: '28px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
-  borderRadius: '8px',
-  animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
-  marginBottom: '36px',
+  borderRadius: 8,
+  animation: `${pulse} 1s ease-in-out infinite`,
+  marginBottom: 36,
 });
 
 export const descContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '8px',
+  gap: 8,
   justifyContent: 'space-between',
 });
 
 export const descLine = style({
-  height: '16px',
+  height: 16,
   backgroundColor: vars.themeColor.colors.skeletonColor,
-  borderRadius: '6px',
-  animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
+  borderRadius: 6,
+  animation: `${pulse} 1s ease-in-out infinite`,
 });
 
 export const descLineFull = style({ width: '93%' });
@@ -63,22 +63,22 @@ export const descLineShort = style({ width: '90%' });
 
 export const tagContainer = style({
   display: 'flex',
-  gap: '8px',
+  gap: 8,
 });
 
 export const tag = style({
-  height: '28px',
-  width: '62px',
+  height: 28,
+  width: 62,
   backgroundColor: vars.themeColor.colors.skeletonColor,
-  borderRadius: '16px',
-  animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
+  borderRadius: 16,
+  animation: `${pulse} 1s ease-in-out infinite`,
 });
 
 export const cardDate = style({
-  height: '18px',
-  width: '40px',
-  marginTop: '32px',
+  height: 18,
+  width: 40,
+  marginTop: 32,
   backgroundColor: vars.themeColor.colors.skeletonColor,
-  borderRadius: '6px',
-  animation: `${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`,
+  borderRadius: 6,
+  animation: `${pulse} 1s ease-in-out infinite`,
 });

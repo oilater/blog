@@ -1,5 +1,10 @@
-import { style } from '@vanilla-extract/css';
+import { keyframes, style } from '@vanilla-extract/css';
 import { vars } from '#tokens/theme.css';
+
+const pulse = keyframes({
+  '0% 100%': { opacity: 1 },
+  '50%': { opacity: 0.5 },
+});
 
 export const wrapper = style({
   margin: '0 auto',
@@ -22,7 +27,7 @@ export const title = style({
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '8px',
   marginBottom: '10px',
-  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  animation: `${pulse} 2s ease-in-out infinite`,
 });
 
 export const description = style({
@@ -30,7 +35,7 @@ export const description = style({
   height: '20px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '6px',
-  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  animation: `${pulse} 2s ease-in-out infinite`,
 });
 
 export const author = style({
@@ -38,7 +43,7 @@ export const author = style({
   height: '24px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '6px',
-  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  animation: `${pulse} 2s ease-in-out infinite`,
 });
 
 export const tags = style({
@@ -50,7 +55,27 @@ export const tags = style({
 export const tag = style({
   height: '32px',
   width: '75px',
+  marginBottom: 6,
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: '16px',
-  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  animation: `${pulse} 2s ease-in-out infinite`,
 });
+
+export const bodyContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '8px',
+  justifyContent: 'space-between',
+  marginBottom: 20,
+});
+
+export const bodyLine = style({
+  height: 20,
+  backgroundColor: vars.themeColor.colors.skeletonColor,
+  borderRadius: '6px',
+  animation: `${pulse} 1s ease-in-out infinite`,
+});
+
+export const bodyLineFull = style({ width: '93%' });
+export const bodyLineMedium = style({ width: '95%' });
+export const bodyLineShort = style({ width: '90%' });

@@ -12,6 +12,62 @@ export function PostSkeleton() {
           <div className={styles.tag}></div>
           <div className={styles.tag}></div>
         </div>
+        <div className={styles.bodyContainer}>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineFull}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          ></div>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineShort}`}
+          />
+        </div>
+        <div className={styles.bodyContainer}>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineFull}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          ></div>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineShort}`}
+          />
+        </div>
+        <div className={styles.bodyContainer}>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineFull}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          ></div>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineShort}`}
+          />
+        </div>
+        <div className={styles.bodyContainer}>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineFull}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          ></div>
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineMedium}`}
+          />
+          <div
+            className={`${styles.bodyLine} ${styles.bodyLineShort}`}
+          />
+        </div>
       </div>
     </div>
   );
