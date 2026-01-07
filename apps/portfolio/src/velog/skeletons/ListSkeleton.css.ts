@@ -6,9 +6,11 @@ const pulse = keyframes({
     opacity: 1,
   },
   '50%': {
-    opacity: 0.5,
+    opacity: 0.4,
   },
 });
+
+const animation = `${pulse} 0.8s ease-in-out infinite`;
 
 export const wrapper = style({
   marginTop: 50,
@@ -39,7 +41,7 @@ export const cardTitle = style({
   height: '28px',
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: 8,
-  animation: `${pulse} 1s ease-in-out infinite`,
+  animation: animation,
   marginBottom: 36,
 });
 
@@ -54,7 +56,7 @@ export const descLine = style({
   height: 16,
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: 6,
-  animation: `${pulse} 1s ease-in-out infinite`,
+  animation: animation,
 });
 
 export const descLineFull = style({ width: '93%' });
@@ -71,7 +73,7 @@ export const tag = style({
   width: 62,
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: 16,
-  animation: `${pulse} 1s ease-in-out infinite`,
+  animation: animation,
 });
 
 export const cardDate = style({
@@ -80,5 +82,5 @@ export const cardDate = style({
   marginTop: 32,
   backgroundColor: vars.themeColor.colors.skeletonColor,
   borderRadius: 6,
-  animation: `${pulse} 1s ease-in-out infinite`,
+  animation: animation,
 });

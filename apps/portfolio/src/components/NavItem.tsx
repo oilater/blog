@@ -9,7 +9,7 @@ type NavItemProps = {
 
 export function NavItem({ href, label }: NavItemProps) {
   return (
-    <Link href={href} prefetch={false} className={linkItem}>
+    <Link href={href} className={linkItem}>
       {label}
     </Link>
   );
