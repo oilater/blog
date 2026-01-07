@@ -19,6 +19,7 @@ export function FeedList() {
 
   const { observeRef } = useInfiniteScroll({
     onIntersect: handleIntersect,
+    isFetching: isFetchingNextPage,
     rootMargin: '200px',
   });
 

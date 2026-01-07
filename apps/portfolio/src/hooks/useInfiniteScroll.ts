@@ -2,13 +2,15 @@ import { useCallback, useEffect, useRef } from 'react';
 
 type UseInfiniteScrollProps = {
   onIntersect: () => void;
+  isFetching: boolean;
   rootMargin?: string;
   threshold?: number | number[];
 };
 
 export function useInfiniteScroll({
   onIntersect,
-  rootMargin = '600px',
+  rootMargin = '200px',
+  isFetching = false,
   threshold = 0.1,
 }: UseInfiniteScrollProps) {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -17,11 +19,11 @@ export function useInfiniteScroll({
     (entries: IntersectionObserverEntry[]) => {
       const [target] = entries;
 
-      if (target?.isIntersecting) {
+      if (target?.isIntersecting && !isFetching) {
         onIntersect();
       }
     },
-    [onIntersect],
+    [onIntersect, isFetching],
   );
 
   useEffect(() => {
