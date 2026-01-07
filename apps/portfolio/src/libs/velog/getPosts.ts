@@ -28,6 +28,7 @@ async function fetchVelogPosts(
       query: VELOG_GRAPHQL_QUERY,
       variables: { username, cursor, limit },
     }),
+    next: { revalidate: 60 * 60 },
   });
 
   const data = await res.json();
