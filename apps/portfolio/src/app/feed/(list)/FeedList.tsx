@@ -1,15 +1,26 @@
 'use client';
 
+import { InfiniteData } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useInfiniteScroll } from '#/hooks/useInfiniteScroll';
+import { PostType } from '#/velog/types';
 import { ListRow } from '#velog/components/ListRow';
 import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
 import { ListSkeleton } from '#velog/skeletons/ListSkeleton';
 import { listWrapper, observeContainer } from './style.css';
 
-export function FeedList() {
+type QueryResponse = {
+  posts: PostType[];
+  nextCursor: string | null;
+};
+
+type FeedListProps = {
+  initialData: InfiniteData<QueryResponse>;
+};
+
+export function FeedList({ initialData }: FeedListProps) {
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfinitePostQuery({});
+    useInfinitePostQuery({ initialData });
 
   const handleIntersect = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) {
