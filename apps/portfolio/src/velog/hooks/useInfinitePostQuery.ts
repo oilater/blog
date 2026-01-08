@@ -23,6 +23,7 @@ export function useInfinitePostQuery({
       });
     },
     staleTime: 60 * 1000,
+    gcTime: 1000 * 60 * 2,
     initialPageParam: undefined,
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
   });
