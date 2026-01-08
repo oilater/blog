@@ -26,7 +26,6 @@ export async function getPostBySlug({
   const res = await fetch('https://v2.velog.io/graphql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    cache: 'force-cache',
     body: JSON.stringify({
       query,
       variables: {
@@ -34,7 +33,7 @@ export async function getPostBySlug({
         slug: decodedSlug,
       },
     }),
-    next: { revalidate: 60 * 60 * 24 * 7 },
+    next: { revalidate: 60 * 10 },
   });
 
   if (!res.ok) return null;

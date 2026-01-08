@@ -24,12 +24,11 @@ async function fetchVelogPosts(
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    cache: 'force-cache',
     body: JSON.stringify({
       query: VELOG_GRAPHQL_QUERY,
       variables: { username, cursor, limit },
     }),
-    next: { revalidate: 60 * 60 },
+    next: { revalidate: 60 * 10 },
   });
 
   const data = await res.json();
