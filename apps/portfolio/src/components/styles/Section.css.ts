@@ -10,7 +10,7 @@ export const wrapper = style({
 export const contentSection = style({
   display: 'grid',
   gap: '54px 20px',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  gridTemplateColumns: 'repeat(3, 1fr)',
 });
 
 export const workSection = style({

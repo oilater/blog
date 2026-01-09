@@ -2,39 +2,37 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '#tokens/theme.css';
 
 export const card = style({
-  cursor: 'pointer',
-  paddingTop: '10px',
-  paddingBottom: '40px',
-  borderBottom: `0.2px solid ${vars.themeColor.colors.borderColor}`,
-});
-
-export const cardHeader = style({
-  marginBottom: '16px',
+  paddingTop: 10,
+  paddingBottom: 20,
 });
 
 export const cardTitle = style({
-  height: '75px',
-  fontSize: '24px',
-  fontWeight: '600',
-  color: vars.themeColor.colors.cardTitleFontColor,
-  lineHeight: '1.4',
+  paddingBottom: 20,
   display: 'flex',
   alignItems: 'center',
+  fontSize: 22,
+  fontWeight: 600,
+  color: vars.themeColor.colors.cardTitleFontColor,
+  selectors: {
+    [`${card}:hover &`]: {
+      color: vars.colors.blue700,
+    },
+  },
+  transition: 'color 0.2s ease-out',
 });
 
 export const cardDescription = style({
-  fontSize: '16px',
+  fontSize: 16,
   color: vars.themeColor.colors.contentFontColor,
-  lineHeight: '1.6',
-  margin: '8px 0 32px',
+  margin: '0 0 24px',
 });
 
 export const cardFooter = style({
-  paddingTop: '14px',
+  paddingTop: 4,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  fontSize: '14px',
+  fontSize: 14,
   color: vars.themeColor.colors.contentFontColor,
 });
 

@@ -14,7 +14,7 @@ export function ListRow({ post, link }: ListRowProps) {
 
   return (
     <Link className={styles.card} href={link} prefetch={false}>
-      <div className={styles.cardHeader}>
+      <div>
         <h2 className={styles.cardTitle}>{post?.title}</h2>
         <p className={styles.cardDescription}>
           {post?.short_description}
