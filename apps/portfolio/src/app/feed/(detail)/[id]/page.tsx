@@ -1,5 +1,6 @@
 import he from 'he';
 import { notFound } from 'next/navigation';
+import { BlogConfig } from '#/constants/config';
 import { getPostBySlug } from '#libs/velog/getPostBySlug';
 import { parseMarkdown } from '#libs/velog/parseMarkdown';
 import { sanitizeHtml } from '#libs/velog/sanitizeHtml';
@@ -15,7 +16,10 @@ type PageProps = {
 
 export default async function DetailPage({ params }: PageProps) {
   const { id } = await params;
-  const post = await getPostBySlug({ slug: id });
+  const post = await getPostBySlug({
+    username: BlogConfig.velogId,
+    slug: id,
+  });
 
   if (!post) {
     return notFound();

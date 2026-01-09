@@ -2,6 +2,7 @@
 
 import { InfiniteData } from '@tanstack/react-query';
 import { useCallback } from 'react';
+import { BlogConfig } from '#/constants/config';
 import { useInfiniteScroll } from '#/hooks/useInfiniteScroll';
 import { PostType } from '#/velog/types';
 import { ListRow } from '#velog/components/ListRow';
@@ -20,7 +21,10 @@ type FeedListProps = {
 
 export function FeedList({ initialData }: FeedListProps) {
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfinitePostQuery({ initialData });
+    useInfinitePostQuery({
+      username: BlogConfig.velogId,
+      initialData,
+    });
 
   const handleIntersect = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) {
