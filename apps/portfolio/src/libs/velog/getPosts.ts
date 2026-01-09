@@ -19,7 +19,7 @@ const VELOG_GRAPHQL_QUERY = `
 
 async function fetchVelogPosts(
   url: string,
-  { username = 'oilater', cursor, limit = 10 }: GetPostsArgs,
+  { username, cursor, limit = 10 }: GetPostsArgs,
 ) {
   const res = await fetch(url, {
     method: 'POST',

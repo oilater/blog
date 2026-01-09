@@ -9,7 +9,7 @@ export const BlogConfig = {
     '개발자 포트폴리오',
     '신입 개발자 포트폴리오',
   ],
-  velogId: 'oilater',
+  velogId: 'oilater-blog',
   menu: [
     {
       label: 'Home',

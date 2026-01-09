@@ -16,7 +16,7 @@ type QueryProps = {
 };
 
 export function useInfinitePostQuery({
-  username = 'oilater',
+  username,
   initialData,
 }: QueryProps = {}) {
   return useInfiniteQuery<QueryResponse>({
