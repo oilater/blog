@@ -1,6 +1,5 @@
 import {
-  baseTitle,
-  titleOrigin,
+  title,
   titleSection,
   wrapper,
 } from './Intro.css';
@@ -9,7 +8,7 @@ export function Intro() {
   return (
     <div className={wrapper}>
       <div className={titleSection}>
-        <h1 className={`${baseTitle} ${titleOrigin}`}>
+        <h1 className={title}>
           안녕하세요,
           <br />
           프론트엔드 개발자

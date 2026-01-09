@@ -14,11 +14,12 @@ export const titleSection = style({
   alignItems: 'center',
 });
 
-export const baseTitle = style({
+export const title = style({
   position: 'absolute',
   maxWidth: '1000px',
   width: '100vw',
   textAlign: 'center',
+  color: vars.themeColor.colors.titleFontColor,
   whiteSpace: 'pre-line',
   wordBreak: 'break-all',
   letterSpacing: '-0.01em',
@@ -41,8 +42,4 @@ export const baseTitle = style({
       maxWidth: '600px',
     },
   },
-});
-
-export const titleOrigin = style({
-  color: vars.themeColor.colors.titleFontColor,
 });
