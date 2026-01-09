@@ -34,32 +34,3 @@ export const linkItem = style({
   alignItems: 'center',
   justifyContent: 'center',
 });
-
-export const footer = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: 24,
-  paddingTop: 42,
-  paddingBottom: 42,
-});
-
-export const githubIcon = style({
-  width: 36,
-  height: 36,
-  display: 'block',
-  transition: 'transform 0.3s ease-in-out',
-  ':hover': {
-    transform: 'scale(1.2)',
-  },
-});
-
-export const velogIcon = style({
-  width: 30,
-  height: 30,
-  display: 'block',
-  transition: 'transform 0.3s ease-in-out',
-  ':hover': {
-    transform: 'scale(1.2)',
-  },
-});

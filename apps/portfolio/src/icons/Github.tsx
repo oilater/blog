@@ -1,4 +1,4 @@
-import { githubIcon } from '#/app/layout.css';
+import { githubIcon } from '#icons/icon.css';
 import { vars } from '#tokens/theme.css';
 
 export function GithubIcon() {
