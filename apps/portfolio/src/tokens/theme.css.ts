@@ -13,7 +13,6 @@ const themeColor = createThemeContract({
     tagBackground: null,
     tagItemColor: null,
     titleFontColor: null,
-    initialTitleFontColor: null,
     mainFontColor: null,
     subFontColor: null,
     cardTitleFontColor: null,
@@ -29,7 +28,6 @@ const themeColor = createThemeContract({
 export const lightTheme = createTheme(themeColor, {
   colors: {
     titleFontColor: palette.grey800,
-    initialTitleFontColor: palette.grey400,
     mainBackground: palette.white,
     contentBackground: palette.white,
     cardBackground: palette.grey50,
@@ -51,7 +49,6 @@ export const lightTheme = createTheme(themeColor, {
 export const darkTheme = createTheme(themeColor, {
   colors: {
     titleFontColor: palette.white,
-    initialTitleFontColor: palette.grey400,
     mainBackground: palette.black,
     contentBackground: '#191F28',
     cardBackground: palette.grey900,

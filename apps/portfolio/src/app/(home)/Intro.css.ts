@@ -44,10 +44,5 @@ export const baseTitle = style({
 });
 
 export const titleOrigin = style({
-  color: vars.themeColor.colors.initialTitleFontColor,
-});
-
-export const title = style({
   color: vars.themeColor.colors.titleFontColor,
-  willChange: 'opacity',
 });
