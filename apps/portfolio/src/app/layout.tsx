@@ -1,3 +1,4 @@
+import './global.css';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
@@ -5,7 +6,6 @@ import { FloatingNav } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
-import { vars } from '#tokens/theme.css';
 
 export const metadata: Metadata = {
   title: BlogConfig.title,
@@ -38,49 +38,6 @@ export const metadata: Metadata = {
   },
 };
 
-const criticalCSS = `
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: ${vars.themeColor.colors.mainBackground};
-  font-family: "Pretendard Variable", -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.2s ease-out;
-  will-change: background-color;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border: 0;
-}
-
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-  color: ${vars.themeColor.colors.mainFontColor};
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-`;
-
 const GA_MEASUREMENT_ID = BlogConfig.googleAnalyticsId;
 
 export default function RootLayout({
@@ -91,7 +48,6 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <style data-critical>{criticalCSS}</style>
         <link
           rel="preconnect"
           href="https://v2.velog.io"
