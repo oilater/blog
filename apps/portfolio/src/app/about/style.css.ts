@@ -22,14 +22,6 @@ export const title = style({
   },
 });
 
-export const subtitle = style({
-  fontSize: '1.25rem',
-  color: vars.themeColor.colors.cardTitleFontColor,
-  maxWidth: '42rem',
-  margin: '0 auto',
-  lineHeight: '1.6',
-});
-
 export const content = style({
   maxWidth: '64rem',
   margin: '0 auto',

@@ -5,11 +5,7 @@ export default function About() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>About Me</h1>
-        <p className={styles.subtitle}>
-          생각을 표현하는 것을 좋아하고, 성장 욕구가 높은 개발자
-        </p>
       </div>
-
       <div className={styles.content}>
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>🎹 재즈에 입문하다</h2>
