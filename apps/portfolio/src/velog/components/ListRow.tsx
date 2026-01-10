@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { PostType } from '../types';
-import { getRelativeDays } from '../utils/day';
 import * as styles from './List.css';
 import { Tag } from './Tag';
 
@@ -24,9 +23,7 @@ export function ListRow({ post, link }: ListRowProps) {
       {hasTags && <Tag tags={post.tags} />}
 
       <div className={styles.cardFooter}>
-        <time className={styles.cardDate}>
-          {getRelativeDays(post.released_at)}
-        </time>
+        <time className={styles.cardDate}>{post.released_at}</time>
       </div>
     </Link>
   );

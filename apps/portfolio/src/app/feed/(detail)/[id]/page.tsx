@@ -1,6 +1,8 @@
 import he from 'he';
 import { notFound } from 'next/navigation';
 import { BlogConfig } from '#/constants/config';
+import { getPosts } from '#/libs/velog/getPosts';
+import { PostType } from '#/velog/types';
 import { getPostBySlug } from '#libs/velog/getPostBySlug';
 import { parseMarkdown } from '#libs/velog/parseMarkdown';
 import { sanitizeHtml } from '#libs/velog/sanitizeHtml';
@@ -9,8 +11,6 @@ import { Post } from '#velog/components/Post';
 import { Tag } from '#velog/components/Tag';
 import { getRelativeDays } from '#velog/utils/day';
 import { vmarkdown } from './PostBody.css';
-import { getPosts } from '#/libs/velog/getPosts';
-import { PostType } from '#/velog/types';
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -19,7 +19,9 @@ type PageProps = {
 export const revalidate = 600;
 
 export async function generateStaticParams() {
-  const posts: PostType[] = await getPosts({username: BlogConfig.velogId});
+  const posts: PostType[] = await getPosts({
+    username: BlogConfig.velogId,
+  });
 
   return posts.map((post) => ({
     id: post.url_slug,
