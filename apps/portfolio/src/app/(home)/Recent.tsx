@@ -5,8 +5,8 @@ import { WideCard } from '#components/WideCard';
 
 export const article: ContentType = {
   id: 1,
-  title: 'Feed 페이지 LCP 2초 줄이기 📉',
-  description: '웹 포폴 성능 개선기',
+  title: 'Feed LCP 2초 땡기기 📉',
+  description: '블로그 성능 개선기',
   image: '/images/velog.avif',
   link: 'https://velog.io/@oilater/%EB%B8%94%EB%A1%9C%EA%B7%B8-Feed-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0-2-LCP-60-%EB%82%AE%EC%B6%94%EA%B8%B0',
   isInternal: false,

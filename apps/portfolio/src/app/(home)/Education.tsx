@@ -11,13 +11,13 @@ interface EducationData {
 const educationData: EducationData[] = [
   {
     id: 1,
-    date: '2025.12.24',
+    date: '2025. 12. 24',
     title: '정보처리기사',
     descriptions: ['∙ 한국산업인력공단'],
   },
   {
     id: 2,
-    date: '2025.12.12',
+    date: '2025. 12. 12',
     title: 'SQLD',
     descriptions: ['∙ 한국데이터산업진흥원'],
   },
@@ -31,18 +31,6 @@ const educationData: EducationData[] = [
       '∙ React, Flutter, SwiftUI 등 다양한 프레임워크 경험',
       '∙ SSAFYcial 10기 공식 기자단 활동',
     ],
-  },
-  {
-    id: 4,
-    date: '2024.03.10',
-    title: 'OPIc',
-    descriptions: ['∙ Intermediate Mid (IM1)'],
-  },
-  {
-    id: 5,
-    date: '2019.09.28',
-    title: 'TOEIC',
-    descriptions: ['∙ 820 점'],
   },
 ];
 

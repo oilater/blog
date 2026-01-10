@@ -31,10 +31,9 @@ export const hr = style({
 export const educationItem = style({
   display: 'flex',
   alignItems: 'flex-start',
-  gap: 16,
-  marginBottom: '2.5rem',
+  gap: 24,
+  marginBottom: '3rem',
 });
-
 export const educationContent = style({
   flex: 1,
 });
@@ -47,15 +46,15 @@ export const educationHeader = style({
 });
 
 export const educationPeriod = style({
-  position: 'relative',
-  fontSize: 18,
-  fontWeight: 500,
-  color: vars.colors.grey500,
-  width: 130,
-  textAlign: 'right',
   display: 'flex',
   alignItems: 'center',
-  gap: 8,
+  justifyContent: 'flex-end',
+  gap: 12,
+  minWidth: 140,
+  paddingTop: 4,
+  fontSize: '16px',
+  fontWeight: 500,
+  color: vars.colors.grey500,
 });
 
 export const educationTitle = style({
@@ -72,11 +71,9 @@ export const educationDescription = style({
 });
 
 export const dot = style({
-  display: 'inline-block',
-  width: 10,
-  height: 10,
-  marginRight: 6,
+  width: 8,
+  height: 8,
   borderRadius: '50%',
   background: vars.themeColor.colors.borderColor,
-  transition: 'background 0.3s',
+  flexShrink: 0,
 });
