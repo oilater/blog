@@ -40,10 +40,6 @@ export function FeedList({ initialData }: FeedListProps) {
 
   const posts = data?.pages.flatMap((page) => page.posts) || [];
 
-  if (!posts.length) {
-    return <ListSkeleton />;
-  }
-
   return (
     <div className={listWrapper}>
       {posts.map((post) => (
