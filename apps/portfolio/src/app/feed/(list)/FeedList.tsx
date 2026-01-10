@@ -7,7 +7,6 @@ import { useInfiniteScroll } from '#/hooks/useInfiniteScroll';
 import { PostType } from '#/velog/types';
 import { ListRow } from '#velog/components/ListRow';
 import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
-import { ListSkeleton } from '#velog/skeletons/ListSkeleton';
 import { listWrapper, observeContainer } from './style.css';
 
 type QueryResponse = {
@@ -38,7 +37,9 @@ export function FeedList({ initialData }: FeedListProps) {
     rootMargin: '200px',
   });
 
-  const posts = data?.pages.flatMap((page) => page.posts) || [];
+  const posts =
+    data?.pages?.flatMap((page) => page.posts) ??
+    initialData.pages[0]?.posts;
 
   return (
     <div className={listWrapper}>
