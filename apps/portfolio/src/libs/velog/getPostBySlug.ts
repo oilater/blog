@@ -33,7 +33,6 @@ export async function getPostBySlug({
         slug: decodedSlug,
       },
     }),
-    next: { revalidate: 60 * 10 },
   });
 
   if (!res.ok) return null;

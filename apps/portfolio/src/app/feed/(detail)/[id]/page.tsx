@@ -9,10 +9,22 @@ import { Post } from '#velog/components/Post';
 import { Tag } from '#velog/components/Tag';
 import { getRelativeDays } from '#velog/utils/day';
 import { vmarkdown } from './PostBody.css';
+import { getPosts } from '#/libs/velog/getPosts';
+import { PostType } from '#/velog/types';
 
 type PageProps = {
   params: Promise<{ id: string }>;
 };
+
+export const revalidate = 600;
+
+export async function generateStaticParams() {
+  const posts: PostType[] = await getPosts({username: BlogConfig.velogId});
+
+  return posts.map((post) => ({
+    id: post.url_slug,
+  }));
+}
 
 export default async function DetailPage({ params }: PageProps) {
   const { id } = await params;
