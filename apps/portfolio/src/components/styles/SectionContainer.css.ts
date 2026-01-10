@@ -4,10 +4,9 @@ export const container = style({
   marginTop: '6.5rem',
   marginInline: 'auto',
   maxWidth: 900,
-  padding: '0 16px',
+  padding: '0 20px',
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '90vh',
 
   '@media': {
     '(min-width: 640px)': {
