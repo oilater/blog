@@ -2,15 +2,11 @@ export const IMAGES = {
   // 메인 썸네일
   PORTFOLIO: '/images/portfolio.avif',
   LANGUAGES: '/images/languages.avif',
-  MEDICAL_CHARTS: '/images/medical-charts.avif',
   PERFORMANCE: '/images/performance.avif',
   COMMUNICATION: '/images/communication.avif',
-  HOMET_FRIEND: '/images/hometfriend.avif',
-  HOMET_LOGO: '/images/hometfriend-logo.jpg',
   RALLY_LOGIC: '/images/rally-logic.jpg',
   FIVA: '/images/fiva_thumbnail.avif',
   RALLY_REFACTORING: '/images/typescript-refactoring.jpg',
-  INTERACTIVE_GRAPH: '/images/interactive-graph.avif',
 
   // GIF
   INTRO_ANIMATION: '/gifs/intro-animation.gif',
