@@ -12,6 +12,7 @@ globalStyle(`${vmarkdown} .velog_paragraph`, {
   lineHeight: '1.7',
   color: vars.themeColor.colors.cardTitleFontColor,
   margin: '18px 0',
+  overflowWrap: 'break-word',
 });
 
 globalStyle(`${vmarkdown} .velog_strong`, {
