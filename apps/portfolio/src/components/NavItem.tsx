@@ -1,15 +1,15 @@
 import Link from 'next/link';
+import { ComponentProps } from 'react';
 import { linkItem } from '#/app/layout.css';
 
-type NavItemProps = {
+type NavItemProps = ComponentProps<typeof Link> & {
   href: string;
   label: string;
-  icon?: string;
 };
 
-export function NavItem({ href, label }: NavItemProps) {
+export function NavItem({ href, label, ...props }: NavItemProps) {
   return (
-    <Link href={href} className={linkItem}>
+    <Link {...props} href={href} className={linkItem}>
       {label}
     </Link>
   );
