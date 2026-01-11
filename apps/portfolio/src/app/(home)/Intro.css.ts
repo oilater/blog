@@ -6,6 +6,7 @@ export const wrapper = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  marginBottom: 30,
 });
 
 export const title = style({
