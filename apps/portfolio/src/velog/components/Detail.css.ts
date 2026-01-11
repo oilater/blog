@@ -39,7 +39,7 @@ export const postTags = style({
 });
 
 export const postContent = style({
-  margin: '5rem auto 0',
-  fontSize: '16px',
-  lineHeight: '1.5',
+  marginTop: '4rem',
+  fontSize: 16,
+  lineHeight: 1.5,
 });
