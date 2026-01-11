@@ -2,6 +2,7 @@ import { Marked } from 'marked';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-typescript';
+import { escapeHtml } from './escapeHtml';
 
 const PRISM_LANGUAGE_MAP: Record<string, string> = {
   tsx: 'ts',
@@ -19,7 +20,7 @@ markedInstance.use({
     },
 
     codespan({ text }) {
-      return `<code class="velog_code">${text}</code>`;
+      return `<code class="velog_code">${escapeHtml(text)}</code>`;
     },
 
     code({ text, lang }) {
@@ -28,7 +29,7 @@ markedInstance.use({
 
       const highlighted = Prism.languages[language]
         ? Prism.highlight(text, Prism.languages[language], language)
-        : text;
+        : escapeHtml(text);
 
       return `<pre class="velog_preBlock"><code class="velog_codeInPre velog_code language-${language}">${highlighted}</code></pre>\n`;
     },
