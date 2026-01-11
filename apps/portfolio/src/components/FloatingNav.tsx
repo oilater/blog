@@ -7,7 +7,7 @@ export function FloatingNav() {
     <header className={header}>
       <div className={innerNav}>
         <NavItem href="/" label="Home" prefetch={false} />
-        <NavItem href="/feed" label="Feed" />
+        <NavItem href="/feed" label="Feed" prefetch={false} />
         <NavItem href="/about" label="About" prefetch={false} />
         <ThemeSwitch />
       </div>
