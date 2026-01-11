@@ -30,7 +30,6 @@ export const cardImage = style({
   inset: 0,
   objectFit: 'cover',
   transition: 'transform 0.2s ease-out',
-  transform: 'translateZ(0)',
   selectors: {
     [`${wideCard}:hover &`]: {
       transform: 'scale(1.05)',

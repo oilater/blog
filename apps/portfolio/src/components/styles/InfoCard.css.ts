@@ -23,7 +23,7 @@ export const cardImage = style({
   objectFit: 'cover',
   transition: 'transform 0.2s ease-out',
   ':hover': {
-    transform: 'scale(1.08) translateZ(0)',
+    transform: 'scale(1.08)',
   },
 });
 
