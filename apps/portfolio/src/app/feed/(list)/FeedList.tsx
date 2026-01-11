@@ -44,11 +44,7 @@ export function FeedList({ initialData }: FeedListProps) {
   return (
     <div className={listWrapper}>
       {posts.map((post) => (
-        <ListRow
-          key={post.id}
-          post={post}
-          link={`/feed/${post.url_slug}`}
-        />
+        <ListRow key={post.id} post={post} />
       ))}
       <div className={observeContainer} ref={observeRef} />
     </div>
