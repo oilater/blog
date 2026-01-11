@@ -1,10 +1,14 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { vars } from '#tokens/theme.css';
 
-globalStyle('*', {
-  margin: 0,
-  padding: 0,
+globalStyle('body', {
   boxSizing: 'border-box',
+  '@media': {
+    '(prefers-reduced-motion: reduce)': {
+      animation: 'none !important',
+      transition: 'none !important',
+    },
+  },
 });
 
 globalStyle('body', {
@@ -32,16 +36,12 @@ globalStyle('button', {
   font: 'inherit',
 });
 
+globalStyle('p', {
+  margin: 0,
+  padding: 0,
+});
+
 globalStyle('a', {
   textDecoration: 'none',
   color: vars.themeColor.colors.mainFontColor,
-});
-
-globalStyle('*', {
-  '@media': {
-    '(prefers-reduced-motion: reduce)': {
-      animation: 'none !important',
-      transition: 'none !important',
-    },
-  },
 });

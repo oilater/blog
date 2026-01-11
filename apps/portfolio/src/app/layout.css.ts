@@ -14,7 +14,7 @@ export const header = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '10px 24px 10px 24px',
+  padding: '0 24px 0 24px',
 });
 
 export const innerNav = style({
