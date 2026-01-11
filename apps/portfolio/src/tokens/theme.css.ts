@@ -29,7 +29,7 @@ export const lightTheme = createTheme(themeColor, {
   colors: {
     titleFontColor: palette.grey800,
     mainBackground: palette.white,
-    contentBackground: palette.white,
+    contentBackground: palette.grey50,
     cardBackground: palette.grey50,
     quoteBackground: palette.grey50,
     tagBackground: palette.grey100,
