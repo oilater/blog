@@ -5,7 +5,6 @@ export const introduceWrapper = style({
   width: '100%',
   height: 'auto',
   paddingBottom: '5rem',
-  marginTop: '1rem',
 });
 
 export const infoSection = style({
@@ -32,6 +31,6 @@ export const mainDescription = style({
   fontSize: '20px',
   fontWeight: '500',
   color: vars.themeColor.colors.contentFontColor,
-  padding: '10px 16px',
+  padding: '0 16px',
   lineHeight: '1.4',
 });

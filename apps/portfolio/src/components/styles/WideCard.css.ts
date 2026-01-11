@@ -17,7 +17,7 @@ export const wideCard = style({
 export const cardImageWrapper = style({
   position: 'relative',
   flex: '0 0 60%',
-  aspectRatio: '7/5',
+  paddingTop: '42.8%',
   borderRadius: '16px',
   overflow: 'hidden',
 });
