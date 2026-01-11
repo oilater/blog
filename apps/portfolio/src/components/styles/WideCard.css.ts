@@ -7,7 +7,6 @@ export const wideCard = style({
   height: 'auto',
   background: 'inherit',
   cursor: 'pointer',
-  overflow: 'hidden',
   '@media': {
     [mediaQueries.mobile]: {
       flexDirection: 'column',

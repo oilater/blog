@@ -6,7 +6,6 @@ export const wrapper = style({
   height: '100%',
   paddingBottom: '6rem',
   position: 'relative',
-  overflow: 'hidden',
 });
 
 export const contentSection = style({
