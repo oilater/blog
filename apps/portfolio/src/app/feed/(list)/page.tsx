@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { BlogConfig } from '#/constants/config';
+import { ListSkeleton } from '#/velog/skeletons/ListSkeleton';
 import { getPosts } from '#libs/velog/getPosts';
 import { FeedList } from './FeedList';
 
@@ -11,5 +13,9 @@ export default async function Feed() {
     pageParams: [undefined],
   };
 
-  return <FeedList initialData={initialData} />;
+  return (
+    <Suspense fallback={<ListSkeleton />}>
+      <FeedList initialData={initialData} />
+    </Suspense>
+  );
 }
