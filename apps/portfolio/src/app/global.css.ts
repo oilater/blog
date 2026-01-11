@@ -17,6 +17,7 @@ globalStyle('body', {
     '"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
+  transition: 'background-color 0.2s ease-out',
 });
 
 globalStyle('img', {
