@@ -3,21 +3,18 @@ import { vars } from '#tokens/theme.css';
 
 globalStyle('body', {
   boxSizing: 'border-box',
-  '@media': {
-    '(prefers-reduced-motion: reduce)': {
-      animation: 'none !important',
-      transition: 'none !important',
-    },
-  },
-});
-
-globalStyle('body', {
   backgroundColor: vars.themeColor.colors.mainBackground,
   fontFamily:
     '"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   transition: 'background-color 0.2s ease-out',
+  '@media': {
+    '(prefers-reduced-motion: reduce)': {
+      animation: 'none !important',
+      transition: 'none !important',
+    },
+  },
 });
 
 globalStyle('img', {
@@ -36,7 +33,7 @@ globalStyle('button', {
   font: 'inherit',
 });
 
-globalStyle('p', {
+globalStyle('p, h1, h2, h3, h4, h5, h6', {
   margin: 0,
   padding: 0,
 });
