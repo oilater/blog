@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { palette as colors } from '#/tokens/color/palette';
+import { themeColor } from '#tokens/theme.css';
 
 export const card = style({
   paddingTop: 10,
@@ -12,10 +13,10 @@ export const cardTitle = style({
   alignItems: 'center',
   fontSize: 22,
   fontWeight: 600,
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   selectors: {
     [`${card}:hover &`]: {
-      color: vars.colors.blue700,
+      color: colors.blue700,
     },
   },
   transition: 'color 0.2s ease-out',
@@ -23,7 +24,7 @@ export const cardTitle = style({
 
 export const cardDescription = style({
   fontSize: 16,
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
   margin: '0 0 24px',
 });
 
@@ -33,7 +34,7 @@ export const cardFooter = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   fontSize: 14,
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
 });
 
 export const cardDate = style({
@@ -53,8 +54,8 @@ export const tag = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: vars.themeColor.colors.tagBackground,
-  color: vars.themeColor.colors.tagItemColor,
+  backgroundColor: themeColor.colors.tagBackground,
+  color: themeColor.colors.tagItemColor,
   fontSize: '14px',
   fontWeight: '500',
   padding: '6px 13px',

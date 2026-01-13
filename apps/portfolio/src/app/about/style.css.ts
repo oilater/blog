@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../tokens/theme.css';
+import { themeColor } from '../../tokens/theme.css';
 
 export const container = style({
   minHeight: '100vh',
@@ -14,7 +14,7 @@ export const title = style({
   fontSize: '3rem',
   fontWeight: '700',
   marginBottom: '1rem',
-  color: vars.themeColor.colors.highLightFontColor,
+  color: themeColor.colors.highLightFontColor,
   '@media': {
     'screen and (max-width: 768px)': {
       fontSize: '2.5rem',
@@ -37,27 +37,27 @@ export const sectionTitle = style({
   fontSize: '1.5rem',
   fontWeight: '700',
   marginBottom: '1.5rem',
-  color: vars.themeColor.colors.highLightFontColor,
+  color: themeColor.colors.highLightFontColor,
   display: 'flex',
   alignItems: 'center',
 });
 
 export const paragraph = style({
   marginBottom: '1rem',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   lineHeight: '1.7',
   fontSize: '1rem',
 });
 
 export const quote = style({
-  backgroundColor: vars.themeColor.colors.quoteBackground,
+  backgroundColor: themeColor.colors.quoteBackground,
   padding: '1.5rem',
-  borderLeft: `4px solid ${vars.themeColor.colors.highLightFontColor}`,
+  borderLeft: `4px solid ${themeColor.colors.highLightFontColor}`,
   margin: '1.5rem 0',
 });
 
 export const quoteText = style({
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   fontStyle: 'italic',
   fontSize: '1.1rem',
   lineHeight: '1.6',
@@ -65,7 +65,7 @@ export const quoteText = style({
 });
 
 export const quoteAuthor = style({
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   fontSize: '0.875rem',
   textAlign: 'right',
 });

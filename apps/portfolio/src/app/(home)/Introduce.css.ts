@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries, vars } from '#tokens/theme.css';
+import { mediaQueries } from '#/tokens/config';
+import { themeColor } from '#tokens/theme.css';
 
 export const introduceWrapper = style({
   width: '100%',
@@ -30,7 +31,7 @@ export const mainDescription = style({
   alignItems: 'center',
   fontSize: '20px',
   fontWeight: '500',
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
   padding: '0 16px',
   lineHeight: '1.4',
 });

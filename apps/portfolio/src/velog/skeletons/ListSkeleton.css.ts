@@ -1,5 +1,5 @@
 import { keyframes, style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 const pulse = keyframes({
   '0%, 100%': {
@@ -32,14 +32,14 @@ export const card = style({
   cursor: 'default',
   display: 'flex',
   flexDirection: 'column',
-  borderBottom: `0.2px solid ${vars.themeColor.colors.skeletonColor}`,
+  borderBottom: `0.2px solid ${themeColor.colors.skeletonColor}`,
 });
 
 export const cardTitle = style({
   marginTop: '4px',
   width: '48%',
   height: '28px',
-  backgroundColor: vars.themeColor.colors.skeletonColor,
+  backgroundColor: themeColor.colors.skeletonColor,
   borderRadius: 8,
   animation: animation,
   marginBottom: 36,
@@ -54,7 +54,7 @@ export const descContainer = style({
 
 export const descLine = style({
   height: 16,
-  backgroundColor: vars.themeColor.colors.skeletonColor,
+  backgroundColor: themeColor.colors.skeletonColor,
   borderRadius: 6,
   animation: animation,
 });
@@ -71,7 +71,7 @@ export const tagContainer = style({
 export const tag = style({
   height: 28,
   width: 62,
-  backgroundColor: vars.themeColor.colors.skeletonColor,
+  backgroundColor: themeColor.colors.skeletonColor,
   borderRadius: 16,
   animation: animation,
 });
@@ -80,7 +80,7 @@ export const cardDate = style({
   height: 18,
   width: 40,
   marginTop: 32,
-  backgroundColor: vars.themeColor.colors.skeletonColor,
+  backgroundColor: themeColor.colors.skeletonColor,
   borderRadius: 6,
   animation: animation,
 });

@@ -4,7 +4,7 @@ import {
 } from '@vanilla-extract/css';
 import { palette } from './color/palette';
 
-const themeColor = createThemeContract({
+export const themeColor = createThemeContract({
   colors: {
     mainBackground: null,
     contentBackground: null,
@@ -66,10 +66,3 @@ export const darkTheme = createTheme(themeColor, {
     skeletonColor: palette.grey800,
   },
 });
-
-export const vars = { themeColor, colors: palette };
-
-export const mediaQueries = {
-  mobile: `(max-width: 768px)`,
-  desktop: `(min-width: 1024px)`,
-};

@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries, vars } from '#tokens/theme.css';
+import { mediaQueries } from '#/tokens/config';
+import { themeColor } from '#tokens/theme.css';
 
 export const articleRoot = style({
   width: '100%',
@@ -7,7 +8,7 @@ export const articleRoot = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 20,
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 export const articleHeader = style({

@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries, vars } from '#tokens/theme.css';
+import { mediaQueries } from '#/tokens/config';
+import { themeColor } from '#tokens/theme.css';
 
 export const wideCard = style({
   display: 'flex',
@@ -56,7 +57,7 @@ export const cardContent = style({
 export const categoryText = style({
   fontSize: '20px',
   fontWeight: '500',
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
   margin: 0,
   lineHeight: 1.2,
   transition: 'color 0.2s ease',
@@ -70,7 +71,7 @@ export const categoryText = style({
 export const cardTitle = style({
   fontSize: '26px',
   fontWeight: '600',
-  color: vars.themeColor.colors.mainFontColor,
+  color: themeColor.colors.mainFontColor,
   margin: 0,
   lineHeight: 1.3,
   transition: 'color 0.2s ease',
@@ -81,7 +82,7 @@ export const cardTitle = style({
   },
   selectors: {
     [`${wideCard}:hover &`]: {
-      color: vars.themeColor.colors.highLightFontColor,
+      color: themeColor.colors.highLightFontColor,
     },
   },
 });
@@ -89,7 +90,7 @@ export const cardTitle = style({
 export const cardDescription = style({
   fontSize: '1.1rem',
   fontWeight: '400',
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
   margin: 0,
   lineHeight: 1.6,
   transition: 'color 0.2s ease',

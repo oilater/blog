@@ -1,17 +1,17 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const card = style({
   display: 'flex',
   flexDirection: 'column',
   verticalAlign: 'top',
   background: 'inherit',
-  border: `1px solid ${vars.themeColor.colors.borderColor}`,
+  border: `1px solid ${themeColor.colors.borderColor}`,
   borderRadius: '16px',
   transition: 'background 0.2s ease',
   cursor: 'pointer',
   ':hover': {
-    background: vars.themeColor.colors.cardBackground,
+    background: themeColor.colors.cardBackground,
   },
 });
 
@@ -51,13 +51,13 @@ export const cardContent = style({
 export const cardTitle = style({
   fontSize: '20px',
   fontWeight: '600',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 export const cardDescription = style({
   fontSize: '15px',
   fontWeight: '400',
-  color: vars.themeColor.colors.cardDescriptionFontColor,
+  color: themeColor.colors.cardDescriptionFontColor,
 });
 
 export const cardTags = style({
@@ -77,5 +77,5 @@ export const tag = style({
   borderRadius: '16px',
   fontSize: '12.5px',
   fontWeight: '500',
-  backgroundColor: vars.themeColor.colors.tagBackground,
+  backgroundColor: themeColor.colors.tagBackground,
 });

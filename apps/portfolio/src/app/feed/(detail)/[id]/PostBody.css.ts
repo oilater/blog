@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const vmarkdown = style({
   display: 'block',
@@ -10,19 +10,19 @@ globalStyle(`${vmarkdown} .velog_paragraph`, {
   fontSize: '18px',
   fontWeight: '400',
   lineHeight: '1.7',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   margin: '18px 0',
   overflowWrap: 'break-word',
 });
 
 globalStyle(`${vmarkdown} .velog_strong`, {
   fontWeight: '700',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 globalStyle(`${vmarkdown} .velog_em`, {
   fontStyle: 'italic',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 globalStyle(`${vmarkdown} .velog_link`, {
@@ -48,7 +48,7 @@ Object.entries(headingStyles).forEach(([level, size]) => {
   globalStyle(`${vmarkdown} .velog_heading${level}`, {
     fontSize: size,
     fontWeight: 700,
-    color: vars.themeColor.colors.cardTitleFontColor,
+    color: themeColor.colors.cardTitleFontColor,
     margin: level === '4' ? '40px 0 16px' : '24px 0 16px',
   });
 });
@@ -71,15 +71,15 @@ globalStyle(`${vmarkdown} .velog_listItem`, {
 });
 
 globalStyle(`${vmarkdown} .velog_blockquote`, {
-  backgroundColor: vars.themeColor.colors.contentBackground,
+  backgroundColor: themeColor.colors.contentBackground,
   borderLeft: '4px solid #20C997',
   padding: '4px 16px 4px 32px',
   margin: '32px 0',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 globalStyle(`${vmarkdown} .velog_code`, {
-  backgroundColor: vars.themeColor.colors.postCodeColor,
+  backgroundColor: themeColor.colors.postCodeColor,
   padding: '3.06px 6.12px',
   borderRadius: '4px',
   fontSize: '15.3px',
@@ -87,7 +87,7 @@ globalStyle(`${vmarkdown} .velog_code`, {
 });
 
 globalStyle(`${vmarkdown} .velog_preBlock`, {
-  backgroundColor: vars.themeColor.colors.cardBackground,
+  backgroundColor: themeColor.colors.cardBackground,
   padding: '20px',
   borderRadius: '18px',
   margin: '16px 0',
@@ -105,7 +105,7 @@ globalStyle(`${vmarkdown} .velog_preBlock > .velog_codeInPre`, {
 globalStyle(`${vmarkdown} .velog_preBlock code[class*="language-"]`, {
   textShadow: 'none !important',
   backgroundColor: 'transparent !important',
-  color: vars.themeColor.colors.mainFontColor,
+  color: themeColor.colors.mainFontColor,
 });
 
 globalStyle(

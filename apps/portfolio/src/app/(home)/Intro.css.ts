@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const wrapper = style({
   width: '100%',
@@ -11,7 +11,7 @@ export const wrapper = style({
 
 export const title = style({
   textAlign: 'center',
-  color: vars.themeColor.colors.titleFontColor,
+  color: themeColor.colors.titleFontColor,
   letterSpacing: '-0.01em',
   fontSize: 40,
 });

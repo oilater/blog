@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const wrapper = style({
   width: '100%',
@@ -28,7 +28,7 @@ export const workSection = style({
 export const mainDescription = style({
   fontSize: 16,
   fontWeight: '400',
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
   lineHeight: '1.65',
   marginBottom: 40,
 });

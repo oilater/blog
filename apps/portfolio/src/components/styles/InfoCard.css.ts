@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const card = style({
   display: 'flex',
@@ -37,11 +37,11 @@ export const cardContent = style({
 export const cardTitle = style({
   fontSize: '20px',
   fontWeight: '600',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 export const cardDescription = style({
   fontSize: '15px',
   fontWeight: '400',
-  color: vars.themeColor.colors.cardDescriptionFontColor,
+  color: themeColor.colors.cardDescriptionFontColor,
 });

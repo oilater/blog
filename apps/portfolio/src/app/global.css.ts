@@ -1,9 +1,9 @@
 import { globalStyle } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 globalStyle('body', {
   boxSizing: 'border-box',
-  backgroundColor: vars.themeColor.colors.mainBackground,
+  backgroundColor: themeColor.colors.mainBackground,
   fontFamily:
     '"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',
   WebkitFontSmoothing: 'antialiased',
@@ -40,5 +40,5 @@ globalStyle('p, h1, h2, h3, h4, h5, h6', {
 
 globalStyle('a', {
   textDecoration: 'none',
-  color: vars.themeColor.colors.mainFontColor,
+  color: themeColor.colors.mainFontColor,
 });

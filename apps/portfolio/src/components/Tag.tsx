@@ -1,4 +1,4 @@
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 import { tag } from './styles/Card.css';
 
 type TagProps = {
@@ -10,8 +10,8 @@ export function Tag({ text }: TagProps) {
     <div
       className={tag}
       style={{
-        backgroundColor: vars.themeColor.colors.contentBackground,
-        color: vars.themeColor.colors.highLightFontColor,
+        backgroundColor: themeColor.colors.contentBackground,
+        color: themeColor.colors.highLightFontColor,
       }}
     >
       <span>{text}</span>

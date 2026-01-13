@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#/tokens/theme.css';
+import { themeColor } from '#/tokens/theme.css';
 
 export const section = style({
   marginBottom: '4rem',
@@ -9,11 +9,11 @@ export const sectionTitle = style({
   margin: '36px 0 36px',
   fontSize: '25px',
   marginBottom: '20px',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 export const highlightText = style({
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   fontWeight: 'bold',
   borderRadius: '2px',
   letterSpacing: '0em',
@@ -81,7 +81,7 @@ export const portfolioImage = style({
 
 export const captionStyle = style({
   fontSize: '13px',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   lineHeight: '1.2',
   margin: '0',
   marginTop: '6px',

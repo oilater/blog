@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const header = style({
   zIndex: 100,
@@ -27,7 +27,7 @@ export const innerNav = style({
 export const linkItem = style({
   fontSize: 16,
   fontWeight: 500,
-  color: vars.themeColor.colors.titleFontColor,
+  color: themeColor.colors.titleFontColor,
   padding: '6px 6px',
   borderRadius: 20,
   display: 'flex',

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export const rootStyle = style({
   width: '100%',
@@ -13,5 +13,5 @@ export const paragraphStyle = style({
   height: '100%',
   fontSize: 28,
   fontWeight: 700,
-  color: vars.themeColor.colors.mainFontColor,
+  color: themeColor.colors.mainFontColor,
 });

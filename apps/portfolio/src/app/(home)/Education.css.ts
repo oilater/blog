@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#tokens/theme.css';
+import { palette as colors } from '#/tokens/color/palette';
+import { themeColor } from '#tokens/theme.css';
 
 export const wrapper = style({
   width: '100%',
@@ -17,7 +18,7 @@ export const contentSection = style({
 export const mainDescription = style({
   fontSize: '1.2rem',
   fontWeight: 500,
-  color: vars.themeColor.colors.contentFontColor,
+  color: themeColor.colors.contentFontColor,
   marginBottom: '2.5rem',
 });
 
@@ -53,26 +54,26 @@ export const educationPeriod = style({
   paddingTop: 4,
   fontSize: '16px',
   fontWeight: 500,
-  color: vars.colors.grey500,
+  color: colors.grey500,
 });
 
 export const educationTitle = style({
   fontSize: 20,
   fontWeight: 600,
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
 });
 
 export const educationDescription = style({
   marginTop: 10,
   fontSize: 16,
   lineHeight: 1.65,
-  color: vars.themeColor.colors.subFontColor,
+  color: themeColor.colors.subFontColor,
 });
 
 export const dot = style({
   width: 8,
   height: 8,
   borderRadius: '50%',
-  background: vars.themeColor.colors.borderColor,
+  background: themeColor.colors.borderColor,
   flexShrink: 0,
 });

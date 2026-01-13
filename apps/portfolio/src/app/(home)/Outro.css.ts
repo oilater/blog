@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries, vars } from '#tokens/theme.css';
+import { mediaQueries } from '#/tokens/config';
+import { themeColor } from '#tokens/theme.css';
 
 export const wrapper = style({
   width: '100%',
@@ -25,14 +26,14 @@ export const thankTitle = style({
   marginTop: '3rem',
   padding: '0 0 32px',
   fontSize: '32px',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   fontWeight: '600',
 });
 
 export const contactContainer = style({
   padding: '24px',
   margin: '0 auto',
-  backgroundColor: vars.themeColor.colors.quoteBackground,
+  backgroundColor: themeColor.colors.quoteBackground,
   borderRadius: '16px',
 });
 
@@ -45,12 +46,12 @@ export const contactItem = style({
 export const contactLabel = style({
   fontSize: '1.1rem',
   fontWeight: '500',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   minWidth: '80px',
 });
 
 export const contactValue = style({
   fontSize: '1rem',
-  color: vars.themeColor.colors.cardTitleFontColor,
+  color: themeColor.colors.cardTitleFontColor,
   wordBreak: 'break-all',
 });

@@ -1,5 +1,5 @@
 import { githubIcon } from '#icons/icon.css';
-import { vars } from '#tokens/theme.css';
+import { themeColor } from '#tokens/theme.css';
 
 export function GithubIcon() {
   return (
@@ -7,11 +7,11 @@ export function GithubIcon() {
       className={githubIcon}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0,0,256,256"
-      fill={vars.themeColor.colors.tagItemColor}
+      fill={themeColor.colors.tagItemColor}
     >
       <title>Github Icon</title>
       <g
-        fill={vars.themeColor.colors.tagItemColor}
+        fill={themeColor.colors.tagItemColor}
         fillRule="nonzero"
         stroke="none"
         strokeWidth="1"
