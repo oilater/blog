@@ -4,6 +4,7 @@ import { InfiniteData } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { BlogConfig } from '#/constants/config';
 import { useInfiniteScroll } from '#/hooks/useInfiniteScroll';
+import { ListSkeleton } from '#/velog/skeletons/ListSkeleton';
 import { PostType } from '#/velog/types';
 import { ListRow } from '#velog/components/ListRow';
 import { useInfinitePostQuery } from '#velog/hooks/useInfinitePostQuery';
@@ -47,6 +48,7 @@ export function FeedList({ initialData }: FeedListProps) {
         <ListRow key={post.id} post={post} />
       ))}
       <div className={observeContainer} ref={observeRef} />
+      {isFetchingNextPage && <ListSkeleton />}
     </div>
   );
 }
