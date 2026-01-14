@@ -9,6 +9,7 @@ export const listWrapper = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 24,
+  contentVisibility: 'auto',
 });
 
 export const observeContainer = style({
