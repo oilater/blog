@@ -20,7 +20,7 @@ export const cardImageWrapper = style({
   flex: '0 0 60%',
   paddingTop: '42.8%',
   borderRadius: '16px',
-  overflow: 'hidden',
+  contain: 'content',
 });
 
 export const cardImage = style({

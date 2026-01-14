@@ -20,7 +20,7 @@ export const cardImageWrapper = style({
   width: '100%',
   aspectRatio: '1',
   borderRadius: '16px 16px 0 0',
-  overflow: 'hidden',
+  contain: 'content',
   padding: 0,
   '@media': {
     '(min-width: 1024px)': {

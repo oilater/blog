@@ -13,7 +13,7 @@ export const cardImageWrapper = style({
   width: '100%',
   aspectRatio: '1',
   borderRadius: '8px',
-  overflow: 'hidden',
+  contain: 'content',
   padding: 0,
 });
 
