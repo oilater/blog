@@ -2,6 +2,7 @@ import './global.css';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { GoogleAnalyticsLoader } from '#/components/GoogleAnalyticsLoader';
 import { FloatingNav } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
 import { ThemeProvider } from '#components/ThemeProvider';
@@ -60,28 +61,7 @@ export default function RootLayout({
           <LayoutWrapper>{children}</LayoutWrapper>
         </ThemeProvider>
         <Analytics />
-        {GA_MEASUREMENT_ID && (
-          <>
-            <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            />
-            <Script
-              id="google-analytics"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${GA_MEASUREMENT_ID}', {
-                    page_path: window.location.pathname,
-                  });
-                `,
-              }}
-            />
-          </>
-        )}
+        <GoogleAnalyticsLoader />
       </body>
     </html>
   );
