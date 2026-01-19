@@ -142,40 +142,11 @@ pre[class*="language-"] {
 
 /* Highlighted lines */
 pre[class*="language-"] .highlight-line {
-  background-color: #2a2a2a;
+  background-color: rgba(59, 130, 246, 0.15);
   border-left: 3px solid #3b82f6;
   padding-left: 1rem;
   margin-left: -1rem;
   display: block;
-}
-
-/* Line highlighting */
-.gatsby-highlight-code-line {
-  background-color: #2a2a2a;
-  display: block;
-  margin-right: -1rem;
-  margin-left: -1rem;
-  padding-right: 1rem;
-  padding-left: 0.75rem;
-  border-left: 0.25rem solid #3b82f6;
-}
-
-/* File title for code blocks */
-.gatsby-code-title {
-  background: #2d2d2d;
-  color: #d4d4d4;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  margin-bottom: 0;
-}
-
-.gatsby-code-title + pre[class*="language-"] {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin-top: 0;
 }
 
 /* Scrollbar for code blocks */
