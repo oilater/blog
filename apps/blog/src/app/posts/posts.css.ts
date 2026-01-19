@@ -4,13 +4,6 @@ export const container = style({
   margin: '0 auto',
   maxWidth: '750px',
   width: '100%',
-  padding: '2rem 1rem',
-});
-
-export const title = style({
-  fontSize: '2rem',
-  fontWeight: 'bold',
-  marginBottom: '2rem',
 });
 
 export const tagFilter = style({
@@ -52,13 +45,13 @@ export const postsList = style({
 export const postCard = style({
   border: '1px solid #e5e7eb',
   borderRadius: '0.5rem',
-  padding: '1.5rem',
 });
 
 export const postLink = style({
   textDecoration: 'none',
   color: 'inherit',
   display: 'block',
+  padding: '1.5rem',
 });
 
 export const postHeaderRow = style({
@@ -89,6 +82,7 @@ export const postTagBadge = style({
 
 export const postDate = style({
   fontSize: '0.875rem',
+  paddingRight: 8,
   color: '#6b7280',
 });
 
