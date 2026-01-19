@@ -42,12 +42,7 @@ export function Outro() {
           </div>
           <div className={contactItem}>
             <span className={contactLabel}>Github</span>
-            <a
-              href="https://github.com/oilater"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={contactValue}
-            >
+            <a href="https://github.com/oilater" target="_blank" rel="noopener noreferrer" className={contactValue}>
               @oilater
             </a>
           </div>

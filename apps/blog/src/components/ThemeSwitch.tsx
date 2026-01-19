@@ -31,9 +31,5 @@ export function ThemeSwitch() {
     );
   }
 
-  return (
-    <button onClick={onChangeTheme}>
-      {theme === THEME.LIGHT ? <Moon /> : <Sun />}
-    </button>
-  );
+  return <button onClick={onChangeTheme}>{theme === THEME.LIGHT ? <Moon /> : <Sun />}</button>;
 }

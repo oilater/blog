@@ -8,12 +8,7 @@ type SectionProps = {
   children: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Section({
-  title,
-  description,
-  children,
-  ...props
-}: SectionProps) {
+export function Section({ title, description, children, ...props }: SectionProps) {
   return (
     <div className={wrapper}>
       <hr className={hr} />

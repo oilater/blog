@@ -7,12 +7,7 @@ import * as styles from './styles/WideCard.css';
 export async function WideCard({ value }: { value: ContentType }) {
   const blurURL = await getBlurDataURL(value.image);
   return (
-    <Link
-      href={value.link}
-      className={styles.wideCard}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href={value.link} className={styles.wideCard} target="_blank" rel="noopener noreferrer">
       <div className={styles.cardImageWrapper}>
         <Image
           src={value.image}

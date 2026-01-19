@@ -41,19 +41,11 @@ export const metadata: Metadata = {
 
 const GA_MEASUREMENT_ID = BlogConfig.googleAnalyticsId;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <link
-          rel="preconnect"
-          href="https://v2.velog.io"
-          crossOrigin=""
-        />
+        <link rel="preconnect" href="https://v2.velog.io" crossOrigin="" />
       </head>
       <body>
         <ThemeProvider>

@@ -16,18 +16,9 @@ function Tags({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function Content({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+function Content({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <div
-      className={`${styles.postContent} ${className}`}
-      dangerouslySetInnerHTML={{ __html: children as string }}
-    />
+    <div className={`${styles.postContent} ${className}`} dangerouslySetInnerHTML={{ __html: children as string }} />
   );
 }
 

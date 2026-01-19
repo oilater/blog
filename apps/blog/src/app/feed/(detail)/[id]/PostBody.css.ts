@@ -108,9 +108,6 @@ globalStyle(`${vmarkdown} .velog_preBlock code[class*="language-"]`, {
   color: themeColor.colors.mainFontColor,
 });
 
-globalStyle(
-  `${vmarkdown} .token.operator, ${vmarkdown} .token.string`,
-  {
-    background: 'none',
-  },
-);
+globalStyle(`${vmarkdown} .token.operator, ${vmarkdown} .token.string`, {
+  background: 'none',
+});

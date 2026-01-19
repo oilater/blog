@@ -10,12 +10,7 @@ export function ArrowDownIcon() {
       viewBox="0 0 48 48"
     >
       <title>Arrow Down Icon</title>
-      <path
-        d="M2 6l10 10 10-10"
-        stroke="currentColor"
-        strokeWidth="4"
-        transform="scale(2)"
-      />
+      <path d="M2 6l10 10 10-10" stroke="currentColor" strokeWidth="4" transform="scale(2)" />
     </svg>
   );
 }

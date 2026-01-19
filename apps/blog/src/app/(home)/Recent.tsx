@@ -14,11 +14,7 @@ export const article: ContentType = {
 
 export function Recent() {
   return (
-    <Section
-      title="Recent"
-      description="최근 개발 경험을 공유해요."
-      className={workSection}
-    >
+    <Section title="Recent" description="최근 개발 경험을 공유해요." className={workSection}>
       <WideCard key={article.title} value={article} />
     </Section>
   );

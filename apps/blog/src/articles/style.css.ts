@@ -107,25 +107,13 @@ export const imagesSection = style({
 });
 
 export const avatarImageCombined = style([image, avatarImage]);
-export const avatarMoveImageCombined = style([
-  image,
-  avatarMoveImage,
-]);
+export const avatarMoveImageCombined = style([image, avatarMoveImage]);
 export const gameImageCombined = style([image, gameImage]);
-export const codeReviewImageCombined = style([
-  image,
-  codeReviewImage,
-]);
+export const codeReviewImageCombined = style([image, codeReviewImage]);
 export const commentImageCombined = style([image, commentImage]);
 export const slackImageCombined = style([image, slackImage]);
 export const containerImageCombined = style([image, containerImage]);
 
 export const introImageCombined = style([portfolioImage, introImage]);
-export const timelineImageCombined = style([
-  portfolioImage,
-  timelineImage,
-]);
-export const articleMapImageCombined = style([
-  portfolioImage,
-  articleMapImage,
-]);
+export const timelineImageCombined = style([portfolioImage, timelineImage]);
+export const articleMapImageCombined = style([portfolioImage, articleMapImage]);

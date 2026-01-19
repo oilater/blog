@@ -17,10 +17,7 @@ const VELOG_GRAPHQL_QUERY = `
   }
 `;
 
-async function fetchVelogPosts(
-  url: string,
-  { username, cursor, limit = 10 }: GetPostsArgs,
-) {
+async function fetchVelogPosts(url: string, { username, cursor, limit = 10 }: GetPostsArgs) {
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -41,7 +38,6 @@ export async function getPosts(args: GetPostsArgs) {
 
 export async function getPostsClient(args: GetPostsArgs) {
   const posts = await fetchVelogPosts('/api/velog/graphql', args);
-  const nextCursor =
-    posts.length === 10 ? posts[posts.length - 1]?.id : null;
+  const nextCursor = posts.length === 10 ? posts[posts.length - 1]?.id : null;
   return { posts, nextCursor };
 }

@@ -29,15 +29,9 @@ export function loadGoogleAnalytics() {
     window.gtag('config', GTAG_ID);
 
     performance.mark('ga-init-end');
-    performance.measure(
-      'ga-initialization',
-      'ga-init-start',
-      'ga-init-end',
-    );
+    performance.measure('ga-initialization', 'ga-init-start', 'ga-init-end');
 
-    const measure = performance.getEntriesByName(
-      'ga-initialization',
-    )[0];
+    const measure = performance.getEntriesByName('ga-initialization')[0];
 
     const duration = measure?.duration;
     if (!duration) return null;

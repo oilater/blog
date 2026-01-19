@@ -4,11 +4,7 @@ import { usePathname } from 'next/navigation';
 import { Footer } from './Footer';
 import { SectionContainer } from './SectionContainer';
 
-export function LayoutWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isArticle = pathname.includes('/contents/');
 

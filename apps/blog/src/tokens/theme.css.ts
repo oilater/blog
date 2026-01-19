@@ -1,7 +1,4 @@
-import {
-  createTheme,
-  createThemeContract,
-} from '@vanilla-extract/css';
+import { createTheme, createThemeContract } from '@vanilla-extract/css';
 import { palette } from './color/palette';
 
 export const themeColor = createThemeContract({

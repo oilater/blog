@@ -23,11 +23,7 @@ function ArticleRoot({ header, content }: ArticleRootProps) {
   );
 }
 
-function ArticleHeader({
-  title,
-  date,
-  imageUrl,
-}: ArticleHeaderProps) {
+function ArticleHeader({ title, date, imageUrl }: ArticleHeaderProps) {
   return (
     <div className={styles.articleHeader}>
       <div className={styles.articleHeaderTitleSection}>
@@ -66,13 +62,7 @@ export function createArticle(article: ArticleType) {
 
   return (
     <Article.Root
-      header={
-        <Article.Header
-          title={article.title}
-          date={article.date}
-          imageUrl={article.imageUrl}
-        />
-      }
+      header={<Article.Header title={article.title} date={article.date} imageUrl={article.imageUrl} />}
       content={<Article.Content>{article.content}</Article.Content>}
     />
   );

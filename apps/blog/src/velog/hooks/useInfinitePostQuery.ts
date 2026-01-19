@@ -1,7 +1,4 @@
-import {
-  InfiniteData,
-  useInfiniteQuery,
-} from '@tanstack/react-query';
+import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query';
 import { getPostsClient } from '#libs/velog/getPosts';
 import { PostType } from '#velog/types';
 
@@ -15,10 +12,7 @@ type QueryProps = {
   initialData?: InfiniteData<QueryResponse>;
 };
 
-export function useInfinitePostQuery({
-  username,
-  initialData,
-}: QueryProps = {}) {
+export function useInfinitePostQuery({ username, initialData }: QueryProps = {}) {
   return useInfiniteQuery<QueryResponse>({
     queryKey: ['posts'],
     queryFn: async ({ pageParam }) => {

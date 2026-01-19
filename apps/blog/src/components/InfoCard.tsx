@@ -9,12 +9,7 @@ type InfoCardProps = {
   isHighPriority?: boolean;
 };
 
-export async function InfoCard({
-  title,
-  description,
-  image,
-  isHighPriority,
-}: InfoCardProps) {
+export async function InfoCard({ title, description, image, isHighPriority }: InfoCardProps) {
   const blurURL = await getBlurDataURL(image);
   return (
     <div className={styles.card}>

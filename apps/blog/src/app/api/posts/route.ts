@@ -7,16 +7,12 @@ export async function POST(req: Request) {
     const { username, cursor } = body;
 
     if (!username) {
-      return NextResponse.json(
-        { error: 'Username is required' },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: 'Username is required' }, { status: 400 });
     }
 
     const posts = (await getPosts({ username, cursor })) || [];
 
-    const lastPost =
-      posts.length > 0 ? posts[posts.length - 1] : null;
+    const lastPost = posts.length > 0 ? posts[posts.length - 1] : null;
     const nextCursor = posts.length === 10 ? lastPost?.id : null;
 
     return NextResponse.json({
@@ -25,9 +21,6 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error('API Error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

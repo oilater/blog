@@ -51,9 +51,7 @@ export function Education() {
             </div>
             <div className={styles.educationContent}>
               <div className={styles.educationHeader}>
-                <span className={styles.educationTitle}>
-                  {item.title}
-                </span>
+                <span className={styles.educationTitle}>{item.title}</span>
               </div>
               <div className={styles.educationDescription}>
                 {item.descriptions.map((desc) => (

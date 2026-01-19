@@ -1,10 +1,6 @@
 import { InfoCard } from '#components/InfoCard';
 import { IMAGES } from '#constants/images';
-import {
-  infoSection,
-  introduceWrapper,
-  mainDescription,
-} from './Introduce.css';
+import { infoSection, introduceWrapper, mainDescription } from './Introduce.css';
 
 export function Introduce() {
   return (

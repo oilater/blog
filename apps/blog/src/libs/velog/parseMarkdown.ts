@@ -72,8 +72,7 @@ markedInstance.use({
 
     list({ items, ordered, start }) {
       const type = ordered ? 'ol' : 'ul';
-      const startAttr =
-        ordered && start !== 1 ? ` start="${start}"` : '';
+      const startAttr = ordered && start !== 1 ? ` start="${start}"` : '';
 
       let content = '';
       for (const item of items) {
@@ -85,9 +84,7 @@ markedInstance.use({
   },
 });
 
-export function parseMarkdown(
-  markdown: string | null | undefined,
-): string {
+export function parseMarkdown(markdown: string | null | undefined): string {
   if (!markdown) return '';
   return markedInstance.parse(markdown, {
     gfm: true,

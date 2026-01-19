@@ -19,11 +19,7 @@ const contents: Record<string, ArticleType> = {
   },
 };
 
-export default async function Article({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function Article({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const article = contents[id];
 

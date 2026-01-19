@@ -3,18 +3,9 @@ import { themeColor } from '#tokens/theme.css';
 
 export function VelogIcon() {
   return (
-    <svg
-      className={velogIcon}
-      viewBox="0 0 192 192"
-      fill={themeColor.colors.tagItemColor}
-    >
+    <svg className={velogIcon} viewBox="0 0 192 192" fill={themeColor.colors.tagItemColor}>
       <title>Velog Icon</title>
-      <circle
-        cx="96"
-        cy="96"
-        r="96"
-        fill={themeColor.colors.tagItemColor}
-      />
+      <circle cx="96" cy="96" r="96" fill={themeColor.colors.tagItemColor} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"

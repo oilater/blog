@@ -28,11 +28,7 @@ type CardTagsProps = {
 
 export function Card({ link, isInternal, children }: CardProps) {
   return (
-    <Link
-      href={link}
-      className={styles.card}
-      target={isInternal ? undefined : '_blank'}
-    >
+    <Link href={link} className={styles.card} target={isInternal ? undefined : '_blank'}>
       {children}
     </Link>
   );

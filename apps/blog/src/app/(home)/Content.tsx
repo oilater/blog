@@ -37,17 +37,9 @@ export const CONTENTS: ContentType[] = [
 
 export function Content() {
   return (
-    <Section
-      title="Contents"
-      description="새로운 것을 배우면 재밌는 서비스로 만들어봅니다."
-      className={contentSection}
-    >
+    <Section title="Contents" description="새로운 것을 배우면 재밌는 서비스로 만들어봅니다." className={contentSection}>
       {CONTENTS.map((content) => (
-        <Card
-          key={content.id}
-          link={content.link}
-          isInternal={content.isInternal}
-        >
+        <Card key={content.id} link={content.link} isInternal={content.isInternal}>
           <Card.Image image={content.image} />
           <Card.Content>
             <Card.Title>{content.title}</Card.Title>

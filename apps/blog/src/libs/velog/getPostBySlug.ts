@@ -5,10 +5,7 @@ type GetPostBySlugArgs = {
   slug: string;
 };
 
-export async function getPostBySlug({
-  username,
-  slug,
-}: GetPostBySlugArgs): Promise<PostType | null> {
+export async function getPostBySlug({ username, slug }: GetPostBySlugArgs): Promise<PostType | null> {
   const decodedSlug = decodeURIComponent(slug);
 
   const query = `

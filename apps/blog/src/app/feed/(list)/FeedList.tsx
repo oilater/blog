@@ -20,11 +20,10 @@ type FeedListProps = {
 };
 
 export function FeedList({ initialData }: FeedListProps) {
-  const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
-    useInfinitePostQuery({
-      username: BlogConfig.velogId,
-      initialData,
-    });
+  const { data, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfinitePostQuery({
+    username: BlogConfig.velogId,
+    initialData,
+  });
 
   const handleIntersect = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) {
@@ -38,9 +37,7 @@ export function FeedList({ initialData }: FeedListProps) {
     rootMargin: '200px',
   });
 
-  const posts =
-    data?.pages?.flatMap((page) => page.posts) ??
-    initialData.pages[0]?.posts;
+  const posts = data?.pages?.flatMap((page) => page.posts) ?? initialData.pages[0]?.posts;
 
   return (
     <div className={listWrapper}>

@@ -8,12 +8,8 @@ export function ListSkeleton() {
           <div>
             <div className={styles.cardTitle} />
             <div className={styles.descContainer}>
-              <div
-                className={`${styles.descLine} ${styles.descLineFull}`}
-              />
-              <div
-                className={`${styles.descLine} ${styles.descLineMedium}`}
-              />
+              <div className={`${styles.descLine} ${styles.descLineFull}`} />
+              <div className={`${styles.descLine} ${styles.descLineMedium}`} />
             </div>
           </div>
           <div className={styles.tagContainer}>
@@ -29,12 +25,8 @@ export function ListSkeleton() {
           <div>
             <div className={styles.cardTitle} />
             <div className={styles.descContainer}>
-              <div
-                className={`${styles.descLine} ${styles.descLineFull}`}
-              />
-              <div
-                className={`${styles.descLine} ${styles.descLineMedium}`}
-              />
+              <div className={`${styles.descLine} ${styles.descLineFull}`} />
+              <div className={`${styles.descLine} ${styles.descLineMedium}`} />
             </div>
           </div>
           <div className={styles.tagContainer}>
@@ -50,12 +42,8 @@ export function ListSkeleton() {
           <div>
             <div className={styles.cardTitle} />
             <div className={styles.descContainer}>
-              <div
-                className={`${styles.descLine} ${styles.descLineFull}`}
-              />
-              <div
-                className={`${styles.descLine} ${styles.descLineMedium}`}
-              />
+              <div className={`${styles.descLine} ${styles.descLineFull}`} />
+              <div className={`${styles.descLine} ${styles.descLineMedium}`} />
             </div>
           </div>
           <div className={styles.tagContainer}>

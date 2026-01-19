@@ -7,9 +7,7 @@ export function getRelativeDays(createdAt: string | Date): string {
   const diffMinutes = Math.floor(diffTime / (1000 * 60));
 
   const isSameDay = now.toDateString() === postDate.toDateString();
-  const isYesterday =
-    new Date(now.getTime() - 24 * 60 * 60 * 1000).toDateString() ===
-    postDate.toDateString();
+  const isYesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000).toDateString() === postDate.toDateString();
 
   if (isSameDay) {
     if (diffHours === 0) {
