@@ -224,7 +224,6 @@
     "src/app/about/Intro.css.ts",
     "src/app/about/Education.tsx",
     "src/app/about/Education.css.ts",
-    "src/app/about/Content.tsx",
     "public/gifs/intro-animation.gif",
     "public/gifs/crewing.gif",
     "public/gifs/avatar-move.gif",

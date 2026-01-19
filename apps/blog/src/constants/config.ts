@@ -9,7 +9,7 @@ export const BlogConfig = {
     '개발자 포트폴리오',
   ],
   author: {
-    name: '김성현',
+    name: 'Seonghyeon',
     bio: '프론트엔드 개발자',
     contacts: {
       email: 'oilater@naver.com',

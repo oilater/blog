@@ -24,15 +24,15 @@ export const tagButton = style({
 });
 
 export const tagButtonActive = style({
-  backgroundColor: '#2563eb',
-  color: 'white',
+  backgroundColor: '#ede9fe',
+  color: '#7c3aed',
 });
 
 export const tagButtonInactive = style({
-  backgroundColor: '#e5e7eb',
+  backgroundColor: '#f3f4f6',
   color: '#1f2937',
   ':hover': {
-    backgroundColor: '#d1d5db',
+    backgroundColor: '#e5e7eb',
   },
 });
 
@@ -75,8 +75,8 @@ export const postTitle = style({
 export const postTagBadge = style({
   fontSize: '0.725rem',
   padding: '0.2rem 0.3rem',
-  backgroundColor: '#dbeafe',
-  color: '#1e40af',
+  backgroundColor: '#ede9fe',
+  color: '#7c3aed',
   borderRadius: '0.25rem',
 });
 

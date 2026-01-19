@@ -10,13 +10,13 @@ export const tagHeaderRow = style({
 export const tagLink = style({
   fontSize: '0.725rem',
   padding: '0.2rem 0.5rem',
-  backgroundColor: '#dbeafe',
-  color: '#1e40af',
+  backgroundColor: '#ede9fe',
+  color: '#7c3aed',
   borderRadius: '0.25rem',
   textDecoration: 'none',
   transition: 'background-color 0.2s',
   ':hover': {
-    backgroundColor: '#bfdbfe',
+    backgroundColor: '#ddd6fe',
   },
 });
 
