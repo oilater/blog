@@ -1,3 +1,5 @@
+import '../../markdown.css';
+import '../../prism-theme.css';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -12,8 +14,6 @@ import { formatDate } from '#/lib/date';
 import { getAllPosts } from '#/lib/posts';
 import { components } from '../../mdx-components';
 import * as styles from '../../post-tag.css';
-import '../../markdown.css';
-import '../../prism-theme.css';
 
 interface Props {
   params: Promise<{ tag: string; slug: string }>;

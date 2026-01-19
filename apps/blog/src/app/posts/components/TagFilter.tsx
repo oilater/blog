@@ -20,7 +20,7 @@ export function TagFilter({ tags, selectedTag }: { tags: string[]; selectedTag?:
           href={`/posts/${tag}`}
           className={`${styles.tagButton} ${selectedTag === tag ? styles.tagButtonActive : styles.tagButtonInactive}`}
         >
-          {tag}
+          #{tag}
         </Link>
       ))}
     </div>

@@ -1,8 +1,9 @@
 import { style } from '@vanilla-extract/css';
 
 export const container = style({
-  maxWidth: '800px',
   margin: '0 auto',
+  maxWidth: '750px',
+  width: '100%',
   padding: '2rem 1rem',
 });
 
@@ -20,13 +21,13 @@ export const tagFilter = style({
 });
 
 export const tagButton = style({
-  padding: '0.5rem 1rem',
-  borderRadius: '9999px',
+  padding: '8px 14px',
+  borderRadius: 100,
   border: 'none',
   cursor: 'pointer',
   textDecoration: 'none',
   transition: 'background-color 0.2s',
-  fontSize: '0.9rem',
+  fontSize: 14,
 });
 
 export const tagButtonActive = style({
@@ -79,8 +80,8 @@ export const postTitle = style({
 });
 
 export const postTagBadge = style({
-  fontSize: '0.875rem',
-  padding: '0.25rem 0.5rem',
+  fontSize: '0.725rem',
+  padding: '0.2rem 0.3rem',
   backgroundColor: '#dbeafe',
   color: '#1e40af',
   borderRadius: '0.25rem',
