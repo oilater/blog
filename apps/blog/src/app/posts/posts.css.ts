@@ -67,7 +67,8 @@ export const postTitle = style({
   color: '#111827',
   selectors: {
     [`${postLink}:hover &`]: {
-      color: '#2563eb',
+      color: '#7c3aed',
+      transition: 'color 0.2s ease-in-out',
     },
   },
 });

@@ -29,13 +29,13 @@ function PostHeader({ frontmatter, tag }: { frontmatter: Frontmatter; tag: strin
 
   return (
     <header className="markdown-header">
-      <div className={styles.tagHeaderRow}>
-        <h1 className="markdown-title">{frontmatter.title}</h1>
+      <h1 className="markdown-title">{frontmatter.title}</h1>
+      <div className={styles.metaRow}>
+        {frontmatter.date && <time className="markdown-date">{formatDate(frontmatter.date)}</time>}
         <Link href={`/posts/${tag}`} className={styles.tagLink}>
           {tag}
         </Link>
       </div>
-      {frontmatter.date && <time className="markdown-date">{formatDate(frontmatter.date)}</time>}
     </header>
   );
 }
@@ -63,7 +63,7 @@ export default async function PostPage({ params }: Props) {
                 remarkPlugins: [remarkGfm],
                 rehypePlugins: [
                   rehypeSlug,
-                  [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+                  [rehypeAutolinkHeadings, { behavior: 'append' }],
                   [rehypePrism, { showLineNumbers: true }],
                 ],
               },

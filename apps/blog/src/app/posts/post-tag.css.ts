@@ -23,5 +23,5 @@ export const tagLink = style({
 export const metaRow = style({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  gap: '0.5rem',
 });
