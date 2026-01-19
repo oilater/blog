@@ -15,7 +15,6 @@ export function getAllTags(): string[] {
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
-
   const entries = fs.readdirSync(postsDirectory, { withFileTypes: true });
   return entries
     .filter((entry) => entry.isDirectory())
@@ -35,10 +34,11 @@ export function getAllPosts(): PostMetadata[] {
     const { data } = matter(fileContent);
     const stats = fs.statSync(filePath);
 
+    const name = fileName.replace('.md', '');
     return {
-      title: data.title || fileName.replace('.md', ''),
+      title: data.title || name,
       date: data.date || stats.birthtime,
-      slug: tag ? `${tag}/${fileName.replace('.md', '')}` : fileName.replace('.md', ''),
+      slug: tag ? `${tag}/${name}` : name,
       tag,
     };
   };

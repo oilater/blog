@@ -17,7 +17,7 @@ export function TagFilter({ tags, selectedTag }: { tags: string[]; selectedTag?:
         <Link
           key={tag}
           prefetch={false}
-          href={`/posts/${encodeURIComponent(tag)}`}
+          href={`/posts/${tag}`}
           className={`${styles.tagButton} ${selectedTag === tag ? styles.tagButtonActive : styles.tagButtonInactive}`}
         >
           {tag}

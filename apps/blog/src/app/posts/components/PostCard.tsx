@@ -4,11 +4,9 @@ import type { PostMetadata } from '#/lib/posts';
 import * as styles from '../posts.css';
 
 export function PostCard({ post }: { post: PostMetadata }) {
-  const encodedSlug = post.slug.split('/').map(encodeURIComponent).join('/');
-
   return (
     <article className={styles.postCard}>
-      <Link href={`/posts/${encodedSlug}`} className={styles.postLink} prefetch={false}>
+      <Link href={`/posts/${post.slug}`} className={styles.postLink} prefetch={false}>
         <div className={styles.postHeaderRow}>
           <h2 className={styles.postTitle}>{post.title}</h2>
           {post.tag && <span className={styles.postTagBadge}>{post.tag}</span>}

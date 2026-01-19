@@ -24,14 +24,14 @@ interface Frontmatter {
   date?: string | Date;
 }
 
-function PostHeader({ frontmatter, tag }: { frontmatter: Frontmatter; tag: string }) {
+function PostHeader({ frontmatter, tag, tagSlug }: { frontmatter: Frontmatter; tag: string; tagSlug: string }) {
   if (!frontmatter.title) return null;
 
   return (
     <header className="markdown-header">
       <div className={styles.tagHeaderRow}>
         <h1 className="markdown-title">{frontmatter.title}</h1>
-        <Link href={`/posts/${tag}`} className={styles.tagLink}>
+        <Link href={`/posts/${tagSlug}`} className={styles.tagLink}>
           {tag}
         </Link>
       </div>
@@ -42,9 +42,11 @@ function PostHeader({ frontmatter, tag }: { frontmatter: Frontmatter; tag: strin
 
 export default async function PostPage({ params }: Props) {
   const { tag, slug } = await params;
-  const decodedTag = decodeURIComponent(tag);
-  const decodedSlug = decodeURIComponent(slug);
-  const filePath = path.join(process.cwd(), 'posts', decodedTag, `${decodedSlug}.md`);
+  const tagSlug = decodeURIComponent(tag);
+  const slugDecoded = decodeURIComponent(slug);
+  const tagName = tagSlug;
+  const fileName = slugDecoded;
+  const filePath = path.join(process.cwd(), 'posts', tagName, `${fileName}.md`);
 
   try {
     const fileContent = fs.readFileSync(filePath, 'utf8');
@@ -52,7 +54,7 @@ export default async function PostPage({ params }: Props) {
 
     return (
       <div className="markdown-container">
-        <PostHeader frontmatter={frontmatter} tag={decodedTag} />
+        <PostHeader frontmatter={frontmatter} tag={tagName} tagSlug={tagSlug} />
         <article className="markdown-body">
           <MDXRemote
             source={content}

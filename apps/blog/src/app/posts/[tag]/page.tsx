@@ -10,20 +10,20 @@ interface Props {
 
 export default async function TagPostsPage({ params }: Props) {
   const { tag } = await params;
-  const decodedTag = decodeURIComponent(tag);
+  const tagName = decodeURIComponent(tag);
   const allTags = getAllTags();
 
-  if (!allTags.includes(decodedTag)) {
+  if (!allTags.includes(tagName)) {
     return notFound();
   }
 
-  const filteredPosts = getPostsByTag(decodedTag);
+  const filtered = getPostsByTag(tagName);
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{decodedTag}</h1>
-      <TagFilter tags={allTags} selectedTag={decodedTag} />
-      <PostsList posts={filteredPosts} />
+      <h1 className={styles.title}>{tagName}</h1>
+      <TagFilter tags={allTags} selectedTag={tagName} />
+      <PostsList posts={filtered} />
     </div>
   );
 }
@@ -31,7 +31,5 @@ export default async function TagPostsPage({ params }: Props) {
 export async function generateStaticParams() {
   const tags = getAllTags();
 
-  return tags.map((tag) => ({
-    tag,
-  }));
+  return tags.map((tag) => ({ tag }));
 }
