@@ -8,28 +8,13 @@ export const BlogConfig = {
     '프론트엔드 개발자 포트폴리오',
     '개발자 포트폴리오',
   ],
-  menu: [
-    {
-      label: 'Home',
-      path: '/',
-    },
-    {
-      label: 'Feed',
-      path: '/feed',
-    },
-    {
-      label: 'About',
-      path: '/about',
-    },
-  ],
   author: {
     name: '김성현',
     bio: '프론트엔드 개발자',
     contacts: {
       email: 'oilater@naver.com',
-      github: '',
+      github: 'https://github.com/oilater',
       linkedin: '',
-      instagram: '',
     },
   },
   googleAnalyticsId: 'G-MJW15RG9YG',
