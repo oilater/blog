@@ -52,10 +52,6 @@ export const postCard = style({
   border: '1px solid #e5e7eb',
   borderRadius: '0.5rem',
   padding: '1.5rem',
-  transition: 'box-shadow 0.2s',
-  ':hover': {
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-  },
 });
 
 export const postLink = style({
