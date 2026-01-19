@@ -3,7 +3,7 @@ import { themeColor } from '#tokens/theme.css';
 
 export const header = style({
   zIndex: 100,
-  height: 60,
+  height: 70,
   position: 'fixed',
   top: 0,
   left: '50%',
@@ -13,6 +13,8 @@ export const header = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  backgroundColor: themeColor.colors.mainBackground,
+  transition: 'background-color 0.2s ease-out',
 });
 
 export const logo = style({

@@ -11,7 +11,7 @@ export function Header() {
         {BlogConfig.author.name}
       </Link>
       <nav className={nav}>
-        <NavItem href="/posts" label="Posts" prefetch={false} />
+        <NavItem href="/" label="Posts" prefetch={false} />
         <NavItem href="/about" label="About" prefetch={false} />
         <ThemeSwitch />
       </nav>

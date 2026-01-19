@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3d70f787c94f11c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "posts/개발/리액트는 뭘까.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "리액트는 뭘까"
-            }
-          },
-          {
             "id": "d0598b52152a76d7",
             "type": "leaf",
             "state": {
@@ -41,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/생각/생각.md",
+                "file": "posts/끄적끄적/생각.md",
                 "mode": "source",
                 "source": false
               },
@@ -55,16 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
+                "file": "posts/개발/리액트는-뭘까.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "재즈가 뭐라고 생각해"
+              "title": "리액트는-뭘까"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -137,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
+                "file": "posts/개발/리액트는-뭘까.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 재즈가 뭐라고 생각해"
+              "title": "Backlinks for 리액트는-뭘까"
             }
           },
           {
@@ -156,12 +142,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
+                "file": "posts/개발/리액트는-뭘까.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 재즈가 뭐라고 생각해"
+              "title": "Outgoing links from 리액트는-뭘까"
             }
           },
           {
@@ -199,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
+                "file": "posts/개발/리액트는-뭘까.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 재즈가 뭐라고 생각해"
+              "title": "Outline of 리액트는-뭘까"
             }
           }
         ]
@@ -228,21 +214,32 @@
   },
   "active": "621b9a3ea3d49a01",
   "lastOpenFiles": [
-    "src/app/posts/[...slug]/prism-theme.css",
-    "src/app/posts/[...slug]/mdx-components.tsx",
-    "src/app/posts/[...slug]/markdown.css",
-    "src/app/posts/[...slug]/post-tag.css.ts",
-    "src/app/posts/[...slug]/page.tsx",
-    "src/app/posts/[...slug]",
-    "src/app/feed/(list)/layout.tsx",
-    "src/app/feed/(list)/style.css.ts",
-    "src/app/feed/(list)",
-    "src/app/feed/layout.tsx",
-    "src/app/feed",
-    "posts/생각/생각.md",
-    "posts/재즈/재즈가 뭐라고 생각해.md",
-    "성장.md",
+    "src/app/about/page.tsx",
+    "src/app/about/Recent.tsx",
+    "src/app/about/Outro.tsx",
+    "src/app/about/Outro.css.ts",
+    "src/app/about/Introduce.tsx",
+    "src/app/about/Introduce.css.ts",
+    "src/app/about/Intro.tsx",
+    "src/app/about/Intro.css.ts",
+    "src/app/about/Education.tsx",
+    "src/app/about/Education.css.ts",
+    "src/app/about/Content.tsx",
+    "public/gifs/intro-animation.gif",
+    "public/gifs/crewing.gif",
+    "public/gifs/avatar-move.gif",
+    "posts/끄적끄적/생각.md",
+    "posts/재즈/재즈가-뭐라고-생각해.md",
+    "posts/재즈/재즈가-뭐라고 생각해.md",
     "posts/개발/리액트는 뭘까.md",
+    "posts/개발/리액트는-뭘까.md",
+    "public/images/posts/스크린샷 2026-01-14 오후 10.46.13.png",
+    "public/images/스크린샷 2026-01-14 오후 10.46.13.png",
+    "스크린샷 2026-01-14 오후 10.46.13.png",
+    "posts/재즈/재즈가 뭐라고 생각해.md",
+    "node_modules/rehype-pretty-code/README.md",
+    "node_modules/shiki/README.md",
+    "성장.md",
     "node_modules/@types/mdx/README.md",
     "node_modules/next-mdx-remote/header.png",
     "node_modules/next-mdx-remote/README.md",
