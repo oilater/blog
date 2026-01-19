@@ -3,23 +3,27 @@ import { themeColor } from '#tokens/theme.css';
 
 export const header = style({
   zIndex: 100,
-  height: 46,
-  backgroundColor: 'rgba(232, 243, 255, 0.5)',
-  backdropFilter: 'blur(5px)',
-  borderRadius: 20,
+  height: 60,
   position: 'fixed',
-  top: 20,
+  top: 0,
   left: '50%',
   transform: 'translateX(-50%)',
+  width: '100%',
+  maxWidth: 750,
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '0 24px 0 24px',
 });
 
-export const innerNav = style({
+export const logo = style({
+  fontSize: 18,
+  fontWeight: 600,
+  color: themeColor.colors.titleFontColor,
+  textDecoration: 'none',
+});
+
+export const nav = style({
   display: 'flex',
-  justifyContent: 'center',
   alignItems: 'center',
   gap: 24,
 });
