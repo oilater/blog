@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getBlurDataURL } from '#libs/getBlurDataURL';
+import { getBlurDataURL } from '#/lib/getBlurDataURL';
 import * as styles from './styles/InfoCard.css';
 
 type InfoCardProps = {

@@ -8,7 +8,6 @@ export const BlogConfig = {
     '프론트엔드 개발자 포트폴리오',
     '개발자 포트폴리오',
   ],
-  velogId: 'oilater',
   menu: [
     {
       label: 'Home',

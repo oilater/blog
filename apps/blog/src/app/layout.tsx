@@ -1,7 +1,6 @@
 import './global.css';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { GoogleAnalyticsLoader } from '#/components/GoogleAnalyticsLoader';
 import { FloatingNav } from '#components/FloatingNav';
 import { LayoutWrapper } from '#components/LayoutWrapper';
@@ -39,14 +38,9 @@ export const metadata: Metadata = {
   },
 };
 
-const GA_MEASUREMENT_ID = BlogConfig.googleAnalyticsId;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://v2.velog.io" crossOrigin="" />
-      </head>
       <body>
         <ThemeProvider>
           <FloatingNav />

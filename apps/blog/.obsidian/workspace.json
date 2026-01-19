@@ -13,15 +13,58 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/test1.md",
+                "file": "posts/개발/리액트는 뭘까.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test1"
+              "title": "리액트는 뭘까"
+            }
+          },
+          {
+            "id": "d0598b52152a76d7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "성장.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "성장"
+            }
+          },
+          {
+            "id": "6492211270466e86",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/생각/생각.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "생각"
+            }
+          },
+          {
+            "id": "621b9a3ea3d49a01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "재즈가 뭐라고 생각해"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -94,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/test1.md",
+                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +147,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for test1"
+              "title": "Backlinks for 재즈가 뭐라고 생각해"
             }
           },
           {
@@ -113,12 +156,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/test1.md",
+                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from test1"
+              "title": "Outgoing links from 재즈가 뭐라고 생각해"
             }
           },
           {
@@ -156,13 +199,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/test1.md",
+                "file": "posts/재즈/재즈가 뭐라고 생각해.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of test1"
+              "title": "Outline of 재즈가 뭐라고 생각해"
             }
           }
         ]
@@ -183,13 +226,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "3d70f787c94f11c1",
+  "active": "621b9a3ea3d49a01",
   "lastOpenFiles": [
-    "src/app/posts/[slug]/page.tsx",
-    "src/app/posts/[slug]",
-    "src/app/posts",
-    "posts/test1.md",
-    "posts",
-    "posts"
+    "src/app/posts/[...slug]/prism-theme.css",
+    "src/app/posts/[...slug]/mdx-components.tsx",
+    "src/app/posts/[...slug]/markdown.css",
+    "src/app/posts/[...slug]/post-tag.css.ts",
+    "src/app/posts/[...slug]/page.tsx",
+    "src/app/posts/[...slug]",
+    "src/app/feed/(list)/layout.tsx",
+    "src/app/feed/(list)/style.css.ts",
+    "src/app/feed/(list)",
+    "src/app/feed/layout.tsx",
+    "src/app/feed",
+    "posts/생각/생각.md",
+    "posts/재즈/재즈가 뭐라고 생각해.md",
+    "성장.md",
+    "posts/개발/리액트는 뭘까.md",
+    "node_modules/@types/mdx/README.md",
+    "node_modules/next-mdx-remote/header.png",
+    "node_modules/next-mdx-remote/README.md",
+    "node_modules/next-mdx-remote/CHANGELOG.md",
+    "node_modules/@mdx-js/react/readme.md",
+    "node_modules/@mdx-js/loader/readme.md",
+    "node_modules/rehype-autolink-headings/readme.md",
+    "node_modules/rehype-slug/readme.md",
+    "node_modules/rehype-prism-plus/README.md",
+    "node_modules/remark-gfm/readme.md",
+    "node_modules/gray-matter/README.md",
+    "node_modules/gray-matter/CHANGELOG.md",
+    "node_modules/@next/mdx/readme.md",
+    "node_modules/@next/mdx/license.md"
   ]
 }
