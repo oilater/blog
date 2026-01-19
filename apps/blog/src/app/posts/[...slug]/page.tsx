@@ -1,3 +1,4 @@
+import * as styles from './post-tag.css';
 import './markdown.css';
 import './prism-theme.css';
 import fs from 'node:fs';
@@ -10,9 +11,9 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import { formatDate } from '#/lib/date';
 import { getAllPosts } from '#/lib/posts';
 import { components } from './mdx-components';
-import * as styles from './post-tag.css';
 
 interface Props {
   params: Promise<{ slug: string[] }>;
@@ -21,15 +22,6 @@ interface Props {
 interface Frontmatter {
   title?: string;
   date?: string | Date;
-}
-
-function formatDate(date: string | Date): string {
-  if (typeof date === 'string') return date;
-  return new Date(date).toLocaleDateString('ko-KR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
 }
 
 function PostHeader({ frontmatter, tag }: { frontmatter: Frontmatter; tag?: string }) {

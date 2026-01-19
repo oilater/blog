@@ -40,16 +40,23 @@ export const components: MDXComponents = {
     }
     return <a className="markdown-link" {...props} />;
   },
-  img: (props: ComponentPropsWithoutRef<'img'>) => (
-    <Image
-      className="markdown-img"
-      src={props.src || ''}
-      alt={props.alt || ''}
-      width={800}
-      height={600}
-      style={{ width: '100%', height: 'auto' }}
-    />
-  ),
+  img: (props: ComponentPropsWithoutRef<'img'>) => {
+    if (!props.src) return null;
+
+    return (
+      <Image
+        className="markdown-img"
+        src={props.src}
+        alt={props.alt || ''}
+        width={800}
+        height={600}
+        quality={90}
+        style={{ width: '100%', height: 'auto' }}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
+        priority={false}
+      />
+    );
+  },
   table: (props: ComponentPropsWithoutRef<'table'>) => (
     <div className="markdown-table-wrapper">
       <table className="markdown-table" {...props} />

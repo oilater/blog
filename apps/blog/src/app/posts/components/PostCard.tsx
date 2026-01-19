@@ -4,7 +4,6 @@ import type { PostMetadata } from '#/lib/posts';
 import * as styles from '../posts.css';
 
 export function PostCard({ post }: { post: PostMetadata }) {
-  // slug는 "태그/파일명" 형태이므로 각 부분을 인코딩
   const encodedSlug = post.slug.split('/').map(encodeURIComponent).join('/');
 
   return (
