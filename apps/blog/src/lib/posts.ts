@@ -30,18 +30,23 @@ export function getAllPosts(): PostMetadata[] {
     return posts;
   }
 
+  const getPostData = (filePath: string, fileName: string, tag?: string): PostMetadata => {
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const { data } = matter(fileContent);
+    const stats = fs.statSync(filePath);
+
+    return {
+      title: data.title || fileName.replace('.md', ''),
+      date: data.date || stats.birthtime,
+      slug: tag ? `${tag}/${fileName.replace('.md', '')}` : fileName.replace('.md', ''),
+      tag,
+    };
+  };
+
   const rootFiles = fs.readdirSync(postsDirectory, { withFileTypes: true });
   for (const file of rootFiles) {
     if (file.isFile() && file.name.endsWith('.md')) {
-      const filePath = path.join(postsDirectory, file.name);
-      const fileContent = fs.readFileSync(filePath, 'utf8');
-      const { data } = matter(fileContent);
-
-      posts.push({
-        title: data.title || file.name.replace('.md', ''),
-        date: data.date || new Date(),
-        slug: file.name.replace('.md', ''),
-      });
+      posts.push(getPostData(path.join(postsDirectory, file.name), file.name));
     }
   }
 
@@ -52,16 +57,7 @@ export function getAllPosts(): PostMetadata[] {
 
     for (const file of files) {
       if (file.endsWith('.md')) {
-        const filePath = path.join(tagDir, file);
-        const fileContent = fs.readFileSync(filePath, 'utf8');
-        const { data } = matter(fileContent);
-
-        posts.push({
-          title: data.title || file.replace('.md', ''),
-          date: data.date || new Date(),
-          slug: `${tag}/${file.replace('.md', '')}`,
-          tag,
-        });
+        posts.push(getPostData(path.join(tagDir, file), file, tag));
       }
     }
   }
