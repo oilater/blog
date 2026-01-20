@@ -1,0 +1,170 @@
+/* Prism.js theme - VS Code Dark+ inspired */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #d6deeb;
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow: auto;
+  background: #011627;
+  border-radius: 6px;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.2em 0.4em;
+  background: #f3f4f6;
+  color: #1a1a1a;
+  border-radius: 3px;
+  white-space: normal;
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #3e3e42;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+
+.line-numbers-rows > span:before {
+  color: #858585;
+}
+
+/* Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #637777;
+  font-style: italic;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.string,
+.token.attr-value {
+  color: #addb67;
+}
+
+.token.punctuation {
+  color: #c792ea;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.regex,
+.token.inserted {
+  color: #b5cea8;
+}
+
+.token.property {
+  color: #addb67;
+}
+
+.token.atrule,
+.token.keyword,
+.token.attr-name,
+.language-autohotkey .token.selector {
+  color: #7fdbca;
+}
+
+.token.function,
+.token.deleted,
+.language-autohotkey .token.tag {
+  color: #82aaff;
+}
+
+.token.tag,
+.token.selector,
+.language-autohotkey .token.keyword {
+  color: #ffcb8b;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.important {
+  color: #c586c0;
+}
+
+.token.class-name {
+  color: #ffcb8b;
+}
+
+.token.builtin {
+  color: #4ec9b0;
+}
+
+.token.char {
+  color: #d7ba7d;
+}
+
+/* Language-specific */
+.language-css .token.string,
+.style .token.string {
+  color: #addb67;
+}
+
+.language-json .token.property {
+  color: #9cdcfe;
+}
+
+.language-json .token.string {
+  color: #addb67;
+}
+
+/* Highlighted lines */
+pre[class*="language-"] .highlight-line {
+  background-color: rgba(59, 130, 246, 0.15);
+  border-left: 3px solid #3b82f6;
+  padding-left: 1rem;
+  margin-left: -1rem;
+  display: block;
+}
+
+/* Scrollbar for code blocks */
+pre[class*="language-"]::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+  background: #011627;
+  border-radius: 6px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 6px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+  background: #4e4e4e;
+}

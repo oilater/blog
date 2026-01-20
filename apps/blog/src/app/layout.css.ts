@@ -2,24 +2,36 @@ import { style } from '@vanilla-extract/css';
 import { themeColor } from '#tokens/theme.css';
 
 export const header = style({
-  zIndex: 100,
-  height: 46,
-  backgroundColor: 'rgba(232, 243, 255, 0.5)',
-  backdropFilter: 'blur(5px)',
-  borderRadius: 20,
+  zIndex: 10,
+  maxWidth: 'calc(100% - 40px)',
+  width: '100%',
+  height: 70,
   position: 'fixed',
-  top: 20,
+  top: 0,
   left: '50%',
   transform: 'translateX(-50%)',
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '0 24px 0 24px',
+  backgroundColor: themeColor.colors.mainBackground,
+  transition: 'background-color 0.2s ease-out',
+
+  '@media': {
+    '(min-width: 790px)': {
+      maxWidth: 750,
+    },
+  },
 });
 
-export const innerNav = style({
+export const logo = style({
+  fontSize: 18,
+  fontWeight: 600,
+  color: themeColor.colors.titleFontColor,
+  textDecoration: 'none',
+});
+
+export const nav = style({
   display: 'flex',
-  justifyContent: 'center',
   alignItems: 'center',
   gap: 24,
 });

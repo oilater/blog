@@ -24,7 +24,7 @@ export const themeColor = createThemeContract({
 
 export const lightTheme = createTheme(themeColor, {
   colors: {
-    titleFontColor: palette.grey800,
+    titleFontColor: '#111827',
     mainBackground: palette.white,
     contentBackground: palette.grey50,
     cardBackground: palette.grey50,
@@ -32,12 +32,12 @@ export const lightTheme = createTheme(themeColor, {
     tagBackground: palette.grey100,
     tagItemColor: palette.grey700,
     mainFontColor: palette.grey700,
-    subFontColor: palette.grey500,
+    subFontColor: '#6b7280',
     cardTitleFontColor: palette.grey800,
     cardDescriptionFontColor: palette.grey600,
     borderColor: palette.grey300,
     contentFontColor: palette.grey600,
-    highLightFontColor: palette.blue500,
+    highLightFontColor: '#7c3aed',
     postCodeColor: '#E9ECEF',
     skeletonColor: palette.grey100,
   },
@@ -58,7 +58,7 @@ export const darkTheme = createTheme(themeColor, {
     cardDescriptionFontColor: '#9E9EA4',
     borderColor: palette.grey800,
     contentFontColor: '#7E7E87',
-    highLightFontColor: palette.blue400,
+    highLightFontColor: '#a78bfa',
     postCodeColor: '#24292E',
     skeletonColor: palette.grey800,
   },

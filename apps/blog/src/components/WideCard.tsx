@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ContentType } from '#/articles/types';
-import { getBlurDataURL } from '#libs/getBlurDataURL';
+import { getBlurDataURL } from '#/lib/getBlurDataURL';
 import * as styles from './styles/WideCard.css';
 
 export async function WideCard({ value }: { value: ContentType }) {

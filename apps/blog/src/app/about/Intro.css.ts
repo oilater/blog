@@ -1,0 +1,17 @@
+import { style } from '@vanilla-extract/css';
+import { themeColor } from '#tokens/theme.css';
+
+export const wrapper = style({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom: 30,
+});
+
+export const title = style({
+  textAlign: 'center',
+  color: themeColor.colors.titleFontColor,
+  letterSpacing: '-0.01em',
+  fontSize: 40,
+});

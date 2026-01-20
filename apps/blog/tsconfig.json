@@ -13,7 +13,6 @@
       "#providers/*": ["src/providers/*"],
       "#libs/*": ["src/libs/*"],
       "#animations/*": ["src/animations/*"],
-      "#velog/*": ["src/velog/*"],
       "#utils/*": ["src/utils/*"]
     }
   },
