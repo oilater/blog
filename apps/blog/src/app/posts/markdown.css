@@ -204,6 +204,12 @@
   border-radius: 6px;
 }
 
+.markdown-body video {
+  display: block;
+  max-width: 100%;
+  margin: 1.5rem auto;
+}
+
 .markdown-body strong {
   font-weight: 600;
   color: #1a1a1a;
