@@ -2,19 +2,25 @@ import { style } from '@vanilla-extract/css';
 import { themeColor } from '#tokens/theme.css';
 
 export const header = style({
-  zIndex: 100,
+  zIndex: 10,
+  maxWidth: 'calc(100% - 40px)',
+  width: '100%',
   height: 70,
   position: 'fixed',
   top: 0,
   left: '50%',
   transform: 'translateX(-50%)',
-  width: '100%',
-  maxWidth: 750,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   backgroundColor: themeColor.colors.mainBackground,
   transition: 'background-color 0.2s ease-out',
+
+  '@media': {
+    '(min-width: 790px)': {
+      maxWidth: 750,
+    },
+  },
 });
 
 export const logo = style({

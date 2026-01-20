@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { themeColor } from '#/tokens/theme.css';
 
 export const container = style({
   margin: '0 auto',
@@ -64,10 +65,10 @@ export const postHeaderRow = style({
 export const postTitle = style({
   fontSize: '1.25rem',
   fontWeight: 600,
-  color: '#111827',
+  color: themeColor.colors.titleFontColor,
   selectors: {
     [`${postLink}:hover &`]: {
-      color: '#7c3aed',
+      color: themeColor.colors.highLightFontColor,
       transition: 'color 0.2s ease-in-out',
     },
   },
@@ -84,7 +85,7 @@ export const postTagBadge = style({
 export const postDate = style({
   fontSize: '0.875rem',
   paddingRight: 8,
-  color: '#6b7280',
+  color: themeColor.colors.subFontColor,
 });
 
 export const noPosts = style({

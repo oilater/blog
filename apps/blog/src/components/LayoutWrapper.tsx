@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Footer } from './Footer';
 import { SectionContainer } from './SectionContainer';
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
@@ -11,10 +10,5 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   if (isArticle) {
     return <div>{children}</div>;
   }
-  return (
-    <SectionContainer>
-      {children}
-      <Footer />
-    </SectionContainer>
-  );
+  return <SectionContainer>{children}</SectionContainer>;
 }

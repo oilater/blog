@@ -13,30 +13,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/끄적끄적/생각.md",
+                "file": "posts/끄적끄적/내 블로그 변천사.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "생각"
+              "title": "내 블로그 변천사"
             }
           },
           {
-            "id": "621b9a3ea3d49a01",
+            "id": "23cef0bade675f53",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/개발/리액트는-뭘까.md",
+                "file": "posts/개발/테스트.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "리액트는-뭘까"
+              "title": "테스트"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -109,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/개발/리액트는-뭘까.md",
+                "file": "posts/끄적끄적/내 블로그 변천사.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 리액트는-뭘까"
+              "title": "Backlinks for 내 블로그 변천사"
             }
           },
           {
@@ -128,12 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/개발/리액트는-뭘까.md",
+                "file": "posts/끄적끄적/내 블로그 변천사.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 리액트는-뭘까"
+              "title": "Outgoing links from 내 블로그 변천사"
             }
           },
           {
@@ -171,13 +170,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/개발/리액트는-뭘까.md",
+                "file": "posts/끄적끄적/내 블로그 변천사.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 리액트는-뭘까"
+              "title": "Outline of 내 블로그 변천사"
             }
           }
         ]
@@ -198,36 +197,41 @@
       "bases:Create new base": false
     }
   },
-  "active": "621b9a3ea3d49a01",
+  "active": "6492211270466e86",
   "lastOpenFiles": [
+    "public/posts/2026-01-20/obsidian-example.png",
+    "public/posts/2026-01-20/스크린샷 2026-01-20 오후 1.53.29.png",
+    "public/posts/2026-01-20/old-blog.webm",
+    "public/posts/test.png",
+    "public/posts/2026-01-20/old-blog.mp4",
+    "public/posts/2026-01-20/study-cafe.jpeg",
+    "public/posts/2026-01-20/old-blog.mov",
+    "public/posts/2026-01-20",
+    "public/posts/스크린샷 2026-01-14 오후 10.46.13.png",
+    "public/posts",
+    "public/images/posts/2026-01-20/old-blog.mov",
+    "public/images/posts/2026-01-20/화면 기록 2025-12-25 오후 4.08.59.mov",
+    "public/images/posts/2026-01-20/study-cafe.jpeg",
+    "public/images/posts/2026-01-20/KakaoTalk_Photo_2026-01-20-10-27-05.jpeg",
+    "public/images/posts/2026-01-20",
+    "스크린샷 2026-01-20 오후 1.09.38.png",
+    "posts/개발/테스트.md",
+    "posts/끄적끄적/내 블로그 변천사.md",
+    "화면 기록 2025-12-25 오후 4.08.59 1.mov",
+    "화면 기록 2025-12-25 오후 4.08.59.mov",
+    "스크린샷 2026-01-11 오후 4.51.56.png",
+    "Pasted image 20260120102728.png",
+    "솔직할 수 있는 용기.md",
+    "2026-01-19.md",
     "성장.md",
-    "posts/개발/리액트는-뭘까.md",
     "public/images/blog-logo.png",
-    "src/app/about/page.tsx",
-    "src/app/about/Recent.tsx",
-    "src/app/about/Outro.tsx",
-    "src/app/about/Outro.css.ts",
-    "src/app/about/Introduce.tsx",
-    "src/app/about/Introduce.css.ts",
-    "src/app/about/Intro.tsx",
-    "src/app/about/Intro.css.ts",
-    "src/app/about/Education.tsx",
-    "src/app/about/Education.css.ts",
-    "public/gifs/intro-animation.gif",
-    "public/gifs/crewing.gif",
-    "public/gifs/avatar-move.gif",
-    "posts/끄적끄적/생각.md",
     "posts/재즈/재즈가-뭐라고-생각해.md",
     "posts/재즈/재즈가-뭐라고 생각해.md",
     "posts/개발/리액트는 뭘까.md",
-    "public/images/posts/스크린샷 2026-01-14 오후 10.46.13.png",
-    "public/images/스크린샷 2026-01-14 오후 10.46.13.png",
-    "스크린샷 2026-01-14 오후 10.46.13.png",
     "posts/재즈/재즈가 뭐라고 생각해.md",
     "node_modules/rehype-pretty-code/README.md",
     "node_modules/shiki/README.md",
     "node_modules/@types/mdx/README.md",
-    "node_modules/next-mdx-remote/header.png",
     "node_modules/next-mdx-remote/README.md",
     "node_modules/next-mdx-remote/CHANGELOG.md",
     "node_modules/@mdx-js/react/readme.md",
