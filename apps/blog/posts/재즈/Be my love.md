@@ -5,7 +5,7 @@ date: 2026-01-21
 
 좋은 곡 ,,
 
-<video controls playsInline style={{ width: '40%', maxWidth: '400px', height: 'auto', display: 'block' }}>
+<video controls playsInline style={{ width: '300px', height: '530px', display: 'block' }}>
   <source src="/posts/2026-01-21/be-my-love.webm" type='video/webm; codecs="vp09.00.41.08"' />  
   <source src="/posts/2026-01-21/be-my-love.mp4" type='video/mp4; codecs="avc1.4D401E"' />
   <p>Your browser doesn't support HTML video.</p>
