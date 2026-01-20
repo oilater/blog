@@ -146,6 +146,8 @@ pre[class*="language-"] .highlight-line {
   border-left: 3px solid #3b82f6;
   padding-left: 1rem;
   margin-left: -1rem;
+  padding-right: 1rem;
+  margin-right: -1rem;
   display: block;
 }
 
