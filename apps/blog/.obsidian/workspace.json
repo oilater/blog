@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/끄적끄적/블로그 대공사 중.md",
+                "file": "posts/개발/테스트.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "블로그 대공사 중"
+              "title": "테스트"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/끄적끄적/블로그 대공사 중.md",
+                "file": "posts/개발/테스트.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 블로그 대공사 중"
+              "title": "Backlinks for 테스트"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/끄적끄적/블로그 대공사 중.md",
+                "file": "posts/개발/테스트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 블로그 대공사 중"
+              "title": "Outgoing links from 테스트"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/끄적끄적/블로그 대공사 중.md",
+                "file": "posts/개발/테스트.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 블로그 대공사 중"
+              "title": "Outline of 테스트"
             }
           }
         ]
@@ -185,6 +185,8 @@
   },
   "active": "23cef0bade675f53",
   "lastOpenFiles": [
+    "posts/끄적끄적/블로그 대공사 중.md",
+    "posts/끄적끄적/블로그를-개편했다.md",
     "화면 기록 2025-12-25 오후 4.08.59.mov",
     "화면 기록 2025-12-25 오후 4.08.59 1.mov",
     "스크린샷 2026-01-20 오후 1.09.38.png",
@@ -198,11 +200,9 @@
     "src/app/posts/prism-theme.css",
     "src/app/posts/posts.css.ts",
     "src/app/posts/post-tag.css.ts",
-    "src/app/posts/page.tsx",
     "public/posts/2026-01-20/study-cafe.jpeg",
     "public/posts/2026-01-20/obsidian-example.png",
     "public/posts/test.png",
-    "posts/끄적끄적/블로그 대공사 중.md",
     "posts/개발/테스트.md",
     "Pasted image 20260120102728.png",
     "2026-01-19.md",
