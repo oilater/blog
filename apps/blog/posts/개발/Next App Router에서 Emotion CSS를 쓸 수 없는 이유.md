@@ -1,3 +1,7 @@
+---
+title: Next App Router에서 Emotion CSS를 쓸 수 없는 이유
+date: 2026-01-21
+---
 
 
 몇 달 전, 포트폴리오를 React에서 Next로 마이그레이션하면서 Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 그런데 신기하게도 'use client' 를 붙이면 에러가 사라졌다.
@@ -30,13 +34,13 @@ RSC는 컴포넌트를 **서버 전용**과 **클라이언트 전용**으로 나
 Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방식을 따른다.
 그럼 왜 App Router에서는 Emotion CSS를 쓰면 에러가 날까?
 
-이유는 **전송방식의 차이** 때문이다.
+이유는 **전송방식의 차이** 때문이기도 하다.
 
 ## 전송 방식의 차이
 
 ### 1. 기존 SSR의 전송방식: 한꺼번에 보내기
 
-일단 기존 SSR의 전송 방식에 대해 알아보자. 그리고 Emotion이 어떻게 실행될 수 있었는지 살펴보자.
+일단 기존 SSR의 전송 방식에 대해 알아보자. 그리고 Emotion이 SSR에서 어떻게 실행될 수 있었는지 살펴보자.
 
 먼저 서버에서 renderToString으로 최상단 컴포넌트인 `<App />`을 호출한다. renderToString은 동기적으로 작동한다.
 
