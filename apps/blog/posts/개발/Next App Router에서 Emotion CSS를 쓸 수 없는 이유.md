@@ -1,5 +1,5 @@
 ---
-title: Next App Router에서 Emotion CSS를 쓸 수 없는 이유
+title: 왜 Next App Router에서 Emotion CSS를 쓰기 힘들까?
 date: 2026-01-21
 ---
 
@@ -115,9 +115,9 @@ Response를 눌러보면 이런 문자열이 나오는데 이게 RSC Payload다.
 
 그래서 나는 App Router를 사용했을 때 Emotion이 에러를 낸 이유를 다음과 같이 정리했다.
 
-1. **애초에 컴포넌트가 서버에서만 실행되어 Emotion 내부의 훅이 실행될 환경이 없다.** 하지만 use client를 붙이면 클라이언트 컴포넌트가 되어 클라이언트에서 실행될 기회를 얻는다.
-2. 이걸 떠나서, 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. 하지만 **Emotion이 제공하는 동적 스타일링 로직들은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
-3. HTML과 RSC Payload는 완성될 때마다 브라우저로 보내지기 때문에, extractCritical이 실행되어 **스타일을 입힐 시간조차 없다.**
+1. **애초에 컴포넌트가 서버에서만 실행되어 Emotion 내부의 함수가 실행될 환경이 없다.** 하지만 use client를 붙이면 클라이언트 컴포넌트가 되어 클라이언트에서 실행될 기회를 얻는다.
+2. 이걸 떠나서, 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. 하지만 **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 Payload에 담기지 못하고 버려진다.**
+3. HTML과 RSC Payload는 완성될 때마다 브라우저로 보내지기 때문에, extractCritical이 전제하는 **전체 HTML 기반 스타일 추출 자체가 성립하지 않는다.**
 
 
 ## 결론: Zero Run-Time CSS를 쓰자
