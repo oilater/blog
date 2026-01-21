@@ -1,5 +1,5 @@
 ---
-title: Next App Router에서 Emotion CSS를 쓸 수 없는 이유
+title: 왜 Next App Router에서 Emotion CSS를 쓰기 힘들까?
 date: 2026-01-21
 ---
 
