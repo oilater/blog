@@ -43,6 +43,14 @@ pre[class*="language-"] {
   color: #858585;
 }
 
+.code-line {
+  background-color: #1e1e1e;
+}
+
+[data-theme="dark"] .code-line {
+  background-color: #1e1e1e;
+}
+
 /* Tokens */
 .token.comment,
 .token.prolog,

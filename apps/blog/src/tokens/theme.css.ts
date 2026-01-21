@@ -1,4 +1,4 @@
-import { createTheme, createThemeContract } from '@vanilla-extract/css';
+import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
 import { palette } from './color/palette';
 
 export const themeColor = createThemeContract({
@@ -22,7 +22,7 @@ export const themeColor = createThemeContract({
   },
 });
 
-export const lightTheme = createTheme(themeColor, {
+createGlobalTheme('[data-theme="light"]', themeColor, {
   colors: {
     titleFontColor: '#111827',
     mainBackground: palette.white,
@@ -43,7 +43,7 @@ export const lightTheme = createTheme(themeColor, {
   },
 });
 
-export const darkTheme = createTheme(themeColor, {
+createGlobalTheme('[data-theme="dark"]', themeColor, {
   colors: {
     titleFontColor: palette.white,
     mainBackground: palette.black,

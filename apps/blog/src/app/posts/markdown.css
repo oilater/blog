@@ -223,3 +223,72 @@
 .markdown-body h6 code {
   font-size: 0.9em;
 }
+
+/* Dark mode */
+[data-theme="dark"] .markdown-container {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .markdown-header {
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .markdown-title {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .markdown-date {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .markdown-body {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .markdown-body h1,
+[data-theme="dark"] .markdown-body h2,
+[data-theme="dark"] .markdown-body h3,
+[data-theme="dark"] .markdown-body h4,
+[data-theme="dark"] .markdown-body h5,
+[data-theme="dark"] .markdown-body h6 {
+  color: #f9fafb;
+}
+
+[data-theme="dark"] .markdown-body h6 {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .markdown-body h1,
+[data-theme="dark"] .markdown-body h2 {
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .markdown-body code {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .markdown-body pre {
+  background-color: #1e1e1e;
+}
+
+[data-theme="dark"] .markdown-body table th,
+[data-theme="dark"] .markdown-body table td {
+  border-color: #374151;
+}
+
+[data-theme="dark"] .markdown-body table th {
+  background-color: #1f2937;
+}
+
+[data-theme="dark"] .markdown-body table tr:nth-child(even) {
+  background-color: #111827;
+}
+
+[data-theme="dark"] .markdown-body hr {
+  border-top-color: #374151;
+}
+
+[data-theme="dark"] .markdown-body strong {
+  color: #f9fafb;
+}
