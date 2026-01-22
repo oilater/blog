@@ -54,7 +54,7 @@ export const components: MDXComponents = {
         height={600}
         quality={90}
         style={{ width: '100%', height: 'auto' }}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
+        sizes="(max-width: 750px) calc(100vw - 32px), 750px"
         priority={isPriority}
       />
     );
