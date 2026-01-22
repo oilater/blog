@@ -1,21 +1,16 @@
-import { getAllTags, getPostsByTag } from '#/lib/posts';
+import { getAllPosts, getAllTags } from '#/lib/posts';
 import { PostsList } from './posts/components/PostsList';
 import { TagFilter } from './posts/components/TagFilter';
 import * as styles from './posts/posts.css';
 
-interface SearchParams {
-  tag?: string;
-}
-
-export default async function HomePage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const { tag } = await searchParams;
+export default function HomePage() {
   const allTags = getAllTags();
-  const filteredPosts = getPostsByTag(tag);
+  const allPosts = getAllPosts();
 
   return (
     <div className={styles.container}>
-      <TagFilter tags={allTags} selectedTag={tag} />
-      <PostsList posts={filteredPosts} />
+      <TagFilter tags={allTags} />
+      <PostsList posts={allPosts} />
     </div>
   );
 }

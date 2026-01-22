@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import '../../markdown.css';
 import '../../prism-theme.css';
 import fs from 'node:fs';
