@@ -50,11 +50,11 @@ export const components: MDXComponents = {
         className="markdown-img"
         src={props.src}
         alt={alt}
-        width={800}
-        height={600}
-        quality={85}
+        width={750}
+        height={562}
+        quality={80}
         style={{ width: '100%', height: 'auto' }}
-        sizes="(max-width: 750px) calc(100vw - 32px), 750px"
+        sizes="(max-width: 750px) 100vw, 750px"
         priority={isPriority}
       />
     );
