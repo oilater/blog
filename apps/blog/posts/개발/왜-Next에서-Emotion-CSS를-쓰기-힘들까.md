@@ -8,13 +8,13 @@ date: 2026-01-21
 
 결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸고, 그러면 Next를 쓰는 의미가 없어졌다. 그래서 난 Emotion을 버리고 Vanilla-Extract로 갈아탔다.
 
-당시에는 *'Emotion이 Next와 호환이 안되나보다'* 정도로 넘겼지만, 이젠 그 이유를 알아서 소개해보려고 한다.
+당시에는 *'Emotion이 Next와 호환이 안되나보다'* 정도로 넘겼지만, 이젠 그 이유를 알게 되어서 소개해보려고 한다.
 
 왜 Next App Router에서 `'use client'` 없이 Emotion을 쓰면 오류가 날까?
 
 ## RSC의 등장
 
-Next의 App Router는 기본적으로 RSC(React Server Component) 방식을 채택했다. 먼저, RSC의 등장 배경을 살펴봐야 한다. 
+Next의 App Router는 기본적으로 RSC(React Server Component) 방식을 채택했다. 먼저, RSC의 등장 배경을 살펴보자.
 
 >Next.js는 RSC를 확장해 Server Components를 만들었지만, 기본적으로 React Server Component 설계 철학을 모두 만족하기 때문에 이 글에서는 RSC로 통일해서 표현했다.
 
@@ -24,14 +24,14 @@ Next의 App Router는 기본적으로 RSC(React Server Component) 방식을 채�
 
 ### RSC의 해결책
 
-RSC는 컴포넌트를 **서버 전용**과 **클라이언트 전용**으로 나눠서 이 문제를 해결했다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트만 기존과 같은 하이드레이션 과정을 거친다. 
+RSC는 컴포넌트를 **서버 전용**과 **클라이언트 전용**으로 나누었다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트만 기존과 같은 하이드레이션 과정을 거친다. 
 
->그래서 NextJS에서 'use client'를 붙여도 기본적으로 SSR(Server Side Rendering)이 된다. 다만 하이드레이션 과정을 거칠 뿐이다.
+>그래서 NextJS에서 'use client'를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다. 다만 하이드레이션 과정을 거칠 뿐이다.
 
 Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방식을 따른다.
 그럼 왜 서버 컴포넌트에서는 Emotion CSS를 쓰면 에러가 날까?
 
-기본적으로 RSC는 서버에서만 실행된다는 제약이 있지만, 기존 SSR에서 Emotion을 적용할 수 있었다는 걸 떠올려보면 문제의 핵심은 **전송 방식의 차이**에 있다.
+기본적으로 RSC는 서버에서만 실행된다는 제약이 있기도 하지만, 기존 SSR에서 Emotion을 적용할 수 있었다는 걸 떠올려보면 문제의 핵심은 **전송 방식의 차이**에 있다.
 
 ## 전송 방식의 차이
 
@@ -107,14 +107,15 @@ RSC는 서버에서 컴포넌트를 렌더링해서 RSC Payload를 생성하고,
 "$undefined","$undefined",true,3],null,[null,null],true]],"S":false}
 ```
 
-기존 SSR에서는 아예 컴포넌트를 다시 렌더링해 VDOM을 만든 반면에, RSC는 클라이언트에서 다시. 컴포넌트를 렌더링하지 않고 RSC Payload의 정보를 바탕으로 VDOM을 복원한다.
+기존 SSR에서는 아예 컴포넌트를 다시 렌더링해 VDOM을 만든 반면, RSC는 클라이언트에서 다시 컴포넌트를 렌더링하지 않고 RSC Payload의 정보를 바탕으로 VDOM을 복원한다.
 
 또한 RSC는 `<Suspense>`나 `loading.tsx`와 함께 **스트리밍 방식**으로 전송되기도 한다. 컴포넌트를 작은 청크로 나누어서 준비되는대로 클라이언트로 보내준다.
 
 그래서 나는 Emotion이 에러를 낸 이유를 다음과 같이 정리해봤다.
 
-1. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
-2. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
+1. Emotion은 내부적으로 React Context에 의존하는데 RSC는 하이드레이션 과정을 거치지 않기 때문에 React hooks를 사용할 수 없다.
+2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
+3. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
 
 
 ## 결론: Zero Run-Time CSS를 쓰자
