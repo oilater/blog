@@ -18,11 +18,11 @@ Next의 App Router는 기본적으로 RSC(React Server Component) 방식을 채�
 
 초기 HTML을 빠르게 보여주기 위해 서버에서 리액트 컴포넌트를 실행하여 HTML을 만들어 전송하면, 브라우저는 HTML을 받은 후 컴포넌트를 호출해 기존 DOM에 이벤트와 상태를 연결하는 하이드레이션 과정을 거쳐야 한다. 결국 서버에서 실행된 컴포넌트는 클라이언트에서도 재실행되며, 이는 결국 JS 번들에 포함된다는 뜻이다.
 
-### 분리
+### 실행 환경의 분리
 
-RSC는 컴포넌트를 **서버 전용**과 **클라이언트 전용**으로 나누었다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트만 기존과 같은 하이드레이션 과정을 거친다. 
+RSC는 컴포넌트의 실행 환경을 서버와 클라이언트로 분리했다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트는 기존과 같은 하이드레이션 과정을 거친다. 
 
->그래서 NextJS에서 `'use client'`를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다. 다만 하이드레이션 과정을 거칠 뿐이다.
+>그래서 NextJS에서 `'use client'`를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다.
 
 Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방식을 따른다.
 왜 RSC에서는 Emotion CSS를 쓰면 에러가 날까?
@@ -112,10 +112,10 @@ https://roy-jung.github.io/250323-react-server-components/
 
 ## RSC에서 Emotion을 못쓰는 이유
 
-위에서 살펴본 대로 RSC(React Server Components)는 클라이언트에 HTML + RSC Payload만 전달될 뿐, JS가 아예 전달되지 않는다. 실행될 JS 코드가 없으니 Emotion이 스타일링을 계산하고 주입할 엔진 자체가 실행 될 수 없다. 나는 이렇게 정리해봤다.
+위에서 살펴본 대로 서버 컴포넌트는 클라이언트에 HTML + RSC Payload만 전달되며, 해당 컴포넌트의 JavaScript 코드는 번들에 포함되지 않는다. 실행될 JavaScript 코드가 없으니 Emotion이 스타일링을 계산하고 주입할 엔진 자체가 실행 될 수 없다. 나는 아래와 같이 정리해봤다.
 
-1. Emotion은 스타일을 적용하고 수집하기 위해 다양한 React hooks을 호출한다고 한다. RSC는 서버에서만 호출되므로 useContext를 포함한 React hooks를 사용할 수 없다.
-2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 되겠지만, **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화어야 하는 RSC Payload에 담기지 못하고 버려진다.**
+1. Emotion은 스타일을 적용하고 수집하기 위해 다양한 React hooks을 호출한다고 하는데, RSC는 서버에서만 호출되므로 React hooks를 사용할 수 없다.
+2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 되겠지만, **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화되어야 하는 RSC Payload에 담기지 못하고 버려진다.**
 3. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
 
 ## 당시 Github issue 토론들
@@ -188,8 +188,7 @@ export default function Page() {
 
 ## 결론
 
-vanilla-extract, panda CSS 같은 Build-Time CSS를 쓰자.
-요즘 링크드인에서 오정민 대표님의 DevUp UI도 가끔 봤는데 다음에 한 번 써보고 싶다,, ㅋㅋ
+vanilla-extract, panda CSS 같은 빌드 타임 CSS를 쓰자.
 
 오늘 회사에서 vanilla-extract의 작동방식에 대해 궁금해하면서 이것저것 찾아보다가, 갑자기 Emotion을 Next에서 왜 쓸 수 없을까?가 생각나서 이 글을 작성하게 됐다. 당시에는 *'Emotion이 Next13과 호환이 안되나보네'* 정도로 생각하고 넘어갔는데, 이것저것 찾아보면서 많이 배울 수 있었다.
 
