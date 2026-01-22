@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import { notFound } from 'next/navigation';
 import { getAllTags, getPostsByTag } from '#/lib/posts';
 import { PostsList } from '../components/PostsList';
