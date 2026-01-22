@@ -56,7 +56,7 @@ function App() {
 }
 ```
 
-Emotion은 이 과정에서 CSS를 메모리에 수집한다.
+Emotion은 renderToString 중에 styled component가 평가될 때 스타일을 생성하고 캐시에 등록한다.
 
 ```javascript
 // Emotion 내부
@@ -65,11 +65,10 @@ collectedStyles = {
 }
 ```
 
-renderToString 호출의 결과로 HTML이 완성되면, `extractCritical(html)`을 호출해서 메모리에 수집한 CSS 중 HTML에서 쓰이고 있는 CSS를 추출한다.
+renderToString 호출의 결과로 HTML이 완성되면, `extractCritical(html)`을 호출해서 메모리에 수집한 CSS 중 HTML에서 쓰이고 있는 CSS를 추출한다. 이때 서버에서 만든 HTML과 클라이언트에서 재실행될 Emotion 결과가 최대한 동일하도록 보정하기 위해 html도 약간 수정해서 반환한다고 한다.
 
 ```javascript
-const { css } = extractCritical(html);
-// css = '.css-abc123 { color: red; }'
+const { html: criticalHtml, css, ids } = extractCritical(html)
 ```
 
 CSS가 추출되면, HTML과 함께 전송한다.
@@ -78,26 +77,36 @@ CSS가 추출되면, HTML과 함께 전송한다.
 const fullHtml = `
   <html>
     <head>
-      <style>${css}</style>
+	  <style data-emotion="css ${ids.join(' ')}">
+        ${css}
+      </style>
     </head>
-    <body>${html}</body>
+    <body>${criticalHtml}</body>
   </html>
 `;
-
-res.send(fullHtml);
 ```
 
-정리하면, renderToString 호출로 HTML이 완성되어야 extractCritical이 실행되어 CSS가 추출될 수 있다. 이 모든 과정은 동기적으로 이루어진다.
+클라이언트에서는 `extractCritical`이 반환한 `ids`를 사용해 `hydrate(ids)`를 호출한다.
+클라이언트에서 Emotion이 초기화될 때 서버에서 이미 삽입된 스타일을 캐시에 주입해서 중복 삽입을 방지하기 위함이다.
+
+```tsx
+import { hydrate } from '@emotion/css'
+
+hydrate(ids)
+```
+
+>정리하면, renderToString 호출로 HTML이 완성되어야 extractCritical이 실행되어 CSS가 추출될 수 있다. 이 모든 과정은 동기적으로 이루어진다.
 
 ### 2. RSC의 전송 방식: RSC Payload + HTML (+ Streaming)
 
-RSC는 서버에서 컴포넌트를 렌더링해서 RSC Payload를 생성하고, Payload의 정보를 반영한 HTML이 만들어진다. RSC Payload에는 아래의 정보들이 담겨있다.
+RSC는 서버에서 컴포넌트를 렌더링해 HTML을 생성하고, RSC Payload를 준비한다. 그리고 클라이언트는 RSC Payload를 기반으로 VDOM을 복원한다. RSC Payload에는 아래의 정보들이 담긴다.
 
-- 서버 컴포넌트 렌더링 결과
-- 클라이언트 컴포넌트가 렌더링될 위치를 지정하는 자리 표시자와 해당 JavaScript 파일에 대한 참조
+- 페이지 정보와 예상 결과물
+- `<Suspense>` 상태일 때 보여줄 Fallback
 - 서버 컴포넌트에서 클라이언트 컴포넌트로 전달되는 모든 속성
 
->서버 컴포넌트의 경우엔 렌더링 결과와 그 안에서 사용하고 있는 클라이언트에 넘겨줄 prop에 대한 정보가 들어있겠다. 여기엔 문자열, 배열, 객체 등 직렬화될 수 있는 것들이 담긴다.
+https://roy-jung.github.io/250323-react-server-components/ 
+정재남님의 번역글에 더 자세한 설명이 있다. 
 
 실제로 네트워크 탭을 열어서 `Fetch/XMR` 을 필터링 해보면 `_rsc=1r34m` 같은 파일이 보인다.
 ```
@@ -107,13 +116,10 @@ RSC는 서버에서 컴포넌트를 렌더링해서 RSC Payload를 생성하고,
 "$undefined","$undefined",true,3],null,[null,null],true]],"S":false}
 ```
 
-기존 SSR에서는 아예 컴포넌트를 다시 렌더링해 VDOM을 만든 반면, RSC는 클라이언트에서 다시 컴포넌트를 렌더링하지 않고 RSC Payload의 정보를 바탕으로 VDOM을 복원한다.
 
-또한 RSC는 `<Suspense>`나 `loading.tsx`와 함께 **스트리밍 방식**으로 전송되기도 한다. 컴포넌트를 작은 청크로 나누어서 준비되는대로 클라이언트로 보내준다.
+나는 Emotion이 에러를 낸 이유를 다음과 같이 정리해봤다.
 
-그래서 나는 Emotion이 에러를 낸 이유를 다음과 같이 정리해봤다.
-
-1. Emotion은 내부적으로 React Context에 의존하는데 RSC는 서버에서만 실행되기 때문에 useContext를 포함한 React hooks를 사용할 수 없다.
+1. Emotion은 내부적으로 React Context에 의존한다는데, RSC는 서버에서만 실행되기 때문에 useContext를 포함한 React hooks를 사용할 수 없다.
 2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
 3. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
 
@@ -126,6 +132,8 @@ RSC는 서버에서 컴포넌트를 렌더링해서 RSC Payload를 생성하고,
 오늘 회사에서 vanilla-extract의 작동방식에 대해 궁금해하면서 이것저것 찾아보다가, 갑자기 Emotion을 Next에서 왜 쓸 수 없을까?가 생각나서 이 글을 작성하게 됐다. RSC Payload에 대해서는 잘 몰랐는데 이것저것 찾아보면서 많이 배울 수 있었다.
 
 ## 참고 문서
+
+https://emotion.sh/docs/ssr#extractcritical
 
 https://nextjs.org/learn/dashboard-app/streaming
 
