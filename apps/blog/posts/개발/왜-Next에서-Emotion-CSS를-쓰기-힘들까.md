@@ -120,7 +120,7 @@ https://roy-jung.github.io/250323-react-server-components/
 
 ## 당시 Github issue 토론들
 
-깃헙 이슈들을 보면서 MUI의 내부 스타일링 엔진이 Emotion을 사용하고 있었다는 것을 알았다. Emotion 메인테이너는 Next.js가 라이브러리 제작자들과 제대로 소통하지 않고 13 버전 업데이트를 진행했으며 Styled-Components 또한 Emotion과 비슷한 상황이라 말했다.
+깃헙 이슈들을 보면서 MUI의 내부 스타일링 엔진이 Emotion을 사용하고 있었다는 것을 알았다. Emotion 팀은 Next.js가 라이브러리 제작자들과 제대로 소통하지 않고 13 버전 업데이트를 진행했으며, Styled-Components 또한 Emotion과 비슷한 상황이라고 말했다.
 
 >Next.js rushed the release of their docs without consulting library authors. The mentioned Styled-Components "support" looks almost exactly the same as the Emotion support can look like (see the comment [here](https://github.com/emotion-js/emotion/issues/2928#issuecomment-1293012737)). There is no special API in SC that integrates with RSC in any special way.
 
