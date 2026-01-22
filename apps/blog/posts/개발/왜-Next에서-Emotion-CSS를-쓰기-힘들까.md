@@ -113,7 +113,7 @@ RSC는 서버에서 컴포넌트를 렌더링해서 RSC Payload를 생성하고,
 
 그래서 나는 Emotion이 에러를 낸 이유를 다음과 같이 정리해봤다.
 
-1. Emotion은 내부적으로 React Context에 의존하는데 RSC는 하이드레이션 과정을 거치지 않기 때문에 React hooks를 사용할 수 없다.
+1. Emotion은 내부적으로 React Context에 의존하는데 RSC는 서버에서만 실행되기 때문에 useContext를 포함한 React hooks를 사용할 수 없다.
 2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
 3. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
 
