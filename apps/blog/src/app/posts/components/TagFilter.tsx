@@ -16,7 +16,6 @@ export function TagFilter({ tags, selectedTag }: { tags: string[]; selectedTag?:
       {tags.map((tag) => (
         <Link
           key={tag}
-          prefetch={false}
           href={`/posts/${tag}`}
           className={`${styles.tagButton} ${selectedTag === tag ? styles.tagButtonActive : styles.tagButtonInactive}`}
         >
