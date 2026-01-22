@@ -8,8 +8,6 @@ date: 2026-01-21
 
 결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸고, 그러면 Next를 쓰는 의미가 없어졌다. 그래서 난 Emotion을 버리고 Vanilla-Extract로 갈아탔다.
 
-당시에는 *'Emotion이 Next와 호환이 안되나보다'* 정도로 넘겼지만, 이젠 그 이유를 알게 되어서 소개해보려고 한다.
-
 왜 Next App Router에서 `'use client'` 없이 Emotion을 쓰면 오류가 날까?
 
 ## RSC의 등장
