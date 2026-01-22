@@ -42,18 +42,20 @@ export const components: MDXComponents = {
   },
   img: (props: ComponentPropsWithoutRef<'img'>) => {
     if (!props.src) return null;
+    const isPriority = props.alt?.includes('[lcp]');
+    const alt = props.alt?.replace('[lcp]', '').trim() || '';
 
     return (
       <Image
         className="markdown-img"
         src={props.src}
-        alt={props.alt || ''}
+        alt={alt}
         width={800}
         height={600}
         quality={90}
         style={{ width: '100%', height: 'auto' }}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
-        priority={false}
+        priority={isPriority}
       />
     );
   },
