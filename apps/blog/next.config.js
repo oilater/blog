@@ -10,6 +10,10 @@ const withVanillaExtract = createVanillaExtractPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  turbopack: {},
+  images: {
+    deviceSizes: [640, 750, 828, 1080, 1200],
+  },
 };
 
 export default withBundleAnalyzer(withVanillaExtract(nextConfig));
