@@ -20,7 +20,6 @@ export const tagButton = style({
   border: 'none',
   cursor: 'pointer',
   textDecoration: 'none',
-  transition: 'background-color 0.2s',
   fontSize: 14,
 });
 
@@ -30,10 +29,12 @@ export const tagButtonActive = style({
 });
 
 export const tagButtonInactive = style({
-  backgroundColor: '#f3f4f6',
+  backgroundColor: '#e5e7eb',
   color: '#1f2937',
+  opacity: 0.7,
+  transition: 'opacity 0.1s ease-in',
   ':hover': {
-    backgroundColor: '#e5e7eb',
+    opacity: 1,
   },
 });
 
