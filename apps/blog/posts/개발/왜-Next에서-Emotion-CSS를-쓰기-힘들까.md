@@ -1,12 +1,12 @@
 ---
-title: 왜 Next App Router에서 Emotion CSS를 쓰기 힘들까?
+title: 왜 Next에서 Emotion CSS를 쓰기 힘들까?
 date: 2026-01-21
 ---
 
 
-몇 달 전, 포트폴리오를 React에서 Next로 마이그레이션하면서 Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 그런데 신기하게도 `'use client'` 를 붙이면 에러가 사라졌다.
+몇 달 전, 포트폴리오를 React에서 Next로 마이그레이션했다. Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 그런데 신기하게도 `'use client'` 를 붙이면 에러가 사라졌다.
 
-결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸고, 그러면 Next를 쓰는 의미가 없어진다. 그래서 난 Emotion을 버리고 Vanilla-Extract로 갈아탔다.
+결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸고, 그러면 Next를 쓰는 의미가 없어졌다. 그래서 난 Emotion을 버리고 Vanilla-Extract로 갈아탔다.
 
 당시에는 *'Emotion이 Next와 호환이 안되나보다'* 정도로 넘겼지만, 이젠 그 이유를 알아서 소개해보려고 한다.
 
@@ -37,7 +37,7 @@ Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방�
 
 ## 전송 방식의 차이
 
-### 1. 기존 SSR의 전송 방식: 한꺼번에 보내기
+### 1. 기존 SSR: 완성된 HTML 전달하기
 
 일단 기존 SSR의 전송 방식에 대해 알아보자. 그리고 Emotion이 어떻게 SSR 환경에서도 실행될 수 있었는지 살펴보자.
 
@@ -91,17 +91,17 @@ res.send(fullHtml);
 
 정리하면, renderToString 호출로 HTML이 완성되어야 extractCritical이 실행되어 CSS가 추출될 수 있다. 이 모든 과정은 동기적으로 이루어진다.
 
-### 2. RSC의 전송 방식: 스트리밍
+### 2. RSC의 전송 방식: RSC Payload + HTML (+ Streaming)
 
-RSC(React Server Component)는 **스트리밍 방식**을 사용한다. 
-컴포넌트가 호출되면 먼저 RSC Payload를 생성한 뒤 이걸 바탕으로 HTML을 생성한다. 
-이렇게 만들어진 RSC Payload와 HTML을 바로 브라우저로 전송한다.
+RSC는 서버에서 컴포넌트를 렌더링해서 RSC Payload를 생성하고, Payload의 정보를 반영한 HTML이 만들어진다. RSC Payload에는 아래의 정보들이 담겨있다.
 
-이 때 RSC Payload에는 직렬화가 가능한 문자, 숫자, 객체, 배열 등이 담길 수 있다. 이는 결국 텍스트로 브라우저에 전달된다.
+- 서버 컴포넌트 렌더링 결과
+- 클라이언트 컴포넌트가 렌더링될 위치를 지정하는 자리 표시자와 해당 JavaScript 파일에 대한 참조
+- 서버 컴포넌트에서 클라이언트 컴포넌트로 전달되는 모든 속성
 
-네트워크 탭을 열어서 `Fetch/XMR` 을 필터링 해보면, `_rsc=1r34m` 같은 파일이 보인다. 
-Response를 눌러보면 이런 문자열이 나오는데 이게 RSC Payload다.
+>서버 컴포넌트의 경우엔 렌더링 결과와 그 안에서 사용하고 있는 클라이언트에 넘겨줄 prop에 대한 정보가 들어있겠다. 여기엔 문자열, 배열, 객체 등 직렬화될 수 있는 것들이 담긴다.
 
+실제로 네트워크 탭을 열어서 `Fetch/XMR` 을 필터링 해보면 `_rsc=1r34m` 같은 파일이 보인다.
 ```
 0:{"b":"6cQe1V7CgVBLUCgp_BZws",
 "f":[[["",{"children":["__PAGE__",{},
@@ -109,14 +109,14 @@ Response를 눌러보면 이런 문자열이 나오는데 이게 RSC Payload다.
 "$undefined","$undefined",true,3],null,[null,null],true]],"S":false}
 ```
 
-> RSC Payload: 서버에서 컴포넌트를 렌더링한 결과를 직렬화 후 브라우저에 전달한 데이터
+기존 SSR에서는 아예 컴포넌트를 다시 렌더링해 VDOM을 만든 반면에, RSC는 클라이언트에서 다시. 컴포넌트를 렌더링하지 않고 RSC Payload의 정보를 바탕으로 VDOM을 복원한다.
 
+또한 RSC는 `<Suspense>`나 `loading.tsx`와 함께 **스트리밍 방식**으로 전송되기도 한다. 컴포넌트를 작은 청크로 나누어서 준비되는대로 클라이언트로 보내준다.
 
-그래서 나는 App Router를 사용했을 때 Emotion이 에러를 낸 이유를 다음과 같이 정리했다.
+그래서 나는 Emotion이 에러를 낸 이유를 다음과 같이 정리해봤다.
 
-1. **애초에 서버 컴포넌트는 서버에서만 실행된다.** 이 과정에서 이모션이 런타임에 생성한 결과가 브라우저로 전달되지 못한다. 하지만 use client를 붙이면 클라이언트 컴포넌트가 되어 브라우저 환경에서 다시 실행된다.
-2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. 하지만 **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 Payload에 담기지 못하고 버려진다.**
-3. HTML과 RSC Payload는 완성될 때마다 브라우저로 보내지기 때문에, extractCritical이 전제하는 **전체 HTML 기반 스타일 추출 자체가 성립하지 않는다.**
+1. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
+2. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
 
 
 ## 결론: Zero Run-Time CSS를 쓰자
@@ -125,3 +125,9 @@ Response를 눌러보면 이런 문자열이 나오는데 이게 RSC Payload다.
 요즘 링크드인에서 오정민 대표님의 DevUp UI도 가끔 봤는데 다음에 한 번 써보고 싶다,, ㅋㅋ
 
 오늘 회사에서 vanilla-extract의 작동방식에 대해 궁금해하면서 이것저것 찾아보다가, 갑자기 Emotion을 Next에서 왜 쓸 수 없을까?가 생각나서 이 글을 작성하게 됐다. RSC Payload에 대해서는 잘 몰랐는데 이것저것 찾아보면서 많이 배울 수 있었다.
+
+## 참고 문서
+
+https://nextjs.org/learn/dashboard-app/streaming
+
+https://roy-jung.github.io/250323-react-server-components/ 를 좀 더 읽고 추가할 예정!
