@@ -2,8 +2,6 @@
 title: 왜 Next에서 Emotion CSS를 쓰기 힘들까?
 date: 2026-01-21
 ---
-
-
 몇 달 전, 포트폴리오를 React에서 Next로 마이그레이션했다. Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 그런데 신기하게도 `'use client'` 를 붙이면 에러가 사라졌다.
 
 결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸고, 그러면 Next를 쓰는 의미가 없어졌다. 그래서 난 Emotion을 버리고 Vanilla-Extract로 갈아탔다.
@@ -20,18 +18,16 @@ Next의 App Router는 기본적으로 RSC(React Server Component) 방식을 채�
 
 초기 HTML을 빠르게 보여주기 위해 서버에서 리액트 컴포넌트를 실행하여 HTML을 만들어 전송하면, 브라우저는 HTML을 받은 후 컴포넌트를 호출해 기존 DOM에 이벤트와 상태를 연결하는 하이드레이션 과정을 거쳐야 한다. 결국 서버에서 실행된 컴포넌트는 클라이언트에서도 재실행되며, 이는 결국 JS 번들에 포함된다는 뜻이다.
 
-### RSC의 해결책
+### 분리
 
 RSC는 컴포넌트를 **서버 전용**과 **클라이언트 전용**으로 나누었다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트만 기존과 같은 하이드레이션 과정을 거친다. 
 
 >그래서 NextJS에서 'use client'를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다. 다만 하이드레이션 과정을 거칠 뿐이다.
 
 Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방식을 따른다.
-그럼 왜 서버 컴포넌트에서는 Emotion CSS를 쓰면 에러가 날까?
+왜 RSC에서는 Emotion CSS를 쓰면 에러가 날까?
 
-기본적으로 RSC는 서버에서만 실행된다는 제약이 있기도 하지만, 기존 SSR에서 Emotion을 적용할 수 있었다는 걸 떠올려보면 문제의 핵심은 **전송 방식의 차이**에 있다.
-
-## 전송 방식의 차이
+## SSR에서 Emotion을 사용했던 방법
 
 ### 1. 기존 SSR: 완성된 HTML 전달하기
 
@@ -95,7 +91,7 @@ hydrate(ids)
 
 >정리하면, renderToString 호출로 HTML이 완성되어야 extractCritical이 실행되어 CSS가 추출될 수 있다. 이 모든 과정은 동기적으로 이루어진다.
 
-### 2. RSC의 전송 방식: RSC Payload + HTML (+ Streaming)
+### 2. RSC: RSC Payload + HTML (+ Streaming)
 
 RSC는 서버에서 컴포넌트를 렌더링해 HTML을 생성하고, RSC Payload를 준비한다. 그리고 클라이언트는 RSC Payload를 기반으로 VDOM을 복원한다. RSC Payload에는 아래의 정보들이 담긴다.
 
@@ -114,25 +110,93 @@ https://roy-jung.github.io/250323-react-server-components/
 "$undefined","$undefined",true,3],null,[null,null],true]],"S":false}
 ```
 
+## RSC에서 Emotion을 못쓰는 이유
 
-나는 Emotion이 에러를 낸 이유를 다음과 같이 정리해봤다.
+위에서 살펴본 대로 RSC(React Server Components)는 클라이언트에 HTML + RSC Payload만 전달될 뿐, JS가 아예 전달되지 않는다. 실행될 JS 코드가 없으니 Emotion이 스타일링을 계산하고 주입할 엔진 자체가 실행 될 수 없다. 나는 이렇게 정리해봤다.
 
-1. Emotion은 내부적으로 React Context에 의존한다는데, RSC는 서버에서만 실행되기 때문에 useContext를 포함한 React hooks를 사용할 수 없다.
-2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 될 것이다. **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화할 수 있는 객체가 아니라서 RSC Payload에 담기지 못하고 버려진다.**
+1. Emotion은 스타일을 적용하고 수집하기 위해 다양한 React hooks을 호출한다고 한다. RSC는 서버에서만 호출되므로 useContext를 포함한 React hooks를 사용할 수 없다.
+2. 서버에서도 이모션의 styled 함수가 실행은 되고 Emotion 내부의 메모리에 수집은 되겠지만, **Emotion이 제공하는 런타임 스타일 생성 과정은 직렬화어야 하는 RSC Payload에 담기지 못하고 버려진다.**
 3. Streaming 방식을 생각해봐도 전체 HTML이 완성될 때까지 기다려주지 않아 extractCritical로 스타일을 적용할 수 없다.
 
+## 당시 Github issue 토론들
 
-## 결론: Zero Run-Time CSS를 쓰자
+깃헙 이슈들을 보면서 MUI의 내부 스타일링 엔진이 Emotion을 사용하고 있었다는 것을 알았다. Emotion 메인테이너는 Next.js가 라이브러리 제작자들과 제대로 소통하지 않고 13 버전 업데이트를 진행했으며 Styled-Components 또한 Emotion과 비슷한 상황이라 말했다.
 
-결론은 Next App Router에서는 vanilla-extract, panda CSS 같은 Build-Time CSS를 써야 한다.
+>Next.js rushed the release of their docs without consulting library authors. The mentioned Styled-Components "support" looks almost exactly the same as the Emotion support can look like (see the comment [here](https://github.com/emotion-js/emotion/issues/2928#issuecomment-1293012737)). There is no special API in SC that integrates with RSC in any special way.
+
+Emotion 팀에서 Root Layout을 서버 컴포넌트로 사용하기 위해 대안으로 올린 코드도 우회하는 방법일 뿐이었다. 초기 스타일만 적용되고 나머지 스타일링은 다 `'use client'`를 붙여서 사용해야 한다.
+
+https://github.com/emotion-js/emotion/issues/2928#issuecomment-1293012737
+
+>We may want to add an explicit API for this but this works today:
+```tsx
+// app/emotion.tsx
+"use client";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import { useServerInsertedHTML } from "next/navigation";
+import { useState } from "react";
+
+export default function RootStyleRegistry({
+  children,
+}: {
+  children: JSX.Element;
+}) {
+  const [cache] = useState(() => {
+    const cache = createCache({ key: "css" });
+    cache.compat = true;
+    return cache;
+  });
+
+  useServerInsertedHTML(() => {
+    return (
+      <style
+        data-emotion={`${cache.key} ${Object.keys(cache.inserted).join(" ")}`}
+        dangerouslySetInnerHTML={{
+          __html: Object.values(cache.inserted).join(" "),
+        }}
+      />
+    );
+  });
+
+  return <CacheProvider value={cache}>{children}</CacheProvider>;
+}
+
+// app/layout.tsx
+import RootStyleRegistry from "./emotion";
+
+// layout에 use client를 붙이지 않았지만 결국 다른 모든 곳에서 use client를 붙이고 있음
+export default function RootLayout({ children }: { children: JSX.Element }) {
+  return (
+    <html>
+      <head></head>
+      <body>
+        <RootStyleRegistry>{children}</RootStyleRegistry>
+      </body>
+    </html>
+  );
+}
+
+// app/page.tsx
+/** @jsxImportSource @emotion/react */
+"use client";
+
+export default function Page() {
+  return <div css={{ color: "green" }}>something</div>;
+}
+```
+
+## 결론
+
+vanilla-extract, panda CSS 같은 Build-Time CSS를 쓰자.
 요즘 링크드인에서 오정민 대표님의 DevUp UI도 가끔 봤는데 다음에 한 번 써보고 싶다,, ㅋㅋ
 
-오늘 회사에서 vanilla-extract의 작동방식에 대해 궁금해하면서 이것저것 찾아보다가, 갑자기 Emotion을 Next에서 왜 쓸 수 없을까?가 생각나서 이 글을 작성하게 됐다. RSC Payload에 대해서는 잘 몰랐는데 이것저것 찾아보면서 많이 배울 수 있었다.
+오늘 회사에서 vanilla-extract의 작동방식에 대해 궁금해하면서 이것저것 찾아보다가, 갑자기 Emotion을 Next에서 왜 쓸 수 없을까?가 생각나서 이 글을 작성하게 됐다. 당시에는 *'Emotion이 Next13과 호환이 안되나보네'* 정도로 생각하고 넘어갔는데, 이것저것 찾아보면서 많이 배울 수 있었다.
 
 ## 참고 문서
 
 https://emotion.sh/docs/ssr#extractcritical
-
+https://github.com/emotion-js/emotion/issues/2928#issuecomment-1408650306
+https://github.com/emotion-js/emotion/issues/2978
 https://nextjs.org/learn/dashboard-app/streaming
-
-https://roy-jung.github.io/250323-react-server-components/ 를 좀 더 읽고 추가할 예정!
+https://roy-jung.github.io/250323-react-server-components/
