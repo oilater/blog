@@ -22,7 +22,7 @@ Next의 App Router는 기본적으로 RSC(React Server Component) 방식을 채�
 
 RSC는 컴포넌트를 **서버 전용**과 **클라이언트 전용**으로 나누었다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트만 기존과 같은 하이드레이션 과정을 거친다. 
 
->그래서 NextJS에서 'use client'를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다. 다만 하이드레이션 과정을 거칠 뿐이다.
+>그래서 NextJS에서 `'use client'`를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다. 다만 하이드레이션 과정을 거칠 뿐이다.
 
 Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방식을 따른다.
 왜 RSC에서는 Emotion CSS를 쓰면 에러가 날까?
