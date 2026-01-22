@@ -110,7 +110,7 @@ https://roy-jung.github.io/250323-react-server-components/
 "$undefined","$undefined",true,3],null,[null,null],true]],"S":false}
 ```
 
-## RSC에서 Emotion을 못쓰는 이유
+## RSC에서 Emotion을 못 쓰는 이유
 
 위에서 살펴본 대로 서버 컴포넌트는 클라이언트에 HTML + RSC Payload만 전달되며, 해당 컴포넌트의 JavaScript 코드는 번들에 포함되지 않는다. 실행될 JavaScript 코드가 없으니 Emotion이 스타일링을 계산하고 주입할 엔진 자체가 실행 될 수 없다. 나는 아래와 같이 정리해봤다.
 
