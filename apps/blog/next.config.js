@@ -13,7 +13,7 @@ const nextConfig = {
   turbopack: {},
   images: {
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [480, 640, 680, 750, 828, 1080, 1200],
+    deviceSizes: [680, 750, 1080],
     qualities: [75, 80],
   },
 };
