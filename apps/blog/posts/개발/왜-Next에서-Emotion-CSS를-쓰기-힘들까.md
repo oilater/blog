@@ -33,7 +33,7 @@ Next의 Page Router는 기존의 SSR 방식을 따르고, App Router는 RSC 방�
 
 일단 기존 SSR의 전송 방식에 대해 알아보자. 그리고 Emotion이 어떻게 SSR 환경에서도 실행될 수 있었는지 살펴보자.
 
-먼저 서버에서 renderToString으로 최상단 컴포넌트인 `<App />`을 호출한다. renderToString은 동기적으로 작동한다.
+먼저 서버에서 renderToString으로 최상단 컴포넌트인 `<App />`을 호출한다.
 
 ```javascript
 const html = renderToString(<App />);
