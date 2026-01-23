@@ -1,37 +1,11 @@
-import { globalFontFace, globalStyle } from '@vanilla-extract/css';
+import { globalStyle } from '@vanilla-extract/css';
 import { themeColor } from '#tokens/theme.css';
-
-const pretendard = 'Pretendard';
-
-globalFontFace(pretendard, {
-  src: 'url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2-subset/Pretendard-Regular.subset.woff2") format("woff2")',
-  fontWeight: 400,
-  fontDisplay: 'swap',
-});
-
-globalFontFace(pretendard, {
-  src: 'url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2-subset/Pretendard-Medium.subset.woff2") format("woff2")',
-  fontWeight: 500,
-  fontDisplay: 'swap',
-});
-
-globalFontFace(pretendard, {
-  src: 'url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2-subset/Pretendard-SemiBold.subset.woff2") format("woff2")',
-  fontWeight: 600,
-  fontDisplay: 'swap',
-});
-
-globalFontFace(pretendard, {
-  src: 'url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2-subset/Pretendard-Bold.subset.woff2") format("woff2")',
-  fontWeight: 700,
-  fontDisplay: 'swap',
-});
 
 globalStyle('body', {
   boxSizing: 'border-box',
   backgroundColor: themeColor.colors.mainBackground,
   fontFamily:
-    'Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',
+    '"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   transition: 'background-color 0.2s ease-out',
