@@ -56,6 +56,7 @@ export const components: MDXComponents = {
         style={{ width: '100%', height: 'auto' }}
         sizes="(max-width: 790px) calc(100vw - 40px), 750px"
         priority={isPriority}
+        fetchPriority={isPriority ? 'high' : 'auto'}
       />
     );
   },
