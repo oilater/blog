@@ -1,19 +1,23 @@
 'use client';
 
 import Giscus from '@giscus/react';
+import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 
 export function Comments() {
   const { resolvedTheme } = useTheme();
+  const pathname = usePathname();
+  const decodedPathname = decodeURIComponent(pathname);
 
   return (
     <Giscus
       repo="oilater/blog"
       repoId="R_kgDOPe3C2w"
-      category="Announcements"
+      category="Comments"
       categoryId="DIC_kwDOPe3C284C1XJc"
-      mapping="pathname"
-      strict="0"
+      mapping="specific"
+      term={decodedPathname}
+      strict="1"
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="bottom"
