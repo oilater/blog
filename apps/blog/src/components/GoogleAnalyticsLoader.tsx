@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { loadGoogleAnalytics } from '#/libs/loadGoogleAnalytics';
+import { loadGoogleAnalytics } from '#/lib/loadGoogleAnalytics';
 
 export function GoogleAnalyticsLoader() {
   useEffect(() => {
