@@ -8,7 +8,6 @@ export function TagFilter({ tags, selectedTag }: { tags: string[]; selectedTag?:
     <div className={styles.tagFilter}>
       <Link
         href="/posts"
-        prefetch={false}
         className={`${styles.tagButton} ${!selectedTag ? styles.tagButtonActive : styles.tagButtonInactive}`}
       >
         All
