@@ -2,6 +2,9 @@
 title: 왜 App Router에서 Emotion을 쓰면 오류가 터질까
 date: 2026-01-21
 ---
+
+![Emotion 썸네일[lcp]](/posts/2026-01-21/emotion-thumbnail.webp)
+
 몇 달 전, 포트폴리오를 React에서 Next로 마이그레이션했다. 
 
 그런데 Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 신기하게도 `'use client'` 를 붙이면 에러가 사라졌는데, 결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸다. 그러면 Next를 쓰는 의미가 없어진다. 그래서 Emotion을 버리고 Vanilla-Extract로 갈아탔다. 
