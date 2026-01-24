@@ -12,10 +12,16 @@ export function MdxImage(props: ImageProps) {
   const isPriority = typeof props.alt === 'string' && props.alt.includes('[lcp]');
   const alt = typeof props.alt === 'string' ? props.alt.replace('[lcp]', '').trim() : '';
 
+  const width = Number(props.width) || 750;
+  const height = Number(props.height) || 562;
+
   return (
     <span
       className="markdown-img-wrapper"
-      style={props.blurDataURL ? { backgroundImage: `url(${props.blurDataURL})`, backgroundSize: 'cover' } : undefined}
+      style={{
+        aspectRatio: `${width} / ${height}`,
+        ...(props.blurDataURL ? { backgroundImage: `url(${props.blurDataURL})`, backgroundSize: 'cover' } : {}),
+      }}
     >
       <Image
         className={`markdown-img ${isPriority ? 'lcp' : ''} ${loaded ? 'loaded' : ''}`}
