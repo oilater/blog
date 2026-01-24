@@ -1,24 +1,21 @@
 ---
-title: 왜 Next에서 Emotion을 쓰면 오류가 터질까
+title: 왜 App Router에서 Emotion을 쓰면 오류가 터질까
 date: 2026-01-21
 ---
 몇 달 전, 포트폴리오를 React에서 Next로 마이그레이션했다. 
 
-그런데 Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 신기하게도 `'use client'` 를 붙이면 에러가 사라졌는데, 결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸다. 그러면 Next를 쓰는 의미가 없어졌다. 그래서 Emotion을 버리고 Vanilla-Extract로 갈아탔다. 
+그런데 Emotion을 사용하고 있는 대부분의 컴포넌트에서 에러가 터졌다. 신기하게도 `'use client'` 를 붙이면 에러가 사라졌는데, 결국 모든 컴포넌트에 `'use client'`를 붙여야 하는 상황이 되어버렸다. 그러면 Next를 쓰는 의미가 없어진다. 그래서 Emotion을 버리고 Vanilla-Extract로 갈아탔다. 
 
-왜 Next에서 `'use client'` 없이 Emotion을 쓰면 에러가 날까? 나는 **전달 방식**에서 이 문제가 비롯된다고 생각했다.
+Next 13 이전의 SSR(Server Side Rendering) 환경에서도 Emotion을 사용할 수 있었다. 그런데 왜 App Router에서 `'use client'` 없이 Emotion을 쓰면 에러가 나는 걸까?
 
-## 배경 지식 (간단)
+## 사전 배경 지식 (간단)
+### SSR(Server Side Rendering)의 특징
 
-### SSR(Server Side Rendering) 특
+Next.js 13 이전 SSR의 가장 큰 한계는 **컴포넌트가 서버와 클라이언트에서 이중 호출된다**는 것이었다. 서버에서 컴포넌트를 실행해서 만든 HTML을 전송해도 브라우저는 HTML을 받은 후 컴포넌트를 호출해 기존 DOM에 이벤트와 상태를 연결하는 하이드레이션 과정을 거쳐야 한다. 결국 서버에서 실행된 컴포넌트도 자바스크립트 번들에 포함되어 클라이언트에서 다시 실행된다.
 
-Next.js 13 이전 SSR(Server Side Rendering)의 가장 큰 문제는 **컴포넌트가 서버와 클라이언트에서 이중 호출된다**는 것이었다. 서버에서 컴포넌트를 실행해서 만든 HTML을 전송해도 브라우저는 HTML을 받은 후 컴포넌트를 호출해 기존 DOM에 이벤트와 상태를 연결하는 하이드레이션 과정을 거쳐야 한다. 결국 서버에서 실행된 컴포넌트도 자바스크립트 번들에 포함되어 클라이언트에서 다시 실행된다.
+### RSC(React Server Component)의 특징
 
-### RSC는 어떤가
-
-RSC는 컴포넌트의 실행 환경을 서버와 클라이언트로 분리했다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트는 기존과 같은 하이드레이션 과정을 거친다. 
-
->그래서 `'use client'`를 붙여도 기본적으로 SSR(Server Side Rendering)을 시도한다.
+RSC(React Server Component)는 컴포넌트의 실행 환경을 서버와 클라이언트로 분리했다. 서버 컴포넌트는 서버에서만 호출되어 가벼운 RSC Payload와 HTML을 전송하고, 클라이언트 컴포넌트는 기존과 같은 하이드레이션 과정을 거친다. **그래서 `'use client'`를 붙여도 기본적으로 SSR을 시도한다.**
 
 ## Emotion with SSR
 
@@ -31,7 +28,7 @@ const html = renderToString(<App />);
 // html = '<button class="css-abc123">클릭</button>'
 ```
 
-2. App 안에 있는 Button같은 컴포넌트들이 호출된다.
+2. App 안에 있는 Button 같은 컴포넌트들이 호출된다.
 
 ```jsx
 const Button = styled.button`color: red;`;
@@ -88,11 +85,11 @@ RSC에서 서버 컴포넌트는 서버에서만 실행되며 자바스크립트
 - `<Suspense>` 상태일 때 보여줄 Fallback
 - 서버 컴포넌트에서 클라이언트 컴포넌트로 전달되는 모든 속성
 
-클라이언트는 RSC Payload를 해석해 기존 React Tree와 병합하고, 필요한 DOM을 업데이트한다. 단, 첫 페이지에서는 아직 React가 초기화되기 전이기 때문에 HTML을 함께 생성해서 보내준다. 이후 우리가 네비게이션같은 거 할 땐 RSC Payload만 받는다. 실제로 페이지 이동 시 네트워크 탭을 보면 `_rsc=1r34m` 같은 파일이 보인다.
+클라이언트는 RSC Payload를 해석해 기존 React Tree와 병합하고, 필요한 DOM을 업데이트한다. 단, 첫 페이지에서는 아직 React가 초기화되기 전이기 때문에 HTML을 함께 생성해서 보내준다. 이후 우리가 네비게이션 같은 동작을 할 때는 RSC Payload만 받는다. 실제로 페이지 이동 시 네트워크 탭을 보면 `_rsc=1r34m` 같은 파일이 보인다.
 
 ```
 // React 트리 구조만 있고, CSS 관련 데이터는 없다.
-// 직렬화된 데이터만 담기기 때문에 Emotion의 함수 같은 건 담길 수 없다.
+// 직렬화된 데이터만 담기기 때문에 Emotion의 styled 같은 함수는 담길 수 없다.
 0:{"b":"6cQe1V7CgVBLUCgp_BZws",
 "f":[[["",{"children":["__PAGE__",{},
 "$undefined","$undefined","$undefined",3]},
@@ -103,7 +100,9 @@ RSC 페이로드에는 스타일에 대한 정보가 담기지 않는다. 따라
 
 더 근본적인 이유는 서버 컴포넌트의 자바스크립트가 클라이언트에 전달되지 않기 때문이다. 기존 SSR에서는 하이드레이션 과정에서 컴포넌트가 렌더링되며 Emotion도 함께 실행될 수 있었지만, RSC 서버 컴포넌트의 경우 자바스크립트 파일 자체가 클라이언트에 없으니 Emotion이 실행될 여지가 없다.
 
-## 당시 Github issue 토론들
+그럼 SSR에서 살펴본 extractCritical을 적용해서 서버에서 스타일을 입힌 후에 보내면 되지 않을까? 라는 생각도 들었다. 하지만 App Router에서 `<Suspense fallback={}>`를 사용하면 Streaming 방식으로 HTML을 조각조각 보낸다. `extractCritical`은 전체 HTML이 완성된 후에 스타일을 추출하기 때문에 구조적으로 맞지 않는다. 설령 초기 스타일을 보낼 수 있다고 하더라도 여전히 동적 스타일링은 불가능하다.
+
+### 당시 Github issue 토론들
 
 깃헙 이슈들을 보니 당시 MUI가 내부 스타일링 엔진으로 Emotion을 사용하고 있었다. 당시 Emotion 팀은 Next.js가 라이브러리 제작자들과 제대로 소통하지 않고 13 버전 업데이트를 진행했으며, Styled-Components 또한 Emotion과 비슷한 상황이라고 말했다.
 
@@ -177,7 +176,7 @@ export default function Page() {
 
 사실 당시에는 그냥 '*하 Emotion이 Next랑 호환이 안되나보다*' 이러고 넘겼는데, 이번엔 계속 고민하고 알아보면서 많은 것들을 배울 수 있었다.
 
-그러니까 vanilla-extract, panda CSS 같은 **빌드 타임 CSS를 쓰자.** 빌드 타임 CSS는 빌드 시점에 정적 CSS 파일로 추출되기 때문에 런타임에 자바스크립트가 필요 없다. 서버 컴포넌트에서도 문제없이 동작한다.
+그러니까 Next에서는 vanilla-extract, panda CSS 같은 **빌드 타임 CSS를 쓰자.** 빌드 타임 CSS는 빌드 시점에 정적 CSS 파일로 추출되기 때문에 런타임에 자바스크립트가 필요 없다. 서버 컴포넌트에서도 문제없이 동작한다.
 
 ## 참고 문서
 
