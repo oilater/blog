@@ -25,3 +25,7 @@ export const metaRow = style({
   alignItems: 'center',
   gap: '0.5rem',
 });
+
+export const commentsContainer = style({
+  marginTop: 48,
+});

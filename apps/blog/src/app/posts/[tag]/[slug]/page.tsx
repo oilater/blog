@@ -16,6 +16,7 @@ import remarkGfm from 'remark-gfm';
 import { formatDate } from '#/lib/date';
 import { getAllPosts } from '#/lib/posts';
 import { rehypeImageSize } from '#/lib/rehype-image-size';
+import { Comments } from '../../components/Comments';
 import { components } from '../../mdx-components';
 import * as styles from '../../post-tag.css';
 
@@ -80,6 +81,9 @@ export default async function PostPage({ params }: Props) {
             }}
           />
         </article>
+        <div className={styles.commentsContainer}>
+          <Comments />
+        </div>
       </div>
     );
   } catch {
