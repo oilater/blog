@@ -91,6 +91,8 @@ RSC에서 서버 컴포넌트는 서버에서만 실행되며, 자바스크립�
 클라이언트는 RSC Payload를 해석해 기존 React Tree와 병합하고, 필요한 DOM을 업데이트한다. 단, 첫 페이지에서는 아직 React가 초기화되기 전이기 때문에 HTML을 함께 생성해서 보내준다. 이후 우리가 네비게이션같은 거 할 땐 RSC Payload만 받는다. 실제로 페이지 이동 시 네트워크 탭을 보면 `_rsc=1r34m` 같은 파일이 보인다.
 
 ```
+// React 트리 구조만 있고, CSS 관련 데이터는 없다.
+// 직렬화된 데이터만 담기기 때문에 Emotion의 함수 같은 건 담길 수 없다.
 0:{"b":"6cQe1V7CgVBLUCgp_BZws",
 "f":[[["",{"children":["__PAGE__",{},
 "$undefined","$undefined","$undefined",3]},
@@ -175,7 +177,7 @@ export default function Page() {
 
 사실 당시에는 그냥 '*하 Emotion이 Next랑 호환이 안되나보다*' 이러고 넘겼는데, 이번엔 계속 고민하고 알아보면서 많은 것들을 배울 수 있었다.
 
-그러니까 vanilla-extract, panda CSS 같은 빌드 타임 CSS를 쓰자. 
+그러니까 vanilla-extract, panda CSS 같은 **빌드 타임 CSS를 쓰자.** 빌드 타임 CSS는 빌드 시점에 정적 CSS 파일로 추출되기 때문에 런타임에 자바스크립트가 필요 없다. 서버 컴포넌트에서도 문제없이 동작한다.
 
 ## 참고 문서
 
