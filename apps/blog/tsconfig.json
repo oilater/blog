@@ -11,8 +11,7 @@
       "#tokens/*": ["src/tokens/*"],
       "#constants/*": ["src/constants/*"],
       "#providers/*": ["src/providers/*"],
-      "#libs/*": ["src/libs/*"],
-      "#animations/*": ["src/animations/*"],
+      "#lib/*": ["src/lib/*"],
       "#utils/*": ["src/utils/*"]
     }
   },
