@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types';
 import type { ImageProps } from 'next/image';
 import { MdxImage } from './mdx-image';
+import { MdxVideo } from './mdx-video';
 
 export const components: MDXComponents = {
   h1: (props) => <h1 className="markdown-h1" {...props} />,
@@ -59,4 +60,6 @@ export const components: MDXComponents = {
     }
     return <input {...props} />;
   },
+  video: (props) => <video className="markdown-video" controls {...props} />,
+  MdxVideo,
 };

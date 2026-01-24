@@ -8,6 +8,7 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import ReactDOM from 'react-dom';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
@@ -25,6 +26,7 @@ interface Props {
 interface Frontmatter {
   title?: string;
   date?: string | Date;
+  poster?: string;
 }
 
 function PostHeader({ frontmatter, tag }: { frontmatter: Frontmatter; tag: string }) {
@@ -53,6 +55,10 @@ export default async function PostPage({ params }: Props) {
   try {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const { content, data: frontmatter } = matter(fileContent);
+
+    if (frontmatter.poster) {
+      ReactDOM.preload(frontmatter.poster, { as: 'image', fetchPriority: 'high' });
+    }
 
     return (
       <div className="markdown-container">
