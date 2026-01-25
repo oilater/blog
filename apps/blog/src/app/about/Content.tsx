@@ -16,14 +16,6 @@ type ContentItem = {
 const CONTENTS: ContentItem[] = [
   {
     id: 1,
-    title: '성능에 관심을 갖게 된 계기',
-    description: 'Progressive Enhancement 적용하기',
-    imageUrl: '/images/performance.avif',
-    link: 'https://velog.io/@oilater/portfolio-performance',
-    isInternal: false,
-  },
-  {
-    id: 2,
     title: '메타버스 운동 앱 FIVA 이야기',
     description: '구스랩스에서 만든 FIVA를 소개합니다.',
     imageUrl: '/images/fiva_thumbnail.avif',
@@ -72,7 +64,7 @@ async function ImagePostCard({ content }: { content: ContentItem }) {
 export function Content() {
   return (
     <section className={styles.section}>
-      <SectionTitle>📝 Contents</SectionTitle>
+      <SectionTitle>📝 Works diary</SectionTitle>
       <div className={styles.contentList}>
         {CONTENTS.map((content) => (
           <ImagePostCard key={content.id} content={content} />

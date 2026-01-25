@@ -1,7 +1,7 @@
-import * as styles from './Outro.css';
+import * as styles from './Contact.css';
 import { SectionTitle } from './SectionTitle';
 
-export function Outro() {
+export function Contact() {
   return (
     <section className={styles.wrapper}>
       <SectionTitle>📬 Contact</SectionTitle>

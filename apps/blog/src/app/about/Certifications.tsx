@@ -1,14 +1,14 @@
-import * as styles from './Education.css';
+import * as styles from './Certifications.css';
 import { SectionTitle } from './SectionTitle';
 
-interface EducationData {
+interface CertificationData {
   id: number;
   date: string;
   title: string;
   descriptions: string[];
 }
 
-const educationData: EducationData[] = [
+const certificationData: CertificationData[] = [
   {
     id: 1,
     date: '2025. 12',
@@ -26,19 +26,19 @@ const educationData: EducationData[] = [
     date: '23.6 - 24.7',
     title: '삼성 청년 SW 아카데미 10기',
     descriptions: [
-      '전공 Java 웹 개발 과정 수료, 삼성 SW 역량테스트 모의 A형 취득',
+      '웹 개발 과정 전공반 수료, 삼성 SW 역량테스트 모의 A형 취득',
       '2인 팀 프로젝트 최우수상, 6인 팀 프로젝트 우수상 2회',
       'SSAFYcial 10기 공식 기자단 활동',
     ],
   },
 ];
 
-export function Education() {
+export function Certifications() {
   return (
     <section className={styles.wrapper}>
-      <SectionTitle>📚 What I studied</SectionTitle>
+      <SectionTitle>🪪 Certifications</SectionTitle>
       <div className={styles.contentSection}>
-        {educationData.map((item) => (
+        {certificationData.map((item) => (
           <div key={item.id} className={styles.educationItem}>
             <div className={styles.dateWrapper}>
               <span className={styles.dot} />
