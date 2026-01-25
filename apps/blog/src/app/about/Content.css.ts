@@ -22,7 +22,6 @@ export const contentLink = style({
   color: 'inherit',
   display: 'flex',
   alignItems: 'center',
-  gap: '1rem',
 });
 
 export const imageWrapper = style({
