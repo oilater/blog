@@ -68,16 +68,15 @@ export const imageGradient = style({
 export const articleContent = style({
   margin: '0 auto',
   width: '100%',
-  maxWidth: '800px',
+  maxWidth: 750,
   height: '100%',
-  fontSize: '20px',
+  fontSize: 18,
   whiteSpace: 'pre-wrap',
   lineHeight: 1.68,
   marginBottom: '10rem',
   '@media': {
     [mediaQueries.mobile]: {
-      padding: '0 16px',
-      fontSize: 18,
+      fontSize: 16,
     },
   },
 });
