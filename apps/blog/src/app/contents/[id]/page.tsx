@@ -1,13 +1,12 @@
 import { FivaArticle } from '#/articles/FivaArticle';
 import { ArticleType } from '#/articles/types';
 import { createArticle } from '#components/Article';
-import { IMAGES } from '#constants/images';
 
 const contents: Record<string, ArticleType> = {
   fiva: {
     title: 'Unity로 개발한 FIVA 이야기',
     date: '2025-07-05',
-    imageUrl: IMAGES.FIVA,
+    imageUrl: '/images/fiva_thumbnail.avif',
     content: <FivaArticle />,
   },
 };

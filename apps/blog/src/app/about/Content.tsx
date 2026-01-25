@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { IMAGES } from '#constants/images';
 import { getBlurDataURL } from '#lib/getBlurDataURL';
 import * as styles from './Content.css';
 import { SectionTitle } from './SectionTitle';
@@ -9,7 +8,7 @@ type ContentItem = {
   id: number;
   title: string;
   description: string;
-  image: string;
+  imageUrl: string;
   link: string;
   isInternal: boolean;
 };
@@ -19,7 +18,7 @@ const CONTENTS: ContentItem[] = [
     id: 1,
     title: '성능에 관심을 갖게 된 계기',
     description: 'Progressive Enhancement 적용하기',
-    image: IMAGES.PERFORMANCE,
+    imageUrl: '/images/performance.avif',
     link: 'https://velog.io/@oilater/portfolio-performance',
     isInternal: false,
   },
@@ -27,20 +26,20 @@ const CONTENTS: ContentItem[] = [
     id: 2,
     title: '메타버스 운동 앱 FIVA 이야기',
     description: '구스랩스에서 만든 FIVA를 소개합니다.',
-    image: IMAGES.FIVA,
+    imageUrl: '/images/fiva_thumbnail.avif',
     link: '/contents/fiva',
     isInternal: true,
   },
 ];
 
 async function ImagePostCard({ content }: { content: ContentItem }) {
-  const blurDataURL = await getBlurDataURL(content.image);
+  const blurDataURL = await getBlurDataURL(content.imageUrl);
 
   const inner = (
     <>
       <div className={styles.imageWrapper}>
         <Image
-          src={content.image}
+          src={content.imageUrl}
           alt={content.title}
           fill
           className={styles.image}

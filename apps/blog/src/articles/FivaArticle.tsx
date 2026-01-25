@@ -1,5 +1,21 @@
-import { IMAGES } from '#constants/images';
 import * as styles from './style.css';
+
+const IMAGES = {
+  AVATAR_MOVE: '/gifs/avatar-move.gif',
+  AVATAR: '/images/fiva_avatar.jpg',
+  CHALLENGE_CALENDAR: '/images/fiva-challenge-calendar.jpg',
+  CHALLENGE_LIST: '/images/fiva-challenge-list.jpg',
+  CHALLENGE_POPUP: '/images/fiva-challenge-popup.jpg',
+  COIN_POPUP: '/images/fiva-coin-popup.jpg',
+  COLLABORATION: '/images/fiva-collaboration.jpg',
+  EXERCISE: '/images/fiva-exercise.jpg',
+  NO_CHALLENGE: '/images/fiva-no-challenge.jpg',
+  SKI_GAME: '/images/fiva-ski-game.jpg',
+  ARM_GAME: '/images/fiva-arm-game.jpg',
+  CODE_REVIEW: '/images/code-review.jpg',
+  CODE_REVIEW_COMMENT: '/images/code-review-comment.jpg',
+  SLACK_MESSAGE: '/images/fiva-slack-message.jpg',
+};
 
 export function FivaArticle() {
   return (
@@ -34,7 +50,7 @@ export function FivaArticle() {
         </p>
 
         <figure className={styles.figure}>
-          <img src={IMAGES.FIVA_AVATAR} alt="FIVA 아바타 이미지" className={styles.avatarImageCombined} />
+          <img src={IMAGES.AVATAR} alt="FIVA 아바타 이미지" className={styles.avatarImageCombined} />
           <figcaption className={styles.captionStyle}>복숭아 탈 아이템 장착한 아바타</figcaption>
         </figure>
 
@@ -60,7 +76,7 @@ export function FivaArticle() {
         </p>
 
         <figure className={styles.figure}>
-          <img src={IMAGES.FIVA_AVATAR_MOVE} alt="FIVA 움직이는 아바타" className={styles.avatarMoveImageCombined} />
+          <img src={IMAGES.AVATAR_MOVE} alt="FIVA 움직이는 아바타" className={styles.avatarMoveImageCombined} />
           <figcaption className={styles.captionStyle}>움직이게 된 아바타</figcaption>
         </figure>
       </section>
@@ -84,23 +100,15 @@ export function FivaArticle() {
         <div className={styles.imagesSection}>
           <div className={styles.imageContainer}>
             <figure className={styles.figure}>
-              <img src={IMAGES.FIVA_EXERCISE} alt="운동 탭 이미지" className={styles.containerImageCombined} />
+              <img src={IMAGES.EXERCISE} alt="운동 탭 이미지" className={styles.containerImageCombined} />
             </figure>
 
             <figure className={styles.figure}>
-              <img
-                src={IMAGES.FIVA_CHALLENGE_CALENDAR}
-                alt="챌린지 달력 이미지"
-                className={styles.containerImageCombined}
-              />
+              <img src={IMAGES.CHALLENGE_CALENDAR} alt="챌린지 달력 이미지" className={styles.containerImageCombined} />
             </figure>
 
             <figure className={styles.figure}>
-              <img
-                src={IMAGES.FIVA_CHALLENGE_LIST}
-                alt="챌린지 목록 이미지"
-                className={styles.containerImageCombined}
-              />
+              <img src={IMAGES.CHALLENGE_LIST} alt="챌린지 목록 이미지" className={styles.containerImageCombined} />
             </figure>
           </div>
         </div>
@@ -108,20 +116,16 @@ export function FivaArticle() {
         <div className={styles.imagesSection}>
           <div className={styles.imageContainer}>
             <figure className={styles.figure}>
-              <img
-                src={IMAGES.FIVA_CHALLENGE_POPUP}
-                alt="챌린지 팝업 이미지"
-                className={styles.containerImageCombined}
-              />
+              <img src={IMAGES.CHALLENGE_POPUP} alt="챌린지 팝업 이미지" className={styles.containerImageCombined} />
             </figure>
 
             <figure className={styles.figure}>
-              <img src={IMAGES.FIVA_COIN_POPUP} alt="코인 팝업 이미지" className={styles.containerImageCombined} />
+              <img src={IMAGES.COIN_POPUP} alt="코인 팝업 이미지" className={styles.containerImageCombined} />
             </figure>
 
             <figure className={styles.figure}>
               <img
-                src={IMAGES.FIVA_COLLABORATION}
+                src={IMAGES.COLLABORATION}
                 alt="콜라보레이션 팝업 이미지"
                 className={styles.containerImageCombined}
               />
@@ -148,12 +152,12 @@ export function FivaArticle() {
         </p>
 
         <figure className={styles.figure}>
-          <img src={IMAGES.FIVA_SKI_GAME} alt="스쿼트 스키 게임 이미지" className={styles.gameImageCombined} />
+          <img src={IMAGES.SKI_GAME} alt="스쿼트 스키 게임 이미지" className={styles.gameImageCombined} />
           <figcaption className={styles.captionStyle}>스쿼트 스키 게임</figcaption>
         </figure>
 
         <figure className={styles.figure}>
-          <img src={IMAGES.FIVA_ARM_GAME} alt="팔 운동 비행 게임 이미지" className={styles.gameImageCombined} />
+          <img src={IMAGES.ARM_GAME} alt="팔 운동 비행 게임 이미지" className={styles.gameImageCombined} />
           <figcaption className={styles.captionStyle}>팔 운동 비행 게임</figcaption>
         </figure>
       </section>
@@ -178,13 +182,13 @@ export function FivaArticle() {
           </p>
 
           <figure className={styles.figure}>
-            <img src={IMAGES.FIVA_CODE_REVIEW} alt="한 코드 리뷰" className={styles.codeReviewImageCombined} />
+            <img src={IMAGES.CODE_REVIEW} alt="한 코드 리뷰" className={styles.codeReviewImageCombined} />
             <figcaption className={styles.captionStyle}>입사 초빈에 받았던 코드 리뷰</figcaption>
           </figure>
 
           <figure className={styles.figure}>
             <img
-              src={IMAGES.FIVA_CODE_REVIEW_COMMENT}
+              src={IMAGES.CODE_REVIEW_COMMENT}
               alt="코드 리뷰 코멘트 이미지"
               className={styles.commentImageCombined}
             />
@@ -207,7 +211,7 @@ export function FivaArticle() {
           </p>
 
           <figure className={styles.figure}>
-            <img src={IMAGES.FIVA_SLACK_MESSAGE} alt="FIVA 슬랙 메시지" className={styles.slackImageCombined} />
+            <img src={IMAGES.SLACK_MESSAGE} alt="FIVA 슬랙 메시지" className={styles.slackImageCombined} />
             <figcaption className={styles.captionStyle}>UX/UI 디자이너분께 받은 메시지</figcaption>
           </figure>
 
