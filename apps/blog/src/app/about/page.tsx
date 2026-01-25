@@ -1,18 +1,13 @@
-import dynamic from 'next/dynamic';
+import * as styles from './about.css';
 import { Content } from './Content';
+import { Education } from './Education';
 import { Intro } from './Intro';
-import { Introduce } from './Introduce';
-import { Recent } from './Recent';
-
-const Education = dynamic(() => import('./Education').then((module) => module.Education));
-const Outro = dynamic(() => import('./Outro').then((module) => module.Outro));
+import { Outro } from './Outro';
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className={styles.container}>
       <Intro />
-      <Introduce />
-      <Recent />
       <Content />
       <Education />
       <Outro />

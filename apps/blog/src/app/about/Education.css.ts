@@ -1,79 +1,58 @@
 import { style } from '@vanilla-extract/css';
-import { palette as colors } from '#/tokens/color/palette';
 import { themeColor } from '#tokens/theme.css';
 
 export const wrapper = style({
   width: '100%',
-  height: '100%',
-  paddingBottom: '6rem',
-  position: 'relative',
+  marginBottom: '3rem',
 });
 
 export const contentSection = style({
-  position: 'relative',
-  width: '100%',
-  height: '100%',
-});
-
-export const mainDescription = style({
-  fontSize: '1.2rem',
-  fontWeight: 500,
-  color: themeColor.colors.contentFontColor,
-  marginBottom: '2.5rem',
-});
-
-export const hr = style({
-  border: 'none',
-  height: 2,
-  background: 'rgba(222, 222, 255, 0.19)',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 32,
 });
 
 export const educationItem = style({
   display: 'flex',
   alignItems: 'flex-start',
-  gap: 24,
-  marginBottom: '3rem',
-});
-export const educationContent = style({
-  flex: 1,
+  gap: 16,
 });
 
-export const educationHeader = style({
+export const dateWrapper = style({
   display: 'flex',
   alignItems: 'center',
   gap: 8,
-  marginBottom: 4,
+  minWidth: 100,
+  flexShrink: 0,
 });
 
-export const educationPeriod = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  gap: 12,
-  minWidth: 140,
-  paddingTop: 4,
-  fontSize: '16px',
-  fontWeight: 500,
-  color: colors.grey500,
-});
-
-export const educationTitle = style({
-  fontSize: 20,
-  fontWeight: 600,
-  color: themeColor.colors.cardTitleFontColor,
-});
-
-export const educationDescription = style({
-  marginTop: 10,
+export const date = style({
   fontSize: 16,
-  lineHeight: 1.65,
   color: themeColor.colors.subFontColor,
 });
 
 export const dot = style({
-  width: 8,
-  height: 8,
+  width: 4,
+  height: 4,
   borderRadius: '50%',
   background: themeColor.colors.borderColor,
   flexShrink: 0,
+});
+
+export const educationContent = style({
+  flex: 1,
+});
+
+export const educationTitle = style({
+  fontSize: 16,
+  fontWeight: 500,
+  color: themeColor.colors.titleFontColor,
+});
+
+export const educationDescription = style({
+  marginTop: 6,
+  fontSize: 14,
+  fontWeight: 400,
+  lineHeight: 1.6,
+  color: themeColor.colors.subFontColor,
 });

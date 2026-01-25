@@ -64,7 +64,7 @@ export const postHeaderRow = style({
 });
 
 export const postTitle = style({
-  fontSize: '1.25rem',
+  fontSize: 18,
   fontWeight: 600,
   color: themeColor.colors.titleFontColor,
   selectors: {

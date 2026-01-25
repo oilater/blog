@@ -1,25 +1,12 @@
 export const IMAGES = {
   // 메인 썸네일
-  PORTFOLIO: '/images/portfolio.avif',
-  LANGUAGES: '/images/languages.avif',
   PERFORMANCE: '/images/performance.avif',
-  COMMUNICATION: '/images/communication.avif',
-  RALLY_LOGIC: '/images/rally-logic.jpg',
   FIVA: '/images/fiva_thumbnail.avif',
-  RALLY_REFACTORING: '/images/typescript-refactoring.jpg',
 
   // GIF
-  INTRO_ANIMATION: '/gifs/intro-animation.gif',
   FIVA_AVATAR_MOVE: '/gifs/avatar-move.gif',
 
   // 기타 이미지
-  PORTFOLIO_DETAIL: '/images/portfolio-detail.jpg',
-  ARTICLE_MAP: '/images/article-map.jpg',
-  COMPONENT_COMPOSITION: '/images/component-composition.jpg',
-  INTRO_TIMELINE: '/images/intro-timeline.jpg',
-  MOTION_LOGIC: '/images/motion-logic.jpg',
-  TIMELINE_LOGIC_REFACTOR: '/images/timeline-refactor-logic.jpg',
-  RALLY_STRUCTURE: '/images/rally-structure.jpg',
   FIVA_AVATAR: '/images/fiva_avatar.jpg',
   FIVA_CHALLENGE_CALENDAR: '/images/fiva-challenge-calendar.jpg',
   FIVA_CHALLENGE_LIST: '/images/fiva-challenge-list.jpg',

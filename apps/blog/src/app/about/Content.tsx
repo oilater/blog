@@ -1,11 +1,20 @@
-import { ContentType } from '#/articles/types';
-import { Card } from '#components/Card';
-import { Section } from '#components/Section';
-import { contentSection } from '#components/styles/Section.css';
-import { Tag } from '#components/Tag';
+import Image from 'next/image';
+import Link from 'next/link';
 import { IMAGES } from '#constants/images';
+import { getBlurDataURL } from '#lib/getBlurDataURL';
+import * as styles from './Content.css';
+import { SectionTitle } from './SectionTitle';
 
-export const CONTENTS: ContentType[] = [
+type ContentItem = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  isInternal: boolean;
+};
+
+const CONTENTS: ContentItem[] = [
   {
     id: 1,
     title: '성능에 관심을 갖게 된 계기',
@@ -13,45 +22,63 @@ export const CONTENTS: ContentType[] = [
     image: IMAGES.PERFORMANCE,
     link: 'https://velog.io/@oilater/portfolio-performance',
     isInternal: false,
-    tags: ['Lighthouse', 'Performance'],
   },
   {
     id: 2,
-    title: '인터렉션 시스템 Rally',
-    description: 'Interaction System 구현하기',
-    image: IMAGES.PORTFOLIO,
-    link: '/contents/rally-portfolio',
-    isInternal: true,
-    tags: ['React', 'TypeScript', 'GSAP'],
-  },
-  {
-    id: 3,
     title: '메타버스 운동 앱 FIVA 이야기',
     description: '구스랩스에서 만든 FIVA를 소개합니다.',
     image: IMAGES.FIVA,
     link: '/contents/fiva',
     isInternal: true,
-    tags: ['Unity', 'C#'],
   },
 ];
 
+async function ImagePostCard({ content }: { content: ContentItem }) {
+  const blurDataURL = await getBlurDataURL(content.image);
+
+  const inner = (
+    <>
+      <div className={styles.imageWrapper}>
+        <Image
+          src={content.image}
+          alt={content.title}
+          fill
+          className={styles.image}
+          placeholder="blur"
+          blurDataURL={blurDataURL}
+        />
+      </div>
+      <div className={styles.contentInfo}>
+        <h3 className={styles.contentTitle}>{content.title}</h3>
+        <p className={styles.contentDescription}>{content.description}</p>
+      </div>
+    </>
+  );
+
+  return (
+    <article className={styles.imagePostCard}>
+      {content.isInternal ? (
+        <Link href={content.link} className={styles.contentLink}>
+          {inner}
+        </Link>
+      ) : (
+        <a href={content.link} className={styles.contentLink} target="_blank" rel="noopener noreferrer">
+          {inner}
+        </a>
+      )}
+    </article>
+  );
+}
+
 export function Content() {
   return (
-    <Section title="Contents" description="새로운 것을 배우면 재밌는 서비스로 만들어봅니다." className={contentSection}>
-      {CONTENTS.map((content) => (
-        <Card key={content.id} link={content.link} isInternal={content.isInternal}>
-          <Card.Image image={content.image} />
-          <Card.Content>
-            <Card.Title>{content.title}</Card.Title>
-            <Card.Description>{content.description}</Card.Description>
-            <Card.Tags>
-              {content.tags?.map((tag) => (
-                <Tag key={tag} text={tag} />
-              ))}
-            </Card.Tags>
-          </Card.Content>
-        </Card>
-      ))}
-    </Section>
+    <section className={styles.section}>
+      <SectionTitle>📝 Contents</SectionTitle>
+      <div className={styles.contentList}>
+        {CONTENTS.map((content) => (
+          <ImagePostCard key={content.id} content={content} />
+        ))}
+      </div>
+    </section>
   );
 }

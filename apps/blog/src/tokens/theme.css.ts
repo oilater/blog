@@ -32,7 +32,7 @@ createGlobalTheme('[data-theme="light"]', themeColor, {
     tagBackground: palette.grey100,
     tagItemColor: palette.grey700,
     mainFontColor: palette.grey700,
-    subFontColor: '#6b7280',
+    subFontColor: palette.grey600,
     cardTitleFontColor: palette.grey800,
     cardDescriptionFontColor: palette.grey600,
     borderColor: palette.grey300,
