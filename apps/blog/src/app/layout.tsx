@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { GoogleAnalyticsLoader } from '#/components/GoogleAnalyticsLoader';
 import { Header } from '#components/Header';
-import { LayoutWrapper } from '#components/LayoutWrapper';
+import { SectionContainer } from '#components/SectionContainer';
 import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
 
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider>
           <Header />
-          <LayoutWrapper>{children}</LayoutWrapper>
+          <SectionContainer>{children}</SectionContainer>
         </ThemeProvider>
         <Analytics />
         <GoogleAnalyticsLoader />
