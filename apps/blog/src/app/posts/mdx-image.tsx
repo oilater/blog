@@ -4,10 +4,11 @@ import type { ImageProps } from 'next/image';
 import Image from 'next/image';
 import { useState } from 'react';
 
-function parseAlt(alt: unknown) {
-  if (typeof alt !== 'string') return { isPriority: false, alt: '' };
-  const isPriority = alt.includes('[lcp]');
-  return { isPriority, alt: alt.replace('[lcp]', '').trim() };
+function parseAlt(alt: string) {
+  const isLCP = alt.includes('[lcp]');
+  const altText = alt.replace('[lcp]', '').trim();
+
+  return { isLCP, alt: altText };
 }
 
 export function MdxImage(props: ImageProps) {
@@ -15,7 +16,7 @@ export function MdxImage(props: ImageProps) {
 
   if (!props.src) return null;
 
-  const { isPriority, alt } = parseAlt(props.alt);
+  const { isLCP, alt } = parseAlt(props.alt);
   const width = Number(props.width) || 750;
   const height = Number(props.height) || 562;
 
@@ -28,7 +29,7 @@ export function MdxImage(props: ImageProps) {
       }}
     >
       <Image
-        className={`markdown-img ${isPriority ? 'lcp' : ''} ${loaded ? 'loaded' : ''}`}
+        className={`markdown-img ${isLCP ? 'lcp' : ''} ${loaded ? 'loaded' : ''}`}
         src={props.src}
         alt={alt}
         width={width}
@@ -36,8 +37,8 @@ export function MdxImage(props: ImageProps) {
         quality={75}
         style={{ width: '100%', height: 'auto' }}
         sizes="(max-width: 790px) calc(100vw - 40px), 750px"
-        priority={isPriority}
-        fetchPriority={isPriority ? 'high' : 'auto'}
+        priority={isLCP}
+        fetchPriority={isLCP ? 'high' : 'auto'}
         onLoad={() => setLoaded(true)}
       />
     </span>
