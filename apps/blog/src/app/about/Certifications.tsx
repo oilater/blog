@@ -26,8 +26,8 @@ const certificationData: CertificationData[] = [
     date: '23.6 - 24.7',
     title: '삼성 청년 SW 아카데미 10기',
     descriptions: [
-      '웹 개발 과정 전공반 수료, 삼성 SW 역량테스트 모의 A형 취득',
-      '2인 팀 프로젝트 최우수상, 6인 팀 프로젝트 우수상 2회',
+      '웹 개발 과정 전공 Java반 수료, 삼성 SW 역량테스트 모의 A형 취득',
+      '1학기 프로젝트 최우수상, 6인 팀 프로젝트 우수상 2회',
       'SSAFYcial 10기 공식 기자단 활동',
     ],
   },

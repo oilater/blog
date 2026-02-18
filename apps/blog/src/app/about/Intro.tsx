@@ -11,8 +11,8 @@ export function Intro() {
       <br />
       <Paragraph>
         친구들에게 <span className={emphasis}>'술 먹은 날에 스터디카페 가는 사람은 처음 본다'</span>는 얘기를 들을
-        정도로 개발을 좋아합니다. 최근에는 'Web Performance Deep Dive'의 베타 리더로 활동했고, FE 개발 동아리
-        '함수랑산악회'에 합류했습니다.
+        정도로 개발과 배우는 걸 좋아합니다. 최근에는 'Web Performance Deep Dive'의 베타 리더로 활동했으며, FE 개발
+        동아리 함수랑산악회에서 번들러에 관해 공부하고 있습니다.
       </Paragraph>
     </div>
   );
