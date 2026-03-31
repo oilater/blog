@@ -1,19 +1,36 @@
+import * as styles from './Intro.css';
 import { Paragraph } from '#components/Paragraph';
-import { emphasis, wrapper } from './Intro.css';
 import { SectionTitle } from './SectionTitle';
 
 export function Intro() {
   return (
-    <div className={wrapper}>
+    <div className={styles.wrapper}>
+      <div className={styles.photoWrapper}>
+        <img src="/images/me.jpg" className={styles.profileImage} alt="김성현" />
+      </div>
+
       <SectionTitle>👋 Introduce</SectionTitle>
-      <Paragraph>안녕하세요, VSCode보다 개발자 도구를 먼저 여는 프론트엔드 개발자 김성현입니다.</Paragraph>
-      <Paragraph>모바일 환경에서도 유저가 빠르다고 느낄 수 있는 서비스를 만듭니다.</Paragraph>
-      <br />
-      <Paragraph>
-        친구들에게 <span className={emphasis}>'술 먹은 날에 스터디카페 가는 사람은 처음 본다'</span>는 얘기를 들을
-        정도로 개발과 배우는 걸 좋아합니다. 최근에는 'Web Performance Deep Dive'의 베타 리더로 활동했으며, FE 개발
-        동아리 함수랑산악회에서 번들러에 관해 공부하고 있습니다.
-      </Paragraph>
+      
+      <div className={styles.textSection}>
+        <Paragraph>
+          안녕하세요! 딱 하면 딱! 나오는 프론트엔드 개발자 김성현입니다.
+        </Paragraph>
+        
+        <div className={styles.listSection}>
+          <Paragraph>
+            • 피드백을 빠르게 수용하고 공유합니다.
+          </Paragraph>
+          <Paragraph>
+            • 어제보다 더 나은 사람이 되고자 기록합니다.
+          </Paragraph>
+          <Paragraph>
+            • 만드는 것보다 ‘나라면 이 제품을 쓸까?’를 더 중요하게 생각합니다.
+          </Paragraph>
+          <Paragraph>
+            • 어려운 문제들을 해결하며 회사와 함께 성장하는 것을 목표로 합니다.
+          </Paragraph>
+        </div>
+      </div>
     </div>
   );
 }

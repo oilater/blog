@@ -56,3 +56,12 @@ export const educationDescription = style({
   lineHeight: 1.6,
   color: themeColor.colors.subFontColor,
 });
+
+export const link = style({
+  color: 'inherit',
+  textDecoration: 'none',
+  ':hover': {
+    textDecoration: 'underline',
+    color: themeColor.colors.titleFontColor,
+  },
+});
