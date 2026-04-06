@@ -1,5 +1,5 @@
 ---
-title: an Overview of Arrays and Memory
+title: An overview of Arrays and Memory
 date: 2026-04-05
 ---
 
