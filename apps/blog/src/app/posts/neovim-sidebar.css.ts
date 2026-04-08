@@ -53,6 +53,11 @@ export const tagFilter = style({
   padding: '8px 10px',
   borderBottom: `1px solid ${selection}`,
   flexShrink: 0,
+  transition: 'box-shadow 0.15s ease',
+});
+
+export const tagFilterFocused = style({
+  boxShadow: `inset 0 0 0 1px ${green}`,
 });
 
 export const tagActive = style({
@@ -107,8 +112,8 @@ export const fileItemActive = style({
 
 export const fileItemRow = style({
   display: 'flex',
-  alignItems: 'center',
-  gap: '6px',
+  flexDirection: 'column',
+  gap: '4px',
 });
 
 export const tag = style({
@@ -121,7 +126,9 @@ export const title = style({
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
-  fontWeight: 500,
+  fontWeight: 600,
+  color: '#e4e4e5',
+  fontSize: '0.92rem',
 });
 
 export const date = style({

@@ -1,16 +1,21 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, useRef, useEffect, type KeyboardEvent } from 'react';
+import { useState, useRef, useEffect, useImperativeHandle, forwardRef, type KeyboardEvent } from 'react';
 import { autocomplete, executeCommand, parseCommand } from '#/lib/terminal';
 import * as styles from '../terminal.css';
 
 interface Props {
   tags: string[];
   posts: { title: string; slug: string }[];
+  onExitDown?: () => void;
 }
 
-export function Terminal({ tags, posts }: Props) {
+export interface TerminalHandle {
+  focus: () => void;
+}
+
+export const Terminal = forwardRef<TerminalHandle, Props>(function Terminal({ tags, posts, onExitDown }, ref) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
@@ -18,7 +23,15 @@ export function Terminal({ tags, posts }: Props) {
   const [history, setHistory] = useState<{ command: string; output: string }[]>([]);
   const [cwd, setCwd] = useState('~/posts');
 
-  useEffect(() => {
+  useImperativeHandle(ref, () => ({
+    focus: () => inputRef.current?.focus(),
+  }));
+
+  useEffect(function autoFocusOnMount() {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(function scrollToBottom() {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
@@ -51,6 +64,10 @@ export function Terminal({ tags, posts }: Props) {
       if (result) setInput(result);
     } else if (e.key === 'Enter') {
       execute(input);
+    } else if ((e.key === 'ArrowDown' || e.key === 'j') && onExitDown) {
+      e.preventDefault();
+      inputRef.current?.blur();
+      onExitDown();
     }
   };
 
@@ -80,4 +97,4 @@ export function Terminal({ tags, posts }: Props) {
       </div>
     </div>
   );
-}
+});
