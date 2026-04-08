@@ -41,7 +41,7 @@ export const tagButtonInactive = style({
 export const postsList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1rem',
+  gap: '0.375rem',
 });
 
 export const postCard = style({
@@ -73,11 +73,11 @@ export const postLink = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5rem',
-  padding: '1.25rem 1.5rem',
+  padding: '1.25rem 0',
 });
 
 export const postTagBadge = style({
-  fontSize: '0.7rem',
+  fontSize: '0.8rem',
   fontWeight: 500,
   padding: '0.2rem 0.5rem',
   backgroundColor: themeColor.colors.tagBackground,
@@ -88,8 +88,8 @@ export const postTagBadge = style({
 });
 
 export const postTitle = style({
-  fontSize: 17,
-  fontWeight: 600,
+  fontSize: 18,
+  fontWeight: 500,
   lineHeight: 1.4,
   color: themeColor.colors.titleFontColor,
   transition: 'color 0.2s ease',
@@ -101,7 +101,7 @@ export const postTitle = style({
 });
 
 export const postDate = style({
-  fontSize: '0.8rem',
+  fontSize: '0.875rem',
   color: themeColor.colors.subFontColor,
 });
 
