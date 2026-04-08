@@ -6,6 +6,7 @@ import { parsePathSegments } from '#/lib/sidebar';
 import * as styles from '../toast.css';
 
 const SIDEBAR_DISMISSED_KEY = 'sidebar-toast-dismissed';
+const GUIDE_DISMISSED_KEY = 'guide-toast-dismissed';
 
 type ToastType = 'sidebar' | 'guide' | null;
 
@@ -27,16 +28,20 @@ export function SidebarToast() {
     }
 
     if (isPostDetail && wasHome) {
-      setToast('guide');
-      timerRef.current = setTimeout(() => setToast(null), 4000);
+      const dismissed = sessionStorage.getItem(GUIDE_DISMISSED_KEY);
+      if (!dismissed) {
+        setToast('guide');
+        sessionStorage.setItem(GUIDE_DISMISSED_KEY, 'true');
+        timerRef.current = setTimeout(() => setToast(null), 4000);
+      }
       return;
     }
 
     if (isPostDetail) {
-      const dismissed = localStorage.getItem(SIDEBAR_DISMISSED_KEY);
+      const dismissed = sessionStorage.getItem(SIDEBAR_DISMISSED_KEY);
       if (!dismissed) {
         setToast('sidebar');
-        localStorage.setItem(SIDEBAR_DISMISSED_KEY, 'true');
+        sessionStorage.setItem(SIDEBAR_DISMISSED_KEY, 'true');
         timerRef.current = setTimeout(() => setToast(null), 3000);
       }
     }

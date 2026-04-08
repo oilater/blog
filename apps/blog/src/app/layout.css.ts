@@ -34,6 +34,9 @@ export const logo = style({
   fontWeight: 600,
   color: themeColor.colors.titleFontColor,
   textDecoration: 'none',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 6,
 });
 
 export const nav = style({

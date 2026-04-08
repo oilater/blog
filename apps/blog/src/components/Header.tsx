@@ -3,6 +3,7 @@ import { header, headerInner, logo, nav } from '#/app/layout.css';
 import { BlogConfig } from '#/constants/config';
 import { ThemeSwitch } from '#components/ThemeSwitch';
 import { NavItem } from './NavItem';
+import { RotateText } from './RotateText';
 
 export function Header() {
   return (
@@ -10,6 +11,7 @@ export function Header() {
       <div className={headerInner}>
         <Link href="/posts" className={logo}>
           {BlogConfig.author.name}
+          <RotateText />
         </Link>
         <nav className={nav}>
           <NavItem href="/posts" label="Home" prefetch={false} />
