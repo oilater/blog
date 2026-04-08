@@ -15,13 +15,14 @@ export interface CommandResult {
   clear?: boolean;
 }
 
-const COMMANDS = ['cd', 'ls', 'clear', 'help'] as const;
+const COMMANDS = ['cd', 'ls', 'pwd', 'clear', 'help'] as const;
 
 const HELP_TEXT = [
   'cd <tag>   — 태그로 이동',
   'cd <제목>  — 포스트로 이동 (부분 검색 가능)',
   'cd ..      — 전체 포스트로 이동',
   'ls         — 목록 보기',
+  'pwd        — 현재 위치 보기',
   'clear      — 터미널 초기화',
 ].join('\n');
 
@@ -109,6 +110,8 @@ export function executeCommand(
       return executeCd(parsed.arg, cwd, tags, posts);
     case 'ls':
       return executeLs(cwd, tags, posts);
+    case 'pwd':
+      return { output: `현재 위치는 Seonghyeon's blog입니다.\n${cwd}` };
     case 'help':
       return { output: HELP_TEXT };
     default:
