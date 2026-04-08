@@ -111,7 +111,7 @@ export function executeCommand(
     case 'ls':
       return executeLs(cwd, tags, posts);
     case 'pwd':
-      return { output: `현재 위치는 Seonghyeon's blog ✨ 입니다.\n${cwd}` };
+      return { output: `Seonghyeon's blog ✨\n${cwd}` };
     case 'help':
       return { output: HELP_TEXT };
     default:
