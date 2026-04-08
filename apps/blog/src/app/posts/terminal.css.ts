@@ -3,19 +3,22 @@ import { themeColor } from '#/tokens/theme.css';
 
 export const terminal = style({
   fontFamily: '"SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace',
-  fontSize: '0.85rem',
+  fontSize: '0.8rem',
   lineHeight: 1.6,
-  padding: '12px 16px',
-  marginBottom: '1.5rem',
-  borderRadius: '12px',
+  padding: '8px 12px',
   backgroundColor: '#1e1e2e',
   color: '#cdd6f4',
   cursor: 'text',
-  minHeight: 44,
+  minHeight: 36,
+  maxHeight: '150px',
+  overflowY: 'auto',
+  borderBottom: '1px solid #313244',
+  flexShrink: 0,
 });
 
 export const line = style({
   display: 'flex',
+  flexWrap: 'wrap',
   alignItems: 'center',
 });
 
@@ -27,6 +30,7 @@ export const prompt = style({
 
 export const input = style({
   flex: 1,
+  minWidth: 0,
   background: 'none',
   border: 'none',
   outline: 'none',

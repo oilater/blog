@@ -8,11 +8,11 @@ export function Header() {
   return (
     <header className={header}>
       <div className={headerInner}>
-        <Link href="/" className={logo}>
+        <Link href="/posts" className={logo}>
           {BlogConfig.author.name}
         </Link>
         <nav className={nav}>
-          <NavItem href="/" label="Posts" prefetch={false} />
+          <NavItem href="/posts" label="Posts" prefetch={false} />
           <NavItem href="/about" label="About" prefetch={false} />
           <NavItem href="https://github.com/oilater" label="Github" prefetch={false} target="_blank" rel="noopener noreferrer" />
           <ThemeSwitch />
