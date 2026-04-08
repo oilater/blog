@@ -82,7 +82,7 @@ export function Terminal({ tags, posts, currentTag }: TerminalProps) {
           break;
         }
         default: {
-          output = `command not found: ${cmd}`;
+          output = `command not found: ${cmd}. 'help'를 입력하면 사용 가능한 명령어를 볼 수 있어요.`;
         }
       }
 
