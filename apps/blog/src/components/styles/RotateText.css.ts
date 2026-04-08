@@ -2,7 +2,12 @@ import { style } from '@vanilla-extract/css';
 import { themeColor } from '#tokens/theme.css';
 
 export const text = style({
-  display: 'block',
+  display: 'none',
+  '@media': {
+    '(min-width: 1025px)': {
+      display: 'block',
+    },
+  },
   fontSize: '0.8rem',
   fontWeight: 400,
   color: themeColor.colors.subFontColor,

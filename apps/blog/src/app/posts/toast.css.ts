@@ -10,7 +10,12 @@ export const toast = style({
   bottom: '64px',
   right: '40px',
   zIndex: 30,
-  display: 'flex',
+  display: 'none',
+  '@media': {
+    '(min-width: 1025px)': {
+      display: 'flex',
+    },
+  },
   alignItems: 'center',
   gap: '8px',
   padding: '8px 14px',

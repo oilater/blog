@@ -15,7 +15,10 @@ export const contentPanel = style({
   flex: 1,
   minWidth: 0,
   overflowY: 'auto',
-  scrollbarGutter: 'stable',
+  scrollbarWidth: 'none',
+  '::-webkit-scrollbar': {
+    display: 'none',
+  },
 });
 
 export const container = style({
@@ -110,6 +113,15 @@ export const mobileOnly = style({
   '@media': {
     '(min-width: 1025px)': {
       display: 'none',
+    },
+  },
+});
+
+export const desktopOnly = style({
+  display: 'none',
+  '@media': {
+    '(min-width: 1025px)': {
+      display: 'block',
     },
   },
 });

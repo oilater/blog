@@ -14,9 +14,9 @@ function Welcome() {
       </header>
       <article className="markdown-body">
         <p>
-          블로그에 재미 삼아 터미널 UI를 붙여본 걸 시작으로, Neovim에서 아이디어를 얻어 블로그를 개편해봤어요.
+          재미 삼아 블로그에 터미널 UI를 붙여보다가, Neovim에서 아이디어를 얻어 블로그를 개편해봤어요.
           <br />
-          매번 클릭해서 글을 열어보는 것보다, 키보드 커서를 이동해 미리 볼 수 있으면 편하지 않을까요 🤗
+          매번 클릭해서 글을 여는 것보다, 키보드 커서 이동만으로도 미리 볼 수 있으면 편하지 않을까요 🤗
         </p>
 
         <h5 style={{ marginTop: '4rem' }}>어떻게 둘러보나요?</h5>
@@ -61,7 +61,9 @@ export default function PostsPage() {
 
   return (
     <>
-      <Welcome />
+      <div className={styles.desktopOnly}>
+        <Welcome />
+      </div>
       <div className={styles.mobileOnly}>
         <TagFilter tags={allTags} />
         <PostsList posts={allPosts} />
