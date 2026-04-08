@@ -1,6 +1,19 @@
 import { style } from '@vanilla-extract/css';
 import { themeColor } from '#/tokens/theme.css';
 
+export const splitLayout = style({
+  display: 'flex',
+  gap: '1.5rem',
+  width: '100%',
+  maxWidth: '1400px',
+  margin: '0 auto',
+});
+
+export const contentPanel = style({
+  flex: 1,
+  minWidth: 0,
+});
+
 export const container = style({
   margin: '0 auto',
   maxWidth: '750px',
@@ -86,4 +99,13 @@ export const postDate = style({
 
 export const noPosts = style({
   color: themeColor.colors.subFontColor,
+});
+
+export const mobileOnly = style({
+  display: 'block',
+  '@media': {
+    '(min-width: 1025px)': {
+      display: 'none',
+    },
+  },
 });

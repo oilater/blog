@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { getAllTags, getPostsByTag } from '#/lib/posts';
 import { PostsList } from '../components/PostsList';
 import { TagFilter } from '../components/TagFilter';
-import { Terminal } from '../components/Terminal';
 import * as styles from '../posts.css';
 
 interface Props {
@@ -23,8 +22,7 @@ export default async function TagPostsPage({ params }: Props) {
   const filtered = getPostsByTag(tagName);
 
   return (
-    <div className={styles.container}>
-      <Terminal tags={allTags} posts={filtered.map((p) => ({ title: p.title, slug: p.slug }))} currentTag={tagName} />
+    <div className={styles.mobileOnly}>
       <TagFilter tags={allTags} selectedTag={tagName} />
       <PostsList posts={filtered} />
     </div>
