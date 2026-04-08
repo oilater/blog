@@ -136,7 +136,7 @@
 .markdown-body blockquote {
   margin: 1.5rem 0;
   padding: 0.5rem 1rem;
-  border-left: 3.5px solid #a78bfa;
+  border-left: 3.5px solid var(--highlight);
 }
 
 .markdown-body blockquote > :first-child {

@@ -3,6 +3,7 @@ import { themeColor } from '#tokens/theme.css';
 
 globalStyle('body', {
   boxSizing: 'border-box',
+  vars: { '--highlight': themeColor.colors.highLightFontColor },
   backgroundColor: themeColor.colors.mainBackground,
   fontFamily:
     '"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif',

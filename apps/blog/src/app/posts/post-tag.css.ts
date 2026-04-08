@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { themeColor } from '#/tokens/theme.css';
 
 export const tagHeaderRow = style({
   display: 'flex',
@@ -10,13 +11,13 @@ export const tagHeaderRow = style({
 export const tagLink = style({
   fontSize: '0.725rem',
   padding: '0.2rem 0.5rem',
-  backgroundColor: '#ede9fe',
-  color: '#7c3aed',
+  backgroundColor: themeColor.colors.tagBackground,
+  color: themeColor.colors.highLightFontColor,
   borderRadius: '0.25rem',
   textDecoration: 'none',
   transition: 'background-color 0.2s',
   ':hover': {
-    backgroundColor: '#ddd6fe',
+    opacity: 0.8,
   },
 });
 
