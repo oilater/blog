@@ -1,5 +1,3 @@
-// ── 순수 함수: 커맨드 파싱 ──
-
 interface PostEntry {
   title: string;
   slug: string;
@@ -36,8 +34,6 @@ export function parseCommand(raw: string): ParsedCommand | null {
   return { cmd, arg };
 }
 
-// ── 순수 함수: 자동완성 ──
-
 export function autocomplete(input: string, tags: string[], posts: PostEntry[]): string | null {
   const parsed = parseCommand(input);
   if (!parsed) return null;
@@ -60,8 +56,6 @@ export function autocomplete(input: string, tags: string[], posts: PostEntry[]):
 
   return null;
 }
-
-// ── 순수 함수: 커맨드 실행 ──
 
 function executeCd(arg: string, tags: string[], posts: PostEntry[]): CommandResult {
   if (!arg || arg === '..' || arg === '~' || arg === '/') {
