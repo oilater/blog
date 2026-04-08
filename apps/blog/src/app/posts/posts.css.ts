@@ -15,6 +15,7 @@ export const contentPanel = style({
   flex: 1,
   minWidth: 0,
   overflowY: 'auto',
+  scrollbarGutter: 'stable',
 });
 
 export const container = style({
