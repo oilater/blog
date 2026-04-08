@@ -30,6 +30,28 @@ const HELP_TEXT = [
   'clear      — 터미널 초기화',
 ].join('\n');
 
+const COMMANDS = ['cd', 'ls', 'clear', 'help'];
+
+function autocomplete(input: string, tags: string[], posts: PostEntry[]): string | null {
+  const trimmed = input.trim();
+  if (!trimmed) return null;
+
+  const [cmd, ...args] = trimmed.split(/\s+/);
+  const arg = args.join(' ');
+
+  if (cmd === 'cd' && arg) {
+    const tagMatch = tags.find((t) => t.toLowerCase().startsWith(arg.toLowerCase()));
+    if (tagMatch) return `cd ${tagMatch}`;
+    const postMatch = posts.find((p) => p.title.toLowerCase().startsWith(arg.toLowerCase()));
+    if (postMatch) return `cd ${postMatch.title}`;
+  } else if (!arg) {
+    const match = COMMANDS.find((c) => c.startsWith(trimmed.toLowerCase()));
+    if (match) return match;
+  }
+
+  return null;
+}
+
 export function Terminal({ tags, posts, currentTag }: TerminalProps) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -107,6 +129,12 @@ export function Terminal({ tags, posts, currentTag }: TerminalProps) {
   );
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const result = autocomplete(input, tags, posts);
+      if (result) setInput(result);
+      return;
+    }
     if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
       execute(input);
     }
