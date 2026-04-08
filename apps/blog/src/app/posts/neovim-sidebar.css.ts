@@ -126,7 +126,7 @@ export const tagInactive = style({
   fontFamily: mono,
   fontSize: '0.8rem',
   backgroundColor: 'transparent',
-  color: fgDim,
+  color: fg,
   ':hover': {
     color: fg,
     backgroundColor: selection,
@@ -174,7 +174,7 @@ export const title = style({
   whiteSpace: 'nowrap',
   fontWeight: 600,
   color: titleColor,
-  fontSize: '0.92rem',
+  fontSize: '1rem',
 });
 
 export const date = style({
