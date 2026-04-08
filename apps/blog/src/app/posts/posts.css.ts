@@ -45,14 +45,25 @@ export const postsList = style({
 });
 
 export const postCard = style({
-  borderRadius: '12px',
-  border: `1px solid ${themeColor.colors.borderColor}`,
-  backgroundColor: themeColor.colors.mainBackground,
-  transition: 'transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease',
+  borderRadius: '20px',
+  border: '1px solid rgba(255, 255, 255, 0.5)',
+  background: 'rgba(255, 255, 255, 0.35)',
+  backdropFilter: 'blur(20px) saturate(1.4)',
+  WebkitBackdropFilter: 'blur(20px) saturate(1.4)',
+  boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.6)',
+  transition: 'background 0.2s ease',
   ':hover': {
-    transform: 'translateY(-2px)',
-    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.06)',
-    borderColor: themeColor.colors.highLightFontColor,
+    background: 'rgba(255, 255, 255, 0.55)',
+  },
+  selectors: {
+    '[data-theme="dark"] &': {
+      background: 'rgba(255, 255, 255, 0.05)',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+    },
+    '[data-theme="dark"] &:hover': {
+      background: 'rgba(255, 255, 255, 0.08)',
+    },
   },
 });
 
