@@ -9,7 +9,7 @@ export function Header() {
     <header className={header}>
       <div className={headerInner}>
         <Link href="/posts" className={logo}>
-          shvim
+          {BlogConfig.author.name}
         </Link>
         <nav className={nav}>
           <NavItem href="/posts" label="Posts" prefetch={false} />
