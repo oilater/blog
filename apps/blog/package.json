@@ -22,6 +22,7 @@
     "@giscus/react": "^3.1.0",
     "@types/hast": "^3.0.4",
     "@vercel/analytics": "^1.5.0",
+    "es-toolkit": "^1.45.1",
     "gray-matter": "^4.0.3",
     "image-size": "^2.0.2",
     "next": "16.0.10",
