@@ -62,7 +62,7 @@ export const sidebar = style([
     position: 'sticky',
     top: '78px',
     alignSelf: 'flex-start',
-    height: 'calc(100vh - 78px - 36px)',
+    height: 'calc(100vh - 78px - 48px)',
     transition:
       'opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
     willChange: 'transform, opacity',
