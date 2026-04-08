@@ -15,7 +15,7 @@ export interface CommandResult {
   clear?: boolean;
 }
 
-const COMMANDS = ['cd', 'ls', 'pwd', 'clear', 'help'] as const;
+const COMMANDS = ['cd', 'ls', 'pwd', 'guide', 'clear', 'help'] as const;
 
 const HELP_TEXT = [
   'cd <tag>   — 태그로 이동',
@@ -23,6 +23,7 @@ const HELP_TEXT = [
   'cd ..      — 상위 페이지로 이동',
   'ls         — 목록 보기',
   'pwd        — 현재 위치 보기',
+  'guide      — 가이드 페이지로 이동',
   'clear      — 터미널 초기화',
 ].join('\n');
 
@@ -112,6 +113,8 @@ export function executeCommand(
       return executeLs(cwd, tags, posts);
     case 'pwd':
       return { output: `Seonghyeon's blog ✨\n${cwd}` };
+    case 'guide':
+      return { output: '', navigate: '/posts', cwd: '~/posts' };
     case 'help':
       return { output: HELP_TEXT };
     default:

@@ -7,17 +7,17 @@ const slideIn = keyframes({
 
 export const toast = style({
   position: 'fixed',
-  bottom: '56px',
-  right: '24px',
+  bottom: '64px',
+  right: '40px',
   zIndex: 30,
   display: 'flex',
   alignItems: 'center',
-  gap: '12px',
-  padding: '12px 16px',
+  gap: '8px',
+  padding: '8px 14px',
   borderRadius: '8px',
   backgroundColor: '#313244',
   color: '#cdd6f4',
-  fontSize: '0.9rem',
+  fontSize: '1rem',
   fontWeight: 500,
   fontFamily: '"SF Mono", "Fira Code", Menlo, Consolas, monospace',
   boxShadow: '0 6px 20px rgba(0, 0, 0, 0.4)',
@@ -29,15 +29,11 @@ export const message = style({
   lineHeight: 1.4,
 });
 
-export const closeButton = style({
-  background: 'none',
-  border: 'none',
-  color: '#cdd6f4',
+export const link = style({
+  color: '#a6e3a1',
   cursor: 'pointer',
-  fontSize: '0.9rem',
-  padding: '2px 4px',
-  flexShrink: 0,
+  textDecoration: 'none',
   ':hover': {
-    color: '#cdd6f4',
+    opacity: 0.8,
   },
 });
