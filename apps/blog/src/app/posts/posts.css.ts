@@ -7,11 +7,13 @@ export const splitLayout = style({
   width: '100%',
   maxWidth: '1400px',
   margin: '0 auto',
+  minHeight: 'calc(100vh - 78px - 60px)',
 });
 
 export const contentPanel = style({
   flex: 1,
   minWidth: 0,
+  minHeight: 'calc(100vh - 78px - 60px)',
 });
 
 export const container = style({

@@ -57,9 +57,17 @@ export function autocomplete(input: string, tags: string[], posts: PostEntry[]):
   return null;
 }
 
-function executeCd(arg: string, tags: string[], posts: PostEntry[]): CommandResult {
-  if (!arg || arg === '..' || arg === '~' || arg === '/') {
+function executeCd(arg: string, cwd: string, tags: string[], posts: PostEntry[]): CommandResult {
+  if (arg === '~' || arg === '/') {
     return { output: '', navigate: '/posts', cwd: '~/posts' };
+  }
+
+  if (!arg || arg === '..') {
+    const parts = cwd.replace('~/posts', '').split('/').filter(Boolean);
+    parts.pop();
+    const newCwd = parts.length > 0 ? `~/posts/${parts.join('/')}` : '~/posts';
+    const navigate = parts.length > 0 ? `/posts/${parts.join('/')}` : '/posts';
+    return { output: '', navigate, cwd: newCwd };
   }
 
   const tagMatch = tags.find((t) => t.toLowerCase() === arg.toLowerCase());
@@ -98,7 +106,7 @@ export function executeCommand(
     case 'clear':
       return { output: '', clear: true };
     case 'cd':
-      return executeCd(parsed.arg, tags, posts);
+      return executeCd(parsed.arg, cwd, tags, posts);
     case 'ls':
       return executeLs(cwd, tags, posts);
     case 'help':

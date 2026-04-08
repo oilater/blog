@@ -25,9 +25,9 @@ export const sidebar = style({
   lineHeight: 1.7,
   flexShrink: 0,
   position: 'sticky',
-  top: '90px',
+  top: '78px',
   alignSelf: 'flex-start',
-  height: 'calc(100vh - 90px - 36px)',
+  height: 'calc(100vh - 78px - 36px)',
 
   '@media': {
     '(max-width: 1024px)': {
