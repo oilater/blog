@@ -15,11 +15,26 @@ interface TerminalProps {
   currentTag?: string;
 }
 
+interface HistoryEntry {
+  command: string;
+  output: string;
+}
+
+const CLEAR_HINT_THRESHOLD = 5;
+
+const HELP_TEXT = [
+  'cd <tag>   — 태그로 이동',
+  'cd <제목>  — 포스트로 이동 (부분 검색 가능)',
+  'cd ..      — 전체 포스트로 이동',
+  'ls         — 목록 보기',
+  'clear      — 터미널 초기화',
+].join('\n');
+
 export function Terminal({ tags, posts, currentTag }: TerminalProps) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState<{ command: string; output: string }[]>([]);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -34,23 +49,27 @@ export function Terminal({ tags, posts, currentTag }: TerminalProps) {
 
       const [cmd, ...args] = trimmed.split(/\s+/);
       const arg = args.join(' ');
+
+      if (cmd === 'clear') {
+        setHistory([]);
+        setInput('');
+        return;
+      }
+
       let output = '';
 
       switch (cmd) {
         case 'cd': {
           if (!arg || arg === '..' || arg === '~' || arg === '/') {
             router.push('/');
-            output = '';
           } else {
             const tagMatch = tags.find((t) => t.toLowerCase() === arg.toLowerCase());
             if (tagMatch) {
               router.push(`/posts/${tagMatch}`);
-              output = '';
             } else {
               const postMatch = posts.find((p) => p.title.toLowerCase().includes(arg.toLowerCase()));
               if (postMatch) {
                 router.push(`/posts/${postMatch.slug}`);
-                output = '';
               } else {
                 output = `cd: not found: ${arg}`;
               }
@@ -66,30 +85,25 @@ export function Terminal({ tags, posts, currentTag }: TerminalProps) {
           }
           break;
         }
-        case 'clear': {
-          setHistory([]);
-          setInput('');
-          return;
-        }
         case 'help': {
-          output = [
-            'cd <tag>   — 태그로 이동',
-            'cd <제목>  — 포스트로 이동 (부분 검색 가능)',
-            'cd ..      — 전체 포스트로 이동',
-            'ls         — 목록 보기',
-            'clear      — 터미널 초기화',
-          ].join('\n');
+          output = HELP_TEXT;
           break;
         }
         default: {
-          output = `command not found: ${cmd}. 'help'를 입력하면 사용 가능한 명령어를 볼 수 있어요.`;
+          output = `command not found: ${cmd}. type 'help' to see available commands.`;
         }
       }
 
-      setHistory((prev) => [...prev, { command: `${cwd} $ ${trimmed}`, output }]);
+      setHistory((prev) => {
+        const next = [...prev, { command: `${cwd} $ ${trimmed}`, output }];
+        if (next.length === CLEAR_HINT_THRESHOLD) {
+          next.push({ command: '', output: '💡 clear 한번 하셔야 할듯,,' });
+        }
+        return next;
+      });
       setInput('');
     },
-    [tags, cwd, router],
+    [tags, posts, currentTag, cwd, router],
   );
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -102,9 +116,11 @@ export function Terminal({ tags, posts, currentTag }: TerminalProps) {
     <div className={styles.terminal} onClick={() => inputRef.current?.focus()}>
       {history.map((entry, i) => (
         <div key={i}>
-          <div className={styles.line}>
-            <span className={styles.prompt}>{entry.command}</span>
-          </div>
+          {entry.command && (
+            <div className={styles.line}>
+              <span className={styles.prompt}>{entry.command}</span>
+            </div>
+          )}
           {entry.output && <pre className={styles.output}>{entry.output}</pre>}
         </div>
       ))}
