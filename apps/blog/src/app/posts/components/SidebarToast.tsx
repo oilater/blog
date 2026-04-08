@@ -32,7 +32,7 @@ export function SidebarToast() {
       if (!dismissed) {
         setToast('guide');
         sessionStorage.setItem(GUIDE_DISMISSED_KEY, 'true');
-        timerRef.current = setTimeout(() => setToast(null), 4000);
+        timerRef.current = setTimeout(() => setToast(null), 6000);
       }
       return;
     }
@@ -42,7 +42,7 @@ export function SidebarToast() {
       if (!dismissed) {
         setToast('sidebar');
         sessionStorage.setItem(SIDEBAR_DISMISSED_KEY, 'true');
-        timerRef.current = setTimeout(() => setToast(null), 3000);
+        timerRef.current = setTimeout(() => setToast(null), 5000);
       }
     }
   }, [pathname]);
