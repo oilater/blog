@@ -16,19 +16,25 @@ function Welcome() {
         <p>
           블로그에 재미 삼아 터미널 UI를 붙여본 걸 시작으로, Neovim에서 아이디어를 얻어 블로그를 개편해봤어요.
           <br />
-          매번 클릭해서 글을 열어보는 것보다, 키보드 커서 이동으로 미리 볼 수 있으면 편하지 않을까요 🤗
+          매번 클릭해서 글을 열어보는 것보다, 키보드 커서를 이동해 미리 볼 수 있으면 편하지 않을까요 🤗
         </p>
 
         <h5 style={{ marginTop: '4rem' }}>어떻게 둘러보나요?</h5>
         <ul>
           <li>
-            키보드 <strong>방향키</strong> 또는 <strong>j / k</strong>로 포스트를 미리 볼 수 있어요.
+            <strong>↑↓</strong> 또는 <strong>j / k</strong>로 포스트를 미리 볼 수 있어요.
           </li>
           <li>
-            사이드바 상단의 <strong>터미널</strong>에서 <code>cd</code>, <code>ls</code> 명령으로도 탐색할 수 있어요. <code>help</code>를 입력해보세요.
+            <strong>←→</strong> 또는 <strong>h / l</strong>로 태그를 전환할 수 있어요.
           </li>
           <li>
-            사이드바의 태그로 원하는 카테고리만 필터링할 수 있어요.
+            터미널, 태그, 포스트 목록 영역을 키보드로 자유롭게 넘나들 수 있어요.
+          </li>
+          <li>
+            사이드바 상단의 <strong>터미널</strong>에서 <code>cd</code>, <code>ls</code> 등 명령어로도 탐색할 수 있어요. <code>help</code>를 입력해보세요.
+          </li>
+          <li>
+            글을 볼 땐 <strong>Cmd + /</strong>로 사이드바를 숨기고 편하게 보세요! (Windows: <strong>Ctrl + /</strong>)
           </li>
         </ul>
 

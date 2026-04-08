@@ -40,6 +40,7 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
   const [activeTag, setActiveTag] = useSessionStorage<string | null>('sidebar-tag', null);
   const [selectedIndex, setSelectedIndex] = useSessionStorage<number>('sidebar-index', 0);
   const [zone, setZone] = useState<Zone>('terminal');
+  const [sidebarVisible, setSidebarVisible] = useState(true);
   const prevPathRef = useRef(pathname);
   const savedByTagRef = useRef<Record<string, string>>({});
 
@@ -92,9 +93,25 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
     setZone('tags');
   };
 
+  useEffect(function focusOnSidebarOpen() {
+    if (sidebarVisible) {
+      onFocusTerminal();
+    }
+  }, [sidebarVisible]);
+
   useEffect(function bindKeyboardEvents() {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === '/') {
+        e.preventDefault();
+        setSidebarVisible((v) => !v);
+        return;
+      }
+
       if (isTyping(e)) {
+        return;
+      }
+
+      if (!sidebarVisible) {
         return;
       }
 
@@ -161,10 +178,11 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex, filteredPosts, activeTag, zone]);
+  }, [selectedIndex, filteredPosts, activeTag, zone, sidebarVisible]);
 
   return {
     zone,
+    sidebarVisible,
     activeTag,
     selectedIndex,
     filteredPosts,

@@ -1,40 +1,79 @@
-import { style } from '@vanilla-extract/css';
+import { style, globalStyle, createVar } from '@vanilla-extract/css';
 
-const bg = '#1e1e2e';
-const bgDarker = '#181825';
-const fg = '#cdd6f4';
-const fgDim = '#585b70';
-const selection = '#313244';
-const green = '#a6e3a1';
-const blue = '#89b4fa';
-const yellow = '#f9e2af';
-const mauve = '#cba6f7';
+const bg = createVar();
+const bgDarker = createVar();
+const fg = createVar();
+const fgDim = createVar();
+const selection = createVar();
+const green = createVar();
+const blue = createVar();
+const yellow = createVar();
+const mauve = createVar();
+const titleColor = createVar();
 
 const mono = '"SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace';
 
-export const sidebar = style({
-  width: '400px',
-  minWidth: '360px',
-  display: 'flex',
-  flexDirection: 'column',
-  backgroundColor: bg,
-  borderRadius: '12px',
-  overflow: 'hidden',
-  fontFamily: mono,
-  fontSize: '0.9rem',
-  lineHeight: 1.7,
-  flexShrink: 0,
-  position: 'sticky',
-  top: '78px',
-  alignSelf: 'flex-start',
-  height: 'calc(100vh - 78px - 36px)',
+const sidebarBase = style({});
 
-  '@media': {
-    '(max-width: 1024px)': {
-      display: 'none',
-    },
+globalStyle(`[data-theme="dark"] ${sidebarBase}`, {
+  vars: {
+    [bg]: '#1e1e2e',
+    [bgDarker]: '#181825',
+    [fg]: '#cdd6f4',
+    [fgDim]: '#585b70',
+    [selection]: '#313244',
+    [green]: '#a6e3a1',
+    [blue]: '#89b4fa',
+    [yellow]: '#f9e2af',
+    [mauve]: '#cba6f7',
+    [titleColor]: '#e4e4e5',
   },
 });
+
+globalStyle(`[data-theme="light"] ${sidebarBase}`, {
+  vars: {
+    [bg]: '#eff1f5',
+    [bgDarker]: '#e6e9ef',
+    [fg]: '#4c4f69',
+    [fgDim]: '#9ca0b0',
+    [selection]: '#ccd0da',
+    [green]: '#40a02b',
+    [blue]: '#1e66f5',
+    [yellow]: '#df8e1d',
+    [mauve]: '#8839ef',
+    [titleColor]: '#4c4f69',
+  },
+});
+
+export const sidebar = style([
+  sidebarBase,
+  {
+    width: '400px',
+    minWidth: '360px',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: bg,
+    borderRadius: '12px',
+    overflow: 'hidden',
+    fontFamily: mono,
+    fontSize: '0.9rem',
+    lineHeight: 1.7,
+    flexShrink: 0,
+    position: 'sticky',
+    top: '78px',
+    alignSelf: 'flex-start',
+    height: 'calc(100vh - 78px - 36px)',
+    transition:
+      'opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+    willChange: 'transform, opacity',
+
+    '@media': {
+      '(max-width: 1024px)': {
+        display: 'none',
+      },
+    },
+  },
+]);
 
 export const header = style({
   padding: '6px 12px',
@@ -44,6 +83,13 @@ export const header = style({
   fontSize: '0.85rem',
   borderBottom: `1px solid ${selection}`,
   flexShrink: 0,
+});
+
+export const sidebarHidden = style({
+  opacity: 0,
+  pointerEvents: 'none',
+  transform: 'translateX(-10px)',
+  marginRight: '-400px',
 });
 
 export const tagFilter = style({
@@ -127,7 +173,7 @@ export const title = style({
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   fontWeight: 600,
-  color: '#e4e4e5',
+  color: titleColor,
   fontSize: '0.92rem',
 });
 

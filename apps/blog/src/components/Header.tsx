@@ -12,7 +12,7 @@ export function Header() {
           {BlogConfig.author.name}
         </Link>
         <nav className={nav}>
-          <NavItem href="/posts" label="Posts" prefetch={false} />
+          <NavItem href="/posts" label="Home" prefetch={false} />
           <NavItem href="/about" label="About" prefetch={false} />
           <NavItem href="https://github.com/oilater" label="Github" prefetch={false} target="_blank" rel="noopener noreferrer" />
           <ThemeSwitch />

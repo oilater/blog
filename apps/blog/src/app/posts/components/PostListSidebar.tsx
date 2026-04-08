@@ -22,7 +22,7 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { zone, activeTag, selectedIndex, filteredPosts, setActiveTag, selectTag, selectPost, enterTags } =
+  const { zone, sidebarVisible, activeTag, selectedIndex, filteredPosts, setActiveTag, selectTag, selectPost, enterTags } =
     useKeyboardNav({
       posts,
       tags,
@@ -51,7 +51,7 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
   const tagsFocused = mounted && zone === 'tags';
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${!sidebarVisible ? styles.sidebarHidden : ''}`}>
       <Terminal ref={terminalRef} tags={tags} posts={terminalPosts} onExitDown={enterTags} />
       <div className={`${styles.tagFilter} ${tagsFocused ? styles.tagFilterFocused : ''}`}>
         <button

@@ -20,7 +20,7 @@ const COMMANDS = ['cd', 'ls', 'pwd', 'clear', 'help'] as const;
 const HELP_TEXT = [
   'cd <tag>   — 태그로 이동',
   'cd <제목>  — 포스트로 이동 (부분 검색 가능)',
-  'cd ..      — 전체 포스트로 이동',
+  'cd ..      — 상위 페이지로 이동',
   'ls         — 목록 보기',
   'pwd        — 현재 위치 보기',
   'clear      — 터미널 초기화',

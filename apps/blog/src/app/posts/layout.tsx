@@ -1,5 +1,6 @@
 import { getAllPosts, getAllTags } from '#/lib/posts';
 import { PostListSidebar } from './components/PostListSidebar';
+import { SidebarToast } from './components/SidebarToast';
 import * as styles from './posts.css';
 
 export default function PostsLayout({ children }: { children: React.ReactNode }) {
@@ -14,6 +15,7 @@ export default function PostsLayout({ children }: { children: React.ReactNode })
         terminalPosts={allPosts.map((p) => ({ title: p.title, slug: p.slug }))}
       />
       <div className={styles.contentPanel}>{children}</div>
+      <SidebarToast />
     </div>
   );
 }
