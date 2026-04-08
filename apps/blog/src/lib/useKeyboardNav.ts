@@ -82,18 +82,9 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
 
     if (savedSlug) {
       const restoredIdx = nextPosts.findIndex((p) => p.slug === savedSlug);
-      const idx = restoredIdx >= 0 ? restoredIdx : 0;
-      setSelectedIndex(idx);
-      const url = postUrl(nextPosts, idx);
-      if (url) {
-        onNavigate(url);
-      }
+      setSelectedIndex(restoredIdx >= 0 ? restoredIdx : 0);
     } else {
       setSelectedIndex(0);
-      const url = postUrl(nextPosts, 0);
-      if (url) {
-        onNavigate(url);
-      }
     }
   };
 
@@ -159,6 +150,12 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
       if (e.key === 'Enter') {
         e.preventDefault();
         navigate(selectedIndex);
+        return;
+      }
+
+      if (e.key === ' ') {
+        e.preventDefault();
+        window.scrollBy({ top: e.shiftKey ? -200 : 200, behavior: 'smooth' });
       }
     };
 
