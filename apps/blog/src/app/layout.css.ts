@@ -24,7 +24,7 @@ export const headerInner = style({
 
   '@media': {
     '(min-width: 790px)': {
-      maxWidth: 750,
+      maxWidth: 1400,
     },
   },
 });
