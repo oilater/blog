@@ -12,36 +12,37 @@ const mauve = createVar();
 const titleColor = createVar();
 
 const mono = '"SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace';
+const sans = '"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif';
 
 const sidebarBase = style({});
 
 globalStyle(`[data-theme="dark"] ${sidebarBase}`, {
   vars: {
-    [bg]: '#1e1e2e',
-    [bgDarker]: '#181825',
-    [fg]: '#cdd6f4',
-    [fgDim]: '#585b70',
-    [selection]: '#313244',
-    [green]: '#a6e3a1',
-    [blue]: '#89b4fa',
-    [yellow]: '#f9e2af',
-    [mauve]: '#cba6f7',
-    [titleColor]: '#e4e4e5',
+    [bg]: '#1c1c1e',
+    [bgDarker]: '#161618',
+    [fg]: '#d4d4d8',
+    [fgDim]: '#71717a',
+    [selection]: '#27272a',
+    [green]: '#86efac',
+    [blue]: '#93c5fd',
+    [yellow]: '#fde68a',
+    [mauve]: '#c4b5fd',
+    [titleColor]: '#f4f4f5',
   },
 });
 
 globalStyle(`[data-theme="light"] ${sidebarBase}`, {
   vars: {
-    [bg]: '#eff1f5',
-    [bgDarker]: '#e6e9ef',
-    [fg]: '#4c4f69',
-    [fgDim]: '#9ca0b0',
-    [selection]: '#ccd0da',
-    [green]: '#40a02b',
-    [blue]: '#1e66f5',
-    [yellow]: '#df8e1d',
-    [mauve]: '#8839ef',
-    [titleColor]: '#4c4f69',
+    [bg]: '#fafafa',
+    [bgDarker]: '#f4f4f5',
+    [fg]: '#3f3f46',
+    [fgDim]: '#a1a1aa',
+    [selection]: '#e4e4e7',
+    [green]: '#22c55e',
+    [blue]: '#3b82f6',
+    [yellow]: '#eab308',
+    [mauve]: '#8b5cf6',
+    [titleColor]: '#18181b',
   },
 });
 
@@ -54,15 +55,11 @@ export const sidebar = style([
     flexDirection: 'column',
     backgroundColor: bg,
     borderRadius: '12px',
-    overflow: 'hidden',
-    fontFamily: mono,
+    overflow: 'auto',
     fontSize: '0.9rem',
-    lineHeight: 1.7,
+    lineHeight: 1.8,
     flexShrink: 0,
-    position: 'sticky',
-    top: '78px',
-    alignSelf: 'flex-start',
-    height: 'calc(100vh - 78px - 48px)',
+    maxHeight: 'calc(100vh - 78px - 36px)',
     transition:
       'opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), margin 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
     willChange: 'transform, opacity',
@@ -79,6 +76,7 @@ export const header = style({
   padding: '6px 12px',
   backgroundColor: bgDarker,
   color: blue,
+  fontFamily: mono,
   fontWeight: 600,
   fontSize: '0.85rem',
   borderBottom: `1px solid ${selection}`,
@@ -95,9 +93,8 @@ export const sidebarHidden = style({
 export const tagFilter = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '4px',
-  padding: '8px 10px',
-  borderBottom: `1px solid ${selection}`,
+  gap: '6px',
+  padding: '10px 14px',
   flexShrink: 0,
   transition: 'box-shadow 0.15s ease',
 });
@@ -107,24 +104,24 @@ export const tagFilterFocused = style({
 });
 
 export const tagActive = style({
-  padding: '2px 8px',
-  borderRadius: '4px',
+  padding: '3px 10px',
+  borderRadius: '6px',
   border: 'none',
   cursor: 'pointer',
-  fontFamily: mono,
-  fontSize: '0.8rem',
+  fontFamily: sans,
+  fontSize: '0.82rem',
   backgroundColor: green,
   color: bg,
   fontWeight: 600,
 });
 
 export const tagInactive = style({
-  padding: '2px 8px',
-  borderRadius: '4px',
+  padding: '3px 10px',
+  borderRadius: '6px',
   border: 'none',
   cursor: 'pointer',
-  fontFamily: mono,
-  fontSize: '0.8rem',
+  fontFamily: sans,
+  fontSize: '0.82rem',
   backgroundColor: 'transparent',
   color: fg,
   ':hover': {
@@ -136,16 +133,17 @@ export const tagInactive = style({
 export const fileList = style({
   flex: 1,
   overflowY: 'auto',
-  padding: '4px 0',
+  padding: '6px 6px',
 });
 
 export const fileItem = style({
   display: 'flex',
   flexDirection: 'column',
-  padding: '8px 12px',
+  padding: '10px 14px',
   cursor: 'pointer',
   color: fg,
-  borderLeft: '2px solid transparent',
+  fontFamily: sans,
+  borderRadius: '6px',
   ':hover': {
     backgroundColor: selection,
   },
@@ -153,18 +151,18 @@ export const fileItem = style({
 
 export const fileItemActive = style({
   backgroundColor: selection,
-  borderLeftColor: green,
 });
 
 export const fileItemRow = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '4px',
+  gap: '3px',
 });
 
 export const tag = style({
   color: mauve,
-  fontSize: '0.75rem',
+  fontSize: '0.78rem',
+  fontWeight: 500,
   flexShrink: 0,
 });
 
@@ -175,27 +173,29 @@ export const title = style({
   fontWeight: 600,
   color: titleColor,
   fontSize: '1rem',
+  letterSpacing: '-0.01em',
 });
 
 export const date = style({
   color: fgDim,
-  fontSize: '0.75rem',
+  fontSize: '0.78rem',
   marginTop: '2px',
 });
 
 export const statusBar = style({
   display: 'flex',
   justifyContent: 'space-between',
-  padding: '3px 12px',
-  backgroundColor: bgDarker,
-  borderTop: `1px solid ${selection}`,
-  fontSize: '0.8rem',
+  alignItems: 'center',
+  padding: '6px 14px',
+  fontFamily: mono,
+  fontSize: '0.75rem',
+  color: fgDim,
   flexShrink: 0,
 });
 
 export const mode = style({
   color: green,
-  fontWeight: 700,
+  fontWeight: 600,
 });
 
 export const info = style({
@@ -205,14 +205,9 @@ export const info = style({
 export const hints = style({
   display: 'flex',
   gap: '12px',
-  padding: '4px 12px',
-  backgroundColor: bgDarker,
-  fontSize: '0.75rem',
-  color: fgDim,
-  flexShrink: 0,
 });
 
 export const hintKey = style({
-  color: yellow,
-  marginRight: '4px',
+  color: fgDim,
+  marginRight: '3px',
 });

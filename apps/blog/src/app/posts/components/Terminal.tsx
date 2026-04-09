@@ -91,6 +91,7 @@ export const Terminal = forwardRef<TerminalHandle, Props>(function Terminal({ ta
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
+          placeholder="숨기기 Cmd+/ · 이동 ↑↓ · 탭 이동 ← →"
           spellCheck={false}
           autoComplete="off"
         />

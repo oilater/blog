@@ -72,7 +72,7 @@ export function SidebarToast() {
   return (
     <div className={styles.toast}>
       <span className={styles.message}>
-        <strong>Cmd + /</strong> 를 눌러 사이드바를 숨기고 편하게 보세요! (Windows: <strong>Ctrl + /</strong>)
+        글을 볼 땐 <strong>Cmd + /</strong>로 사이드바를 숨겨보세요! (Windows: <strong>Ctrl + /</strong>)
       </span>
     </div>
   );

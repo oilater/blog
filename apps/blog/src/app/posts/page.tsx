@@ -14,42 +14,29 @@ function Welcome() {
       </header>
       <article className="markdown-body">
         <p>
-          재미 삼아 블로그에 터미널 UI를 붙여보다가, Neovim에서 아이디어를 얻어 블로그를 개편해봤어요.
+          환영합니다 👋
           <br />
-          매번 클릭해서 글을 여는 것보다, 키보드 커서 이동만으로도 미리 볼 수 있으면 편하지 않을까요 🤗
+          재미 삼아 터미널 UI를 붙여보다가, Neovim에서 아이디어를 얻어 블로그를 개편해봤어요.
         </p>
 
-        <h5 style={{ marginTop: '4rem' }}>어떻게 둘러보나요?</h5>
+        <h5 style={{ marginTop: '3rem' }}>어떻게 둘러보나요?</h5>
         <ul>
           <li>
-            <strong>↑↓</strong> 또는 <strong>j / k</strong>로 포스트를 미리 볼 수 있어요.
+            <strong>↑↓</strong>로 이동하며 글을 미리 볼 수 있어요.
           </li>
           <li>
-            <strong>←→</strong> 또는 <strong>h / l</strong>로 태그를 전환할 수 있어요.
+            <strong>←→</strong>로 카테고리 탭을 이동할 수 있어요.
           </li>
           <li>
-            터미널, 태그, 포스트 목록 영역을 키보드로 자유롭게 넘나들 수 있어요.
+            터미널, 탭, 글 목록을 커서로 자유롭게 넘나들 수 있어요.
           </li>
           <li>
-            사이드바 상단의 <strong>터미널</strong>에서 <code>cd</code>, <code>ls</code> 등 명령어로도 탐색할 수 있어요. <code>help</code>를 입력해보세요.
+            <strong>터미널</strong> 명령어로도 탐색할 수 있어요. <code>help</code>를 입력해보세요.
           </li>
           <li>
-            글을 볼 땐 <strong>Cmd + /</strong>로 사이드바를 숨기고 편하게 보세요! (Windows: <strong>Ctrl + /</strong>)
+            글을 볼 땐 <strong>Cmd + /</strong>로 사이드바를 숨겨보세요! (Windows: Ctrl + /)
           </li>
         </ul>
-
-        <h5 style={{ marginTop: '3.5rem' }}>진짜 터미널인가요?</h5>
-        <p>
-          물론 가짜에요. <code>cd</code>는 Next.js 라우팅으로, <code>ls</code>는 목록 출력으로 연결할 뿐 실제 쉘이 실행되지는 않아요.
-        </p>
-
-        <h5 style={{ marginTop: '3.5rem' }}>커서를 이동할 때마다 글이 렌더링되면 성능에 안 좋지 않나요?</h5>
-        <p>
-          네트워크 요청을 줄이기 위해 leading debounce를 적용했어요. 첫 키 입력에는 즉시 반응하고, 빠르게 연타하면 중간 요청은 건너뛰고 멈춘 후에만 마지막 위치의 페이지를 불러와요.
-          마크다운 파싱부터 MDX 컴포넌트 적용은 모두
-          <strong> SSG</strong>로 빌드 타임에 처리해요.
-          커서를 이동할 때 서버에서 다시 렌더링하지 않고, 이미 완성된 HTML 파일을 가져오기 때문에 런타임 비용이 적다고 생각했어요.
-        </p>
       </article>
     </div>
   );

@@ -86,21 +86,7 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
         ))}
       </div>
       <div className={styles.statusBar}>
-        <span className={styles.mode}>NORMAL</span>
-        <span className={styles.info}>
-          {selectedIndex + 1}/{filteredPosts.length}
-        </span>
-      </div>
-      <div className={styles.hints}>
-        <span>
-          <span className={styles.hintKey}>j/k</span> navigate
-        </span>
-        <span>
-          <span className={styles.hintKey}>h/l</span> tag
-        </span>
-        <span>
-          <span className={styles.hintKey}>Enter</span> open
-        </span>
+        <span className={styles.info}>{selectedIndex + 1}/{filteredPosts.length}</span>
       </div>
     </aside>
   );
