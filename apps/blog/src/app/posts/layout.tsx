@@ -14,7 +14,7 @@ export default function PostsLayout({ children }: { children: React.ReactNode })
         tags={allTags}
         terminalPosts={allPosts.map((p) => ({ title: p.title, slug: p.slug }))}
       />
-      <div className={styles.contentPanel}>{children}</div>
+      <div id="content-panel" className={styles.contentPanel}>{children}</div>
       <SidebarToast />
     </div>
   );

@@ -7,6 +7,7 @@ import type { PostMetadata } from '#/lib/posts';
 import { extractTagFromPath, isRootPostsPath } from '#/lib/sidebar';
 import { useKeyboardNav } from '#/lib/useKeyboardNav';
 import * as styles from '../neovim-sidebar.css';
+import * as toastStyles from '../toast.css';
 import { Terminal, type TerminalHandle } from './Terminal';
 
 interface Props {
@@ -17,6 +18,7 @@ interface Props {
 
 export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
   const [mounted, setMounted] = useState(false);
+  const [showViewToast, setShowViewToast] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const terminalRef = useRef<TerminalHandle>(null);
   const router = useRouter();
@@ -48,9 +50,19 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
     listRef.current?.children[selectedIndex]?.scrollIntoView({ block: 'nearest' });
   }, [selectedIndex]);
 
+  useEffect(function showViewToastOnContentZone() {
+    if (zone === 'content') {
+      setShowViewToast(true);
+      const timer = setTimeout(() => setShowViewToast(false), 3000);
+      return () => clearTimeout(timer);
+    }
+    setShowViewToast(false);
+  }, [zone]);
+
   const tagsFocused = mounted && zone === 'tags';
 
   return (
+    <>
     <aside className={`${styles.sidebar} ${!sidebarVisible ? styles.sidebarHidden : ''}`}>
       <Terminal ref={terminalRef} tags={tags} posts={terminalPosts} onExitDown={enterTags} />
       <div className={`${styles.tagFilter} ${tagsFocused ? styles.tagFilterFocused : ''}`}>
@@ -74,9 +86,12 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
         {filteredPosts.map((post, index) => (
           <div
             key={post.slug}
-            className={`${styles.fileItem} ${mounted && zone === 'list' && index === selectedIndex ? styles.fileItemActive : ''}`}
+            className={`${styles.fileItem} ${mounted && index === selectedIndex ? (zone === 'content' ? styles.fileItemReading : zone === 'list' ? styles.fileItemActive : '') : ''}`}
             onClick={() => selectPost(index)}
           >
+            {mounted && zone === 'content' && index === selectedIndex && (
+              <span className={styles.viewBadge}>View</span>
+            )}
             <div className={styles.fileItemRow}>
               {post.tag && <span className={styles.tag}>#{post.tag}</span>}
               <span className={styles.title}>{post.title}</span>
@@ -89,5 +104,13 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
         <span className={styles.info}>{selectedIndex + 1}/{filteredPosts.length}</span>
       </div>
     </aside>
+    {showViewToast && (
+      <div className={toastStyles.toast}>
+        <span className={toastStyles.message}>
+          <strong>↑↓</strong>로 글을 스크롤해보세요<br /><strong>←</strong>를 누르면 목록으로 돌아가요
+        </span>
+      </div>
+    )}
+    </>
   );
 }

@@ -36,6 +36,9 @@ function Welcome() {
           <li>
             글을 볼 땐 <strong>Cmd + /</strong>로 사이드바를 숨겨보세요! (Windows: Ctrl + /)
           </li>
+          <li>
+            <strong>Enter</strong>를 누르면 글 읽기 모드로 진입해요. <strong>↑↓</strong>로 스크롤하고, <strong>←</strong>를 누르면 다시 목록으로 돌아와요.
+          </li>
         </ul>
       </article>
     </div>

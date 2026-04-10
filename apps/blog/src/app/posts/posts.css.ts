@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, globalStyle } from '@vanilla-extract/css';
 import { themeColor } from '#/tokens/theme.css';
 
 export const splitLayout = style({

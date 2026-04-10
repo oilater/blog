@@ -144,6 +144,7 @@ export const fileItem = style({
   color: fg,
   fontFamily: sans,
   borderRadius: '6px',
+  position: 'relative',
   ':hover': {
     backgroundColor: selection,
   },
@@ -151,6 +152,24 @@ export const fileItem = style({
 
 export const fileItemActive = style({
   backgroundColor: selection,
+});
+
+export const fileItemReading = style({
+  backgroundColor: '#86efac1a',
+});
+
+export const viewBadge = style({
+  position: 'absolute',
+  top: '6px',
+  right: '8px',
+  padding: '1px 6px',
+  borderRadius: '3px',
+  fontSize: '0.65rem',
+  fontWeight: 600,
+  fontFamily: mono,
+  color: '#86efac',
+  backgroundColor: '#86efac1a',
+  letterSpacing: '0.05em',
 });
 
 export const fileItemRow = style({

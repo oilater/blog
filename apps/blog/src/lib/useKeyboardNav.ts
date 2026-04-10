@@ -6,7 +6,7 @@ import { filterByTag, moveIndex, postUrl, findPostIndex } from './sidebar';
 import { useDebounce } from './useDebounce';
 import { useSessionStorage } from './useSessionStorage';
 
-export type Zone = 'terminal' | 'tags' | 'list';
+export type Zone = 'terminal' | 'tags' | 'list' | 'content';
 
 interface Options {
   posts: PostMetadata[];
@@ -99,6 +99,18 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
     }
   }, [sidebarVisible]);
 
+  useEffect(function toggleContentFocus() {
+    const el = document.getElementById('content-panel');
+    if (!el) {
+      return;
+    }
+    if (zone === 'content') {
+      el.classList.add('content-focused');
+    } else {
+      el.classList.remove('content-focused');
+    }
+  }, [zone]);
+
   useEffect(function bindKeyboardEvents() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === '/') {
@@ -117,6 +129,26 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
 
       const hDelta = HORIZONTAL[e.key];
       const vDelta = VERTICAL[e.key];
+
+      if (zone === 'content') {
+        const panel = document.getElementById('content-panel');
+        if (vDelta !== undefined) {
+          e.preventDefault();
+          panel?.scrollBy({ top: vDelta * 150, behavior: 'smooth' });
+          return;
+        }
+        if (e.key === 'Escape' || (hDelta !== undefined && hDelta < 0)) {
+          e.preventDefault();
+          setZone('list');
+          return;
+        }
+        if (e.key === ' ') {
+          e.preventDefault();
+          panel?.scrollBy({ top: e.shiftKey ? -200 : 200, behavior: 'smooth' });
+          return;
+        }
+        return;
+      }
 
       if (zone === 'tags') {
         if (hDelta !== undefined) {
@@ -166,7 +198,7 @@ export function useKeyboardNav({ posts, tags, pathname, onNavigate, onFocusTermi
 
       if (e.key === 'Enter') {
         e.preventDefault();
-        navigate(selectedIndex);
+        setZone('content');
         return;
       }
 

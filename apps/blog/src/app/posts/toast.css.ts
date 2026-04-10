@@ -1,8 +1,9 @@
 import { style, keyframes } from '@vanilla-extract/css';
+import { themeColor } from '#/tokens/theme.css';
 
 const slideIn = keyframes({
-  from: { opacity: 0, transform: 'translateY(10px)' },
-  to: { opacity: 1, transform: 'translateY(0)' },
+  from: { opacity: 0, transform: 'translateY(8px) scale(0.98)' },
+  to: { opacity: 1, transform: 'translateY(0) scale(1)' },
 });
 
 export const toast = style({
@@ -17,25 +18,25 @@ export const toast = style({
     },
   },
   alignItems: 'center',
-  gap: '8px',
-  padding: '8px 14px',
-  borderRadius: '8px',
-  backgroundColor: '#313244',
-  color: '#cdd6f4',
-  fontSize: '1rem',
+  gap: '10px',
+  padding: '12px 20px',
+  borderRadius: '12px',
+  backgroundColor: themeColor.colors.cardBackground,
+  color: themeColor.colors.mainFontColor,
+  fontSize: '0.9rem',
   fontWeight: 500,
-  fontFamily: '"SF Mono", "Fira Code", Menlo, Consolas, monospace',
-  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.4)',
-  border: '1px solid #45475a',
+  boxShadow: '0 8px 30px rgba(0, 0, 0, 0.12)',
+  border: `1px solid ${themeColor.colors.borderColor}`,
+  backdropFilter: 'blur(12px)',
   animation: `${slideIn} 0.3s cubic-bezier(0.4, 0, 0.2, 1)`,
 });
 
 export const message = style({
-  lineHeight: 1.4,
+  lineHeight: 1.5,
 });
 
 export const link = style({
-  color: '#a6e3a1',
+  color: themeColor.colors.highLightFontColor,
   cursor: 'pointer',
   textDecoration: 'none',
   ':hover': {
