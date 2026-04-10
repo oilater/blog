@@ -14,31 +14,16 @@ function Welcome() {
       </header>
       <article className="markdown-body">
         <p>
-          환영합니다 👋
-          <br />
-          재미 삼아 터미널 UI를 붙여보다가, Neovim에서 아이디어를 얻어 블로그를 개편해봤어요.
+          A keyboard-driven blog, inspired by Neovim.
         </p>
 
         <h5 style={{ marginTop: '3rem' }}>어떻게 둘러보나요?</h5>
         <ul>
-          <li>
-            <strong>↑↓</strong>로 이동하며 글을 미리 볼 수 있어요.
-          </li>
-          <li>
-            <strong>←→</strong>로 카테고리 탭을 이동할 수 있어요.
-          </li>
-          <li>
-            터미널, 탭, 글 목록을 커서로 자유롭게 넘나들 수 있어요.
-          </li>
-          <li>
-            <strong>터미널</strong> 명령어로도 탐색할 수 있어요. <code>help</code>를 입력해보세요.
-          </li>
-          <li>
-            글을 볼 땐 <strong>Cmd + /</strong>로 사이드바를 숨겨보세요! (Windows: Ctrl + /)
-          </li>
-          <li>
-            <strong>Enter</strong>를 누르면 글 읽기 모드로 진입해요. <strong>↑↓</strong>로 스크롤하고, <strong>←</strong>를 누르면 다시 목록으로 돌아와요.
-          </li>
+          <li>글 탐색 <strong>↑↓</strong> — 포스트를 미리 볼 수 있어요.</li>
+          <li>탭 이동 <strong>←→</strong> — 카테고리를 전환할 수 있어요.</li>
+          <li>읽기 모드 <strong>Enter</strong> — 글을 스크롤하며 읽을 수 있어요. <strong>←</strong>로 목록으로 돌아와요.</li>
+          <li>사이드바 숨기기 <strong>Cmd+/</strong> — 글에 집중할 수 있어요. (Windows: Ctrl+/)</li>
+          <li>터미널에 <code>cd</code>, <code>ls</code> 등 명령어를 입력할 수 있어요. <code>help</code>를 입력해보세요.</li>
         </ul>
       </article>
     </div>

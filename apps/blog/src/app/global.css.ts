@@ -18,6 +18,23 @@ globalStyle('body', {
   },
 });
 
+globalStyle('body::before', {
+  content: '""',
+  position: 'fixed',
+  top: '-100px',
+  left: '-100px',
+  width: '500px',
+  height: '500px',
+  borderRadius: '50%',
+  background: 'radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%)',
+  pointerEvents: 'none',
+  zIndex: 0,
+});
+
+globalStyle('[data-theme="light"] body::before', {
+  background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
+});
+
 globalStyle('img', {
   maxWidth: '100%',
   height: 'auto',

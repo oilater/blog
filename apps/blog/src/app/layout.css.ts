@@ -10,7 +10,8 @@ export const header = style({
   right: 0,
   display: 'flex',
   justifyContent: 'center',
-  backgroundColor: themeColor.colors.mainBackground,
+  backdropFilter: 'blur(12px)',
+  backgroundColor: 'transparent',
   transition: 'background-color 0.2s ease-out',
 });
 
