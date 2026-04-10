@@ -2,7 +2,7 @@ import { style, keyframes } from '@vanilla-extract/css';
 import { themeColor } from '#/tokens/theme.css';
 
 const slideIn = keyframes({
-  from: { opacity: 0, transform: 'translateY(8px) scale(0.98)' },
+  from: { opacity: 0, transform: 'translateY(12px) scale(0.98)' },
   to: { opacity: 1, transform: 'translateY(0) scale(1)' },
 });
 
@@ -29,6 +29,13 @@ export const toast = style({
   border: `1px solid ${themeColor.colors.borderColor}`,
   backdropFilter: 'blur(12px)',
   animation: `${slideIn} 0.3s cubic-bezier(0.4, 0, 0.2, 1)`,
+  transition: 'opacity 0.3s ease, transform 0.3s ease',
+});
+
+export const toastFadeOut = style({
+  opacity: 0,
+  transform: 'translateY(8px) scale(0.98)',
+  pointerEvents: 'none',
 });
 
 export const message = style({

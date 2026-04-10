@@ -18,7 +18,7 @@ interface Props {
 
 export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
   const [mounted, setMounted] = useState(false);
-  const [showViewToast, setShowViewToast] = useState(false);
+  const [viewToastState, setViewToastState] = useState<'hidden' | 'visible' | 'fadeout'>('hidden');
   const listRef = useRef<HTMLDivElement>(null);
   const terminalRef = useRef<TerminalHandle>(null);
   const router = useRouter();
@@ -52,11 +52,15 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
 
   useEffect(function showViewToastOnContentZone() {
     if (zone === 'content') {
-      setShowViewToast(true);
-      const timer = setTimeout(() => setShowViewToast(false), 3000);
-      return () => clearTimeout(timer);
+      setViewToastState('visible');
+      const fadeTimer = setTimeout(() => setViewToastState('fadeout'), 2500);
+      const hideTimer = setTimeout(() => setViewToastState('hidden'), 2800);
+      return () => {
+        clearTimeout(fadeTimer);
+        clearTimeout(hideTimer);
+      };
     }
-    setShowViewToast(false);
+    setViewToastState('hidden');
   }, [zone]);
 
   const tagsFocused = mounted && zone === 'tags';
@@ -104,8 +108,8 @@ export function PostListSidebar({ posts, tags, terminalPosts }: Props) {
         <span className={styles.info}>{selectedIndex + 1}/{filteredPosts.length}</span>
       </div>
     </aside>
-    {showViewToast && (
-      <div className={toastStyles.toast}>
+    {viewToastState !== 'hidden' && (
+      <div className={`${toastStyles.toast} ${viewToastState === 'fadeout' ? toastStyles.toastFadeOut : ''}`}>
         <span className={toastStyles.message}>
           <strong>↑↓</strong>로 글을 스크롤해보세요<br /><strong>←</strong>를 누르면 목록으로 돌아가요
         </span>
