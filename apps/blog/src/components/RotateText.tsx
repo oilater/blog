@@ -6,7 +6,7 @@ import * as styles from './styles/RotateText.css';
 const TEXTS = [
   '프론트엔드 개발자',
   'OPEN TO WORK',
-  '일은 지금 전혀 안합니다',
+  '저점 매수의 기회',
   '키보드만 필요한 블로그',
   '마우스가 없어질 때까지',
   '글을 볼 땐 Cmd + / 를 눌러보세요',
