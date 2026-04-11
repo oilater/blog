@@ -1,5 +1,5 @@
 ---
-title: 참조를 이용한 구간 병합 풀이
+title: Merge Intervals
 date: 2026-04-08
 ---
 
