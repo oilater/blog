@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className={styles.container}>
       <Terminal tags={allTags} posts={allPosts.map((p) => ({ title: p.title, slug: p.slug }))} />
       <TagFilter tags={allTags} />
-      <PostsList posts={allPosts} />
+      <PostsList posts={allPosts.filter((p) => p.tag !== 'LeetCode')} />
     </div>
   );
 }
