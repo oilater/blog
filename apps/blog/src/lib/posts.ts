@@ -16,10 +16,16 @@ export function getAllTags(): string[] {
     return [];
   }
   const entries = fs.readdirSync(postsDirectory, { withFileTypes: true });
+  const LAST_TAGS = ['LeetCode'];
   return entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
-    .sort();
+    .sort()
+    .sort((a, b) => {
+      const aLast = LAST_TAGS.includes(a) ? 1 : 0;
+      const bLast = LAST_TAGS.includes(b) ? 1 : 0;
+      return aLast - bLast;
+    });
 }
 
 export function getAllPosts(): PostMetadata[] {

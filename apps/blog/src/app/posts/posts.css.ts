@@ -15,13 +15,14 @@ export const tagFilter = style({
 });
 
 export const tagButton = style({
-  padding: '8px 14px',
-  borderRadius: 100,
-  border: 'none',
+  padding: '6px 12px',
+  borderRadius: 16,
+  border: '1px solid transparent',
   cursor: 'pointer',
   textDecoration: 'none',
   fontSize: 14,
-  transition: 'all 0.2s ease',
+  fontWeight: 500,
+  transition: 'all 0.15s ease',
 });
 
 export const tagButtonActive = style({
@@ -30,12 +31,21 @@ export const tagButtonActive = style({
 });
 
 export const tagButtonInactive = style({
-  backgroundColor: themeColor.colors.tagBackground,
-  color: themeColor.colors.tagItemColor,
+  backgroundColor: 'transparent',
+  color: themeColor.colors.subFontColor,
+  borderColor: themeColor.colors.borderColor,
   ':hover': {
-    backgroundColor: themeColor.colors.highLightFontColor,
-    color: '#fff',
+    color: themeColor.colors.titleFontColor,
+    borderColor: themeColor.colors.highLightFontColor,
   },
+});
+
+export const tagSeparator = style({
+  color: themeColor.colors.borderColor,
+  fontSize: 16,
+  alignSelf: 'center',
+  padding: '0 2px',
+  userSelect: 'none',
 });
 
 export const postsList = style({
