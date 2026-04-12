@@ -4,7 +4,7 @@ date: 2026-04-12
 ---
 
 
-Dutch Flag라는 이름의 재밌는 알고리즘인데, 먼저  [여기](https://leetcode.com/problems/sort-colors/?envType=problem-list-v2&envId=rab78cw1) 서 문제를 풀어보자.
+Dutch Flag라는 이름의 재밌는 알고리즘인데, 먼저  [여기서](https://leetcode.com/problems/sort-colors/?envType=problem-list-v2&envId=rab78cw1) 문제를 풀어보자.
 
 ## Sort Colors
 
