@@ -23,9 +23,6 @@ export function Intro() {
           자료구조, 운영체제 등 CS와 알고리즘을 꾸준히 공부하고 있어요.
           튼튼한 기본기를 바탕으로 더 복잡한 문제를 해결할 수 있는 개발자가 되고 싶습니다.
         </Paragraph>
-        <Paragraph>
-          최근에는 Vitest에 기여하면서 오픈소스에도 재미를 느끼고 있습니다.
-        </Paragraph>
       </div>
     </div>
   );
