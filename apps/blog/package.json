@@ -10,10 +10,11 @@
     "not op_mini all"
   ],
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "analyze": "ANALYZE=true next build --webpack",
+    "dev": "node scripts/optimize-images.mjs && next dev --webpack",
+    "build": "node scripts/optimize-images.mjs && next build --webpack",
+    "analyze": "node scripts/optimize-images.mjs && ANALYZE=true next build --webpack",
     "start": "next start",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write ."

@@ -18,6 +18,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import { formatDate } from '#/lib/date';
+import { findLcpImageSrc } from '#/lib/lcp-image';
 import { getAllPosts } from '#/lib/posts';
 import { rehypeImageSize } from '#/lib/rehype-image-size';
 import { Comments } from '../../components/Comments';
@@ -81,6 +82,11 @@ export default async function PostPage({ params }: Props) {
 
   if (frontmatter.poster) {
     ReactDOM.preload(frontmatter.poster, { as: 'image', fetchPriority: 'high' });
+  } else {
+    const lcpSrc = findLcpImageSrc(content);
+    if (lcpSrc) {
+      ReactDOM.preload(lcpSrc, { as: 'image', fetchPriority: 'high' });
+    }
   }
 
   return (
