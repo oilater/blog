@@ -2,6 +2,7 @@ export const dynamicParams = false;
 
 import '../../markdown.css';
 import '../../prism-theme.css';
+import 'katex/dist/katex.min.css';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -11,9 +12,11 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import ReactDOM from 'react-dom';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeKatex from 'rehype-katex';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import { formatDate } from '#/lib/date';
 import { getAllPosts } from '#/lib/posts';
 import { rehypeImageSize } from '#/lib/rehype-image-size';
@@ -89,11 +92,12 @@ export default async function PostPage({ params }: Props) {
           components={components}
           options={{
             mdxOptions: {
-              remarkPlugins: [remarkGfm],
+              remarkPlugins: [remarkGfm, remarkMath],
               rehypePlugins: [
                 rehypeSlug,
                 [rehypeAutolinkHeadings, { behavior: 'append' }],
-                [rehypePrism, { showLineNumbers: true }],
+                rehypeKatex,
+                [rehypePrism, { showLineNumbers: true, ignoreMissing: true }],
                 rehypeImageSize,
               ],
             },
