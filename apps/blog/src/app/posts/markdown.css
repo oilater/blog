@@ -101,6 +101,14 @@
   line-height: 1.7;
 }
 
+.markdown-body figcaption p {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+
 .markdown-body a {
   color: #8a5cf5;
   text-decoration: none;

@@ -83,6 +83,18 @@ async function resolveViaFs(src: string): Promise<ManifestMeta | null> {
   }
 }
 
+async function resolveAvifSrc(src: string): Promise<string | null> {
+  if (!src.endsWith('.webp')) return null;
+  const avifSrc = src.replace(/\.webp$/, '.avif');
+  const avifPath = path.join(process.cwd(), 'public', avifSrc);
+  try {
+    await fs.access(avifPath);
+    return avifSrc;
+  } catch {
+    return null;
+  }
+}
+
 export const rehypeImageSize = () => async (tree: Root) => {
   const imageNodes: { node: Element; src: string }[] = [];
 
@@ -100,12 +112,16 @@ export const rehypeImageSize = () => async (tree: Root) => {
     imageNodes.map(async ({ node, src }) => {
       const key = manifestKeyFromSrc(src);
       const meta = (key ? manifestIndex.get(key) : null) ?? (await resolveViaFs(src));
-      if (!meta) return;
+      const avifSrc = await resolveAvifSrc(src);
+      if (!meta && !avifSrc) return;
       node.properties = {
         ...node.properties,
-        width: meta.width,
-        height: meta.height,
-        blurDataURL: meta.blurDataURL,
+        ...(meta && {
+          width: meta.width,
+          height: meta.height,
+          blurDataURL: meta.blurDataURL,
+        }),
+        ...(avifSrc && { 'data-avif': avifSrc }),
       };
     }),
   );

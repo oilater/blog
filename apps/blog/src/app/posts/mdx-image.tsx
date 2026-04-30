@@ -10,11 +10,9 @@ function parseAlt(alt: string) {
   return { isLCP, alt: altText };
 }
 
-function deriveAvifSrc(src: string): string | null {
-  return src.endsWith('.webp') ? src.replace(/\.webp$/, '.avif') : null;
-}
+type MdxImageProps = ImageProps & { 'data-avif'?: string };
 
-export function MdxImage(props: ImageProps) {
+export function MdxImage(props: MdxImageProps) {
   const [loaded, setLoaded] = useState(false);
 
   if (!props.src || typeof props.src !== 'string') return null;
@@ -22,7 +20,7 @@ export function MdxImage(props: ImageProps) {
   const { isLCP, alt } = parseAlt(props.alt);
   const width = Number(props.width) || 750;
   const height = Number(props.height) || 562;
-  const avifSrc = deriveAvifSrc(props.src);
+  const avifSrc = props['data-avif'];
   const blurDataURL = typeof props.blurDataURL === 'string' ? props.blurDataURL : undefined;
 
   return (
