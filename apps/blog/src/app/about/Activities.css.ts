@@ -74,11 +74,23 @@ export const title = style({
   color: themeColor.colors.titleFontColor,
 });
 
+export const link = style({
+  fontSize: 13,
+  color: themeColor.colors.subFontColor,
+  textDecoration: 'underline',
+  textUnderlineOffset: 2,
+  marginLeft: 32,
+  width: 'fit-content',
+  ':hover': {
+    color: themeColor.colors.titleFontColor,
+  },
+});
+
 export const date = style({
   fontSize: 13,
   color: themeColor.colors.subFontColor,
   opacity: 0.8,
-  marginLeft: 12,
+  marginLeft: 32,
 });
 
 export const rightColumn = style({
@@ -91,7 +103,30 @@ export const intro = style({
   fontWeight: 400,
   lineHeight: 1.7,
   color: themeColor.colors.mainFontColor,
-  marginBottom: 8,
+  marginBottom: 12,
+});
+
+export const subSection = style({
+  marginBottom: 16,
+  selectors: {
+    '&:last-child': {
+      marginBottom: 0,
+    },
+  },
+});
+
+export const subHeading = style({
+  fontSize: 15,
+  fontWeight: 600,
+  color: themeColor.colors.highLightFontColor,
+  marginBottom: 6,
+});
+
+export const subBody = style({
+  fontSize: 16,
+  fontWeight: 400,
+  lineHeight: 1.7,
+  color: themeColor.colors.subFontColor,
 });
 
 export const bulletList = style({

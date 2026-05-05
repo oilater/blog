@@ -5,7 +5,7 @@ interface CertificationData {
   id: number;
   date: string;
   title: string;
-  descriptions: string[];
+  issuer: string;
 }
 
 const certificationData: CertificationData[] = [
@@ -13,13 +13,19 @@ const certificationData: CertificationData[] = [
     id: 1,
     date: '2025. 12',
     title: '정보처리기사',
-    descriptions: ['한국산업인력공단'],
+    issuer: '한국산업인력공단',
   },
   {
     id: 2,
     date: '2025. 12',
     title: 'SQLD',
-    descriptions: ['한국데이터산업진흥원'],
+    issuer: '한국데이터산업진흥원',
+  },
+  {
+    id: 3,
+    date: '2021. 09',
+    title: '한국사능력검정 1급',
+    issuer: '국사편찬위원회',
   },
 ];
 
@@ -29,18 +35,16 @@ export function Certifications() {
       <SectionTitle>🪪 Certifications</SectionTitle>
       <div className={styles.contentSection}>
         {certificationData.map((item) => (
-          <div key={item.id} className={styles.educationItem}>
-            <div className={styles.dateWrapper}>
-              <span className={styles.dot} />
+          <div key={item.id} className={styles.item}>
+            <div className={styles.leftColumn}>
+              <div className={styles.titleRow}>
+                <span className={styles.dot} />
+                <span className={styles.title}>{item.title}</span>
+              </div>
               <span className={styles.date}>{item.date}</span>
             </div>
-            <div className={styles.educationContent}>
-              <span className={styles.educationTitle}>{item.title}</span>
-              <div className={styles.educationDescription}>
-                {item.descriptions.map((desc) => (
-                  <p key={desc}>{desc}</p>
-                ))}
-              </div>
+            <div className={styles.rightColumn}>
+              <p className={styles.issuer}>{item.issuer}</p>
             </div>
           </div>
         ))}

@@ -12,23 +12,32 @@ export const contentSection = style({
   gap: 32,
 });
 
-export const educationItem = style({
+export const item = style({
   display: 'flex',
   alignItems: 'flex-start',
-  gap: 16,
+  gap: 32,
+  '@media': {
+    '(max-width: 640px)': {
+      flexDirection: 'column',
+      gap: 8,
+    },
+  },
 });
 
-export const dateWrapper = style({
+export const leftColumn = style({
+  width: 200,
+  flexShrink: 0,
+  '@media': {
+    '(max-width: 640px)': {
+      width: '100%',
+    },
+  },
+});
+
+export const titleRow = style({
   display: 'flex',
   alignItems: 'center',
   gap: 8,
-  width: 140,
-  flexShrink: 0,
-});
-
-export const date = style({
-  fontSize: 16,
-  color: themeColor.colors.subFontColor,
 });
 
 export const dot = style({
@@ -39,22 +48,41 @@ export const dot = style({
   flexShrink: 0,
 });
 
-export const educationContent = style({
-  flex: 1,
-});
-
-export const educationTitle = style({
+export const title = style({
   fontSize: 16,
-  fontWeight: 500,
+  fontWeight: 600,
   color: themeColor.colors.titleFontColor,
 });
 
-export const educationDescription = style({
-  marginTop: 6,
+export const rightColumn = style({
+  flex: 1,
+  paddingTop: 2,
+});
+
+export const bulletList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 6,
+});
+
+export const bullet = style({
   fontSize: 16,
   fontWeight: 400,
-  lineHeight: 1.6,
+  lineHeight: 1.7,
   color: themeColor.colors.subFontColor,
+  position: 'relative',
+  paddingLeft: 16,
+  selectors: {
+    '&::before': {
+      content: '"•"',
+      position: 'absolute',
+      left: 0,
+      color: themeColor.colors.subFontColor,
+    },
+  },
 });
 
 export const link = style({

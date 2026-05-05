@@ -1,4 +1,5 @@
 import * as styles from './about.css';
+import { Activities } from './Activities';
 import { Certifications } from './Certifications';
 import { Contact } from './Contact';
 import { WorkExperiences } from './WorkExperiences';
@@ -11,9 +12,10 @@ export default function AboutPage() {
     <main className={styles.container}>
       <Intro />
       <WorkExperiences />
+      <Activities />
+      <OpenSource />
       <Education />
       <Certifications />
-      <OpenSource />
       <Contact />
     </main>
   );

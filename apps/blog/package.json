@@ -11,10 +11,11 @@
   ],
   "scripts": {
     "dev": "node scripts/optimize-images.mjs && next dev --webpack",
-    "build": "node scripts/optimize-images.mjs && next build --webpack",
-    "analyze": "node scripts/optimize-images.mjs && ANALYZE=true next build --webpack",
+    "build": "node scripts/optimize-images.mjs && next build --webpack && node scripts/check-image-refs.mjs",
+    "analyze": "node scripts/optimize-images.mjs && ANALYZE=true next build --webpack && node scripts/check-image-refs.mjs",
     "start": "next start",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "check:image-refs": "node scripts/check-image-refs.mjs",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write ."

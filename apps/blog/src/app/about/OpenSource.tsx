@@ -1,17 +1,38 @@
 import * as styles from './OpenSource.css';
 import { SectionTitle } from './SectionTitle';
 
-const openSourceData = [
+interface OpenSourceItem {
+  text: string;
+  href: string;
+}
+
+interface OpenSourceData {
+  id: number;
+  title: string;
+  items: OpenSourceItem[];
+}
+
+const openSourceData: OpenSourceData[] = [
   {
     id: 1,
+    title: 'Vite-plus',
+    items: [
+      {
+        text: 'feat(vscode): add language-specific formatter overrides',
+        href: 'https://github.com/vitejs/vite-plus/pulls?q=add+language-specific+formatter+overrides',
+      },
+    ],
+  },
+  {
+    id: 2,
     title: 'Vitest',
     items: [
       {
-        text: 'vitest-dev/vitest#9861',
+        text: 'fix: detect fixture that returns without calling use',
         href: 'https://github.com/vitest-dev/vitest/pull/9861',
       },
       {
-        text: 'vitest-dev/vitest#9781',
+        text: 'fix: hideSkippedTests should not hide test.todo',
         href: 'https://github.com/vitest-dev/vitest/pull/9781',
       },
     ],
@@ -24,13 +45,17 @@ export function OpenSource() {
       <SectionTitle>📦 Open Source Contribution</SectionTitle>
       <div className={styles.contentSection}>
         {openSourceData.map((item) => (
-          <div key={item.id} className={styles.educationItem}>
-            <div className={styles.educationContent}>
-              <span className={styles.educationTitle}>{item.title}</span>
-              <div className={styles.educationDescription}>
+          <div key={item.id} className={styles.item}>
+            <div className={styles.leftColumn}>
+              <div className={styles.titleRow}>
+                <span className={styles.dot} />
+                <span className={styles.title}>{item.title}</span>
+              </div>
+            </div>
+            <div className={styles.rightColumn}>
+              <ul className={styles.bulletList}>
                 {item.items.map((subItem) => (
-                  <p key={subItem.text}>
-                    •{' '}
+                  <li key={subItem.text} className={styles.bullet}>
                     <a
                       href={subItem.href}
                       target="_blank"
@@ -39,9 +64,9 @@ export function OpenSource() {
                     >
                       {subItem.text}
                     </a>
-                  </p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         ))}

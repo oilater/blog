@@ -6,27 +6,37 @@ export const wrapper = style({
   marginBottom: '3rem',
 });
 
-export const contactContainer = style({
-  padding: '16px 24px',
-  backgroundColor: themeColor.colors.cardBackground,
-  borderRadius: 12,
-});
-
-export const contactItem = style({
+export const row = style({
   display: 'flex',
+  flexWrap: 'wrap',
   alignItems: 'center',
-  padding: '8px 0',
+  gap: 8,
+  fontSize: 15,
+  color: themeColor.colors.subFontColor,
+  marginBottom: 6,
+  ':last-of-type': {
+    marginBottom: 0,
+  },
 });
 
-export const contactLabel = style({
-  fontSize: 14,
-  fontWeight: 500,
-  color: themeColor.colors.cardTitleFontColor,
-  minWidth: '80px',
+export const group = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 8,
 });
 
-export const contactValue = style({
-  fontSize: 14,
-  color: themeColor.colors.cardTitleFontColor,
-  wordBreak: 'break-all',
+export const link = style({
+  color: themeColor.colors.subFontColor,
+  textDecoration: 'none',
+  borderBottom: '1px solid transparent',
+  transition: 'color 0.15s ease, border-color 0.15s ease',
+  ':hover': {
+    color: themeColor.colors.titleFontColor,
+    borderBottomColor: themeColor.colors.borderColor,
+  },
+});
+
+export const dot = style({
+  color: themeColor.colors.borderColor,
+  userSelect: 'none',
 });
