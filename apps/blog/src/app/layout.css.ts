@@ -24,15 +24,15 @@ export const headerInner = style({
   alignItems: 'center',
 
   '@media': {
-    '(min-width: 790px)': {
-      maxWidth: 750,
+    '(min-width: 860px)': {
+      maxWidth: 820,
     },
   },
 });
 
 export const logo = style({
-  fontSize: 18,
-  fontWeight: 600,
+  fontSize: 16,
+  fontWeight: 500,
   color: themeColor.colors.titleFontColor,
   textDecoration: 'none',
 });
@@ -44,8 +44,8 @@ export const nav = style({
 });
 
 export const linkItem = style({
-  fontSize: 16,
-  fontWeight: 500,
+  fontSize: 15,
+  fontWeight: 400,
   color: themeColor.colors.titleFontColor,
   padding: '6px 6px',
   borderRadius: 20,

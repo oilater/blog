@@ -3,7 +3,7 @@ import { themeColor } from '#/tokens/theme.css';
 
 export const container = style({
   margin: '0 auto',
-  maxWidth: '750px',
+  maxWidth: '820px',
   width: '100%',
 });
 
