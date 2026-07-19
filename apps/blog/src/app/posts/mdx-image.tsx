@@ -1,7 +1,7 @@
 'use client';
 
 import type { ImageProps } from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function parseAlt(alt: string) {
   const isLCP = alt.includes('[lcp]');
@@ -14,6 +14,11 @@ type MdxImageProps = ImageProps & { 'data-avif'?: string };
 
 export function MdxImage(props: MdxImageProps) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
 
   if (!props.src || typeof props.src !== 'string') return null;
 
@@ -35,6 +40,7 @@ export function MdxImage(props: MdxImageProps) {
         {avifSrc && <source type="image/avif" srcSet={avifSrc} />}
         <source type="image/webp" srcSet={props.src} />
         <img
+          ref={imgRef}
           className={`markdown-img ${isLCP ? 'lcp' : ''} ${loaded ? 'loaded' : ''}`}
           src={props.src}
           alt={alt}
