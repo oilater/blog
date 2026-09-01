@@ -34,13 +34,6 @@ interface ExperienceData {
 
 const experienceData: ExperienceData[] = [
   {
-    id: 1,
-    date: '26. 05 - Now',
-    title: '트리플오스',
-    role: 'Frontend Engineer',
-    iconUrl: '/images/logos/triple-os.png',
-  },
-  {
     id: 2,
     date: '25. 10 - 26. 03 (6개월)',
     title: '스퀘어노트',
