@@ -14,8 +14,8 @@ export default function AboutPage() {
       <WorkExperiences />
       <Activities />
       <OpenSource />
-      <Education />
       <Certifications />
+      <Education />
       <Contact />
     </main>
   );
