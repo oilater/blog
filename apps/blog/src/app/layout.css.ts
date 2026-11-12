@@ -35,6 +35,10 @@ export const logo = style({
   fontWeight: 500,
   color: themeColor.colors.titleFontColor,
   textDecoration: 'none',
+  transition: 'opacity 0.15s ease',
+  ':hover': {
+    opacity: 0.6,
+  },
 });
 
 export const nav = style({
@@ -52,4 +56,21 @@ export const linkItem = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  transition: 'opacity 0.15s ease',
+  ':hover': {
+    opacity: 0.6,
+  },
+});
+
+export const themeButton = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'transform 0.15s ease',
+  ':hover': {
+    transform: 'scale(1.1)',
+  },
+  ':active': {
+    transform: 'scale(0.95)',
+  },
 });

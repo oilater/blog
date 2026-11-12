@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Moon from '#icons/Moon';
 import Sun from '#icons/Sun';
+import { themeButton } from '#/app/layout.css';
 
 const THEME = {
   LIGHT: 'light',
@@ -25,11 +26,11 @@ export function ThemeSwitch() {
 
   if (!isMount) {
     return (
-      <button type="button" aria-label="Fallback UI">
+      <button type="button" aria-label="Fallback UI" className={themeButton}>
         <div style={{ width: 20, height: 20 }} />
       </button>
     );
   }
 
-  return <button onClick={onChangeTheme}>{theme === THEME.LIGHT ? <Moon /> : <Sun />}</button>;
+  return <button type="button" onClick={onChangeTheme} className={themeButton}>{theme === THEME.LIGHT ? <Moon /> : <Sun />}</button>;
 }
