@@ -1,5 +1,5 @@
 ---
-title: MDX에서 LCP 이미지 관리하기
+title: MDX에서 LCP 이미지를 구분하는 아이디어
 date: 2026-01-27
 ---
 

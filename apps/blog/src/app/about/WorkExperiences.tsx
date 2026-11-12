@@ -66,7 +66,7 @@ const experienceData: ExperienceData[] = [
             children: [
               {
                 text: '전원이 꺼졌는데 어떻게 0과 1을 기억할 수 있을까? - HDD·SSD의 원리',
-                href: '/posts/개발/0과-1은-어떻게-랜선으로-전달될까-2',
+                href: '/posts/궁금증/0과-1은-어떻게-랜선으로-전달될까-2',
               },
             ],
           },

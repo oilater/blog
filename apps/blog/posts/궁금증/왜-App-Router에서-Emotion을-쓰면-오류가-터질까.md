@@ -1,5 +1,5 @@
 ---
-title: 왜 App Router에서 Emotion을 쓰면 오류가 터질까
+title: 왜 App Router에서 Emotion을 쓰면 오류가 터질까?
 date: 2026-01-21
 ---
 
