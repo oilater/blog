@@ -70,7 +70,7 @@ export const icon = style({
 
 export const title = style({
   fontSize: 16,
-  fontWeight: 600,
+  fontWeight: 500,
   color: themeColor.colors.titleFontColor,
 });
 
@@ -117,7 +117,7 @@ export const subSection = style({
 
 export const subHeading = style({
   fontSize: 15,
-  fontWeight: 600,
+  fontWeight: 500,
   color: themeColor.colors.highLightFontColor,
   marginBottom: 6,
 });

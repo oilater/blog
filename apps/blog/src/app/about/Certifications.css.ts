@@ -53,7 +53,7 @@ export const dot = style({
 
 export const title = style({
   fontSize: 16,
-  fontWeight: 600,
+  fontWeight: 500,
   color: themeColor.colors.titleFontColor,
 });
 
