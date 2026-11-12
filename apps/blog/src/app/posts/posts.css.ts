@@ -20,7 +20,7 @@ export const tagButton = style({
   border: '1px solid transparent',
   cursor: 'pointer',
   textDecoration: 'none',
-  fontSize: 14,
+  fontSize: 13,
   fontWeight: 500,
   transition: 'all 0.15s ease',
 });
@@ -42,7 +42,7 @@ export const tagButtonInactive = style({
 
 export const tagSeparator = style({
   color: themeColor.colors.borderColor,
-  fontSize: 16,
+  fontSize: 15,
   alignSelf: 'center',
   padding: '0 2px',
   userSelect: 'none',
@@ -63,12 +63,17 @@ export const postLink = style({
   flexDirection: 'column',
   gap: '0.5rem',
   padding: '1.25rem 0',
+  transformOrigin: 'left center',
+  transition: 'transform 0.15s ease',
+  ':active': {
+    transform: 'scale(0.98)',
+  },
 });
 
 export const postTagBadge = style({
-  fontSize: '0.8rem',
-  fontWeight: 500,
-  padding: '0.2rem 0.5rem',
+  fontSize: '0.6875rem',
+  fontWeight: 400,
+  padding: '0.125rem 0.375rem',
   backgroundColor: themeColor.colors.tagBackground,
   color: themeColor.colors.highLightFontColor,
   borderRadius: '4px',
@@ -77,8 +82,8 @@ export const postTagBadge = style({
 });
 
 export const postTitle = style({
-  fontSize: 18,
-  fontWeight: 500,
+  fontSize: 17,
+  fontWeight: 400,
   lineHeight: 1.4,
   color: themeColor.colors.titleFontColor,
   transition: 'color 0.2s ease',
@@ -90,7 +95,7 @@ export const postTitle = style({
 });
 
 export const postDate = style({
-  fontSize: '0.875rem',
+  fontSize: '0.8125rem',
   color: themeColor.colors.subFontColor,
 });
 

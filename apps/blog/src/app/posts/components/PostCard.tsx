@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { formatDate } from '#/lib/date';
+import { formatDotDate } from '#/lib/date';
 import type { PostMetadata } from '#/lib/posts';
 import * as styles from '../posts.css';
 
@@ -9,7 +9,7 @@ export function PostCard({ post }: { post: PostMetadata }) {
       <Link href={`/posts/${post.slug}`} className={styles.postLink} prefetch={false}>
         {post.tag && <span className={styles.postTagBadge}>#{post.tag}</span>}
         <h2 className={styles.postTitle}>{post.title}</h2>
-        <time className={styles.postDate}>{formatDate(post.date)}</time>
+        <time className={styles.postDate}>{formatDotDate(post.date)}</time>
       </Link>
     </article>
   );
