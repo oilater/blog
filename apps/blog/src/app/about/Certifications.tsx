@@ -11,19 +11,19 @@ interface CertificationData {
 const certificationData: CertificationData[] = [
   {
     id: 1,
-    date: '2025. 12',
+    date: '2025.12',
     title: '정보처리기사',
     issuer: '한국산업인력공단',
   },
   {
     id: 2,
-    date: '2025. 12',
-    title: 'SQLD',
+    date: '2025.12',
+    title: 'SQLD (SQL 개발자)',
     issuer: '한국데이터산업진흥원',
   },
   {
     id: 3,
-    date: '2021. 09',
+    date: '2021.09',
     title: '한국사능력검정 1급',
     issuer: '국사편찬위원회',
   },

@@ -103,7 +103,7 @@ export const bulletList = style({
 });
 
 export const bullet = style({
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: 400,
   lineHeight: 1.7,
   color: themeColor.colors.mainFontColor,
@@ -119,8 +119,51 @@ export const bullet = style({
   },
 });
 
-export const intro = style({
+export const project = style({
+  marginBottom: 20,
+  selectors: {
+    '&:last-child': {
+      marginBottom: 0,
+    },
+  },
+});
+
+export const projectTitle = style({
   fontSize: 16,
+  fontWeight: 600,
+  color: themeColor.colors.titleFontColor,
+  marginBottom: 6,
+});
+
+export const subBulletList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: '2px 0 0',
+});
+
+export const subBullet = style({
+  fontSize: 14,
+  lineHeight: 1.7,
+  color: themeColor.colors.subFontColor,
+  position: 'relative',
+  paddingLeft: 16,
+  selectors: {
+    '&::before': {
+      content: '"◦"',
+      position: 'absolute',
+      left: 0,
+    },
+  },
+});
+
+export const subBulletLink = style({
+  color: themeColor.colors.highLightFontColor,
+  textDecoration: 'underline',
+  textUnderlineOffset: 3,
+});
+
+export const intro = style({
+  fontSize: 15,
   fontWeight: 400,
   lineHeight: 1.7,
   color: themeColor.colors.mainFontColor,
@@ -144,7 +187,7 @@ export const subHeading = style({
 });
 
 export const subBody = style({
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: 400,
   lineHeight: 1.7,
   color: themeColor.colors.subFontColor,

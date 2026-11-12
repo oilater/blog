@@ -1,11 +1,9 @@
 import * as styles from './Intro.css';
 import { SectionTitle } from './SectionTitle';
 
-const bullets = [
-  'Next, Unity 등 다양한 개발 환경에서 웹/앱 서비스 개발 경험을 쌓아온 1년차 프론트엔드 개발자입니다.',
-  '의미 없는 개선보단, 성능 병목을 느낄 때 측정을 통해 시스템을 개선하려 노력합니다.',
-  '더 나은 개발자가 되기 위해 CS를 꾸준히 공부하고 있습니다.',
-  '성격이 밝고 함께 하는 일을 좋아합니다. 클라이밍과 재즈 피아노를 취미로 갖고 있습니다.',
+const paragraphs = [
+  '안녕하세요, 측정을 기반으로 개선하고 문제의 본질을 파고드는 프론트엔드 개발자 김성현입니다.',
+  '누구나 빠르게 만들 수 있는 시대가 되었지만, 그만큼 쓰이지 못하고 버려지는 소프트웨어도 늘었다고 생각합니다. 저는 사회의 문제를 해결하고, 사람들에게 실질적인 도움이 되는 소프트웨어를 만들고 싶습니다. 그래서 먼저 왜 필요한지를 고민하고, 사용자가 불편을 느낄 지점을 찾고, 모바일 환경을 기준으로 성능을 측정하고 개선합니다.',
 ];
 
 export function Intro() {
@@ -17,13 +15,13 @@ export function Intro() {
 
       <SectionTitle>👋 About me</SectionTitle>
 
-      <ul className={styles.bulletList}>
-        {bullets.map((line) => (
-          <li key={line} className={styles.bullet}>
+      <div className={styles.paragraphs}>
+        {paragraphs.map((line) => (
+          <p key={line} className={styles.paragraph}>
             {line}
-          </li>
+          </p>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

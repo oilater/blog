@@ -27,7 +27,7 @@ interface ActivityData {
 const activityData: ActivityData[] = [
   {
     id: 1,
-    date: '26. 01 - Now',
+    date: '2026.01 - 현재',
     title: '함수랑산악회',
     iconUrl: '/images/logos/hamsurang.png',
     link: { text: 'website', href: 'https://hamsurang.dev' },
@@ -36,7 +36,7 @@ const activityData: ActivityData[] = [
   },
   {
     id: 2,
-    date: '25. 11 - 26. 01',
+    date: '2025.11 - 2026.01',
     title: '베타 리더',
     iconUrl: '/images/logos/wikibooks.png',
     link: {
@@ -48,7 +48,7 @@ const activityData: ActivityData[] = [
   },
   {
     id: 3,
-    date: '26. 04 - Now',
+    date: '2026.04 - 2026.04',
     title: 'Recursive',
     iconUrl: '/images/logos/recursive.png',
     link: { text: 'docs', href: 'https://recursive.oilater.com' },

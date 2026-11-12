@@ -87,7 +87,7 @@ export const rightColumn = style({
 });
 
 export const intro = style({
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: 400,
   lineHeight: 1.7,
   color: themeColor.colors.mainFontColor,
@@ -104,7 +104,7 @@ export const bulletList = style({
 });
 
 export const bullet = style({
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: 400,
   lineHeight: 1.7,
   color: themeColor.colors.subFontColor,

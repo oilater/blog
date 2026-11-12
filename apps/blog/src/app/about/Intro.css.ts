@@ -62,6 +62,20 @@ export const textSection = style({
   marginTop: 16,
 });
 
+export const paragraphs = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 12,
+});
+
+export const paragraph = style({
+  fontSize: 15,
+  fontWeight: 400,
+  lineHeight: 1.7,
+  color: themeColor.colors.mainFontColor,
+  wordBreak: 'keep-all',
+});
+
 export const bulletList = style({
   listStyle: 'none',
   padding: 0,

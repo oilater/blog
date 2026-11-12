@@ -70,7 +70,7 @@ export const rightColumn = style({
 });
 
 export const issuer = style({
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: 400,
   lineHeight: 1.6,
   color: themeColor.colors.subFontColor,
