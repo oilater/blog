@@ -1,17 +1,29 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { themeColor } from '#/tokens/theme.css';
 
 const MOBILE = '(max-width: 599px)';
+
+// 줍줍영어 이미지 배경색(#3f63f7 부근)에 맞춰 아이콘이 카드에 녹아들게 한다.
+const BRAND_FROM = '#4d71fa';
+const BRAND_TO = '#3656ee';
 
 export const card = style({
   position: 'relative',
   marginBottom: 32,
-  borderRadius: 16,
-  border: `1px solid ${themeColor.colors.borderColor}`,
-  backgroundColor: themeColor.colors.cardBackground,
-  transition: 'border-color 0.15s ease',
-  ':hover': {
-    borderColor: themeColor.colors.highLightFontColor,
+  borderRadius: 20,
+  background: `linear-gradient(135deg, ${BRAND_FROM} 0%, ${BRAND_TO} 100%)`,
+  boxShadow: '0 8px 24px -12px rgba(54, 86, 238, 0.6)',
+  color: '#fff',
+  overflow: 'hidden',
+  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        '&:hover': {
+          transform: 'translateY(-2px)',
+          boxShadow: '0 14px 32px -14px rgba(54, 86, 238, 0.75)',
+        },
+      },
+    },
   },
 });
 
@@ -23,52 +35,83 @@ globalStyle(`[data-hide-announcement] ${card}`, {
 export const link = style({
   display: 'flex',
   alignItems: 'center',
-  gap: 20,
-  padding: 16,
-  paddingRight: 48,
+  gap: 16,
+  padding: '16px 52px 16px 16px',
   color: 'inherit',
   textDecoration: 'none',
   '@media': {
-    [MOBILE]: { padding: '16px 44px 16px 18px' },
+    [MOBILE]: {
+      flexWrap: 'wrap',
+      rowGap: 14,
+      columnGap: 12,
+      padding: '16px 44px 16px 16px',
+    },
   },
 });
 
-export const thumbnail = style({
+export const icon = style({
   flexShrink: 0,
-  width: 160,
-  height: 84,
-  borderRadius: 10,
-  objectFit: 'cover',
+  width: 72,
+  height: 72,
+  borderRadius: 18,
   '@media': {
-    [MOBILE]: { display: 'none' },
+    [MOBILE]: { width: 48, height: 48, borderRadius: 12 },
   },
 });
 
 export const body = style({
+  flex: 1,
   display: 'flex',
   flexDirection: 'column',
   gap: 4,
   minWidth: 0,
+  '@media': {
+    [MOBILE]: { flexBasis: 'calc(100% - 62px)' },
+  },
 });
 
 export const title = style({
-  fontSize: 16,
-  fontWeight: 600,
-  color: themeColor.colors.titleFontColor,
+  fontSize: 17,
+  fontWeight: 700,
+  letterSpacing: '-0.01em',
+  '@media': {
+    [MOBILE]: { fontSize: 15 },
+  },
 });
 
 export const description = style({
   fontSize: 14,
   lineHeight: 1.5,
-  color: themeColor.colors.cardDescriptionFontColor,
+  color: 'rgba(255, 255, 255, 0.82)',
+  '@media': {
+    [MOBILE]: { fontSize: 13 },
+  },
   wordBreak: 'keep-all',
 });
 
 export const cta = style({
-  marginTop: 4,
-  fontSize: 13,
-  fontWeight: 500,
-  color: themeColor.colors.highLightFontColor,
+  flexShrink: 0,
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 2,
+  padding: '9px 12px 9px 16px',
+  borderRadius: 999,
+  backgroundColor: '#fff',
+  color: BRAND_TO,
+  fontSize: 14,
+  fontWeight: 600,
+  whiteSpace: 'nowrap',
+  transition: 'gap 0.2s ease',
+  selectors: {
+    [`${card}:hover &`]: { gap: 6 },
+  },
+  '@media': {
+    [MOBILE]: {
+      width: '100%',
+      justifyContent: 'center',
+      marginRight: -28,
+    },
+  },
 });
 
 export const close = style({
@@ -80,14 +123,14 @@ export const close = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: 13,
-  color: themeColor.colors.cardDescriptionFontColor,
+  color: 'rgba(255, 255, 255, 0.75)',
   background: 'transparent',
   border: 'none',
   borderRadius: 999,
   cursor: 'pointer',
+  transition: 'background-color 0.15s ease, color 0.15s ease',
   ':hover': {
-    color: themeColor.colors.titleFontColor,
-    backgroundColor: themeColor.colors.tagBackground,
+    color: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.18)',
   },
 });
