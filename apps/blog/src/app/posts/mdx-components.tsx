@@ -1,5 +1,6 @@
 import type { MDXComponents } from 'mdx/types';
 import type { ImageProps } from 'next/image';
+import { CodeBlock } from './code-block';
 import { MdxImage } from './mdx-image';
 import { MdxVideo } from './mdx-video';
 
@@ -31,7 +32,7 @@ export const components: MDXComponents = {
       </code>
     );
   },
-  pre: (props) => <pre className="markdown-pre" {...props} />,
+  pre: (props) => <CodeBlock {...props} />,
   a: (props) => {
     const isExternal = props.href?.startsWith('http');
     if (isExternal) {
