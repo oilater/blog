@@ -9,6 +9,7 @@ export function PostCard({ post }: { post: PostMetadata }) {
       <Link href={`/posts/${post.slug}`} className={styles.postLink} prefetch={false}>
         {post.tag && <span className={styles.postTagBadge}>#{post.tag}</span>}
         <h2 className={styles.postTitle}>{post.title}</h2>
+        {post.description && <p className={styles.postExcerpt}>{post.description}</p>}
         <time className={styles.postDate}>{formatDotDate(post.date)}</time>
       </Link>
     </article>

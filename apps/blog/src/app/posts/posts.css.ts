@@ -94,6 +94,18 @@ export const postTitle = style({
   },
 });
 
+export const postExcerpt = style({
+  margin: 0,
+  fontSize: 14,
+  lineHeight: 1.6,
+  color: themeColor.colors.cardDescriptionFontColor,
+  display: '-webkit-box',
+  WebkitLineClamp: 2,
+  WebkitBoxOrient: 'vertical',
+  overflow: 'hidden',
+  wordBreak: 'keep-all',
+});
+
 export const postDate = style({
   fontSize: '0.8125rem',
   color: themeColor.colors.subFontColor,

@@ -17,9 +17,10 @@ import remarkMath from 'remark-math';
 import { formatDate } from '#/lib/date';
 import { findLcpImageSrc } from '#/lib/lcp-image';
 import { BlogConfig } from '#/constants/config';
-import { getAllPosts, getExcerpt, getPost } from '#/lib/posts';
+import { getAdjacentPosts, getAllPosts, getExcerpt, getPost } from '#/lib/posts';
 import { rehypeImageSize } from '#/lib/rehype-image-size';
 import { Comments } from '../../components/Comments';
+import { PostNavigation } from '../../components/PostNavigation';
 import { ReadingProgress } from '../../components/ReadingProgress';
 import { Toc } from '../../components/Toc';
 import { components } from '../../mdx-components';
@@ -127,6 +128,7 @@ export default async function PostPage({ params }: Props) {
           }}
         />
       </article>
+      <PostNavigation {...getAdjacentPosts(tagName, post.slugDecoded)} />
       <div className={styles.commentsContainer}>
         <Comments />
       </div>

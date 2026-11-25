@@ -7,6 +7,7 @@ export interface PostMetadata {
   date: string | Date;
   slug: string;
   tag?: string;
+  description: string;
 }
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -37,7 +38,7 @@ function getTagDirectories(): string[] {
 }
 
 function readPost(filePath: string, fileName: string, tag?: string): PostMetadata | null {
-  const { data } = matter(fs.readFileSync(filePath, 'utf8'));
+  const { data, content } = matter(fs.readFileSync(filePath, 'utf8'));
   if (!SHOW_DRAFTS && !isPublished(data)) return null;
 
   const name = fileName.replace(/\.md$/, '');
@@ -46,6 +47,7 @@ function readPost(filePath: string, fileName: string, tag?: string): PostMetadat
     date: data.date || fs.statSync(filePath).birthtime,
     slug: tag ? `${tag}/${name}` : name,
     tag,
+    description: data.description || getExcerpt(content),
   };
 }
 
@@ -118,6 +120,18 @@ export function getExcerpt(markdown: string, maxLength = 150): string {
 
   if (!text) return '';
   return text.length > maxLength ? `${text.slice(0, maxLength).trimEnd()}…` : text;
+}
+
+/** 같은 태그 안에서 바로 이전(더 오래된) 글과 다음(더 최신) 글을 찾는다. */
+export function getAdjacentPosts(tag: string, slug: string) {
+  const posts = getPostsByTag(tag);
+  const index = posts.findIndex((post) => post.slug === `${tag}/${slug}`);
+  if (index === -1) return { prev: null, next: null };
+
+  return {
+    prev: posts[index + 1] ?? null,
+    next: posts[index - 1] ?? null,
+  };
 }
 
 export function getPostsByTag(tag?: string): PostMetadata[] {
