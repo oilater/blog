@@ -43,8 +43,8 @@ createGlobalTheme('[data-theme="light"]', themeColor, {
     highLightFontColor: '#4f46e5',
     postCodeColor: '#E9ECEF',
     skeletonColor: palette.grey100,
-    surface: palette.grey100,
-    surfaceHover: '#eaedf0',
+    surface: '#f8f8ff',
+    surfaceHover: '#f0f1ff',
     accentSoft: 'rgba(79, 70, 229, 0.08)',
   },
 });

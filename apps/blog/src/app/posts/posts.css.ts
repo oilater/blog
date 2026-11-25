@@ -60,6 +60,9 @@ export const postLink = style({
   gap: 16,
   padding: '20px 20px 20px 24px',
   borderRadius: 20,
+  // Keep border-radius as the fallback while newer browsers render a continuous squircle curve.
+  // @ts-expect-error cornerShape is not included in vanilla-extract's CSS types yet.
+  cornerShape: 'squircle',
   backgroundColor: themeColor.colors.surface,
   color: 'inherit',
   textDecoration: 'none',
