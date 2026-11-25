@@ -51,46 +51,76 @@ export const tagSeparator = style({
 export const postsList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.375rem',
+  gap: 12,
 });
 
-export const postCard = style({});
-
 export const postLink = style({
-  textDecoration: 'none',
-  color: 'inherit',
   display: 'flex',
-  flexDirection: 'column',
-  gap: '0.5rem',
-  padding: '1.25rem 0',
-  transformOrigin: 'left center',
-  transition: 'transform 0.15s ease',
+  alignItems: 'center',
+  gap: 16,
+  padding: '20px 20px 20px 24px',
+  borderRadius: 20,
+  backgroundColor: themeColor.colors.surface,
+  color: 'inherit',
+  textDecoration: 'none',
+  transition: 'transform 0.2s ease, background-color 0.2s ease',
+  '@media': {
+    '(hover: hover)': {
+      selectors: {
+        '&:hover': {
+          transform: 'translateY(-2px)',
+          backgroundColor: themeColor.colors.surfaceHover,
+        },
+      },
+    },
+    '(max-width: 599px)': {
+      padding: '18px 14px 18px 18px',
+      borderRadius: 18,
+    },
+  },
   ':active': {
     transform: 'scale(0.98)',
   },
 });
 
+export const postBody = style({
+  flex: 1,
+  minWidth: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 8,
+});
+
+export const postMeta = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+});
+
 export const postTagBadge = style({
-  fontSize: '0.6875rem',
-  fontWeight: 400,
-  padding: '0.125rem 0.375rem',
-  backgroundColor: themeColor.colors.tagBackground,
+  padding: '3px 10px',
+  borderRadius: 999,
+  backgroundColor: themeColor.colors.accentSoft,
   color: themeColor.colors.highLightFontColor,
-  borderRadius: '4px',
-  alignSelf: 'flex-start',
-  letterSpacing: '0.02em',
+  fontSize: 12,
+  fontWeight: 600,
+});
+
+export const postDate = style({
+  fontSize: 13,
+  color: themeColor.colors.cardDescriptionFontColor,
 });
 
 export const postTitle = style({
-  fontSize: 17,
-  fontWeight: 400,
+  margin: 0,
+  fontSize: 18,
+  fontWeight: 600,
   lineHeight: 1.4,
+  letterSpacing: '-0.01em',
   color: themeColor.colors.titleFontColor,
-  transition: 'color 0.2s ease',
-  selectors: {
-    [`${postLink}:hover &`]: {
-      color: themeColor.colors.highLightFontColor,
-    },
+  wordBreak: 'keep-all',
+  '@media': {
+    '(max-width: 599px)': { fontSize: 17 },
   },
 });
 
@@ -106,9 +136,23 @@ export const postExcerpt = style({
   wordBreak: 'keep-all',
 });
 
-export const postDate = style({
-  fontSize: '0.8125rem',
-  color: themeColor.colors.subFontColor,
+export const postChevron = style({
+  flexShrink: 0,
+  display: 'flex',
+  color: themeColor.colors.cardDescriptionFontColor,
+  opacity: 0.6,
+  transition: 'transform 0.2s ease, opacity 0.2s ease, color 0.2s ease',
+  '@media': {
+    // 모바일은 카드 전체를 누르는 게 자연스러워서 제목 폭을 더 주기 위해 숨긴다.
+    '(max-width: 599px)': { display: 'none' },
+  },
+  selectors: {
+    [`${postLink}:hover &`]: {
+      transform: 'translateX(3px)',
+      opacity: 1,
+      color: themeColor.colors.highLightFontColor,
+    },
+  },
 });
 
 export const noPosts = style({

@@ -19,6 +19,9 @@ export const themeColor = createThemeContract({
     highLightFontColor: null,
     postCodeColor: null,
     skeletonColor: null,
+    surface: null,
+    surfaceHover: null,
+    accentSoft: null,
   },
 });
 
@@ -40,6 +43,9 @@ createGlobalTheme('[data-theme="light"]', themeColor, {
     highLightFontColor: '#4f46e5',
     postCodeColor: '#E9ECEF',
     skeletonColor: palette.grey100,
+    surface: palette.grey100,
+    surfaceHover: '#eaedf0',
+    accentSoft: 'rgba(79, 70, 229, 0.08)',
   },
 });
 
@@ -61,5 +67,8 @@ createGlobalTheme('[data-theme="dark"]', themeColor, {
     highLightFontColor: '#818cf8',
     postCodeColor: '#24292E',
     skeletonColor: palette.grey800,
+    surface: 'rgba(255, 255, 255, 0.04)',
+    surfaceHover: 'rgba(255, 255, 255, 0.07)',
+    accentSoft: 'rgba(129, 140, 248, 0.14)',
   },
 });
