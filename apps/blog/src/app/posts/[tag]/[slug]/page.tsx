@@ -22,6 +22,7 @@ import { findLcpImageSrc } from '#/lib/lcp-image';
 import { getAllPosts } from '#/lib/posts';
 import { rehypeImageSize } from '#/lib/rehype-image-size';
 import { Comments } from '../../components/Comments';
+import { ReadingProgress } from '../../components/ReadingProgress';
 import { Toc } from '../../components/Toc';
 import { components } from '../../mdx-components';
 import * as styles from '../../post-tag.css';
@@ -99,7 +100,8 @@ export default async function PostPage({ params }: Props) {
     <div className="markdown-container">
       <PostHeader frontmatter={frontmatter} tag={tagName} />
       <Toc enabled={hasHeadings(content)} />
-      <article className="markdown-body">
+      <ReadingProgress targetId="post-body" />
+      <article id="post-body" className="markdown-body">
         <MDXRemote
           source={content}
           components={components}
