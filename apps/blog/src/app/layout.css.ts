@@ -41,10 +41,31 @@ export const logo = style({
   },
 });
 
+const MOBILE = '(max-width: 479px)';
+
 export const nav = style({
   display: 'flex',
   alignItems: 'center',
   gap: 24,
+  '@media': {
+    [MOBILE]: { gap: 12 },
+  },
+});
+
+// 좁은 화면에서는 Github 글자 대신 아이콘만 보여준다.
+export const githubLabel = style({
+  '@media': {
+    [MOBILE]: { display: 'none' },
+  },
+});
+
+export const githubIcon = style({
+  display: 'none',
+  width: 20,
+  height: 20,
+  '@media': {
+    [MOBILE]: { display: 'block' },
+  },
 });
 
 export const linkItem = style({
