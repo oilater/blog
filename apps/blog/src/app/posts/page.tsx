@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Announcement } from '#/components/Announcement';
 import { getAllPosts, getAllTags } from '#/lib/posts';
 import { PostsList } from './components/PostsList';
 import { TagFilter } from './components/TagFilter';
@@ -15,6 +16,7 @@ export default function PostsPage() {
 
   return (
     <>
+      <Announcement />
       <TagFilter tags={allTags} />
       <PostsList posts={postsWithoutLeetCode} />
     </>
