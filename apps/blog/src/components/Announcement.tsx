@@ -46,14 +46,7 @@ export function Announcement() {
       <aside className={styles.card} aria-label="새 소식">
         <a href="https://english.oilater.com" target="_blank" rel="noopener" className={styles.link}>
           {/* 이미 160px WebP(2KB)로 줄여둔 파일이라 최적화를 건너뛴다. */}
-          <Image
-            src="/images/jubjub-english.webp"
-            alt=""
-            width={72}
-            height={72}
-            className={styles.icon}
-            unoptimized
-          />
+          <Image src="/images/jubjub-english.webp" alt="" width={72} height={72} className={styles.icon} unoptimized />
           <span className={styles.body}>
             <span className={styles.title}>줍줍영어가 출시됐어요{' '}🎉</span>
             <span className={styles.description}>출근길에 영어 공부하고 싶은 분들은 놀러오세요!</span>
