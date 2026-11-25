@@ -49,13 +49,13 @@ export const link = style({
   },
 });
 
+// 배경을 투명하게 뺀 아이콘이라 박스 없이 카드 위에 바로 얹는다.
 export const icon = style({
   flexShrink: 0,
   width: 72,
   height: 72,
-  borderRadius: 18,
   '@media': {
-    [MOBILE]: { width: 48, height: 48, borderRadius: 12 },
+    [MOBILE]: { width: 56, height: 56 },
   },
 });
 
@@ -66,7 +66,7 @@ export const body = style({
   gap: 4,
   minWidth: 0,
   '@media': {
-    [MOBILE]: { flexBasis: 'calc(100% - 62px)' },
+    [MOBILE]: { flexBasis: 'calc(100% - 70px)' },
   },
 });
 
