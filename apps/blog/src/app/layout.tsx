@@ -9,8 +9,21 @@ import { ThemeProvider } from '#components/ThemeProvider';
 import { BlogConfig } from '#constants/config';
 
 export const metadata: Metadata = {
-  title: BlogConfig.title,
+  title: {
+    default: BlogConfig.title,
+    template: `%s | ${BlogConfig.title}`,
+  },
   description: BlogConfig.description,
+  openGraph: {
+    type: 'website',
+    siteName: BlogConfig.title,
+    title: BlogConfig.title,
+    description: BlogConfig.description,
+    locale: 'ko_KR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
   keywords: BlogConfig.keywords,
   authors: [{ name: BlogConfig.author.name }],
   creator: BlogConfig.author.name,

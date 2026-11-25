@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { getAllPosts, getAllTags } from '#/lib/posts';
 import { PostsList } from './components/PostsList';
 import { TagFilter } from './components/TagFilter';
+
+// 홈과 같은 목록이라 홈을 대표 URL로 둔다.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function PostsPage() {
   const allTags = getAllTags();

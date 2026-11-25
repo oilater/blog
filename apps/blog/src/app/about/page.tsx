@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import * as styles from './about.css';
 import { Activities } from './Activities';
 import { Certifications } from './Certifications';
@@ -6,6 +7,11 @@ import { WorkExperiences } from './WorkExperiences';
 import { Education } from './Education';
 import { Intro } from './Intro';
 import { OpenSource } from './OpenSource';
+
+export const metadata: Metadata = {
+  title: 'About',
+  alternates: { canonical: '/about' },
+};
 
 export default function AboutPage() {
   return (

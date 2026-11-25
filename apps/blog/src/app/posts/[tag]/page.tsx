@@ -1,5 +1,6 @@
 export const dynamicParams = false;
 
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllTags, getPostsByTag } from '#/lib/posts';
 import { PostsList } from '../components/PostsList';
@@ -8,6 +9,14 @@ import * as styles from '../posts.css';
 
 interface Props {
   params: Promise<{ tag: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const tagName = decodeURIComponent((await params).tag);
+  return {
+    title: `#${tagName}`,
+    alternates: { canonical: `/posts/${encodeURIComponent(tagName)}` },
+  };
 }
 
 export default async function TagPostsPage({ params }: Props) {

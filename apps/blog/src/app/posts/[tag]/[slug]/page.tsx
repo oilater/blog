@@ -3,9 +3,6 @@ export const dynamicParams = false;
 import '../../markdown.css';
 import '../../prism-theme.css';
 import 'katex/dist/katex.min.css';
-import fs from 'node:fs';
-import path from 'node:path';
-import matter from 'gray-matter';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -19,7 +16,8 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import { formatDate } from '#/lib/date';
 import { findLcpImageSrc } from '#/lib/lcp-image';
-import { getAllPosts } from '#/lib/posts';
+import { BlogConfig } from '#/constants/config';
+import { getAllPosts, getExcerpt, getPost } from '#/lib/posts';
 import { rehypeImageSize } from '#/lib/rehype-image-size';
 import { Comments } from '../../components/Comments';
 import { ReadingProgress } from '../../components/ReadingProgress';
@@ -36,25 +34,35 @@ interface Props {
   params: Promise<{ tag: string; slug: string }>;
 }
 
-function getPostData(tag: string, slug: string) {
-  const tagName = decodeURIComponent(tag);
-  const slugDecoded = decodeURIComponent(slug);
-  const filePath = path.join(process.cwd(), 'posts', tagName, `${slugDecoded}.md`);
-
-  try {
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    return { ...matter(fileContent), tagName, slugDecoded, filePath };
-  } catch {
-    return null;
-  }
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag, slug } = await params;
-  const post = getPostData(tag, slug);
+  const post = getPost(tag, slug);
+  if (!post) return {};
+
+  const { data, content, tagName, slugDecoded } = post;
+  const title: string = data.title || slugDecoded;
+  const description: string = data.description || getExcerpt(content) || BlogConfig.description;
+  const encodedPath = `${encodeURIComponent(tagName)}/${encodeURIComponent(slugDecoded)}`;
+  const url = `/posts/${encodedPath}`;
+  const images = [{ url: `/og/${encodedPath}`, width: 1200, height: 630, alt: title }];
 
   return {
-    title: post?.data.title || decodeURIComponent(slug),
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      title,
+      description,
+      siteName: BlogConfig.title,
+      locale: 'ko_KR',
+      publishedTime: data.date ? new Date(data.date).toISOString() : undefined,
+      authors: [BlogConfig.author.name],
+      tags: [tagName],
+      images,
+    },
+    twitter: { card: 'summary_large_image', title, description, images },
   };
 }
 
@@ -82,7 +90,7 @@ function PostHeader({ frontmatter, tag }: { frontmatter: Frontmatter; tag: strin
 
 export default async function PostPage({ params }: Props) {
   const { tag, slug } = await params;
-  const post = getPostData(tag, slug);
+  const post = getPost(tag, slug);
   if (!post) return notFound();
 
   const { content, data: frontmatter, tagName } = post;

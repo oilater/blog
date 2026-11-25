@@ -83,6 +83,43 @@ export function getAllTags(): string[] {
   return getTagDirectories().filter((tag) => tagsWithPosts.has(tag));
 }
 
+/** URL 파라미터(인코딩된 상태)로 포스트 원문과 frontmatter를 읽는다. */
+export function getPost(tag: string, slug: string) {
+  const tagName = decodeURIComponent(tag);
+  const slugDecoded = decodeURIComponent(slug);
+  const filePath = path.join(postsDirectory, tagName, `${slugDecoded}.md`);
+
+  try {
+    const { content, data } = matter(fs.readFileSync(filePath, 'utf8'));
+    return { content, data, tagName, slugDecoded };
+  } catch {
+    return null;
+  }
+}
+
+/** 마크다운 본문에서 첫 문단을 평문으로 뽑아 설명문으로 쓴다. */
+export function getExcerpt(markdown: string, maxLength = 150): string {
+  const text = markdown
+    .replace(/^(```|~~~)[\s\S]*?^\1/gm, '')
+    .split(/\n\s*\n/)
+    .filter((block) => !/^\s*(#|\||---|<)/.test(block))
+    .map((block) =>
+      block
+        .replace(/<[^>]+>/g, '')
+        .replace(/!\[.*?\]\([^)]*\)/g, '')
+        .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+        .replace(/^\s{0,3}>\s*/gm, '')
+        .replace(/^\s{0,3}([-*+]|\d+\.)\s+/gm, '')
+        .replace(/[*_`~]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim(),
+    )
+    .find((block) => block.length >= 20);
+
+  if (!text) return '';
+  return text.length > maxLength ? `${text.slice(0, maxLength).trimEnd()}…` : text;
+}
+
 export function getPostsByTag(tag?: string): PostMetadata[] {
   const allPosts = getAllPosts();
   if (!tag || tag === 'all') {
