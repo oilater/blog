@@ -1,5 +1,6 @@
 ---
 title: 왜 App Router에서 Emotion을 쓰면 오류가 터질까?
+description: "서버 컴포넌트에서 Emotion을 쓰면 오류가 나는 이유를 기존 SSR과 비교하며 정리했다."
 date: 2026-01-21
 ---
 

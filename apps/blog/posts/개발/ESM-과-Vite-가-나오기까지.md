@@ -1,5 +1,6 @@
 ---
 title: ESM과 Vite가 나오기까지
+description: "전역 스코프 문제부터 CommonJS, AMD, ESM을 거쳐 Vite가 나오기까지의 흐름."
 date: 2026-02-08
 ---
 

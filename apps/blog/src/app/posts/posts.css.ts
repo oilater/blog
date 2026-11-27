@@ -139,25 +139,6 @@ export const postExcerpt = style({
   wordBreak: 'keep-all',
 });
 
-export const postChevron = style({
-  flexShrink: 0,
-  display: 'flex',
-  color: themeColor.colors.cardDescriptionFontColor,
-  opacity: 0.6,
-  transition: 'transform 0.2s ease, opacity 0.2s ease, color 0.2s ease',
-  '@media': {
-    // 모바일은 카드 전체를 누르는 게 자연스러워서 제목 폭을 더 주기 위해 숨긴다.
-    '(max-width: 599px)': { display: 'none' },
-  },
-  selectors: {
-    [`${postLink}:hover &`]: {
-      transform: 'translateX(3px)',
-      opacity: 1,
-      color: themeColor.colors.highLightFontColor,
-    },
-  },
-});
-
 export const noPosts = style({
   color: themeColor.colors.subFontColor,
 });

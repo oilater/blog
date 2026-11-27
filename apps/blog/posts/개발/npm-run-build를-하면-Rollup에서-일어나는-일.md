@@ -1,5 +1,6 @@
 ---
 title: npm run build를 하면 Rollup에서 일어나는 일
+description: "ESM 모듈 로딩의 세 단계와 Rollup 내부의 Normalize, Build 단계를 살펴봤다."
 date: 2026-02-23
 ---
 ## Rollup이란?
