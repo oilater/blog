@@ -1,6 +1,6 @@
 ---
 title: ESM은 어떤 한계를 극복하기 위해 나왔을까?
-description: "IIFE와 AMD로는 풀지 못한 의존성 순서와 네트워크 워터폴 문제를 ESM이 어떻게 해결했는지 정리했다."
+icon: modules
 date: 2026-02-14
 ---
 

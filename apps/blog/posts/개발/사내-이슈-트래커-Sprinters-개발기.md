@@ -1,6 +1,6 @@
 ---
 title: 사내 이슈 트래커 Sprinters 개발기
-description: "슬랙에 흩어져 있던 이슈 관리가 불편해서 사내 이슈 트래커를 직접 만들고 팀을 설득한 과정."
+icon: board
 date: 2026-07-19
 ---
 

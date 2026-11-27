@@ -9,6 +9,7 @@ export interface PostMetadata {
   tag?: string;
   description: string;
   thumbnail?: string;
+  icon?: string;
 }
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -50,6 +51,7 @@ function readPost(filePath: string, fileName: string, tag?: string): PostMetadat
     tag,
     description: data.description || getExcerpt(content),
     thumbnail: data.thumbnail || data.poster,
+    icon: data.icon,
   };
 }
 

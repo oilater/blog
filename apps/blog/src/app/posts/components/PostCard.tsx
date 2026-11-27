@@ -16,7 +16,7 @@ export function PostCard({ post }: { post: PostMetadata }) {
           <h2 className={styles.postTitle}>{post.title}</h2>
           {post.description && <p className={styles.postExcerpt}>{post.description}</p>}
         </span>
-        <PostThumbnail src={post.thumbnail} tag={post.tag} />
+        <PostThumbnail src={post.thumbnail} icon={post.icon} />
       </Link>
     </article>
   );

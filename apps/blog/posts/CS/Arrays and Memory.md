@@ -1,6 +1,6 @@
 ---
 title: An overview of Arrays and Memory
-description: "배열 끝에 원소를 바로 추가할 수 없는 이유를 메모리 관점에서 살펴본 CS Dojo 영상 번역."
+icon: memory
 date: 2026-04-05
 ---
 

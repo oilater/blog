@@ -1,6 +1,5 @@
 ---
 title: Be my love
-description: "좋아하는 재즈 곡, Be my love."
 date: 2026-01-21
 poster: /posts/2026-01-21/poster.webp
 ---

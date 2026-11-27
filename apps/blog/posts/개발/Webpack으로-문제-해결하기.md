@@ -1,6 +1,6 @@
 ---
 title: Webpack으로 문제 해결하기
-description: "빌드 툴 없이 라이브러리를 import할 때 생기는 문제를 Webpack을 직접 설정하며 해결해 봤다."
+icon: package
 date: 2026-02-09
 ---
 번들러는 왜 필요할까? 
