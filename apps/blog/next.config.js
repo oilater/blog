@@ -14,7 +14,7 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [680, 750, 1080],
-    imageSizes: [],
+    imageSizes: [72, 144],
     qualities: [75, 80],
   },
 };
